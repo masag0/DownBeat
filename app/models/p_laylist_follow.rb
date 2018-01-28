@@ -1,0 +1,2 @@
+class PLaylistFollow < ApplicationRecord
+end

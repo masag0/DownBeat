@@ -1,0 +1,2 @@
+class FriendList < ApplicationRecord
+end

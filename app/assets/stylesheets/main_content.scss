@@ -1,0 +1,36 @@
+#main-content {
+  width: 100%;
+  min-height: 75%;
+  margin: 50px;
+
+  .main-content-section {
+
+    .genres {
+
+    }
+  }
+}
+.featured {
+  min-height: 200px;
+
+}
+
+#featured-scroll {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 200px;
+}
+
+.playlist-display {
+  min-width: 180px;
+  min-height: 180px;
+  background: black;
+  margin: 15px;
+}
+
+.category-header {
+  border-bottom: 2px solid rgba(30,30,30,0.3);
+}
+

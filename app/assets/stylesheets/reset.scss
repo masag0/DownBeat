@@ -1,7 +1,3 @@
-body {
-  background-color: rgba(0,0,0,0.88);
-  color: white;
-}
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -20,19 +16,23 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, button, input {
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-  font-family: sans-serif;
 	vertical-align: baseline;
+  box-sizing: border-box;
+	border-color: none;
+	outline: none;
+	text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
+  box-sizing: border-box;
 }
 body {
 	line-height: 1;
