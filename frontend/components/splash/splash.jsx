@@ -12,10 +12,13 @@ class Splash extends React.Component {
     return (
       <section className="splash-container">
         <div className="img-darken">
+
           <div className="splash-button-container">
             <h2>DownBeat</h2>
             <Link to="/login" ><button type="button" id="login-button">Log In</button></Link>
+
             <Route exact path="/login" component={LoginFormContainer} />
+
             <div className="separator-container">
               <div className="before"></div>
               <span>
@@ -23,7 +26,9 @@ class Splash extends React.Component {
               </span>
               <div className="after"></div>
             </div>
+
             <Link to="/signup"><button type="button" id="signup-button">Sign Up</button></Link>
+
             <Route exact path="/signup" component={SignupFormContainer} />
           </div>
 
@@ -35,6 +40,7 @@ class Splash extends React.Component {
               <li>Create playlists of your favorite music</li>
             </ul>
           </div>
+
         </div>
       </section>
     );

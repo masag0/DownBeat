@@ -51,7 +51,8 @@ h1 {
 }
 
 #right-nav {
-  display: flex;
+  display: none;
+  // display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
@@ -73,7 +74,7 @@ h1 {
   align-items: center;
   padding: 15px;
   height: 200%;
-  width: calc(100% - 450px);
+  width: calc(100% - 200px);
   position: absolute;
   top: 0px;
   left: 200px;
@@ -98,6 +99,7 @@ h1 {
   display: flex;
   padding: 15px;
   position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
   height: 100px;
@@ -148,4 +150,8 @@ button {
 h1:hover {
   color: $green;
   cursor: pointer;
+}
+
+.hidden {
+  display: hidden;
 }
