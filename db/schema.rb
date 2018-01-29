@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20180127065120) do
   create_table "playlists", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
+    t.string "genre"
     t.string "img_url"
     t.integer "duration"
     t.integer "user_id", null: false

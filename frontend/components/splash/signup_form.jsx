@@ -65,7 +65,7 @@ class SignupForm extends React.Component {
           <button
             type="button"
             onClick={this.submitForm}
-          >Log In</button>
+          >Sign Up</button>
 
           <div>
             <button

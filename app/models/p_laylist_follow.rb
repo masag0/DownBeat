@@ -1,2 +1,0 @@
-class PLaylistFollow < ApplicationRecord
-end

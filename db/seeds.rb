@@ -9,3 +9,4 @@
 
 User.create(username: "guest", email: "guest@example.com", password: "password")
 User.create(username: "candra", email: "candratran@gmail.com", password: "password")
+User.create(username: "eddy", email: "edwinshin@gmail.com", password: "password")
