@@ -174,7 +174,7 @@ $green: #1ed760;
   }
   div {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100%;
 
     .cancel-button {
@@ -198,6 +198,14 @@ $green: #1ed760;
         color: white;
       }
     }
+
+    .demo-button {
+      font-weight: 300;
+      $button-background: $green;
+      width: 30%;
+      margin: 40px 0 0 0;
+    }
   }
 }
+
 

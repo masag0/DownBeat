@@ -9,6 +9,7 @@ class LoginForm extends React.Component {
     this.cancel = this.cancel.bind(this);
     this.keyPress = this.keyPress.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.demo = this.demo.bind(this);
   }
 
   update (prop) {
@@ -17,6 +18,11 @@ class LoginForm extends React.Component {
 
   submitForm () {
     this.props.login(this.state)
+    .then(this.props.history.push('/'));
+  }
+
+  demo () {
+    this.props.login({username: "guest", password:"password"})
     .then(this.props.history.push('/'));
   }
 
@@ -58,7 +64,15 @@ class LoginForm extends React.Component {
             onClick={this.submitForm}
           >Log In</button>
 
+
+
           <div>
+            <button
+              type="button"
+              className="demo-button"
+              onClick={this.demo}
+              >Demo</button>
+            
             <button
               type="button"
               className="cancel-button"

@@ -9,10 +9,16 @@ class SignupForm extends React.Component {
     this.cancel = this.cancel.bind(this);
     this.keyPress = this.keyPress.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.demo = this.demo.bind(this);
   }
 
   update (prop) {
     return e => this.setState( { [prop]: e.target.value } );
+  }
+
+  demo () {
+    this.props.login({username: "guest", password:"password"})
+    .then(this.props.history.push('/'));
   }
 
   submitForm () {
@@ -68,6 +74,12 @@ class SignupForm extends React.Component {
           >Sign Up</button>
 
           <div>
+            <button
+              type="button"
+              className="demo-button"
+              onClick={this.demo}
+              >Demo</button>
+
             <button
               type="button"
               className="cancel-button"
