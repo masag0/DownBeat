@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Cabin|Roboto|Raleway');
 
 $green: #1ed760;
@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 #top-nav {
@@ -28,6 +28,7 @@ h1 {
   left: 200px;
   width: calc(100% - 200px);
   height: 50px;
+  z-index: 9000;
 
   // border: 1px solid white;
 }
@@ -73,27 +74,17 @@ h1 {
   flex-direction: column;
   align-items: center;
   padding: 15px;
-  height: 200%;
+  min-height: 100%;
   width: calc(100% - 200px);
   position: absolute;
   top: 0px;
   left: 200px;
-  right: 200px;
+  // right: 200px;
   min-width: 600px;
   // border: 1px solid white;
 }
 
-#main-nav {
-  display: flex;
-  position: relative;
-  top: 10px;
-  width: 80%;
-  height: 80px;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin: 0 auto;
-  min-width: 600px;
-}
+
 
 #footer-audio {
   display: flex;
@@ -155,3 +146,5 @@ h1:hover {
 .hidden {
   display: hidden;
 }
+
+

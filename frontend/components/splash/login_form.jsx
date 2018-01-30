@@ -1,4 +1,5 @@
 import React from 'react';
+import SessionErrorsContainer from './session_errors_container';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -18,7 +19,13 @@ class LoginForm extends React.Component {
 
   submitForm () {
     this.props.login(this.state)
-    .then(this.props.history.push('/'));
+    .then( () => {
+      console.log('here');
+      if (this.props.loggedIn) {
+        this.props.history.push('/');
+      }
+    }
+    );
   }
 
   demo () {
@@ -46,6 +53,7 @@ class LoginForm extends React.Component {
             <input
               type="text" value={username}
               onChange={this.update('username')}
+              required
             />
           </label>
           <br/>
@@ -56,14 +64,17 @@ class LoginForm extends React.Component {
               type="password" value={password}
               onChange={this.update('password')}
               onKeyPress={this.keyPress}
+              required
             />
           </label>
+
+          <SessionErrorsContainer />
+
 
           <button
             type="button"
             onClick={this.submitForm}
           >Log In</button>
-
 
 
           <div>
@@ -72,7 +83,7 @@ class LoginForm extends React.Component {
               className="demo-button"
               onClick={this.demo}
               >Demo</button>
-            
+
             <button
               type="button"
               className="cancel-button"

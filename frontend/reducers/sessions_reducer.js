@@ -13,7 +13,7 @@ const sessionsReducer = (oldState = _nullUser, action) => {
       newState['currentUser'] = action.data;
       return newState;
     default:
-      return _nullUser;
+      return oldState;
   }
 };
 

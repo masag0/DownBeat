@@ -3,6 +3,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+$green: #1ed760;
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -52,4 +53,11 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+a {
+	color: inherit;
+}
+a:visited {
+	text-decoration: none;
 }

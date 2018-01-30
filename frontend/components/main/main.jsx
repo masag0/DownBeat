@@ -6,6 +6,7 @@ import FooterAudioContainer from './footer_audio_container';
 import MainNav from './main_nav';
 import MainContentContainer from './main_content_container';
 import {Route} from 'react-router-dom';
+import {ProtectedRoute} from '../../util/route_util';
 
 class Main extends React.Component {
   constructor(props) {
@@ -15,12 +16,12 @@ class Main extends React.Component {
   render(){
     return (
       <section id="main">
-        <Route exact path='/' component={MainNav} />
-        <Route exact path='/' component={MainContentContainer} />
-        <Route path="/" component={LeftNavContainer}/>
-        <Route path="/" component={TopNavContainer}/>
-        <Route path="/" component={RightNavContainer}/>
-        <Route path="/" component={FooterAudioContainer}/>
+        <ProtectedRoute exact path='/' component={MainNav} />
+        <ProtectedRoute path='/' component={MainContentContainer} />
+        <ProtectedRoute path="/" component={LeftNavContainer}/>
+        <ProtectedRoute path="/" component={TopNavContainer}/>
+        <ProtectedRoute path="/" component={RightNavContainer}/>
+        <ProtectedRoute path="/" component={FooterAudioContainer}/>
       </section>
     );
   }

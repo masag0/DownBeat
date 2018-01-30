@@ -1,4 +1,8 @@
 import React from 'react';
+import {Route} from 'react-router-dom';
+import ArtistIndexContainer from '../artists/artist_index_container';
+import {ProtectedRoute} from '../../util/route_util';
+import BrowseContainer from '../browse/browse_container';
 
 class MainContent extends React.Component {
   constructor(props) {
@@ -8,22 +12,9 @@ class MainContent extends React.Component {
   render(){
     return (
       <section id="main-content">
-        <section className="main-content-section featured">
-          <h2 className="category-header">Featured</h2>
-          <section id="featured-scroll">
-            <div className="playlist-display"></div>
-            <div className="playlist-display"></div>
-            <div className="playlist-display"></div>
-            <div className="playlist-display"></div>
-          </section>
-        </section>
+        <ProtectedRoute exact path='/' component={BrowseContainer} />
 
-        <section className="main-content-section genres">
-          <h2>Genres & Moods</h2>
-          <section>
-
-          </section>
-        </section>
+        <ProtectedRoute exact path='/artists' component={ArtistIndexContainer}/>
       </section>
     );
   }

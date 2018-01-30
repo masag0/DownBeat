@@ -9,7 +9,7 @@ class LeftNav extends React.Component {
     return (
       <nav id="left-nav">
         <section>
-          <h1>DownBeat</h1>
+          <h1><a href='/#/'>DownBeat</a></h1>
           <br />
           <br />
           <br />
@@ -17,7 +17,7 @@ class LeftNav extends React.Component {
           <br />
           <br />
           <h1>Genres</h1>
-          <h1>Artists</h1>
+          <h1><a href="/#/artists">Artists</a></h1>
           <h1>Albums</h1>
           <h1>Songs</h1>
           <br />

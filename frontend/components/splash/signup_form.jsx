@@ -1,4 +1,6 @@
 import React from 'react';
+import SessionErrorsContainer from './session_errors_container';
+
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -23,7 +25,11 @@ class SignupForm extends React.Component {
 
   submitForm () {
     this.props.signup( { user: this.state } )
-    .then(this.props.history.push('/'));
+    .then( () => {
+      if (this.props.loggedIn) {
+        this.props.history.push('/');
+      }
+    });
   }
 
   cancel () {
@@ -67,6 +73,8 @@ class SignupForm extends React.Component {
               onKeyPress={this.keyPress}
             />
           </label>
+
+          <SessionErrorsContainer />
 
           <button
             type="button"
