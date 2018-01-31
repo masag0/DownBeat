@@ -1,5 +1,4 @@
 import React from 'react';
-// import AlbumListItem from './album_list_item';
 
 class AlbumListItem extends React.Component {
   constructor(props) {

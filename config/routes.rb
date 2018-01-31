@@ -9,11 +9,16 @@ Rails.application.routes.draw do
     resources :artists, only: [:index, :show] do
       resources :albums, only: [:index]
     end
-    resources :albums, only: [:show]
-    resources :songs, only: [:index, :show]
+
+    resources :albums, only: [:show] do
+      resources :songs, only: [:index]
+    end
+
+    resources :songs, only: [:show]
     resources :playlists
 
     get '/albums', to: 'albums#all'
+    get '/songs', to: 'songs#all'
   end
 
 end

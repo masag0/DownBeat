@@ -41,6 +41,8 @@ class AlbumDetail extends React.Component {
 
         </div>
 
+
+        <ProtectedRoute path="/albums/:albumId" component={SongListContainer} />
       </div>
     );
   }

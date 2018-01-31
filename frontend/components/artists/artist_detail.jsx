@@ -21,7 +21,7 @@ class ArtistDetail extends React.Component {
     const {id, name, genre, description, img_url} = this.props.artist;
     return (
       <div>
-        <div className="row-flex">
+        <div className="row-flex detail-min-header">
           <header className="playlist-display artist-detail-header" >
 
               <label className="category-detail-label">Artist</label>

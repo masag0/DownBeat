@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20180127065120) do
     t.string "link"
     t.integer "duration", null: false
     t.integer "album_id"
+    t.integer "track_num", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["album_id"], name: "index_songs_on_album_id"
