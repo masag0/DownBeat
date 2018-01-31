@@ -147,7 +147,7 @@ $green: #1ed760;
   z-index: 100;
   min-width: 600px;
   min-height: 400px;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.9);
   border: 0.5px solid gray;
 }
 
@@ -156,7 +156,7 @@ $green: #1ed760;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 30px;
+  padding: 80px;
   label {
     display: block;
     text-align: left;
@@ -226,6 +226,7 @@ $green: #1ed760;
 
 .session-errors-list {
   padding: 10px;
+  color: #eb1e32;
 }
 // input:required {
 //   border: 1px solid rgb(189, 4, 4);

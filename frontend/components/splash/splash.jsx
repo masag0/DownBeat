@@ -15,9 +15,9 @@ class Splash extends React.Component {
 
           <div className="splash-button-container">
             <h2>DownBeat</h2>
-            <Link to="/login" ><button type="button" id="login-button">Log In</button></Link>
+            <Link to="/splash/login" ><button type="button" id="login-button">Log In</button></Link>
 
-            <Route exact path="/login" component={LoginFormContainer} />
+            <Route exact path="/splash/login" component={LoginFormContainer} />
 
             <div className="separator-container">
               <div className="before"></div>
@@ -27,9 +27,9 @@ class Splash extends React.Component {
               <div className="after"></div>
             </div>
 
-            <Link to="/signup"><button type="button" id="signup-button">Sign Up</button></Link>
+            <Link to="/splash/signup"><button type="button" id="signup-button">Sign Up</button></Link>
 
-            <Route exact path="/signup" component={SignupFormContainer} />
+            <Route exact path="/splash/signup" component={SignupFormContainer} />
           </div>
 
           <div className="splash-text-container">
