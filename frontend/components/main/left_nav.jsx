@@ -1,4 +1,5 @@
 import React from 'react';
+import PlaylistListContainer from '../playlists/playlist_list_container';
 
 class LeftNav extends React.Component {
   constructor(props) {
@@ -25,11 +26,17 @@ class LeftNav extends React.Component {
           <br />
           <br />
 
-          <h1>Playlists</h1>
-          <br />
-          <br />
-          <br />
+
+          <section className="left-nav-playlists-container">
+            <h1>Playlists</h1>
+            <ul className="left-nav-playlist-list">
+              <PlaylistListContainer />
+            </ul>
+          </section>
+
         </section>
+
+        
         <section>
           <div id="new-playlist-button-container">
             <button type="button">New Playlist</button>

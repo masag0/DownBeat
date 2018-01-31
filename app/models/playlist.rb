@@ -8,13 +8,17 @@ class Playlist < ApplicationRecord
   has_many :playlist_songs
 
 
-  has_many :songs
-    through :playlist_songs
-    source :song
+  has_many :songs,
+    through: :playlist_songs,
+    source: :song
 
-  has_many :followers
-    through :playlist_follows
-    source :user
+  has_many :followers,
+    through: :playlist_follows,
+    source: :user
+
+  def duration=(duration)
+    @duration = duration
+  end
 
   def duration
     self.duration = self.songs.reduce(0) { |acc, song| acc + song.duration }

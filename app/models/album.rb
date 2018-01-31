@@ -3,9 +3,13 @@ class Album < ApplicationRecord
 
   belongs_to :artist
 
+  def duration=(duration)
+    @duration = duration
+  end
+
   def duration
     self.duration = self.songs.reduce(0) { |acc, song| acc + song.duration }
   end
-  
+
   has_many :songs
 end

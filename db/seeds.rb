@@ -50,3 +50,30 @@ Song.create(title: "Outlier", track_num: 6, duration: minutes_to_seconds('6:45')
 Song.create(title: "Tio Macaco", track_num: 7, duration: minutes_to_seconds('5:43'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354427/Tawk%20Tomahawk%202012/06_boom_child_udkjf3.mp3')
 Song.create(title: "Lingus", track_num: 8, duration: minutes_to_seconds('10:45'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354426/Tawk%20Tomahawk%202012/07_lace_skull_osjb7x.mp3')
 
+
+
+Playlist.create(title: "My Playlist", description: "a cool playlist", genre: "jazz", user_id: 1)
+Playlist.create(title: "My Playlist 2", description: "another cool playlist", genre: "jazz", user_id: 1)
+
+
+
+PlaylistSong.create(playlist_id: 1, song_id: 1)
+PlaylistSong.create(playlist_id: 1, song_id: 2)
+PlaylistSong.create(playlist_id: 1, song_id: 5)
+PlaylistSong.create(playlist_id: 1, song_id: 8)
+
+PlaylistSong.create(playlist_id: 2, song_id: 3)
+PlaylistSong.create(playlist_id: 2, song_id: 10)
+PlaylistSong.create(playlist_id: 2, song_id: 12)
+PlaylistSong.create(playlist_id: 2, song_id: 7)
+
+
+
+
+
+
+
+
+
+
+

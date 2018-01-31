@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20180127065120) do
     t.string "title", null: false
     t.text "description"
     t.string "genre"
-    t.integer "duration"
     t.integer "year", null: false
     t.integer "artist_id", null: false
     t.string "img_url"
@@ -78,7 +77,6 @@ ActiveRecord::Schema.define(version: 20180127065120) do
     t.text "description"
     t.string "genre"
     t.string "img_url"
-    t.integer "duration"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
