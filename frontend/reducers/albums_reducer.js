@@ -11,12 +11,13 @@ const albumsReducer = (oldState = initalState, action) => {
   switch (action.type) {
     case RECEIVE_ALBUM:
       newState = lodash.merge({}, oldState);
-      break;
+      newState[action.data.id] = action.data;
+      return newState;
 
     case RECEIVE_ALBUMS:
-      newState = lodash.merge({}, oldState);
-      
-      return;
+      console.log(action.data);
+      newState = lodash.merge({}, oldState, action.data);
+      return newState;
 
     default:
       return oldState;

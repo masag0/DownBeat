@@ -5,6 +5,7 @@ import Root from './components/root';
 
 import {fetchArtist} from './util/artist_api_util';
 import {getArtist} from './actions/artists_actions';
+import {getAlbums} from './actions/albums_actions';
 import {receiveArtist} from './actions/artists_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fetchArtist = fetchArtist;
   window.getArtist = getArtist;
   window.receiveArtist = receiveArtist;
+  window.getAlbums = getAlbums;
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 });

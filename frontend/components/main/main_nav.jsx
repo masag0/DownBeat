@@ -8,12 +8,12 @@ class MainNav extends React.Component {
   render(){
     return (
       <nav id="main-nav">
-        <h1>Overview</h1>
-        <h1>Featured</h1>
-        <h1>Genres and Moods</h1>
-        <h1>Artists</h1>
-        <h1>Albums</h1>
-        <h1>Songs</h1>
+        <a href="/#/" className="main-nav-link"><h1>Overview</h1></a>
+        <a href="/#/featured" className="main-nav-link"><h1>Featured</h1></a>
+        <a href="/#/genres" className="main-nav-link" ><h1>Genres & Moods</h1></a>
+        <a href="/#/artists" className="main-nav-link"><h1>Artists</h1></a>
+        <a href="/#/albums" className="main-nav-link"><h1>Albums</h1></a>
+        <a href="/#/songs" className="main-nav-link"><h1>Songs</h1></a>
       </nav>
     );
   }

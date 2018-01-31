@@ -16,8 +16,8 @@ export const receiveAllArtists = (artists) => ({
 
 
 
-export const getArtist = (id) => (dispatch) => {
-  return APIUtil.fetchArtist(id)
+export const getArtist = (artistId) => (dispatch) => {
+  return APIUtil.fetchArtist(artistId)
     .then(
       response => {
         dispatch(receiveArtist(response));

@@ -2,6 +2,7 @@ import React from 'react';
 import ArtistIndexItemContainer from './artist_index_item_container';
 import ArtistIndexItem from './artist_index_item';
 
+
 class ArtistIndex extends React.Component {
   constructor(props) {
     super(props);
