@@ -15,7 +15,6 @@ const playlistsReducer = (oldState = initalState, action) => {
       return newState;
 
     case RECEIVE_PLAYLISTS:
-      console.log(action.data);
       newState = lodash.merge({}, oldState, action.data);
       return newState;
 

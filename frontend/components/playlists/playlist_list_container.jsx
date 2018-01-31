@@ -4,13 +4,19 @@ import lodash from 'lodash';
 import PlaylistList from './playlist_list';
 import {getPlaylists} from '../../actions/playlists_actions';
 
-const mapStateToProps = (state, ownProps) => ({
-  playlists: lodash.values(state.entities.playlists)
-    .filter(el => el.artist_id == ownProps.match.params.artistId)
-});
+let currentUser;
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  getPlaylists: () => dispatch(getPlaylists(ownProps.match.params.artistId))
-});
+const mapStateToProps = (state, ownProps) => {
+  currentUser = state.session.currentUser;
+  return {
+    playlists: lodash.values(state.entities.playlists)
+    .filter(el => el.user_id == state.session.currentUser.id),
+    currentUser: state.session.currentUser.id
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {getPlaylists: () => dispatch(getPlaylists(currentUser.id))};
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistList);
