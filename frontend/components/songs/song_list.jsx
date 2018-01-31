@@ -15,7 +15,8 @@ class SongList extends React.Component {
       return null;
     }
     console.log(this.props.songs);
-    const {songs} = this.props;
+    let {songs} = this.props;
+    songs = songs.sort((a,b) => a.track_num > b.track_num);
     return (
       <div>
         <h2 className="category-header" id="song-list-header">

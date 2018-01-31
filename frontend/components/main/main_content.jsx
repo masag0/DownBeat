@@ -15,11 +15,11 @@ class MainContent extends React.Component {
   render(){
     return (
       <section id="main-content">
-        <ProtectedRoute exact path='/' component={BrowseContainer} />
+        <Route exact path='/' component={BrowseContainer} />
 
-        <ProtectedRoute exact path='/artists' component={ArtistIndexContainer}/>
-        <ProtectedRoute path='/artists/:artistId' component={ArtistDetailContainer}/>
-        <ProtectedRoute path='/albums/:albumId' component={AlbumDetailContainer}/>
+        <Route exact path='/artists' component={ArtistIndexContainer}/>
+        <Route path='/artists/:artistId' component={ArtistDetailContainer}/>
+        <Route path='/albums/:albumId' component={AlbumDetailContainer}/>
       </section>
     );
   }

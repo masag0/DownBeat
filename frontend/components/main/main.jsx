@@ -16,12 +16,12 @@ class Main extends React.Component {
   render(){
     return (
       <section id="main">
-        <ProtectedRoute exact path='/' component={MainNav} />
-        <ProtectedRoute path='/' component={MainContentContainer} />
-        <ProtectedRoute path="/" component={LeftNavContainer}/>
-        <ProtectedRoute path="/" component={TopNavContainer}/>
-        <ProtectedRoute path="/" component={RightNavContainer}/>
-        <ProtectedRoute path="/" component={FooterAudioContainer}/>
+        <Route exact path='/' component={MainNav} />
+        <Route path='/' component={MainContentContainer} />
+        <Route path="/" component={LeftNavContainer}/>
+        <Route path="/" component={TopNavContainer}/>
+        <Route path="/" component={RightNavContainer}/>
+        <Route path="/" component={FooterAudioContainer}/>
       </section>
     );
   }

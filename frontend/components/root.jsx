@@ -10,7 +10,7 @@ const Root = ({store}) => (
   <Provider store={store}>
     <HashRouter>
       <div>
-        <AuthRoute path='/' component={Splash}/>
+        <AuthRoute path='/splash' component={Splash}/>
         <ProtectedRoute path='/' component={MainContainer} />
       </div>
     </HashRouter>
