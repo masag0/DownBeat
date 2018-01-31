@@ -1,6 +1,7 @@
 import React from 'react';
 import AlbumListContainer from '../albums/album_list_container';
 import {ProtectedRoute} from '../../util/route_util';
+import {Route} from 'react-router-dom';
 
 
 class ArtistDetail extends React.Component {
@@ -43,7 +44,7 @@ class ArtistDetail extends React.Component {
 
 
 
-        <ProtectedRoute path="/artists/:artistId" component={AlbumListContainer} />
+        <Route path="/artists/:artistId" component={AlbumListContainer} />
       </div>
     );
   }

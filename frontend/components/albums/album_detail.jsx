@@ -1,5 +1,7 @@
 import React from 'react';
 import {ProtectedRoute} from '../../util/route_util';
+import {Route} from 'react-router-dom';
+
 import SongListContainer from '../songs/song_list_container';
 
 class AlbumDetail extends React.Component {
@@ -37,12 +39,16 @@ class AlbumDetail extends React.Component {
             <span className="genre-text">{genre}</span>
             <span className="genre-text">{year}</span>
             <span className="description-text">{description}</span>
+            <div className="detail-button-container">
+              <button type="button" className="play-button">Play</button>
+              <button type="button" className="etc-button">. . .</button>
+            </div>
           </section>
 
         </div>
 
 
-        <ProtectedRoute path="/albums/:albumId" component={SongListContainer} />
+        <Route path="/albums/:albumId" component={SongListContainer} />
       </div>
     );
   }

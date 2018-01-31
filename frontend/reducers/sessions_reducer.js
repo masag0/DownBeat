@@ -1,4 +1,4 @@
-import {RECEIVE_CURRENT_USER, RECEIEVE_SESSION_ERRORS} from '../actions/sessions_actions';
+import {RECEIVE_CURRENT_USER} from '../actions/sessions_actions';
 import lodash from 'lodash';
 
 const _nullUser= {
