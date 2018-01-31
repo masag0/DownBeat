@@ -1,1 +1,1 @@
-json.(@album, :id, :title, :genre, :description, :year, :artist_id, :img_url)
+json.partial! 'album', album: @album
