@@ -29,14 +29,14 @@ class LeftNav extends React.Component {
 
           <section className="left-nav-playlists-container">
             <h1>Playlists</h1>
-            <ul className="left-nav-playlist-list">
-              <PlaylistListContainer />
-            </ul>
+
+            <PlaylistListContainer />
+
           </section>
 
         </section>
 
-        
+
         <section>
           <div id="new-playlist-button-container">
             <button type="button">New Playlist</button>

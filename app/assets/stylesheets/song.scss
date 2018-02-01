@@ -50,6 +50,11 @@
   margin: 30px 0;
 }
 
+.top-header:hover {
+  text-decoration: none;
+  cursor: auto;
+}
+
 .song-list-item-container {
   font-family: Montserrat;
   font-weight: 200;
@@ -61,4 +66,8 @@
   justify-content: space-between;
   text-align: left;
   margin: 0 20px;
+}
+
+.song-list-ul {
+  margin-bottom: 100px;
 }

@@ -5,5 +5,10 @@ class Song < ApplicationRecord
     self.album.artist_id
   end
 
+
   belongs_to :album
+
+  has_one :artist,
+  through: :album,
+  source: :artist
 end

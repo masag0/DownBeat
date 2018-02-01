@@ -6,8 +6,8 @@ class SongList extends React.Component {
   }
 
   render() {
-    const {id, track_num, title, link, duration }= this.props.song;
-    const {album, artist} = this.props;
+    const {id, track_num, title, link, duration, album, artist }= this.props.song;
+    console.log('songlistitem');
     return (
       <li className="song-list-item-container">
         <a><div className="track-num-header">{track_num}</div></a>

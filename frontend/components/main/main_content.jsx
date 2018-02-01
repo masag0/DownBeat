@@ -6,6 +6,7 @@ import BrowseContainer from '../browse/browse_container';
 import ArtistIndexContainer from '../artists/artist_index_container';
 import ArtistDetailContainer from '../artists/artist_detail_container';
 import AlbumDetailContainer from '../albums/album_detail_container';
+import PlaylistDetailContainer from '../playlists/playlist_detail_container';
 
 class MainContent extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class MainContent extends React.Component {
         <Route exact path='/artists' component={ArtistIndexContainer}/>
         <Route path='/artists/:artistId' component={ArtistDetailContainer}/>
         <Route path='/albums/:albumId' component={AlbumDetailContainer}/>
+        <Route path='/playlists/:playlistId' component={PlaylistDetailContainer}/>
       </section>
     );
   }

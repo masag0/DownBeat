@@ -1,4 +1,4 @@
-import * as APIUtil from '../util/song_api_util';
+ import * as APIUtil from '../util/song_api_util';
 
 export const RECEIVE_SONG = 'RECEIVE_SONG';
 export const RECEIVE_SONGS = 'RECEIVE_SONGS';
@@ -16,8 +16,15 @@ export const receiveSongs = (songs) => ({
 
 
 
-export const getSongs = (artistId) => (dispatch) => {
-  return APIUtil.fetchSongs(artistId)
+export const getSongs = (albumId) => (dispatch) => {
+  return APIUtil.fetchSongs(albumId)
+    .then(
+      response => dispatch(receiveSongs(response))
+    );
+};
+
+export const getPlaylistSongs = (playlistId) => (dispatch) => {
+  return APIUtil.fetchPlaylistSongs(playlistId)
     .then(
       response => dispatch(receiveSongs(response))
     );

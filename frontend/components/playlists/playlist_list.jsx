@@ -13,15 +13,21 @@ class PlaylistList extends React.Component {
   render(){
     const {playlists} = this.props;
     return (
-      <div>
-        {/*
-          albums.map(album => {
+      <ul className="left-nav-playlist-list">
+        {
+          playlists.map(playlist => {
             return (
-                <PlaylistListItem {...album} key={album.id}/>
+                <a key={playlist.id} href={`/#/playlists/${playlist.id}`}>
+                  <li
+                    className="left-nav-playlist-item"
+                  >
+                    {playlist.title}
+                  </li>
+                </a>
             );
           })
-        */}
-      </div>
+        }
+      </ul>
     );
   }
 }

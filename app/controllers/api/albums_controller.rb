@@ -8,4 +8,5 @@ class Api::AlbumsController < ApplicationController
     @album = Album.includes(:songs).find_by(id: params[:id])
     render :show
   end
+
 end

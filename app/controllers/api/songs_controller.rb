@@ -8,4 +8,10 @@ class Api::SongsController < ApplicationController
     @song = Song.find_by(id: params[:id])
     render :show
   end
+
+  def playlist_song_index
+    @playlist = Playlist.find_by(id: params[:playlist_id])
+    @songs = Song.includes(:album).where(id: @playlist.song_ids)
+    render :index
+  end
 end
