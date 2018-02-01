@@ -7,10 +7,19 @@ class AlbumList extends React.Component {
   }
 
   componentDidMount () {
-    this.props.getAlbums();
+    this.props.getAlbums(this.props.match.params.artistId);
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.location.pathname !== this.props.location.pathname){
+      this.props.getAlbums(nextProps.match.params.artistId);
+    }
   }
 
   render(){
+    if (!this.props.albums) {
+      return null;
+    }
     const {albums} = this.props;
     return (
       <div>

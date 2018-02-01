@@ -5,6 +5,10 @@ class AlbumListItem extends React.Component {
     super(props);
   }
 
+  // componentDidMount () {
+  //   this.props.getAlbum(this.);
+  // }
+
   render() {
     const {id, title, description, img_url, duration, year, artist_id, genre} = this.props;
     return (

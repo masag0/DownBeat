@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  getAlbums: () => dispatch(getAlbums(ownProps.match.params.artistId))
+  getAlbums: (artistId) => dispatch(getAlbums(artistId))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlbumList);

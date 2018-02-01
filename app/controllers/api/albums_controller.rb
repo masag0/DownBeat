@@ -1,3 +1,4 @@
+
 class Api::AlbumsController < ApplicationController
   def index
     @albums = Album.includes(:songs).where(artist_id: params[:artist_id])

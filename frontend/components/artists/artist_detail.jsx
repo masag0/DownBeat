@@ -15,6 +15,12 @@ class ArtistDetail extends React.Component {
     this.props.getArtist(this.props.match.params.artistId);
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.location.pathname !== this.props.location.pathname){
+      this.props.getArtist(nextProps.match.params.artistId);
+    }
+  }
+
   render(){
     if (!this.props.artist) {
       return null;

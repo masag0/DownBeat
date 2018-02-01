@@ -15,10 +15,17 @@ class AlbumDetail extends React.Component {
     this.props.getAlbum(this.props.match.params.albumId);
   }
 
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.location.pathname !== this.props.location.pathname){
+      this.props.getAlbum(nextProps.match.params.albumId);
+    }
+  }
+
   render(){
     if (!this.props.album) {
       return null;
     }
+    const {songs} = this.props.songs;
     const {id, title, genre, description, img_url, artist_id, duration, year} = this.props.album;
     return (
       <div>
@@ -48,7 +55,7 @@ class AlbumDetail extends React.Component {
         </div>
 
 
-        <Route path="/albums/:albumId" component={SongListContainer} />
+        <Route path="/albums/:albumId" songs={songs} component={SongListContainer} />
       </div>
     );
   }
