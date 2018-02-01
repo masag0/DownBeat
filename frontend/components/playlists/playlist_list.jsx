@@ -4,10 +4,15 @@ import React from 'react';
 class PlaylistList extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount () {
     this.props.getPlaylists();
+  }
+
+  handleClick (id) {
+    // this.props.getPlaylistSongs(id);
   }
 
   render(){
@@ -17,10 +22,12 @@ class PlaylistList extends React.Component {
         {
           playlists.map(playlist => {
             return (
-                <a key={playlist.id} href={`/#/playlists/${playlist.id}`}>
-                  <li
-                    className="left-nav-playlist-item"
-                  >
+                <a
+                  key={playlist.id}
+                  href={`/#/playlists/${playlist.id}`}
+                  onClick={(e) => this.handleClick(playlist.id)}
+                >
+                  <li className="left-nav-playlist-item">
                     {playlist.title}
                   </li>
                 </a>

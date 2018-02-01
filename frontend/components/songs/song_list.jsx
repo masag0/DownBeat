@@ -1,5 +1,6 @@
 import React from 'react';
 import SongListItem from './song_list_item';
+import lodash from 'lodash';
 
 class SongList extends React.Component {
   constructor(props) {
@@ -7,21 +8,28 @@ class SongList extends React.Component {
 
   }
 
-  componentDidMount () {
+  componentWillMount () {
+    // this.props.getSongs();
     this.props.getSongs();
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.location.pathname !== this.props.location.pathname){
-      this.props.getSongs();
-    }
-  }
+  // componentWillReceiveProps (nextProps) {
+  //   if (nextProps.location.pathname !== this.props.location.pathname){
+  //     this.props.getSongs();
+  //   }
+  // }
 
   render() {
     if (!this.props.songs) {
       return null;
     }
     let {songs} = this.props;
+    //
+    // lodash.values(songs)
+    //     .filter(song => this.props.playlist.song_ids.includes(song.id));
+
+
+
     songs = songs.sort((a,b) => a.track_num > b.track_num);
     return (
       <div className="song-list-container">

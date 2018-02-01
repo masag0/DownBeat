@@ -12,13 +12,15 @@ class PlaylistDetail extends React.Component {
 
   componentDidMount() {
     // console.log(this.props.location.pathname);
-    this.props.getPlaylist(this.props.match.params.playlistId);
+    this.props.getPlaylist();
+    // this.props.getAllSongs();
   }
 
   render(){
     if (!this.props.playlist) {
       return null;
     }
+    const {songs} = this.props.songs;
     const {id, title, genre, description, img_url, user_id, song_ids, duration} = this.props.playlist;
     console.log(song_ids);
     return (

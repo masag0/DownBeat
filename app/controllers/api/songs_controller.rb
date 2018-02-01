@@ -14,4 +14,9 @@ class Api::SongsController < ApplicationController
     @songs = Song.includes(:album).where(id: @playlist.song_ids)
     render :index
   end
+
+  def all
+    @songs = Song.all
+    render :index
+  end
 end

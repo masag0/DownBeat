@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import lodash from 'lodash';
 import PlaylistList from './playlist_list';
 import {getPlaylists} from '../../actions/playlists_actions';
+import {getPlaylistSongs} from '../../actions/songs_actions';
 
 let currentUser;
 
@@ -16,7 +17,10 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {getPlaylists: () => dispatch(getPlaylists(currentUser.id))};
+  return {
+    getPlaylists: () => dispatch(getPlaylists(currentUser.id)),
+    // getPlaylistSongs: (id) => dispatch(getPlaylistSongs(id))
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistList);

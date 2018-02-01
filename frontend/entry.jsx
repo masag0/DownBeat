@@ -7,7 +7,7 @@ import {fetchArtist} from './util/artist_api_util';
 import {getArtist} from './actions/artists_actions';
 import {getAlbums} from './actions/albums_actions';
 import {receiveArtist} from './actions/artists_actions';
-import {getSongs} from './actions/songs_actions';
+import {getSongs, getAllSongs} from './actions/songs_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.receiveArtist = receiveArtist;
   window.getAlbums = getAlbums;
   window.getSongs = getSongs;
+  window.getAllSongs = getAllSongs;
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 });

@@ -15,6 +15,12 @@ export const receiveSongs = (songs) => ({
 
 
 
+export const getAllSongs = () => (dispatch) => {
+  return APIUtil.fetchAllSongs()
+  .then(
+    response => dispatch(receiveSongs(response))
+  );
+};
 
 export const getSongs = (albumId) => (dispatch) => {
   return APIUtil.fetchSongs(albumId)
