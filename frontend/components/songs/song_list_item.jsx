@@ -14,6 +14,7 @@ class SongList extends React.Component {
         <a><div className="title-header">{title}</div></a>
         <a href={`/#/artists/${artist.id}`}><div className="artist-header">{artist.name}</div></a>
         <a href={`/#/albums/${album.id}`}><div className="album-header">{album.title}</div></a>
+        <a><div className="menu-header"></div></a>
         <a><div className="duration-header">{duration}</div></a>
 
       </li>

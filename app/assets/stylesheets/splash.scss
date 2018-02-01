@@ -36,7 +36,7 @@ $green: #1ed760;
 
 .splash-button-container {
   h2 {
-    font-weight: 200;
+    font-weight: 600;
     font-size: 45px;
     padding: 20px;
   }
@@ -227,6 +227,10 @@ $green: #1ed760;
 .session-errors-list {
   padding: 10px;
   color: #eb1e32;
+}
+
+.optional-text {
+  font-size: 16px;
 }
 // input:required {
 //   border: 1px solid rgb(189, 4, 4);

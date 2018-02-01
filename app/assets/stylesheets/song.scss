@@ -40,9 +40,14 @@
   text-decoration: underline;
 }
 
+.menu-header {
+  text-align: right;
+  min-width: 40px;
+}
+
 .duration-header {
-  text-align: left;
-  min-width: 100px;
+  text-align: right;
+  min-width: 80px;
 }
 
 .song-list-container {

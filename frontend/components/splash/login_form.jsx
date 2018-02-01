@@ -20,9 +20,10 @@ class LoginForm extends React.Component {
   submitForm () {
     this.props.login(this.state)
     .then( () => {
-      console.log('here');
       if (this.props.loggedIn) {
-        this.props.history.push('/');
+        this.props.clearSessionErrors().then(
+          this.props.history.push('/')
+        );
       }
     }
     );
@@ -30,11 +31,17 @@ class LoginForm extends React.Component {
 
   demo () {
     this.props.login({username: "guest", password:"password"})
-    .then(this.props.history.push('/'));
+    .then(
+      this.props.clearSessionErrors().then(
+        this.props.history.push('/')
+      )
+    );
   }
 
   cancel () {
-    this.props.history.push('/splash');
+    this.props.clearSessionErrors().then(
+      this.props.history.push('/splash')
+    );
   }
 
   keyPress (e) {

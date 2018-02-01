@@ -13,11 +13,11 @@ class SongList extends React.Component {
     this.props.getSongs();
   }
 
-  // componentWillReceiveProps (nextProps) {
-  //   if (nextProps.location.pathname !== this.props.location.pathname){
-  //     this.props.getSongs();
-  //   }
-  // }
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.location.pathname !== this.props.location.pathname){
+      this.props.getSongs();
+    }
+  }
 
   render() {
     if (!this.props.songs) {
@@ -38,6 +38,7 @@ class SongList extends React.Component {
           <div className="title-header top-header" >Title</div>
           <div className="artist-header top-header">Artist</div>
           <div className="album-header top-header">Album</div>
+          <div className="menu-header top-header"></div>
           <div className="duration-header top-header">Duration</div>
         </h2>
         <ul className="song-list-ul">

@@ -20,20 +20,28 @@ class SignupForm extends React.Component {
 
   demo () {
     this.props.login({username: "guest", password:"password"})
-    .then(this.props.history.push('/'));
+    .then(
+      this.props.clearSessionErrors().then(
+        this.props.history.push('/')
+      )
+    );
   }
 
   submitForm () {
     this.props.signup( { user: this.state } )
     .then( () => {
       if (this.props.loggedIn) {
-        this.props.history.push('/');
+        this.props.clearSessionErrors().then(
+          this.props.history.push('/')
+        );
       }
     });
   }
 
   cancel () {
-    this.props.history.push('/splash');
+    this.props.clearSessionErrors().then(
+      this.props.history.push('/splash')
+    );
   }
 
   keyPress (e) {
@@ -56,7 +64,7 @@ class SignupForm extends React.Component {
           </label>
           <br/>
 
-          <label>Email:
+          <label>Email <i className="optional-text">(Optional)</i>:
             <br/>
             <input
               type="text" value={email}
