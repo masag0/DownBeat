@@ -4,7 +4,7 @@ import SongListItem from './song_list_item';
 class SongList extends React.Component {
   constructor(props) {
     super(props);
-    
+
   }
 
   componentDidMount () {
