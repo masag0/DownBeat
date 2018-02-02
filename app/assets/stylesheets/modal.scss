@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,300,400,500,600,700,800,900');
+
+
+.addSongModal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+  border: 1px solid #ccc;
+  background: transparent;
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  z-index: 16000;
+}
+
+.addSongModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+}
+
+.addSongModal-header {
+  // font-family: Montserrat;
+  font-size: 70px;
+  font-weight: 700;
+  text-align: center;
+}
