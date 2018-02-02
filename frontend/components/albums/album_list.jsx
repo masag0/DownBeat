@@ -7,11 +7,15 @@ class AlbumList extends React.Component {
   }
 
   componentDidMount () {
-    this.props.getAlbums(this.props.match.params.artistId);
+    if (this.props.match.params.artistId) {
+      this.props.getAlbums(this.props.match.params.artistId);
+    } else {
+      this.props.getAllAlbums();
+    }
   }
 
   componentWillReceiveProps (nextProps) {
-    if (nextProps.location.pathname !== this.props.location.pathname){
+    if (nextProps.match.params.artistId && nextProps.location.pathname !== this.props.location.pathname){
       this.props.getAlbums(nextProps.match.params.artistId);
     }
   }
@@ -21,6 +25,7 @@ class AlbumList extends React.Component {
       return null;
     }
     const {albums} = this.props;
+    console.log(albums);
     return (
       <div>
         <h2 className="category-header">Albums</h2>

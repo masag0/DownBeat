@@ -5,7 +5,11 @@ import AlbumListItem from './album_list_item';
 import {getAlbum} from '../../actions/albums_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  return {album: state.entities.artists[ownProps.match.params.albumId]};
+  if (ownProps.match.params.albumId) {
+    return {artist: state.entities.artists[ownProps.match.params.albumId]};
+  } else {
+    return {album: state.entities.albums[ownProps.id]};
+  }
 };
 
 const mapDispatchToProps = (dispatch) => ({

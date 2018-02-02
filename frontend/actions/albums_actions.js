@@ -33,3 +33,10 @@ export const getAlbum = (albumId) => (dispatch) => {
       }
     );
 };
+
+export const getAllAlbums = () => (dispatch) => {
+  return APIUtil.fetchAllAlbums()
+    .then(
+      response => dispatch(receiveAlbums(response))
+    );
+};

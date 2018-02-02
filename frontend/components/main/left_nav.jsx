@@ -14,12 +14,12 @@ class LeftNav extends React.Component {
           <br />
           <br />
           <br />
-          <h1>Browse</h1>
+          <h1><a href='/#/'>Browse</a></h1>
           <br />
           <br />
           <h1>Genres</h1>
           <h1><a href="/#/artists">Artists</a></h1>
-          <h1>Albums</h1>
+          <h1><a href="/#/albums">Albums</a></h1>
           <h1>Songs</h1>
           <br />
           <br />
