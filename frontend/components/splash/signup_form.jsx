@@ -9,7 +9,6 @@ class SignupForm extends React.Component {
 
     this.update = this.update.bind(this);
     this.cancel = this.cancel.bind(this);
-    this.keyPress = this.keyPress.bind(this);
     this.submitForm = this.submitForm.bind(this);
     this.demo = this.demo.bind(this);
   }
@@ -20,46 +19,45 @@ class SignupForm extends React.Component {
 
   demo () {
     this.props.login({username: "guest", password:"password"})
-    .then(
-      this.props.clearSessionErrors().then(
-        this.props.history.push('/')
-      )
-    );
+    .then( () => {
+      this.props.clearSessionErrors();
+      this.props.history.push('/');
+    });
   }
 
-  submitForm () {
+  submitForm (e) {
+    e.preventDefault();
     this.props.signup( { user: this.state } )
     .then( () => {
       if (this.props.loggedIn) {
-        this.props.clearSessionErrors().then(
-          this.props.history.push('/')
-        );
+        this.props.clearSessionErrors();
+        this.props.history.push('/');
       }
     });
   }
 
   cancel () {
-    this.props.clearSessionErrors().then(
-      this.props.history.push('/splash')
-    );
+    this.props.clearSessionErrors();
+    this.props.history.push('/splash');
   }
-
-  keyPress (e) {
-    if (e.key === 'Enter') {
-      this.submitForm();
-    }
-  }
+  //
+  // keyPress (e) {
+  //   if (e.key === 'Enter') {
+  //     this.submitForm();
+  //   }
+  // }
 
   render () {
     const {username, password, email} = this.state;
     return (
       <div className="modal">
-        <form className="form login">
+        <form className="form login" onSubmit={this.submitForm}>
           <label>Username:
             <br/>
             <input
               type="text" value={username}
               onChange={this.update('username')}
+              required
             />
           </label>
           <br/>
@@ -78,15 +76,14 @@ class SignupForm extends React.Component {
             <input
               type="password" value={password}
               onChange={this.update('password')}
-              onKeyPress={this.keyPress}
+              required
             />
           </label>
 
           <SessionErrorsContainer />
 
           <button
-            type="button"
-            onClick={this.submitForm}
+            type="submit"
           >Sign Up</button>
 
           <div>

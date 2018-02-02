@@ -44,6 +44,11 @@
 .menu-header {
   text-align: right;
   min-width: 40px;
+  div {
+    position: relative;
+    top: -4px;
+    vertical-align: middle;
+  }
 }
 
 .duration-header {
@@ -73,6 +78,10 @@
   text-align: left;
   margin: 0 20px;
   min-width: 720px;
+}
+
+.song-list-item-container:hover {
+  background-color: rgba(255,255,255,0.1);
 }
 
 .song-list-ul {
