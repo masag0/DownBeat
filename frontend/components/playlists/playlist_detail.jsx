@@ -25,6 +25,10 @@ class PlaylistDetail extends React.Component {
     }
     const {songs} = this.props.songs;
     const {id, title, genre, description, img_url, user_id, song_ids, duration} = this.props.playlist;
+    let img = img_url;
+    if (!img_url) {
+      img = "https://s.discogs.com/images/default-label.png";
+    }
 
     return (
       <div>
@@ -34,7 +38,7 @@ class PlaylistDetail extends React.Component {
               <label className="category-detail-label">Playlist</label>
 
               <div className="img-container" id="artist-detail-img">
-                <img className="artist-img" src={img_url}></img>
+                <img className="artist-img" src={img}></img>
               </div>
 
               <label className="artist-detail-label">{title}</label>

@@ -1,0 +1,1 @@
+json.(@playlist_song, :song_id, :playlist_id)

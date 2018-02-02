@@ -1,5 +1,5 @@
 import React from 'react';
-import SongListItem from './song_list_item';
+import SongListItemContainer from './song_list_item_container';
 import lodash from 'lodash';
 
 class SongList extends React.Component {
@@ -29,8 +29,11 @@ class SongList extends React.Component {
     //     .filter(song => this.props.playlist.song_ids.includes(song.id));
 
 
+    if (this.props.match.params.albumId) {
+      songs = songs.sort((a,b) => a.track_num > b.track_num);
+    }
 
-    songs = songs.sort((a,b) => a.track_num > b.track_num);
+
     return (
       <div className="song-list-container">
         <h2 className="category-header" id="song-list-header">
@@ -45,7 +48,7 @@ class SongList extends React.Component {
           {
             songs.map(song => {
               return (
-                <SongListItem
+                <SongListItemContainer
                   key={song.id}
                   song={song}
                 />

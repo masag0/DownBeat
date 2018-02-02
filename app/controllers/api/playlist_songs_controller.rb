@@ -2,12 +2,20 @@ class Api::PlaylistSongsController < ApplicationController
 
   def create
     @playlist_song = PlaylistSong.new(playlist_song_params)
-    render :show
+    if @playlist_song.save
+      render :show
+    else
+      render @playlist_song.errors.full_messages, status: 422
+    end
   end
 
   def destroy
     @playlist_song = PlaylistSong.find_by(id: params[:id])
-    render json: "" if @playlist_song.destroy
+    if @playlist_song.destroy
+      render json: ""
+    else
+      render "Not Found", status: 404
+    end
   end
 
   private

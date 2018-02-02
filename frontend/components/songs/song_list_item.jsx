@@ -1,5 +1,5 @@
 import React from 'react';
-
+// import SongDetailMenuContainer from '../menus/song_detail_menu_container';
 
 class SongList extends React.Component {
   constructor(props) {
@@ -7,6 +7,13 @@ class SongList extends React.Component {
 
     this.menuHoverEnter = this.menuHoverEnter.bind(this);
     this.menuHoverLeave = this.menuHoverLeave.bind(this);
+    this.addToPlaylist = this.addToPlaylist.bind(this);
+  }
+
+  componentDidMount() {
+    if (!this.props.match.params.playlistId) {
+      document.getElementById("remove-song-menu-li").classList.add("hidden");
+    }
   }
 
   menuHoverEnter () {
@@ -19,6 +26,10 @@ class SongList extends React.Component {
     menu.classList.add("hidden");
   }
 
+  addToPlaylist () {
+    this.props.addSong(this.props.playlistId, this.props.songId);
+  }
+
   render() {
     const {id, track_num, title, link, duration, album, artist }= this.props.song;
     return (
@@ -27,22 +38,24 @@ class SongList extends React.Component {
         <a><div className="title-header">{title}</div></a>
         <a href={`/#/artists/${artist.id}`}><div className="artist-header">{artist.name}</div></a>
         <a href={`/#/albums/${album.id}`}><div className="album-header">{album.title}</div></a>
-        <a>
-          <div className="menu-header song-detail-menu">
-            <div className="song-detail-menu-container">
-              <div className="dots hidden" id={`#${id}`}>. . .</div>
-              <nav className="song-detail dropdown-content">
-                <ul className="song-detail dropdown-ul">
-                  <li><a>Add to Queue</a></li>
-                  <li><a>Add to Playlist</a></li>
-                  <li><a>Save to Library</a></li>
-                  <li><a>Remove from this Playlist</a></li>
-                  <li><a>Share</a></li>
-                </ul>
-              </nav>
-            </div>
+
+
+        <div className="menu-header song-detail-menu">
+          <div className="song-detail-menu-container">
+            <div className="dots hidden" id={`#${this.props.song.id}`}>. . .</div>
+            <nav className="song-detail dropdown-content">
+              <ul className="song-detail dropdown-ul">
+                <li><a>Add to Queue</a></li>
+                <li><a onClick={this.addToPlaylist}>Add to Playlist</a></li>
+                <li><a>Save to Library</a></li>
+                <li id="remove-song-menu-li"><a>Remove from this Playlist</a></li>
+                <li><a>Share</a></li>
+              </ul>
+            </nav>
           </div>
-        </a>
+        </div>
+
+
         <a><div className="duration-header">{duration}</div></a>
 
       </li>
