@@ -1,1 +1,1 @@
-json.(album, :id, :title, :genre, :description, :year, :artist_id, :duration, :img_url)
+json.(album, :id, :title, :genre, :description, :year, :artist, :artist_id, :duration, :img_url)

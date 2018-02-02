@@ -4,7 +4,7 @@
 #song-list-header {
   font-size: 14px;
   color: gray;
-  padding: 5px 0;
+  padding: 5px 10px;
   display: flex;
   justify-content: space-between;
   margin: 0 20px;
@@ -46,7 +46,7 @@
   min-width: 40px;
   div {
     position: relative;
-    top: -4px;
+    top: -1.5px;
     vertical-align: middle;
   }
 }
@@ -59,6 +59,8 @@
 .song-list-container {
   overflow-x: scroll;
   margin: 30px 0;
+  margin-bottom: -250px; //for dropdown y overflow
+  padding-bottom: 250px;
 }
 
 .top-header:hover {
@@ -70,7 +72,7 @@
   font-family: Montserrat;
   font-weight: 200;
   font-size: 16px;
-  padding: 10px 0;
+  padding: 10px 10px;
   margin: 10px 0;
   border-bottom: 1px solid rgba(90, 90, 90, 0.5);
   display: flex;
@@ -86,4 +88,73 @@
 
 .song-list-ul {
   margin-bottom: 100px;
+
 }
+
+//dropdown menu
+
+.song-detail-menu {
+  font-weight: 700;
+  min-height: 10px;
+  position: relative;
+}
+
+.song-detail-menu:hover {
+  cursor: pointer;
+  text-shadow: 0 0 20px #fff;
+}
+
+.song-detail-menu-container {
+  // display: none;
+  transition: all 1 ease-out;
+  &:hover, &:focus, &:active {
+    .dots {
+      display: none;
+      // transition: all 1 ease-out;
+    }
+    .dropdown-content {
+      display: block;
+      position: absolute;
+      background: rgba(40,40,40,0.9);
+      box-shadow: 0 0 20px #000;
+      border-radius: 10px;
+      left: -10px;
+      top: -5px;
+      width: 180px;
+      // height: 200px;
+      z-index: 9001;
+      transition: all 1s ease-in;
+    }
+  }
+}
+
+.dropdown-ul {
+  text-align: left;
+  padding: 15px;
+  font-weight: 200;
+  font-family: Montserrat;
+  font-size: 13px;
+  text-shadow: none;
+  li {
+
+    border-bottom: 1px solid rgba(90, 90, 90, 0.5);
+    padding: 9px;
+
+    &:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

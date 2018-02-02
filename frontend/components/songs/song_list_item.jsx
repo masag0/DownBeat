@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 class SongList extends React.Component {
   constructor(props) {
     super(props);
@@ -9,13 +10,13 @@ class SongList extends React.Component {
   }
 
   menuHoverEnter () {
-    const menu = document.querySelector(".song-detail-menu");
-    menu.classList.toggle(this.props.song.id + "hidden");
+    const menu = document.getElementById(`#${this.props.song.id}`);
+    menu.classList.remove("hidden");
   }
 
   menuHoverLeave () {
-    const menu = document.querySelector(".song-detail-menu");
-    menu.classList.toggle("hidden");
+    const menu = document.getElementById(`#${this.props.song.id}`);
+    menu.classList.add("hidden");
   }
 
   render() {
@@ -26,7 +27,22 @@ class SongList extends React.Component {
         <a><div className="title-header">{title}</div></a>
         <a href={`/#/artists/${artist.id}`}><div className="artist-header">{artist.name}</div></a>
         <a href={`/#/albums/${album.id}`}><div className="album-header">{album.title}</div></a>
-        <a><div className="menu-header"><div className={`${id} song-detail-menu hidden`}>. . .</div></div></a>
+        <a>
+          <div className="menu-header song-detail-menu dropbtn">
+            <div  className="song-detail-menu-container ">
+              <div className="dots hidden" id={`#${id}`}>. . .</div>
+              <nav className="song-detail dropdown-content hidden">
+                <ul className="song-detail dropdown-ul">
+                  <li><a>Add to Queue</a></li>
+                  <li><a>Add to Playlist</a></li>
+                  <li><a>Save to Library</a></li>
+                  <li><a>Remove from this Playlist</a></li>
+                  <li><a>Share</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </a>
         <a><div className="duration-header">{duration}</div></a>
 
       </li>

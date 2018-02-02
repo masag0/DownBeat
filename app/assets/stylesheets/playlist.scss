@@ -1,18 +1,23 @@
 .detail-button-container {
-  position: relative;
-  bottom: -30px;
+  position: absolute;
+  bottom: -45px;
+  margin: 0;
+  min-width: 190px;
 }
 
 button.play-button {
   width: 140px;
-  margin: 20px 10px;
+  margin-right: 20px;
 }
 
 button.etc-button {
+  font-family: Montserrat;
+  font-size: 15px;
   $button-background: #1ed760;
   width: 30px;
   background: transparent;
   border: 1px solid white;
+  font-weight: 700;
 
   &:hover, &:focus {
     font-weight: bold;
@@ -27,5 +32,12 @@ button.etc-button {
 
   &:active {
     background-color: black;
+  }
+
+
+  div {
+    position: relative;
+    top: -2.8px;
+    vertical-align: middle;
   }
 }

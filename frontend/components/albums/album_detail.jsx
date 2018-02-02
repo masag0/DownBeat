@@ -25,7 +25,7 @@ class AlbumDetail extends React.Component {
       return null;
     }
     const {songs} = this.props.songs;
-    const {id, title, genre, description, img_url, artist_id, duration, year} = this.props.album;
+    const {id, title, genre, description, img_url, artist, duration, year} = this.props.album;
     return (
       <div>
         <div className="row-flex">
@@ -42,12 +42,13 @@ class AlbumDetail extends React.Component {
           </header>
 
           <section className="detail-text">
-            <span className="genre-text">{genre}</span>
-            <span className="genre-text">{year}</span>
+            <span className="genre-text">{artist.genre}</span>
+            <span className="year-text">{year}</span>
+            <span className="artist-text"><a href={`/#/artists/${artist.id}`}>{artist.name}</a></span>
             <span className="description-text">{description}</span>
             <div className="detail-button-container">
               <button type="button" className="play-button">Play</button>
-              <button type="button" className="etc-button">. . .</button>
+              <button type="button" className="etc-button"><div>. . .</div></button>
             </div>
           </section>
 
