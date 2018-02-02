@@ -59,6 +59,12 @@
   // top: -3px;
 }
 
+.artist-text:hover {
+  text-shadow: 0 0 10px #fff;
+  text-decoration: underline;
+  transition: all 0.2s ease-in;
+}
+
 .detail-text {
   display: flex;
   flex-direction: column;

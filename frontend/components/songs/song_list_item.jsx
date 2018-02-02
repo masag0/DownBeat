@@ -28,10 +28,10 @@ class SongList extends React.Component {
         <a href={`/#/artists/${artist.id}`}><div className="artist-header">{artist.name}</div></a>
         <a href={`/#/albums/${album.id}`}><div className="album-header">{album.title}</div></a>
         <a>
-          <div className="menu-header song-detail-menu dropbtn">
-            <div  className="song-detail-menu-container ">
+          <div className="menu-header song-detail-menu">
+            <div className="song-detail-menu-container">
               <div className="dots hidden" id={`#${id}`}>. . .</div>
-              <nav className="song-detail dropdown-content hidden">
+              <nav className="song-detail dropdown-content">
                 <ul className="song-detail dropdown-ul">
                   <li><a>Add to Queue</a></li>
                   <li><a>Add to Playlist</a></li>

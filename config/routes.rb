@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
     resources :songs, only: [:show]
     resources :playlists, only: [:update, :destroy, :show]
+    resources :playlistsongs, only: [:create, :destroy]
 
     get '/albums', to: 'albums#all'
     get '/songs', to: 'songs#all'

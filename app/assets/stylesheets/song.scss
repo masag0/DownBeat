@@ -105,14 +105,17 @@
 }
 
 .song-detail-menu-container {
-  // display: none;
-  transition: all 1 ease-out;
+  .dropdown-content {
+    display: none;
+    transition: all 1s ease-out;
+  }
   &:hover, &:focus, &:active {
     .dots {
       display: none;
-      // transition: all 1 ease-out;
+      transition: all 1s ease-out;
     }
     .dropdown-content {
+      transition: all 1s ease-in;
       display: block;
       position: absolute;
       background: rgba(40,40,40,0.9);
@@ -123,25 +126,28 @@
       width: 180px;
       // height: 200px;
       z-index: 9001;
-      transition: all 1s ease-in;
     }
   }
 }
 
 .dropdown-ul {
+  transition: all 1s ease-in;
   text-align: left;
   padding: 15px;
   font-weight: 200;
   font-family: Montserrat;
   font-size: 13px;
   text-shadow: none;
+  color: rgba(255,255,255,0.6);
   li {
-
+    transition: all 0.1s ease-in;
     border-bottom: 1px solid rgba(90, 90, 90, 0.5);
     padding: 9px;
 
     &:hover {
       background-color: rgba(255,255,255,0.1);
+      color: white;
+      text-shadow: 0 0 10px #fff;
     }
   }
 }

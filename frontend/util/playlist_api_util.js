@@ -11,3 +11,19 @@ export const fetchPlaylist = (playlistId) => (
     url: `api/playlists/${playlistId}`
   })
 );
+
+export const createPlaylist = (playlist) => (
+  $.ajax({
+    method: 'POST',
+    url: 'api/playlists',
+    data: {playlist}
+  })
+);
+
+export const addSong = (playlist_song) => (
+  $.ajax({
+    method: 'POST',
+    url: 'api/playlistsongs',
+    data: {playlist_song}
+  })
+);

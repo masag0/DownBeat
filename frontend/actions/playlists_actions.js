@@ -3,6 +3,8 @@ import {receiveSongs} from './songs_actions';
 
 export const RECEIVE_PLAYLIST = 'RECEIVE_PLAYLIST';
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
+export const ADD_SONG = 'ADD_SONG';
+export const ADD_SONGS = 'ADD_SONGS';
 
 export const receivePlaylist = (playlist) => ({
   type: RECEIVE_PLAYLIST,
@@ -12,6 +14,16 @@ export const receivePlaylist = (playlist) => ({
 export const receivePlaylists = (playlists) => ({
   type: RECEIVE_PLAYLISTS,
   data: playlists
+});
+
+export const addSong = (song) => ({
+  type: ADD_SONG,
+  data: song
+});
+
+export const addSongs = (songs) => ({
+  type: ADD_SONGS,
+  data: songs
 });
 
 
@@ -33,3 +45,45 @@ export const getPlaylist = (playlistId) => (dispatch) => {
       }
     );
 };
+
+// export const addSong = () => (dispatch) => {
+//   return
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
