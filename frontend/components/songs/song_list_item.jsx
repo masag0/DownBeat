@@ -100,7 +100,9 @@ class SongList extends React.Component {
                         </header>
                         <section className="addSongModal-playlist-container">
                           <button onClick={this.closeModal}>Close</button>
-                          
+                          {
+
+                          }
                         </section>
 
                       </div>

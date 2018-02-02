@@ -80,7 +80,7 @@ $green: #1ed760;
   position: relative;
   min-height: 28px;
   width: 20px;
-  height: 35px;
+  height: 20%;
   border-bottom: 1px solid $lightgray;
 }
 
@@ -139,6 +139,20 @@ $green: #1ed760;
     }
   }
 }
+
+
+
+
+
+//
+// .modal-container {
+//   position: fixed;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   background-color: transparent;
+// }
 
 .modal {
 
