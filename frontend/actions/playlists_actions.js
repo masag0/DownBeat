@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/playlist_api_util';
+import {receiveSongs} from './songs_actions';
 
 export const RECEIVE_PLAYLIST = 'RECEIVE_PLAYLIST';
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
@@ -24,8 +25,11 @@ export const getPlaylists = (userId) => (dispatch) => {
 };
 
 export const getPlaylist = (playlistId) => (dispatch) => {
-  return APIUtil.fetchPlaylists(playlistId)
+  return APIUtil.fetchPlaylist(playlistId)
     .then(
-      response => dispatch(receivePlaylists(response))
+      response => {
+        dispatch(receivePlaylist(response.playlist));
+        dispatch(receiveSongs(response.songs));
+      }
     );
 };

@@ -10,10 +10,13 @@ class PlaylistDetail extends React.Component {
 
   }
 
-  componentDidMount() {
-    // console.log(this.props.location.pathname);
-    this.props.getPlaylist();
-    // this.props.getAllSongs();
+  componentDidMount () {
+    this.props.getPlaylist(this.props.match.params.playlistId);
+  }
+  componentWillReceiveProps (nextProps) {
+    if (this.props.match.params.playlistId !== nextProps.match.params.playlistId) {
+      this.props.getPlaylist(nextProps.match.params.playlistId);
+    }
   }
 
   render(){
@@ -22,7 +25,7 @@ class PlaylistDetail extends React.Component {
     }
     const {songs} = this.props.songs;
     const {id, title, genre, description, img_url, user_id, song_ids, duration} = this.props.playlist;
-    console.log(song_ids);
+
     return (
       <div>
         <div className="row-flex">

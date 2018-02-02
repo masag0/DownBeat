@@ -10,14 +10,12 @@ const mapStateToProps = (state, ownProps) => {
   return {
     playlist: state.entities.playlists[ownProps.match.params.playlistId],
     songs: lodash.values(state.entities.songs)
-    // .filter(song => state.entities.playlists[playlistId].song_ids.includes(song.id))
+    .filter(song => state.entities.playlists[playlistId].song_ids.includes(song.id))
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  getPlaylist: () => dispatch(getPlaylist(ownProps.match.params.playlistId)),
-  // getAllSongs: () => dispatch(getAllSongs())
-  // getPlaylistSongs: () => dispatch(getPlaylistSongs(ownProps.match.params.playlistId))
+  getPlaylist: (playlistId) => dispatch(getPlaylist(playlistId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistDetail);

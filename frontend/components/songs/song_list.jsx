@@ -8,16 +8,16 @@ class SongList extends React.Component {
 
   }
 
-  componentWillMount () {
-    // this.props.getSongs();
-    this.props.getSongs();
-  }
-
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.location.pathname !== this.props.location.pathname){
-      this.props.getSongs();
-    }
-  }
+  // componentWillMount () {
+  //   // this.props.getSongs();
+  //   this.props.getSongs();
+  // }
+  //
+  // componentWillReceiveProps (nextProps) {
+  //   if (nextProps.location.pathname !== this.props.location.pathname){
+  //     this.props.getSongs();
+  //   }
+  // }
 
   render() {
     if (!this.props.songs) {

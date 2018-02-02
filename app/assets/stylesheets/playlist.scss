@@ -1,0 +1,31 @@
+.detail-button-container {
+  position: relative;
+  bottom: -30px;
+}
+
+button.play-button {
+  width: 140px;
+  margin: 20px 10px;
+}
+
+button.etc-button {
+  $button-background: #1ed760;
+  width: 30px;
+  background: transparent;
+  border: 1px solid white;
+
+  &:hover, &:focus {
+    font-weight: bold;
+    cursor: pointer;
+    background: lighten($button-background, 10%);
+  }
+
+  &:focus {
+    // background: transparent;
+    box-shadow: 0 0 15px darken($button-background, 10%);
+  }
+
+  &:active {
+    background-color: black;
+  }
+}
