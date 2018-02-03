@@ -19,7 +19,9 @@ const playlistsReducer = (oldState = initalState, action) => {
       return newState;
 
     case REMOVE_PLAYLIST:
+    console.log('reducer');
       newState = lodash.merge({}, oldState);
+      console.log(newState[action.data]);
       delete newState[action.data];
       return newState;
 

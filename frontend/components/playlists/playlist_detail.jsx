@@ -9,7 +9,7 @@ class PlaylistDetail extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.openDropdown = this.openDropdown.bind(this);
+    this.removePlaylist = this.removePlaylist.bind(this);
   }
 
   componentDidMount () {
@@ -33,10 +33,12 @@ class PlaylistDetail extends React.Component {
     }
   }
 
-  // openDropdown () {
-  //   console.log(document.getElementsByClassName("etc-button")[0]);
-  //   document.getElementsByClassName("playlist-detail-menu-container")[0].classList.toggle("hidden");
-  // }
+  removePlaylist () {
+    this.props.deletePlaylist(this.props.playlist.id)
+      .then(
+        this.props.history.push('/')
+      );
+  }
 
   render(){
     if (!this.props.playlist) {
@@ -77,7 +79,7 @@ class PlaylistDetail extends React.Component {
                       <ul className="playlist-detail dropdown-ul">
                         <li className="save-playlist-menu-li"><a>Save to Library</a></li>
                         <li className="edit-playlist-menu-li"><a>Edit Playlist</a></li>
-                        <li className="delete-playlist-menu-li"><a>Delete Playlist</a></li>
+                        <li className="delete-playlist-menu-li" onClick={this.removePlaylist}><a>Delete Playlist</a></li>
                         <li><a>Share</a></li>
                       </ul>
                     </nav>
