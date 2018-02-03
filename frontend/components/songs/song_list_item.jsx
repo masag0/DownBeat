@@ -113,7 +113,7 @@ class SongList extends React.Component {
                             songId={id}
                             close={this.closeModal}
                           />
-
+                    
                         </section>
 
                       </div>

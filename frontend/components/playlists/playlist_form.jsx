@@ -72,7 +72,7 @@ class LoginForm extends React.Component {
     }
 
     return (
-      <div className="addSongModal-content playlist-modal-content">
+      <div className="playlist-modal-content">
         <header>
           <h2 className="addSongModal-header">{headerText}</h2>
         </header>
