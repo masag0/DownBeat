@@ -153,6 +153,9 @@
       color: white;
       text-shadow: 0 0 10px #fff;
     }
+    &:active {
+      background-color: transparent;
+    }
   }
   li:first-child {
     border-top: 1px solid rgba(90, 90, 90, 0.5);

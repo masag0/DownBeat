@@ -2,7 +2,7 @@
 
 
 .addSongModal {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -21,7 +21,9 @@
 }
 .playlist-form-modal {
   // position: relative;
-
+  label {
+    padding-bottom: 5px;
+  }
 }
 
 .addSongModalOverlay {
@@ -52,5 +54,12 @@
   button {
     margin-top: 40px;
   }
+}
+
+.addSongModal-content {
+  overflow: scroll;
+}
+.addSongModal-content .playlist-modal-content{
+  overflow: hidden;
 }
 

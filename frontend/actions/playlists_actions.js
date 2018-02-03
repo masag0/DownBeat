@@ -5,6 +5,7 @@ export const RECEIVE_PLAYLIST = 'RECEIVE_PLAYLIST';
 export const RECEIVE_PLAYLISTS = 'RECEIVE_PLAYLISTS';
 export const ADD_SONG = 'ADD_SONG';
 export const ADD_SONGS = 'ADD_SONGS';
+export const REMOVE_PLAYLIST = 'REMOVE_PLAYLIST';
 
 export const receivePlaylist = (playlist) => ({
   type: RECEIVE_PLAYLIST,
@@ -24,6 +25,11 @@ export const addSong = (song) => ({
 export const addSongs = (songs) => ({
   type: ADD_SONGS,
   data: songs
+});
+
+export const removePlaylist = (playlistId) => ({
+  type: REMOVE_PLAYLIST,
+  data: playlistId
 });
 
 
@@ -46,16 +52,19 @@ export const getPlaylist = (playlistId) => (dispatch) => {
     );
 };
 
-export const createPlaylist = (playlist) => (dispatch => {
+export const createPlaylist = (playlist) => (dispatch) => {
   return APIUtil.createPlaylist(playlist)
     .then(
       response => dispatch(receivePlaylist(response.playlist))
     );
-});
+};
 
-// export const addSong = () => (dispatch) => {
-//   return
-// }
+export const deletePlaylist = (playlistId) => (dispatch) => {
+  return APIUtil.deletePlaylist(playlistId)
+    .then(
+      response => dispatch(removePlaylist(playlistId))
+    );
+};
 
 
 

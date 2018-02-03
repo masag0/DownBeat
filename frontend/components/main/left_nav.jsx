@@ -89,7 +89,7 @@ class LeftNav extends React.Component {
             }}
             contentLabel="Example Modal"
           >
-            <div className="addSongModal-content">
+            <div className="addSongModal-content playlist-modal-content">
               <header>
                 <h2 className="addSongModal-header">Create New Playlist</h2>
               </header>
@@ -102,9 +102,6 @@ class LeftNav extends React.Component {
 
 
           </ReactModal>
-
-
-
 
 
 

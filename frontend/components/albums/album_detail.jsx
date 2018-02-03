@@ -12,6 +12,7 @@ class AlbumDetail extends React.Component {
 
   componentDidMount() {
     this.props.getAlbum(this.props.match.params.albumId);
+
   }
 
   componentWillReceiveProps (nextProps) {
@@ -48,7 +49,20 @@ class AlbumDetail extends React.Component {
             <span className="description-text">{description}</span>
             <div className="detail-button-container">
               <button type="button" className="play-button">Play</button>
-              <button type="button" className="etc-button"><div>. . .</div></button>
+              <button type="button" className="etc-button">
+                <div>. . .</div>
+
+                <div className="playlist-detail-menu-container">
+                  <nav className="playlist-detail dropdown-content">
+                    <ul className="playlist-detail dropdown-ul">
+                      <li><a>Save to Library</a></li>
+                      <li><a>Remove from your Library</a></li>
+                      <li><a>Share</a></li>
+                    </ul>
+                  </nav>
+                </div>
+
+              </button>
             </div>
           </section>
 

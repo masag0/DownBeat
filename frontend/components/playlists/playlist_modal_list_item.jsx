@@ -8,7 +8,6 @@ class PlaylistModalListItem extends React.Component {
   }
 
   componentDidMount () {
-    console.log(this.props);
   }
 
   addSongToPlaylist () {
@@ -16,7 +15,7 @@ class PlaylistModalListItem extends React.Component {
       this.props.close()
     );
   }
-  
+
 
   render(){
     const {id, title, genre, description, img_url} = this.props.playlist;

@@ -26,7 +26,10 @@ class SongList extends React.Component {
 
   componentDidMount() {
     if (!this.props.match.params.playlistId) {
-      document.getElementById("remove-song-menu-li").classList.add("hidden");
+      const arr = document.getElementsByClassName("remove-song-menu-li");
+      for (let i = 0; i < arr.length; i++) {
+        arr[i].classList.add('hidden');
+      }
     }
   }
 
@@ -119,7 +122,7 @@ class SongList extends React.Component {
                     </ReactModal>
 
                   <li><a>Save to Library</a></li>
-                  <li id="remove-song-menu-li" onClick={this.removeSongFromPlaylist}><a>Remove from this Playlist</a></li>
+                  <li className="remove-song-menu-li" onClick={this.removeSongFromPlaylist}><a>Remove from this Playlist</a></li>
                   <li><a>Share</a></li>
                 </ul>
               </nav>

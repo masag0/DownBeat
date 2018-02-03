@@ -1,5 +1,5 @@
 import React from 'react';
-import {RECEIVE_PLAYLIST, RECEIVE_PLAYLISTS} from '../actions/playlists_actions';
+import {RECEIVE_PLAYLIST, RECEIVE_PLAYLISTS, REMOVE_PLAYLIST} from '../actions/playlists_actions';
 import lodash from 'lodash';
 
 
@@ -16,6 +16,11 @@ const playlistsReducer = (oldState = initalState, action) => {
 
     case RECEIVE_PLAYLISTS:
       newState = lodash.merge({}, oldState, action.data);
+      return newState;
+
+    case REMOVE_PLAYLIST:
+      newState = lodash.merge({}, oldState);
+      delete newState[action.data];
       return newState;
 
     default:
