@@ -135,7 +135,6 @@ class SongList extends React.Component {
 
 
   formatDuration(seconds) {
-    console.log(seconds);
     let minutes = Math.floor(seconds/60);
     seconds = seconds % 60;
     if (seconds < 10) {

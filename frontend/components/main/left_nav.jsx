@@ -17,6 +17,10 @@ class LeftNav extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
+  componentWillMount () {
+    ReactModal.setAppElement('body');
+  }
+
   openModal() {
     this.setState({modalIsOpen: true});
   }

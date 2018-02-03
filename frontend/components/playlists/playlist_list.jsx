@@ -1,22 +1,29 @@
 import React from 'react';
+import lodash from 'lodash';
 // import AlbumListItem from './album_list_item';
 
 class PlaylistList extends React.Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+
+    // this.state = {playlists: {}};
+
   }
 
   componentDidMount () {
     this.props.getPlaylists();
   }
 
-  handleClick (id) {
-    // this.props.getPlaylistSongs(id);
-  }
+  // componentWillReceiveProps ()  {
+  //   this.props.getPlaylists().then(
+  //
+  //     res => this.setState({playlists: res})
+  //   );
+  // }
 
   render(){
-    const {playlists} = this.props;
+    let {playlists} = this.props;
+    playlists = lodash.values(playlists).filter(el => el.user_id == this.props.currentUser.id);
     return (
       <ul className="left-nav-playlist-list">
         {
@@ -25,7 +32,6 @@ class PlaylistList extends React.Component {
                 <a
                   key={playlist.id}
                   href={`/#/playlists/${playlist.id}`}
-                  onClick={(e) => this.handleClick(playlist.id)}
                 >
                   <li className="left-nav-playlist-item">
                     {playlist.title}

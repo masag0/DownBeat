@@ -1,6 +1,6 @@
 import React from 'react';
 import PlaylistModalListItemContainer from './playlist_modal_list_item_container';
-
+import lodash from 'lodash';
 
 class PlaylistModalList extends React.Component {
   constructor(props) {
@@ -13,7 +13,9 @@ class PlaylistModalList extends React.Component {
 
   render(){
     console.log(this.props);
-    const {playlists} = this.props;
+    let{playlists} = this.props;
+    playlists = lodash.values(playlists)
+    .filter(el => el.user_id == this.props.currentUser.id);
     return (
       <section className="main-content-section">
         <h2 className="category-header">Playlists</h2>

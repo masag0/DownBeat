@@ -15,7 +15,6 @@ const songsReducer = (oldState = initalState, action) => {
       return newState;
 
     case RECEIVE_SONGS:
-      console.log(action.data);
       newState = lodash.merge({}, oldState, action.data);
       return newState;
 
