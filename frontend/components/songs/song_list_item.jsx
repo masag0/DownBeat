@@ -12,7 +12,7 @@ class SongList extends React.Component {
 
     this.menuHoverEnter = this.menuHoverEnter.bind(this);
     this.menuHoverLeave = this.menuHoverLeave.bind(this);
-    this.addToPlaylist = this.addToPlaylist.bind(this);
+    this.removeSongFromPlaylist = this.removeSongFromPlaylist.bind(this);
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -39,11 +39,6 @@ class SongList extends React.Component {
     menu.classList.add("hidden");
   }
 
-  addToPlaylist () {
-    this.props.addSong(this.props.playlistId, this.props.songId);
-  }
-
-
   openModal() {
     this.setState({modalIsOpen: true});
   }
@@ -54,6 +49,15 @@ class SongList extends React.Component {
 
   closeModal () {
     this.setState({modalIsOpen: false});
+  }
+
+  removeSongFromPlaylist (e) {
+    this.props.removeSong(
+      this.props.match.params.playlistId,
+      this.props.song.id
+    ).then(
+      // this.
+    );
   }
 
 
@@ -114,7 +118,7 @@ class SongList extends React.Component {
                     </ReactModal>
 
                   <li><a>Save to Library</a></li>
-                  <li id="remove-song-menu-li"><a>Remove from this Playlist</a></li>
+                  <li id="remove-song-menu-li" onClick={this.removeSongFromPlaylist}><a>Remove from this Playlist</a></li>
                   <li><a>Share</a></li>
                 </ul>
               </nav>

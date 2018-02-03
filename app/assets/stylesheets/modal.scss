@@ -36,3 +36,12 @@
 .modal-playlist-item-container {
   cursor: pointer;
 }
+
+.addSongModal-playlist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    margin-top: 40px;
+  }
+}

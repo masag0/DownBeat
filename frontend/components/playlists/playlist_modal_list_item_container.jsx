@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import PlaylistModalListItem from './playlist_modal_list_item';
-import {addSong} from '../../util/playlist_api_util';
+import {addSong, removeSong} from '../../util/playlist_api_util';
 
 
 

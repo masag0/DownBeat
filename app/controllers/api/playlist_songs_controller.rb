@@ -9,10 +9,15 @@ class Api::PlaylistSongsController < ApplicationController
     end
   end
 
-  def destroy
-    @playlist_song = PlaylistSong.find_by(id: params[:id])
+  def delete_song
+
+    @playlist_song = PlaylistSong
+      .find_by(
+        playlist_id: params[:playlist_song][:playlist_id],
+        song_id: params[:playlist_song][:song_id]
+      )
     if @playlist_song.destroy
-      render json: ""
+      render json: "Removed song from this playlist"
     else
       render "Not Found", status: 404
     end

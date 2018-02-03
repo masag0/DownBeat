@@ -50,7 +50,7 @@ class PlaylistDetail extends React.Component {
             <span className="description-text">{description}</span>
             <div className="detail-button-container">
               <button type="button" className="play-button">Play</button>
-              <button type="button" className="etc-button">. . .</button>
+              <button type="button" className="etc-button"><div>. . .</div></button>
             </div>
           </section>
 
