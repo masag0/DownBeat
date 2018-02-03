@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import PlaylistModalListContainer from '../playlists/playlist_modal_list_container';
 
 class SongList extends React.Component {
   constructor(props) {
@@ -48,11 +49,10 @@ class SongList extends React.Component {
   }
 
   afterOpenModal() {
-    // references are now sync'd and can be accessed.
     // this.subtitle.style.color = '#f00';
   }
 
-  closeModal() {
+  closeModal () {
     this.setState({modalIsOpen: false});
   }
 
@@ -70,7 +70,7 @@ class SongList extends React.Component {
 
           <div className="menu-header song-detail-menu">
             <div className="song-detail-menu-container">
-              <div className="dots hidden" id={`#${this.props.song.id}`}>. . .</div>
+              <div className="dots hidden" id={`#${id}`}>. . .</div>
               <nav className="song-detail dropdown-content">
                 <ul className="song-detail dropdown-ul">
                   <li><a>Add to Queue</a></li>
@@ -100,9 +100,12 @@ class SongList extends React.Component {
                         </header>
                         <section className="addSongModal-playlist-container">
                           <button onClick={this.closeModal}>Close</button>
-                          {
 
-                          }
+                          <PlaylistModalListContainer
+                            songId={id}
+                            close={this.closeModal}
+                          />
+
                         </section>
 
                       </div>

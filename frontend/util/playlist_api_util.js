@@ -24,6 +24,6 @@ export const addSong = (playlist_id, song_id) => (
   $.ajax({
     method: 'POST',
     url: 'api/playlist_songs',
-    data: {playlist_song: playlist_id, song_id}
+    data: {playlist_song: {playlist_id, song_id}}
   })
 );
