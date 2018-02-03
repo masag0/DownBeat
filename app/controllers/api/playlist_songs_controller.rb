@@ -16,7 +16,7 @@ class Api::PlaylistSongsController < ApplicationController
         playlist_id: params[:playlist_song][:playlist_id],
         song_id: params[:playlist_song][:song_id]
       )
-    if @playlist_song.destroy
+    if @playlist_song && @playlist_song.destroy
       render json: "Removed song from this playlist"
     else
       render "Not Found", status: 404

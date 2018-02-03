@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
 import PlaylistModalListContainer from '../playlists/playlist_modal_list_container';
 
@@ -56,8 +57,9 @@ class SongList extends React.Component {
       this.props.match.params.playlistId,
       this.props.song.id
     ).then(
-      // this.
+      document.getElementById(`song-list-li#${this.props.song.id}`).classList.add('hidden')
     );
+
   }
 
 
@@ -65,7 +67,7 @@ class SongList extends React.Component {
     const {id, track_num, title, link, duration, album, artist }= this.props.song;
     return (
 
-        <li className="song-list-item-container" onMouseEnter={this.menuHoverEnter} onMouseLeave={this.menuHoverLeave}>
+        <li id={`song-list-li#${id}`} className="song-list-item-container" onMouseEnter={this.menuHoverEnter} onMouseLeave={this.menuHoverLeave}>
           <a><div className="track-num-header">{track_num}</div></a>
           <a><div className="title-header">{title}</div></a>
           <a href={`/#/artists/${artist.id}`}><div className="artist-header">{artist.name}</div></a>
