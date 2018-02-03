@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :show] do
-      resources :playlists, only: [:create, :index]
+      resources :playlists, only: [:index]
     end
 
     resource :sessions, only: [:create, :destroy]
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
 
     resources :songs, only: [:show]
-    resources :playlists, only: [:update, :destroy, :show]
+    resources :playlists, only: [:create, :update, :destroy, :show]
     resources :playlist_songs, only: [:create]
 
     get '/albums', to: 'albums#all'

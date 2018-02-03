@@ -46,6 +46,13 @@ export const getPlaylist = (playlistId) => (dispatch) => {
     );
 };
 
+export const createPlaylist = (playlist) => (dispatch => {
+  return APIUtil.createPlaylist(playlist)
+    .then(
+      response => dispatch(receivePlaylist(response))
+    );
+});
+
 // export const addSong = () => (dispatch) => {
 //   return
 // }

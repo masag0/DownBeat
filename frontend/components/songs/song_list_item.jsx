@@ -16,7 +16,7 @@ class SongList extends React.Component {
     this.removeSongFromPlaylist = this.removeSongFromPlaylist.bind(this);
 
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
+    // this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
@@ -43,10 +43,9 @@ class SongList extends React.Component {
   openModal() {
     this.setState({modalIsOpen: true});
   }
-
-  afterOpenModal() {
-    // this.subtitle.style.color = '#f00';
-  }
+  //
+  // afterOpenModal() {
+  // }
 
   closeModal () {
     this.setState({modalIsOpen: false});
@@ -128,10 +127,21 @@ class SongList extends React.Component {
           </div>
 
 
-          <a><div className="duration-header">{duration}</div></a>
+          <a><div className="duration-header">{this.formatDuration(duration)}</div></a>
 
         </li>
     );
+  }
+
+
+  formatDuration(seconds) {
+    console.log(seconds);
+    let minutes = Math.floor(seconds/60);
+    seconds = seconds % 60;
+    if (seconds < 10) {
+      seconds = "0"+seconds.toString();
+    }
+    return `${minutes}:${seconds}`;
   }
 }
 
