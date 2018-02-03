@@ -35,7 +35,7 @@ class LoginForm extends React.Component {
   render () {
     const {title, description, genre, img_url} = this.state;
     return (
-      <div className="modal">
+      <div className="playlist-form-modal">
         <form className="form playlist" onSubmit={this.submitForm}>
           <label>Title:
             <br/>

@@ -12,7 +12,6 @@ class PlaylistModalList extends React.Component {
   }
 
   render(){
-    console.log(this.props);
     let{playlists} = this.props;
     playlists = lodash.values(playlists)
     .filter(el => el.user_id == this.props.currentUser.id);

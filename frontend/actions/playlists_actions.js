@@ -49,7 +49,7 @@ export const getPlaylist = (playlistId) => (dispatch) => {
 export const createPlaylist = (playlist) => (dispatch => {
   return APIUtil.createPlaylist(playlist)
     .then(
-      response => dispatch(receivePlaylist(response))
+      response => dispatch(receivePlaylist(response.playlist))
     );
 });
 

@@ -2,18 +2,26 @@
 
 
 .addSongModal {
-  position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
-  border: 1px solid #ccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // border: 1px solid #ccc;
   background: transparent;
-  overflow: auto;
+  // overflow: auto;
   border-radius: 4px;
   outline: none;
-  padding: 20px;
   z-index: 16000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 150px;
+  padding-top: 100px;
+}
+.playlist-form-modal {
+  // position: relative;
+
 }
 
 .addSongModalOverlay {
@@ -45,3 +53,4 @@
     margin-top: 40px;
   }
 }
+
