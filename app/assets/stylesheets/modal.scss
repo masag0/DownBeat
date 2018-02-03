@@ -58,6 +58,9 @@
 
 .addSongModal-content {
   overflow: scroll;
+  width: 75%;
+  min-width: 650px;
+  max-width: 800px;
 }
 .addSongModal-content .playlist-modal-content{
   overflow: hidden;

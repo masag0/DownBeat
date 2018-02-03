@@ -66,6 +66,13 @@ export const deletePlaylist = (playlistId) => (dispatch) => {
     );
 };
 
+export const updatePlaylist = (playlist) => (dispatch) => {
+  return APIUtil.updatePlaylist(playlist)
+    .then(
+      response => dispatch(receivePlaylist(response.playlist))
+    );
+};
+
 
 
 

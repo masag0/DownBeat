@@ -1,6 +1,9 @@
 import React from 'react';
 import {ProtectedRoute} from '../../util/route_util';
 import {Route} from 'react-router-dom';
+import ReactModal from 'react-modal';
+import PlaylistFormContainer from './playlist_form_container';
+
 
 import SongListContainer from '../songs/song_list_container';
 
@@ -9,7 +12,16 @@ class PlaylistDetail extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { modalIsOpen: false };
+
     this.removePlaylist = this.removePlaylist.bind(this);
+
+    this.openModal = this.openModal.bind(this);
+    // this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+
+    // this.openDropdown = this.openDropdown.bind(this);
+    // this.closeDropdown = this.closeDropdown.bind(this);
   }
 
   componentDidMount () {
@@ -39,6 +51,27 @@ class PlaylistDetail extends React.Component {
         this.props.history.push('/')
       );
   }
+
+  openModal() {
+    this.setState({modalIsOpen: true});
+    this.closeDropdown();
+  }
+  //
+  // afterOpenModal() {
+  // }
+
+  closeModal () {
+    this.setState({modalIsOpen: false});
+  }
+
+  // openDropdown () {
+  //   document.getElementsByClassName('playlist-detail-menu-container')[0].classList.remove("hidden");
+  // }
+  //
+  // closeDropdown() {
+  //   document.getElementsByClassName('playlist-detail-menu-container')[0].classList.add("hidden");
+  // }
+
 
   render(){
     if (!this.props.playlist) {
@@ -77,8 +110,39 @@ class PlaylistDetail extends React.Component {
                   <div className="playlist-detail-menu-container">
                     <nav className="playlist-detail dropdown-content">
                       <ul className="playlist-detail dropdown-ul">
-                        <li className="save-playlist-menu-li"><a>Save to Library</a></li>
-                        <li className="edit-playlist-menu-li"><a>Edit Playlist</a></li>
+                        <li className="save-playlist-menu-li" ><a>Save to Library</a></li>
+                        <li className="edit-playlist-menu-li" onClick={this.openModal}><a>Edit Playlist</a></li>
+
+                          <ReactModal
+
+                            isOpen={this.state.modalIsOpen}
+                            onAfterOpen={this.afterOpenModal}
+                            onRequestClose={this.closeModal}
+
+                            className={{
+                              base: 'addSongModal',
+                              afterOpen: 'addSongModal_after-open',
+                              beforeClose: 'addSongModal_before-close'
+                            }}
+                            overlayClassName={{
+                              base: 'addSongModalOverlay',
+                              afterOpen: 'addSongModalOverlay_after-open',
+                              beforeClose: 'addSongModalOverlay_before-close'
+                            }}
+                            contentLabel="Example Modal"
+                          >
+
+
+                              <PlaylistFormContainer
+                                playlist={this.props.playlist}
+                                close={this.closeModal}
+                              />
+
+
+
+
+                          </ReactModal>
+
                         <li className="delete-playlist-menu-li" onClick={this.removePlaylist}><a>Delete Playlist</a></li>
                         <li><a>Share</a></li>
                       </ul>
