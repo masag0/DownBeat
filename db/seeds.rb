@@ -22,6 +22,8 @@ Snarky Puppy next signed to Impulse! and released Sylva, a collaboration with th
 Artist.create(name: "Hiatus Kaiyote", genre: "Jazz", img_url: 'https://www.billboard.com/files/styles/article_main_image/public/media/hiatus-kaiyote-press-2014-billboard-650.jpg')
 Artist.create(name: "Moonchild", genre: "Jazz", img_url: 'https://f4.bcbits.com/img/0009860726_10.jpg')
 Artist.create(name: "John Mayer", genre: "Pop", img_url: 'https://www.billboard.com/files/media/john-mayer-aug-2017-billboard-1548.jpg')
+Artist.create(name: "Hans Zimmer", genre: "Instrumental", img_url: 'https://www.billboard.com/files/media/Hans-Zimmer-cr-Zoe-Zimmer-2016-billboard-1548.jpg')
+Artist.create(name: "Chick Corea", genre: "Jazz", img_url: 'http://www.theshedd.org/uh/scaleimage.ashx?id=7383&width=400')
 
 Album.create(title: "We Like It Here", year: 2014, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/41m1ZveietL.jpg', description: 'From the moment Snarky Puppy played its first overseas show to a sold-out London crowd, they felt at home in Europe. Recorded and filmed live with a studio audience over 4 nights in the Netherlands, \'We Like It Here\' captures the band at its most explorative point in its career, in both composition and improvisation. ')
 Album.create(title: "Ground Up", year: 2012, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/51Bx2nsBpRL.jpg')
@@ -54,6 +56,7 @@ Song.create(title: "Lingus", track_num: 8, duration: minutes_to_seconds('10:45')
 
 Playlist.create(title: "My Playlist", description: "a cool playlist", genre: "jazz", user_id: 1)
 Playlist.create(title: "My Playlist 2", description: "another cool playlist", genre: "jazz", user_id: 1)
+Playlist.create(title: "Chillhop", description: "Chill beats", genre: "Chillhop", user_id: 1, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
 
 
 
@@ -89,6 +92,6 @@ Song.create(title: "The Isles", track_num: 11, duration: minutes_to_seconds('12:
 
 
 
-
+Artist.create(name: "Allen Stone", genre: "R&B/Soul", img_url: 'https://www.out.com/sites/out.com/files/2016/03/15/allen-stone.jpg')
 
 

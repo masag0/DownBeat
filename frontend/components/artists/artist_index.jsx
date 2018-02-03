@@ -14,6 +14,9 @@ class ArtistIndex extends React.Component {
 
   render(){
     const {artists} = this.props;
+
+    artists.sort((a, b) => a.name > b.name);
+
     return (
       <section className="main-content-section">
         <h2 className="category-header">Artists</h2>

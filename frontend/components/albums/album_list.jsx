@@ -25,7 +25,9 @@ class AlbumList extends React.Component {
       return null;
     }
     const {albums} = this.props;
-    console.log(albums);
+
+    albums.sort((a, b) => a.title > b.title);
+
     return (
       <div>
         <h2 className="category-header">Albums</h2>
