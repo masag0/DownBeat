@@ -124,12 +124,21 @@ button {
   }
 }
 
+#top-nav-search {
+  width: 50%;
+}
 #main-search-bar {
+  font-size: 16px;
   margin: 10px;
-  padding: 7px;
-  width: 175px;
-  height: 20px;
+  padding: 10px;
+  min-width: 175px;
+  width: 45%;
+  height: 25px;
   border-radius: 20px;
+  color: gray;
+  &:focus {
+    color: black;
+  }
 }
 
 h1:hover {

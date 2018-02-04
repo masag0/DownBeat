@@ -83,12 +83,12 @@ class Player extends React.Component {
           <div id="bar"><div id="progress"></div></div>
         </div>
 
-        <div className="btn" id="playlistBtn"></div>
 
         <div id="volume" className="fadeout" id="volume-container">
+          <div className="btn" id="playlistBtn"></div>
+          <div id="volumeBtn"></div>
           <div id="barFull" className="bar"></div>
           <div id="barEmpty" className="bar"></div>
-          <div id="sliderBtn"></div>
         </div>
 
 

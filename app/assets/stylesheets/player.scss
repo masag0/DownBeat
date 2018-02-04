@@ -63,20 +63,28 @@ $green: #1ed760;
   background-image: image-url('play-button');
   background-size: cover;
   // position: absolute;
+  &:hover {
+    box-shadow: 0 0 15px $green;
+    transition: all 0.5s ease;
+  }
+  &:active {
+    box-shadow: 0 0 15px white;
+    transition: none;
+  }
 }
 
-#playBtn:hover {
-  box-shadow: 0 0 15px $green;
-  transition: all 0.5s ease;
-}
-#playBtn:active {
-  box-shadow: 0 0 15px white;
-  transition: none;
-}
 
 #pauseBtn {
   background-image: image-url('pause-button');
   background-size: cover;
+  &:hover {
+    box-shadow: 0 0 15px $green;
+    transition: all 0.5s ease;
+  }
+  &:active {
+    box-shadow: 0 0 15px white;
+    transition: none;
+  }
 }
 #prevBtn {
   width: 20px;
@@ -109,6 +117,8 @@ $green: #1ed760;
 
 
 #volume-container {
+  display: flex;
+  align-items: center;
   width: 15%;
   min-width: 150px;
   height: 80px;
