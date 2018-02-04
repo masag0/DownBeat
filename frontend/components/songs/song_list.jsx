@@ -30,7 +30,6 @@ class SongList extends React.Component {
 
 
     if (this.props.match.params.albumId) {
-      console.log('sort');
       songs = songs.sort((a,b) => a.track_num - b.track_num);
     }
 

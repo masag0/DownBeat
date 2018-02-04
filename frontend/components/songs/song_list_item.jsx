@@ -14,6 +14,7 @@ class SongList extends React.Component {
     this.menuHoverEnter = this.menuHoverEnter.bind(this);
     this.menuHoverLeave = this.menuHoverLeave.bind(this);
     this.removeSongFromPlaylist = this.removeSongFromPlaylist.bind(this);
+    this.playSong = this.playSong.bind(this);
 
     this.openModal = this.openModal.bind(this);
     // this.afterOpenModal = this.afterOpenModal.bind(this);
@@ -64,6 +65,10 @@ class SongList extends React.Component {
 
   }
 
+  playSong (song) {
+    this.props.playSong(song);
+  }
+
 
   render() {
     const {id, track_num, title, link, duration, album, artist }= this.props.song;
@@ -71,7 +76,7 @@ class SongList extends React.Component {
 
         <li id={`song-list-li#${id}`} className="song-list-item-container" onMouseEnter={this.menuHoverEnter} onMouseLeave={this.menuHoverLeave}>
           <a><div className="track-num-header">{track_num}</div></a>
-          <a><div className="title-header">{title}</div></a>
+          <a><div className="title-header" onClick={() => this.playSong(this.props.song)}>{title}</div></a>
           <a href={`/#/artists/${artist.id}`}><div className="artist-header">{artist.name}</div></a>
           <a href={`/#/albums/${album.id}`}><div className="album-header">{album.title}</div></a>
 
@@ -113,7 +118,7 @@ class SongList extends React.Component {
                             songId={id}
                             close={this.closeModal}
                           />
-                    
+
                         </section>
 
                       </div>

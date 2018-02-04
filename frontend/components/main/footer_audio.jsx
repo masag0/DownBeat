@@ -1,4 +1,5 @@
 import React from 'react';
+import PlayerContainer from '../player/player_container';
 
 class FooterAudio extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class FooterAudio extends React.Component {
   render(){
     return (
       <footer id="footer-audio">
-        <h1>Footer Audio</h1>
+        <PlayerContainer />
       </footer>
     );
   }

@@ -1,0 +1,128 @@
+$green: #1ed760;
+
+#footer-audio {
+  display: flex;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: rgb(45, 45, 45);
+  border-top: 1px solid black;
+}
+
+
+.player-container {
+  position: relative;
+  display: flex;
+  // justify-content: space-between;
+  // border: 1px solid gray;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.song-info-container {
+  border: 1px solid gray;
+  width: 180px;
+  height: 80px;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+}
+
+.controlsOuter {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-width: 300px;
+  height: 80px;
+  // border: 1px solid gray;
+  position: absolute;
+  left: 25%;
+  padding: 5px;
+
+}
+
+.controlsInner {
+  display: flex;
+  justify-content: center;
+  margin-top: 3px;
+}
+
+#playBtn, #pauseBtn, #prevBtn, #nextBtn, #shuffleBtn, #repeatBtn {
+  width: 35px;
+  height: 35px;
+  // border: 1px solid gray;
+  margin: 0 15px 10px 15px;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+#playBtn {
+  background-image: image-url('play-button');
+  background-size: cover;
+  // position: absolute;
+}
+
+#playBtn:hover {
+  box-shadow: 0 0 15px $green;
+  transition: all 0.5s ease;
+}
+#playBtn:active {
+  box-shadow: 0 0 15px white;
+  transition: none;
+}
+
+#pauseBtn {
+  background-image: image-url('pause-button');
+  background-size: cover;
+}
+#prevBtn {
+  width: 20px;
+  height: 20px;
+  background-image: image-url('prev-button');
+  background-size: cover;
+  margin-top: 8px;
+}
+#nextBtn {
+  width: 20px;
+  height: 20px;
+  background-image: image-url('next-button');
+  background-size: cover;
+  margin-top: 8px;
+}
+#shuffleBtn {
+  width: 17px;
+  height: 17px;
+  background-image: image-url('shuffle-button');
+  background-size: cover;
+  margin-top: 10px;
+}
+#repeatBtn {
+  width: 17px;
+  height: 17px;
+  background-image: image-url('repeat-button');
+  background-size: cover;
+  margin-top: 10px;
+}
+
+
+#volume-container {
+  width: 15%;
+  min-width: 150px;
+  height: 80px;
+  border: 1px solid gray;
+  position: absolute;
+  right: 0;
+}
+
+#bar {
+  margin: 10px;
+  // border: 1px solid gray;
+  height: 5px;
+  width: 100%;
+  border-radius: 10px;
+  background: rgb(70,70,70);
+}
+
