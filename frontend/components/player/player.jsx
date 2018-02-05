@@ -65,9 +65,30 @@ class Player extends React.Component {
   }
 
   render () {
+    console.log(this.props.nowPlaying);
+    let song = "";
+    let artist = "";
+    let album = "";
+    let img = "";
+
+    if (this.props.nowPlaying.title) {
+      song = this.props.nowPlaying;
+      artist = this.props.nowPlaying.artist;
+      album = this.props.nowPlaying.album;
+
+    }
     return (
       <div className="player-container" >
-        <aside className='song-info-container'>{this.props.nowPlaying.title}</aside>
+        <aside className='song-info-container'>
+          <a className="img-container" href={`/#/albums/${album.id}`}>
+              <img className="artist-img" id="song-info-album-img" src={album.img_url}></img>
+          </a>
+          <div className='song-info-text'>
+            <a id="song-info-song-title" href={`/#/albums/${album.id}`}>{song.title}</a>
+            <a id="song-info-artist-name" href={`/#/artists/${artist.id}`}>{artist.name}</a>
+          </div>
+
+        </aside>
 
         <div className="controlsOuter">
 

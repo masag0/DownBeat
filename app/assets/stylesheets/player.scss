@@ -23,12 +23,35 @@ $green: #1ed760;
 }
 
 .song-info-container {
-  border: 1px solid gray;
-  width: 200px;
+  display: flex;
+  align-items: center;
+  // border: 1px solid gray;
+  // width: 200px;
   height: 80px;
   padding: 10px;
   position: absolute;
-  left: 0;
+  left: -15px;
+}
+
+#song-info-album-img {
+  align-self:center;
+}
+
+.song-info-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+  #song-info-song-title {
+    font-size: 18px;
+    margin-left: 5px;
+  }
+  #song-info-artist-name {
+    margin-left: 5px;
+    margin-top: 7px;
+    font-size: 13px;
+    color: gray;
+  }
 }
 
 .controlsOuter {
