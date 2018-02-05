@@ -19,8 +19,8 @@
   padding: 150px;
   padding-top: 100px;
 }
+
 .playlist-form-modal {
-  // position: relative;
   label {
     padding-bottom: 5px;
   }
@@ -62,10 +62,31 @@
   width: 100%;
   // max-width: 800px;
 }
+
+#addSongModal-close-button {
+  width: 100px;
+  height: 100px;
+  background-image: image_url('close-icon.png');
+  background-color: transparent;
+  border-radius: 100px;
+  background-size: cover;
+
+}
+
+
 .playlist-modal-content{
   overflow: hidden;
   width: 75%;
   min-width: 700px;
   max-width: 800px;
+}
+
+.playlistModal {
+  z-index: 17000;
+}
+
+#playlist-create-modal-button {
+  position: relative;
+
 }
 

@@ -15,6 +15,7 @@ class LeftNav extends React.Component {
     this.openModal = this.openModal.bind(this);
     // this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    window.openPlaylistCreateModal = this.openModal.bind(this);
   }
 
   componentWillMount () {
@@ -78,12 +79,12 @@ class LeftNav extends React.Component {
             onRequestClose={this.closeModal}
 
             className={{
-              base: 'addSongModal',
+              base: 'playlistModal addSongModal',
               afterOpen: 'addSongModal_after-open',
               beforeClose: 'addSongModal_before-close'
             }}
             overlayClassName={{
-              base: 'addSongModalOverlay',
+              base: 'playlistModal addSongModalOverlay',
               afterOpen: 'addSongModalOverlay_after-open',
               beforeClose: 'addSongModalOverlay_before-close'
             }}
@@ -95,7 +96,7 @@ class LeftNav extends React.Component {
                 close={this.closeModal}
               />
 
-        
+
           </ReactModal>
 
 

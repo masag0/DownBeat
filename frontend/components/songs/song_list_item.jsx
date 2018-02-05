@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import ReactModal from 'react-modal';
 import PlaylistModalListContainer from '../playlists/playlist_modal_list_container';
 
+
+
 class SongList extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,7 @@ class SongList extends React.Component {
     this.playSong = this.playSong.bind(this);
 
     this.openModal = this.openModal.bind(this);
+
     // this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
@@ -112,7 +115,10 @@ class SongList extends React.Component {
                           <h2 className="addSongModal-header">Add To Playlist</h2>
                         </header>
                         <section className="addSongModal-playlist-container">
-                          <button onClick={this.closeModal}>Close</button>
+                          <button id="addSongModal-close-button" onClick={this.closeModal}></button>
+
+                          <button id="playlist-create-modal-button" onClick={window.openPlaylistCreateModal} >New Playlist</button>
+
 
                           <PlaylistModalListContainer
                             songId={id}
