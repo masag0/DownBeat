@@ -54,7 +54,6 @@ class PlaylistDetail extends React.Component {
 
   openModal() {
     this.setState({modalIsOpen: true});
-    this.closeDropdown();
   }
   //
   // afterOpenModal() {

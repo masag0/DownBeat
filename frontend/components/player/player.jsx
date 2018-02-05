@@ -82,7 +82,7 @@ class Player extends React.Component {
           </div>
 
           <div id="progress-bar-container">
-            <span id="current-time-display">Time</span>
+            <span id="current-time-display"> </span>
             <div id="bar"><div id="progress"></div></div>
             <span id="song-duration-display">{this.formatDuration(this.props.nowPlaying.duration)}</span>
           </div>

@@ -1,5 +1,14 @@
 $green: #1ed760;
 
+#main-logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 15px;
+  height: 50px;
+  width: 180px;
+  background-color: inherit;
+}
 
 #left-nav {
   display: flex;
@@ -7,19 +16,20 @@ $green: #1ed760;
   justify-content: flex-start;
   padding: 20px;
   background-color: rgb(20,20,20);
-  max-height: 90%;
+  height: 84vh;
   width: 200px;
   position: fixed;
   top: 0;
   left: 0;
-  // overflow: scroll;
+  padding-bottom: 30px;
+  overflow: scroll;
   // border: 1px solid white;
 }
 
 .left-nav-playlist-list {
   margin: 9px;
-  overflow: scroll;
-  max-height: 35vh;
+  // overflow: scroll;
+  height: 35vh;
 }
 
 .left-nav-playlist-item {
@@ -52,6 +62,6 @@ $green: #1ed760;
 }
 
 .left-nav-playlists-container {
-  margin-top: 15vh;
+  margin-top: 7vh;
   // max-height: 30%;
 }

@@ -37,7 +37,7 @@ class LeftNav extends React.Component {
   render(){
     return (
       <nav id="left-nav">
-        <h1><a href='/#/'>DownBeat</a></h1>
+        <h1 id="main-logo"><a href='/#/'>DownBeat</a></h1>
         <section className="left-nav-main-menu left-nav-menu">
 
           <h1><a href='/#/'>Browse</a></h1>
