@@ -24,7 +24,7 @@ $green: #1ed760;
 
 .song-info-container {
   border: 1px solid gray;
-  width: 180px;
+  width: 200px;
   height: 80px;
   padding: 10px;
   position: absolute;
@@ -92,6 +92,7 @@ $green: #1ed760;
   background-image: image-url('prev-button');
   background-size: cover;
   margin-top: 8px;
+
 }
 #nextBtn {
   width: 20px;
@@ -99,6 +100,7 @@ $green: #1ed760;
   background-image: image-url('next-button');
   background-size: cover;
   margin-top: 8px;
+
 }
 #shuffleBtn {
   width: 17px;
@@ -106,6 +108,7 @@ $green: #1ed760;
   background-image: image-url('shuffle-button');
   background-size: cover;
   margin-top: 10px;
+
 }
 #repeatBtn {
   width: 17px;
@@ -131,8 +134,31 @@ $green: #1ed760;
   margin: 10px;
   // border: 1px solid gray;
   height: 5px;
-  width: 100%;
+  width: 90%;
   border-radius: 10px;
   background: rgb(70,70,70);
+}
+
+
+#progress-bar-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#current-time-display {
+  position: absolute;
+  font-size: 12px;
+  top: 6px;
+  left: -15px;
+  text-align: right;
+}
+
+#song-duration-display {
+  position: absolute;
+  font-size: 12px;
+  top: 6px;
+  right: -10px;
 }
 

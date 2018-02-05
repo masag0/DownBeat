@@ -29,6 +29,8 @@ class Player extends React.Component {
   componentWillReceiveProps (nextProps) {
     console.log(nextProps);
 
+
+
     let nextSound = new Howl({
       src: [nextProps.nowPlaying.link]
     });
@@ -70,6 +72,7 @@ class Player extends React.Component {
         <aside className='song-info-container'>Song Info</aside>
 
         <div className="controlsOuter">
+
           <div className="controlsInner">
             <div id="loading"></div>
             <div className="btn" id="shuffleBtn"></div>
@@ -80,7 +83,12 @@ class Player extends React.Component {
             <div className="btn" id="repeatBtn"></div>
           </div>
 
-          <div id="bar"><div id="progress"></div></div>
+          <div id="progress-bar-container">
+            <span id="current-time-display">Time</span>
+            <div id="bar"><div id="progress"></div></div>
+            <span id="song-duration-display">{this.formatDuration(this.props.nowPlaying.duration)}</span>
+          </div>
+
         </div>
 
 
@@ -94,6 +102,20 @@ class Player extends React.Component {
 
       </div>
     );
+  }
+
+  formatDuration(seconds) {
+    if (seconds) {
+
+      let minutes = Math.floor(seconds/60);
+      seconds = seconds % 60;
+      if (seconds < 10) {
+        seconds = "0"+seconds.toString();
+      }
+      return `${minutes}:${seconds}`;
+    } else {
+      return "";
+    }
   }
 }
 

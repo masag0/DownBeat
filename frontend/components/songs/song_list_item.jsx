@@ -149,12 +149,17 @@ class SongList extends React.Component {
 
 
   formatDuration(seconds) {
-    let minutes = Math.floor(seconds/60);
-    seconds = seconds % 60;
-    if (seconds < 10) {
-      seconds = "0"+seconds.toString();
+    if (seconds) {
+
+      let minutes = Math.floor(seconds/60);
+      seconds = seconds % 60;
+      if (seconds < 10) {
+        seconds = "0"+seconds.toString();
+      }
+      return `${minutes}:${seconds}`;
+    } else {
+      return "";
     }
-    return `${minutes}:${seconds}`;
   }
 }
 
