@@ -32,7 +32,6 @@ class AlbumDetail extends React.Component {
         <div className="row-flex">
           <header className="playlist-display artist-detail-header" >
 
-              <label className="category-detail-label">Album</label>
 
               <div className="img-container" id="artist-detail-img">
                 <img className="artist-img" src={img_url}></img>
@@ -43,9 +42,12 @@ class AlbumDetail extends React.Component {
           </header>
 
           <section className="detail-text">
+            <label className="category-detail-label">Album</label>
             <span className="genre-text">{artist.genre}</span>
             <span className="year-text">{year}</span>
-            <span className="artist-text"><a href={`/#/artists/${artist.id}`}>{artist.name}</a></span>
+            <span className="artist-text"><a href={`/#/artists/${artist.id}`}>
+              <span className="glowing-link">{artist.name}</span></a>
+            </span>
             <span className="description-text">{description}</span>
             <div className="detail-button-container">
               <button type="button" className="play-button">Play</button>

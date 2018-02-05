@@ -41,22 +41,6 @@ h1 {
   display: flex;
 }
 
-#left-nav {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: rgb(20,20,20);
-  min-height: 100%;
-  width: 200px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  // border: 1px solid white;
-  .left-nav-playlist-list {
-    overflow: scroll;
-  }
-}
 
 #right-nav {
   display: none;
@@ -81,7 +65,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   padding: 15px;
-  min-height: 100%;
+  min-height: calc(100% - 100px);
   width: calc(100% - 200px);
   position: absolute;
   top: 0px;
@@ -98,7 +82,7 @@ h1 {
 #new-playlist-button-container {
   position: fixed;
   bottom: 110px;
-
+  left: 12px;
 }
 
 button {
@@ -152,5 +136,7 @@ h1:hover {
 .hidden {
   display: none !important;
 }
+
+
 
 

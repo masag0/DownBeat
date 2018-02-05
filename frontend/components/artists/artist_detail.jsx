@@ -31,7 +31,6 @@ class ArtistDetail extends React.Component {
         <div className="row-flex detail-min-header">
           <header className="playlist-display artist-detail-header" >
 
-              <label className="category-detail-label">Artist</label>
 
               <div className="img-container" id="artist-detail-img">
                 <img className="artist-img" src={img_url}></img>
@@ -42,6 +41,7 @@ class ArtistDetail extends React.Component {
           </header>
 
           <section className="detail-text">
+            <label className="category-detail-label">Artist</label>
             <span className="genre-text">{genre}</span>
             <span className="description-text">{description}</span>
           </section>

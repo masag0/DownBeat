@@ -1,7 +1,25 @@
 $green: #1ed760;
 
+
+#left-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: rgb(20,20,20);
+  max-height: 90%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  // overflow: scroll;
+  // border: 1px solid white;
+}
+
 .left-nav-playlist-list {
   margin: 9px;
+  overflow: scroll;
+  max-height: 35vh;
 }
 
 .left-nav-playlist-item {
@@ -10,4 +28,30 @@ $green: #1ed760;
 
 .left-nav-playlist-item:hover {
   color: $green;
+}
+
+.non-link-h1 {
+  &:hover {
+    cursor: auto;
+    color: inherit;
+  }
+}
+
+.left-nav-menu {
+  margin: 30px 0;
+}
+
+.left-nav-main-menu {
+  margin-top: 60px;
+  h1:first-child {
+    margin-bottom: 50px;
+  }
+  h1 {
+    margin: 7px 0;
+  }
+}
+
+.left-nav-playlists-container {
+  margin-top: 15vh;
+  // max-height: 30%;
 }

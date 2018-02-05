@@ -52,7 +52,6 @@ class TopNav extends React.Component {
         </div>
         <div id="top-nav-profile">
           <h1>Profile</h1>
-          <h1>Dropdown</h1>
           <button type="button" onClick={this.logout}>Log Out</button>
         </div>
       </nav>

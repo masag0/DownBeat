@@ -75,10 +75,16 @@ class SongList extends React.Component {
 
   render() {
     const {id, track_num, title, link, duration, album, artist }= this.props.song;
+    let track_number;
+    if (this.props.match.params.playlistId) {
+      track_number = "";
+    } else {
+      track_number = track_num;
+    }
     return (
 
         <li id={`song-list-li#${id}`} className="song-list-item-container" onMouseEnter={this.menuHoverEnter} onMouseLeave={this.menuHoverLeave}>
-          <a><div className="track-num-header">{track_num}</div></a>
+          <a><div className="track-num-header">{track_number}</div></a>
           <a><div className="title-header" onClick={() => this.playSong(this.props.song)}>{title}</div></a>
           <a href={`/#/artists/${artist.id}`}><div className="artist-header">{artist.name}</div></a>
           <a href={`/#/albums/${album.id}`}><div className="album-header">{album.title}</div></a>

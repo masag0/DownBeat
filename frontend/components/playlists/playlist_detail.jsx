@@ -89,7 +89,6 @@ class PlaylistDetail extends React.Component {
         <div className="row-flex">
           <header className="playlist-display artist-detail-header" >
 
-              <label className="category-detail-label">Playlist</label>
 
               <div className="img-container" id="artist-detail-img">
                 <img className="artist-img" src={img}></img>
@@ -100,6 +99,7 @@ class PlaylistDetail extends React.Component {
           </header>
 
           <section className="detail-text">
+            <label className="category-detail-label">Playlist</label>
             <span className="genre-text">{genre}</span>
             <span className="description-text">{description}</span>
             <div className="detail-button-container">

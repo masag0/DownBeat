@@ -28,16 +28,20 @@ class SongList extends React.Component {
     // lodash.values(songs)
     //     .filter(song => this.props.playlist.song_ids.includes(song.id));
 
+    let track_num_header = "#";
 
     if (this.props.match.params.albumId) {
       songs = songs.sort((a,b) => a.track_num - b.track_num);
+    } else {
+      track_num_header = "";
     }
 
 
     return (
+
       <div className="song-list-container">
         <h2 className="category-header" id="song-list-header">
-          <div className="track-num-header top-header">#</div>
+          <div className="track-num-header top-header">{track_num_header}</div>
           <div className="title-header top-header" >Title</div>
           <div className="artist-header top-header">Artist</div>
           <div className="album-header top-header">Album</div>

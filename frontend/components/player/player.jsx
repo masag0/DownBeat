@@ -29,8 +29,6 @@ class Player extends React.Component {
   componentWillReceiveProps (nextProps) {
     console.log(nextProps);
 
-
-
     let nextSound = new Howl({
       src: [nextProps.nowPlaying.link]
     });
@@ -69,7 +67,7 @@ class Player extends React.Component {
   render () {
     return (
       <div className="player-container" >
-        <aside className='song-info-container'>Song Info</aside>
+        <aside className='song-info-container'>{this.props.nowPlaying.title}</aside>
 
         <div className="controlsOuter">
 

@@ -37,30 +37,22 @@ class LeftNav extends React.Component {
   render(){
     return (
       <nav id="left-nav">
-        <section>
-          <h1><a href='/#/'>DownBeat</a></h1>
-          <br />
-          <br />
-          <br />
+        <h1><a href='/#/'>DownBeat</a></h1>
+        <section className="left-nav-main-menu left-nav-menu">
+
           <h1><a href='/#/'>Browse</a></h1>
-          <br />
-          <br />
+
           <h1>Genres</h1>
           <h1><a href="/#/artists">Artists</a></h1>
           <h1><a href="/#/albums">Albums</a></h1>
-          <h1>Songs</h1>
-          <br />
-          <br />
-          <br />
-          <br />
+          <h1></h1>
 
+        </section>
 
-          <section className="left-nav-playlists-container">
-            <h1>Playlists</h1>
+        <section className="left-nav-playlists-container left-nav-menu">
+          <h1 className="non-link-h1">Playlists</h1>
 
-            <PlaylistListContainer />
-
-          </section>
+          <PlaylistListContainer />
 
         </section>
 

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,700,800,900');
-
+@import url('https://fonts.googleapis.com/css?family=Cabin|Roboto|Raleway:100,300,400,500,600,700,800,900');
 
 .artist-img {
   width: auto;
@@ -25,9 +25,13 @@
 }
 
 .category-detail-label {
+  text-transform: uppercase;
+  // color: gray;
+  font-family: Montserrat;
+  font-weight: 200;
   position:relative;
   top: -6%;
-  font-size: 20px;
+  font-size: 12px;
 }
 
 #artist-detail-img {
@@ -59,7 +63,12 @@
   // top: -3px;
 }
 
-.artist-text:hover {
+.glowing-link {
+  font-size: 20px;
+}
+
+.glowing-link:hover {
+
   text-shadow: 0 0 10px #fff;
   text-decoration: underline;
   transition: all 0.2s ease-in;
