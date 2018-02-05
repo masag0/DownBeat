@@ -54,7 +54,7 @@ class SongList extends React.Component {
 
     menu.classList.add("hidden");
     playIcon.classList.add("hidden");
-    if (this.props.match.albumId) {
+    if (this.props.match.params.albumId) {
       trackNum.innerHTML = this.props.song.track_num;
     }
   }
