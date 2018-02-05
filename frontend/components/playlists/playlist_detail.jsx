@@ -82,6 +82,14 @@ class PlaylistDetail extends React.Component {
     if (!img_url) {
       img = "https://s.discogs.com/images/default-label.png";
     }
+    let followText = "Follow";
+    if (this.props.currentUser.id === user_id) {
+      // followText = "Followed";
+      const followButton = document.getElementById('follow-btn');
+      if (followButton) {
+        followButton.classList.add('hidden');
+      }
+    }
 
     return (
       <div>
@@ -103,6 +111,7 @@ class PlaylistDetail extends React.Component {
             <span className="description-text">{description}</span>
             <div className="detail-button-container">
               <button type="button" className="play-button">Play</button>
+              <button type="button" className="follow-button" id="follow-btn">{followText}</button>
               <button type="button" className="etc-button" onClick={this.openDropdown}>
                 <div id="dots-button">. . .</div>
 

@@ -65,7 +65,6 @@ class Player extends React.Component {
   }
 
   render () {
-    console.log(this.props.nowPlaying);
     let song = "";
     let artist = "";
     let album = "";

@@ -1,3 +1,5 @@
+$green: #1ed760;
+
 .detail-button-container {
   position: absolute;
   bottom: -45px;
@@ -5,16 +7,36 @@
   min-width: 190px;
 }
 
-button.play-button {
+button.play-button, button.follow-button {
   width: 140px;
   margin-right: 20px;
+}
+
+button.follow-button {
+  background: transparent;
+  border: 1px solid white;
+  background: transparent;
+
+  &:hover, &:focus {
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 15px $green;
+  }
+
+  &:focus {
+    // background: transparent;
+    box-shadow: 0 0 15px darken($green, 10%);
+  }
+
+  &:active {
+    background-color: black;
+  }
 }
 
 button.etc-button {
   position: relative;
   font-family: Montserrat;
   font-size: 15px;
-  $button-background: #1ed760;
   width: 30px;
   background: transparent;
   border: 1px solid white;
@@ -23,12 +45,12 @@ button.etc-button {
   &:hover, &:focus {
     font-weight: bold;
     cursor: pointer;
-    background: lighten($button-background, 10%);
+    box-shadow: 0 0 15px $green;
   }
 
   &:focus {
     // background: transparent;
-    box-shadow: 0 0 15px darken($button-background, 10%);
+    box-shadow: 0 0 15px darken($green, 10%);
   }
 
   &:active {
@@ -59,6 +81,11 @@ button.etc-button {
       border-radius: 10px
     }
   }
+}
+
+.followed-btn {
+  color: $green;
+  border: 1px solid gray;
 }
 // .playlist-detail-menu-container .dropdown-content {
 //   display: none;
