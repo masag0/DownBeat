@@ -25,6 +25,7 @@ class TopNav extends React.Component {
       this.firstFocus = false;
       this.setState( { query: ""} );
     }
+    this.props.history.push('/search');
   }
 
   resetSearchBar () {
@@ -42,13 +43,15 @@ class TopNav extends React.Component {
     return (
       <nav id="top-nav">
         <div id="top-nav-search">
-          <input id="main-search-bar"
-            type="text"
-            value={this.state.query}
-            onFocus={this.clearSearchBar}
-            onChange={this.update}
-            onBlur={this.resetSearchBar}
-          />
+          <form >
+            <input id="main-search-bar"
+              type="text"
+              value={this.state.query}
+              onFocus={this.clearSearchBar}
+              onChange={this.update}
+              onBlur={this.resetSearchBar}
+              />
+          </form>
         </div>
         <div id="top-nav-profile">
           <h1>Profile</h1>

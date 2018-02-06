@@ -1,1 +1,1 @@
-json.(@artist, :id, :name, :genre, :description, :img_url)
+json.partial! 'artist', artist: @artist
