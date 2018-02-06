@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 import TopNav from './top_nav';
 import {logout} from '../../actions/sessions_actions';
 import {withRouter} from 'react-router-dom';
+import {fetchResults, clearResults} from '../../actions/search_actions';
+
 const mapStateToProps = (state) => ({
 
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  fetchResults: (query) => dispatch(fetchResults(query)),
+  clearResults: () => dispatch(clearResults())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopNav);

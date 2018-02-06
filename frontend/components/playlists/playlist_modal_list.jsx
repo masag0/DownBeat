@@ -8,13 +8,17 @@ class PlaylistModalList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getPlaylists();
+    if (!this.props.search) {
+      this.props.getPlaylists();
+    }
   }
 
   render(){
     let{playlists} = this.props;
-    playlists = lodash.values(playlists)
-    .filter(el => el.user_id == this.props.currentUser.id);
+    if (!this.props.search) {
+      playlists = lodash.values(playlists)
+      .filter(el => el.user_id == this.props.currentUser.id);
+    }
     return (
       <section className="main-content-section">
         <h2 className="category-header">Playlists</h2>

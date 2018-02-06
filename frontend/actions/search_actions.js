@@ -1,10 +1,15 @@
 import * as APIUtil from '../util/search_api_util';
 
 export const RECEIVE_RESULTS = 'RECEIVE_RESULTS';
+export const CLEAR_RESULTS = 'CLEAR_RESULTS';
 
 export const receiveResults = (results) => ({
   type: RECEIVE_RESULTS,
   data: results
+});
+
+export const clearResults = () => ({
+  type: CLEAR_RESULTS
 });
 
 export const fetchResults = (query) => (dispatch) => {
@@ -13,3 +18,4 @@ export const fetchResults = (query) => (dispatch) => {
       response => dispatch(receiveResults(response))
     );
 };
+

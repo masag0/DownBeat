@@ -88,10 +88,10 @@ class SongList extends React.Component {
   render() {
     const {id, track_num, title, link, duration, album, artist }= this.props.song;
     let track_number;
-    if (this.props.match.params.playlistId) {
-      track_number = "";
-    } else {
+    if (this.props.match.params.albumId) {
       track_number = track_num;
+    } else {
+      track_number = "";
     }
     return (
 

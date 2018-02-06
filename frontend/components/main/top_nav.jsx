@@ -32,11 +32,18 @@ class TopNav extends React.Component {
     if (this.state.query === "") {
       this.setState( { query: "Search"} );
       this.firstFocus = true;
+
+      this.props.history.goBack();
     }
   }
 
   update (e) {
     this.setState( { query: e.target.value } );
+    if (e.target.value !== "") {
+      this.props.fetchResults(e.target.value);
+    } else {
+      this.props.clearResults();
+    }
   }
 
   render(){

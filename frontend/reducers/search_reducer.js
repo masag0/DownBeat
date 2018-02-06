@@ -1,5 +1,5 @@
 import React from 'react';
-import {RECEIVE_RESULTS} from '../actions/search_actions';
+import {RECEIVE_RESULTS, CLEAR_RESULTS} from '../actions/search_actions';
 import lodash from 'lodash';
 
 
@@ -14,6 +14,9 @@ const playingReducer = (oldState = initalState, action) => {
       // newState = lodash.merge({}, oldState);
       newState = action.data;
       return newState;
+
+    case CLEAR_RESULTS:
+      return {};
 
     default:
       return oldState;

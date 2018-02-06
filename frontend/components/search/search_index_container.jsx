@@ -7,10 +7,7 @@ import {getPlaylistSongs, getAllSongs} from '../../actions/songs_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    playlists: state.entities.playlists,
-    artists: state.entities.artists,
-    albums: state.entities.albums,
-    songs: state.entities.songs,
+    results: state.search,
     currentUser: state.session.currentUser
   };
 };

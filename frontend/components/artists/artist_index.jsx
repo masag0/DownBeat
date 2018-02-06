@@ -9,12 +9,14 @@ class ArtistIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getAllArtists();
+    if (!this.props.search) {
+      this.props.getAllArtists();
+    }
   }
 
   render(){
     const {artists} = this.props;
-
+    console.log(this.props);
     artists.sort((a, b) => a.name > b.name);
 
     return (
@@ -25,6 +27,7 @@ class ArtistIndex extends React.Component {
             artists.map((artist) => {
               return (
                 <ArtistIndexItemContainer
+                  artist={artist}
                   key={artist.id}
                   id={artist.id}
                 />

@@ -7,16 +7,20 @@ class AlbumList extends React.Component {
   }
 
   componentDidMount () {
-    if (this.props.match.params.artistId) {
-      this.props.getAlbums(this.props.match.params.artistId);
-    } else {
-      this.props.getAllAlbums();
+    if (!this.props.search) {
+      if (this.props.match.params.artistId) {
+        this.props.getAlbums(this.props.match.params.artistId);
+      } else {
+        this.props.getAllAlbums();
+      }
     }
   }
 
   componentWillReceiveProps (nextProps) {
-    if (nextProps.match.params.artistId && nextProps.location.pathname !== this.props.location.pathname){
-      this.props.getAlbums(nextProps.match.params.artistId);
+    if (!this.props.search) {
+      if (nextProps.match.params.artistId && nextProps.location.pathname !== this.props.location.pathname){
+        this.props.getAlbums(nextProps.match.params.artistId);
+      }
     }
   }
 
