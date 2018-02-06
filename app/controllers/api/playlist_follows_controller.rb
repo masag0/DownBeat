@@ -1,8 +1,9 @@
 class Api::PlaylistFollowsController < ApplicationController
   def create
     @playlist_follow = PlaylistFollow.new(playlist_follow_params)
+    @playlist = Playlist.find_by(id: @playlist_follow.playlist_id)
     if @playlist_follow.save
-      render json: ""
+      render "api/playlists/show"
     else
       render json: @playlist_follow.errors.full_messages, status: 422
     end

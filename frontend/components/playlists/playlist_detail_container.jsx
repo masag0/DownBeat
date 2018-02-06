@@ -9,8 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   const playlistId = ownProps.match.params.playlistId;
   return {
     playlist: state.entities.playlists[ownProps.match.params.playlistId],
-    songs: lodash.values(state.entities.songs)
-    .filter(song => state.entities.playlists[playlistId].song_ids.includes(song.id)),
+    songs: state.entities.songs,
     currentUser: state.session.currentUser
   };
 };

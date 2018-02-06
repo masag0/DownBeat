@@ -34,9 +34,9 @@ export const removePlaylist = (playlistId) => ({
   data: playlistId
 });
 
-export const receiveFollow = (playlistId) => ({
+export const receiveFollow = (playlist) => ({
   type: RECEIVE_FOLLOW,
-  data: playlistId
+  data: playlist
 });
 
 export const removeFollow = (playlistId) => ({
@@ -92,7 +92,7 @@ export const updatePlaylist = (playlist) => (dispatch) => {
 export const followPlaylist = (user_id, playlist_id) => (dispatch) => {
   return APIUtil.followPlaylist(user_id, playlist_id)
     .then(
-      dispatch(receiveFollow(playlist_id))
+      response => dispatch(receiveFollow(response.playlist))
     );
 };
 

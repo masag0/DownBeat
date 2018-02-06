@@ -39,7 +39,7 @@ class SongList extends React.Component {
 
   menuHoverEnter () {
     const menu = document.getElementById(`#${this.props.song.id}`);
-    const playIcon = document.getElementById(`icon#${this.props.song.id}`);
+    const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
     const trackNum = document.getElementById(`num#${this.props.song.id}`);
 
     menu.classList.remove("hidden");
@@ -49,7 +49,7 @@ class SongList extends React.Component {
 
   menuHoverLeave () {
     const menu = document.getElementById(`#${this.props.song.id}`);
-    const playIcon = document.getElementById(`icon#${this.props.song.id}`);
+    const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
     const trackNum = document.getElementById(`num#${this.props.song.id}`);
 
     menu.classList.add("hidden");
@@ -97,7 +97,8 @@ class SongList extends React.Component {
 
         <li id={`song-list-li#${id}`} className="song-list-item-container" onMouseEnter={this.menuHoverEnter} onMouseLeave={this.menuHoverLeave}>
           <a><div className="track-num-header" id={`num#${id}`}>{track_number}</div></a>
-          <div className="song-list-play-icon hidden" id={`icon#${id}`} onClick={() => this.playSong(this.props.song)}></div>
+          <div className="song-list-play-icon hidden" id={`play-icon#${id}`} onClick={() => this.playSong(this.props.song)}></div>
+          <div className="song-list-pause-icon hidden" id={`pause-icon#${id}`} onClick={() => this.playSong(this.props.song)}></div>
           <a><div className="title-header" onClick={() => this.playSong(this.props.song)}>{title}</div></a>
           <a href={`/#/artists/${artist.id}`}><div className="artist-header">{artist.name}</div></a>
           <a href={`/#/albums/${album.id}`}><div className="album-header">{album.title}</div></a>

@@ -13,7 +13,7 @@ class PlaylistList extends React.Component {
   componentDidMount () {
     this.props.getPlaylists();
   }
-
+  //
   // componentWillReceiveProps ()  {
   //   this.props.getPlaylists().then(
   //
@@ -23,7 +23,10 @@ class PlaylistList extends React.Component {
 
   render(){
     let {playlists} = this.props;
+
     playlists = lodash.values(playlists).filter(el => el.user_id == this.props.currentUser.id);
+    playlists = playlists.concat(lodash.values(this.props.followingPlaylists));
+
     return (
       <ul className="left-nav-playlist-list">
         {

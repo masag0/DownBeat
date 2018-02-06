@@ -1,5 +1,5 @@
 json.playlist do
-  json.partial! 'playlist', playlist: @playlist
+  json.partial! 'api/playlists/playlist', playlist: @playlist
 end
 
 json.songs do

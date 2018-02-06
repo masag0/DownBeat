@@ -10,10 +10,10 @@ let currentUser;
 const mapStateToProps = (state, ownProps) => {
   currentUser = state.session.currentUser;
   return {
-    // playlists: lodash.values(state.entities.playlists)
-    // .filter(el => el.user_id == state.session.currentUser.id),
     playlists: state.entities.playlists,
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    createdPlaylists: state.session.currentUser.created_playlists,
+    followingPlaylists: state.session.currentUser.following_playlists
   };
 };
 

@@ -3,6 +3,7 @@ import {ProtectedRoute} from '../../util/route_util';
 import {Route} from 'react-router-dom';
 import ReactModal from 'react-modal';
 import PlaylistFormContainer from './playlist_form_container';
+import lodash from 'lodash';
 
 
 import SongListContainer from '../songs/song_list_container';
@@ -28,21 +29,56 @@ class PlaylistDetail extends React.Component {
   componentDidMount () {
     this.props.getPlaylist(this.props.match.params.playlistId);
 
+    const edit = document.getElementsByClassName("edit-playlist-menu-li");
+    const remove = document.getElementsByClassName("delete-playlist-menu-li");
+    const save = document.getElementsByClassName("save-playlist-menu-li");
+
     if (this.props.playlist && this.props.playlist.user_id !== this.props.currentUser.id) {
-      const edit = document.getElementsByClassName("edit-playlist-menu-li");
-      const remove = document.getElementsByClassName("delete-playlist-menu-li");
-      const save = document.getElementsByClassName("save-playlist-menu-li");
 
       for (let i = 0; i < edit.length; i++) {
         edit[i].classList.add('hidden');
         remove[i].classList.add('hidden');
         save[i].classList.add('hidden');
       }
+
+    }  else {
+
+        for (let i = 0; i < edit.length; i++) {
+          edit[i].classList.remove('hidden');
+          remove[i].classList.remove('hidden');
+          save[i].classList.remove('hidden');
+
+      }
     }
   }
+
   componentWillReceiveProps (nextProps) {
     if (this.props.match.params.playlistId !== nextProps.match.params.playlistId) {
       this.props.getPlaylist(nextProps.match.params.playlistId);
+    }
+
+
+    const edit = document.getElementsByClassName("edit-playlist-menu-li");
+    const remove = document.getElementsByClassName("delete-playlist-menu-li");
+    const save = document.getElementsByClassName("save-playlist-menu-li");
+
+
+    if (this.props.playlist && this.props.playlist.user_id !== this.props.currentUser.id) {
+
+      for (let i = 0; i < edit.length; i++) {
+        edit[i].classList.add('hidden');
+        remove[i].classList.add('hidden');
+        save[i].classList.add('hidden');
+      }
+
+    }  else {
+
+        for (let i = 0; i < edit.length; i++) {
+          edit[i].classList.remove('hidden');
+          remove[i].classList.remove('hidden');
+          save[i].classList.remove('hidden');
+
+      }
     }
   }
 
@@ -76,7 +112,7 @@ class PlaylistDetail extends React.Component {
     const playlist = this.props.playlist;
     const followButton = document.getElementById('follow-btn');
 
-    if (currentUser.following_playlist_ids.includes(playlist.id)) {
+    if (lodash.keys(currentUser.following_playlists).includes(playlist.id.toString())) {
       this.props.unfollowPlaylist(currentUser.id, playlist.id);
       followButton.classList.remove('followed-btn');
     } else {
@@ -103,7 +139,9 @@ class PlaylistDetail extends React.Component {
     if (!this.props.playlist) {
       return null;
     }
-    const {songs} = this.props.songs;
+    if (this.props.songs) {
+      const {songs} = lodash.values(this.props.songs).filter(song => this.props.playlist.song_ids.includes(song.id));
+    }
     const {id, title, genre, description, img_url, user_id, song_ids, duration} = this.props.playlist;
     let img = img_url;
     if (!img_url) {
@@ -112,15 +150,18 @@ class PlaylistDetail extends React.Component {
 
     let followText = "Follow";
     const followButton = document.getElementById('follow-btn');
+    const currentUser = this.props.currentUser;
+    console.log(currentUser.following_playlists);
 
-    if (this.props.currentUser.id === user_id) {
-      if (followButton) {
+    if (followButton) {
+      if (currentUser.id === user_id) {
         followButton.classList.add('hidden');
+      } else {
+        followButton.classList.remove('hidden');
       }
-    } else if (this.props.currentUser.following_playlist_ids.includes(id)) {
-      if (followButton) {
-        followText = "Following";
-        followButton.classList.add("followed-btn");
+      if (lodash.keys(currentUser.following_playlists).includes(id.toString())) {
+          followText = "Following";
+          followButton.classList.add("followed-btn");
       }
     }
 
