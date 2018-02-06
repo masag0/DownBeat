@@ -14,6 +14,7 @@ class PlaylistDetail extends React.Component {
 
     this.state = { modalIsOpen: false };
 
+    this.handleFollow = this.handleFollow.bind(this);
     this.removePlaylist = this.removePlaylist.bind(this);
 
     this.openModal = this.openModal.bind(this);
@@ -70,6 +71,32 @@ class PlaylistDetail extends React.Component {
   // closeDropdown() {
   //   document.getElementsByClassName('playlist-detail-menu-container')[0].classList.add("hidden");
   // }
+  handleFollow () {
+    const currentUser = this.props.currentUser;
+    const playlist = this.props.playlist;
+    const followButton = document.getElementById('follow-btn');
+
+    if (currentUser.following_playlist_ids.includes(playlist.id)) {
+      this.props.unfollowPlaylist(currentUser.id, playlist.id);
+      followButton.classList.remove('followed-btn');
+    } else {
+      this.props.followPlaylist(currentUser.id, playlist.id);
+      followButton.classList.add('followed-btn');
+    }
+  }
+
+  handleHoverEnter () {
+    const unfollow = document.getElementsByClassName('followed-btn')[0];
+    if (unfollow) {
+      unfollow.innerHTML = "Unfollow";
+    }
+  }
+  handleHoverLeave () {
+    const unfollow = document.getElementsByClassName('followed-btn')[0];
+    if (unfollow) {
+      unfollow.innerHTML = "Following";
+    }
+  }
 
 
   render(){
@@ -82,12 +109,18 @@ class PlaylistDetail extends React.Component {
     if (!img_url) {
       img = "https://s.discogs.com/images/default-label.png";
     }
+
     let followText = "Follow";
+    const followButton = document.getElementById('follow-btn');
+
     if (this.props.currentUser.id === user_id) {
-      // followText = "Followed";
-      const followButton = document.getElementById('follow-btn');
       if (followButton) {
         followButton.classList.add('hidden');
+      }
+    } else if (this.props.currentUser.following_playlist_ids.includes(id)) {
+      if (followButton) {
+        followText = "Following";
+        followButton.classList.add("followed-btn");
       }
     }
 
@@ -110,8 +143,17 @@ class PlaylistDetail extends React.Component {
             <span className="genre-text">{genre}</span>
             <span className="description-text">{description}</span>
             <div className="detail-button-container">
+
               <button type="button" className="play-button">Play</button>
-              <button type="button" className="follow-button" id="follow-btn">{followText}</button>
+
+              <button type="button" className="follow-button" id="follow-btn"
+                onClick={this.handleFollow}
+                onMouseEnter={this.handleHoverEnter}
+                onMouseLeave={this.handleHoverLeave}
+              >{followText}
+              </button>
+
+
               <button type="button" className="etc-button" onClick={this.openDropdown}>
                 <div id="dots-button">. . .</div>
 

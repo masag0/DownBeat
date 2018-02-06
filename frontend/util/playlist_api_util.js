@@ -37,6 +37,7 @@ export const updatePlaylist = (playlist) => (
 
 
 
+
 export const addSong = (playlist_id, song_id) => (
   $.ajax({
     method: 'POST',
@@ -52,4 +53,33 @@ export const removeSong = (playlist_id, song_id) => (
     data: {playlist_song: {playlist_id, song_id}}
   })
 );
+
+
+export const followPlaylist = (user_id, playlist_id) => (
+  $.ajax({
+    method: 'POST',
+    url: `api/playlist_follows`,
+    data: { playlist_follow: {playlist_id, user_id} }
+  })
+);
+
+export const unfollowPlaylist = (user_id, playlist_id) => (
+  $.ajax({
+    method: 'POST',
+    url: `api/playlist_follows/delete`,
+    data: { playlist_follow: {playlist_id, user_id} }
+  })
+);
+
+
+
+
+
+
+
+
+
+
+
+
 

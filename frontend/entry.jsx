@@ -8,6 +8,7 @@ import {getArtist} from './actions/artists_actions';
 import {getAlbums, getAlbum} from './actions/albums_actions';
 import {receiveArtist} from './actions/artists_actions';
 import {getSongs, getAllSongs} from './actions/songs_actions';
+import {receiveFollow, removeFollow} from './actions/playlists_actions';
 import {fetchResults} from './actions/search_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -29,6 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getSongs = getSongs;
   window.getAllSongs = getAllSongs;
   window.fetchResults = fetchResults;
+  window.receiveFollow = receiveFollow;
+  window.removeFollow = removeFollow;
+
 
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));

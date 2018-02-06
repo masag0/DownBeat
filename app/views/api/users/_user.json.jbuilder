@@ -1,1 +1,1 @@
-json.(user, :id, :username)
+json.(user, :id, :username, :following_playlist_ids)

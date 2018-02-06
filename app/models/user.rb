@@ -7,6 +7,12 @@ class User < ApplicationRecord
 
   has_many :playlists
 
+  has_many :playlist_follows
+
+  has_many :following_playlists,
+    through: :playlist_follows,
+    source: :playlist
+
   attr_reader :password
 
   def self.find_user_by_credentials(username, password)
@@ -37,4 +43,9 @@ class User < ApplicationRecord
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
+
+  def following_playlist_ids
+    self.following_playlists.map(&:id)
+  end
+
 end

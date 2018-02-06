@@ -4,7 +4,7 @@ $green: #1ed760;
   position: absolute;
   bottom: -45px;
   margin: 0;
-  min-width: 190px;
+  min-width: 350px;
 }
 
 button.play-button, button.follow-button {
@@ -86,6 +86,7 @@ button.etc-button {
 .followed-btn {
   color: $green;
   border: 1px solid gray;
+
 }
 // .playlist-detail-menu-container .dropdown-content {
 //   display: none;
