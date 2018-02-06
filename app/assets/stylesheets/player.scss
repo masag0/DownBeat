@@ -145,8 +145,7 @@ $green: #1ed760;
 #volume-container {
   display: flex;
   align-items: center;
-  width: 15%;
-  min-width: 150px;
+  width: 200px;
   height: 80px;
   border: 1px solid gray;
   position: absolute;
@@ -177,7 +176,12 @@ $green: #1ed760;
   cursor: pointer;
 }
 
-
+#barFull {
+  width: 160px;
+  height: 5px;
+  background-color: $green;
+  border-radius: 10px;
+}
 
 
 

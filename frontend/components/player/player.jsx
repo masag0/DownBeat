@@ -1,7 +1,7 @@
 import React from 'react';
 import lodash from 'lodash';
 import {Howl, Howler} from 'howler';
-
+import Draggable from 'react-draggable';
 
 // const elms = ['track', 'timer', 'duration', 'playBtn', 'pauseBtn', 'prevBtn', 'nextBtn', 'playlistBtn', 'volumeBtn', 'progress', 'bar', 'wave', 'loading', 'playlist', 'list', 'volume', 'barEmpty', 'barFull', 'sliderBtn'];
 // elms.forEach(function(elm) {
@@ -19,45 +19,31 @@ class Player extends React.Component {
 
     // this.state = { queue: [], nowPlaying: {} };
     // this.nowPlaying = "";
+    this.state = { playTime: 0 };
+
     this.paused = true;
     this.sound = "";
-
+    this.queue = this.props.queue;
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.mute = this.mute.bind(this);
   }
 
   componentDidMount () {
-    const sliderBtn = document.getElementById('sliderBtn');
-    const volume = document.getElementById('volume-container');
-    const barEmpty = document.getElementById('barEmpty');
-
-    this.player = new Player;
-
-    barEmpty.addEventListener('click', function(event) {
-      var per = event.layerX / parseFloat(barEmpty.scrollWidth);
-      this.player.volume(per);
-    });
-    sliderBtn.addEventListener('mousedown', function() {
-      window.sliderDown = true;
-    });
-    sliderBtn.addEventListener('touchstart', function() {
-      window.sliderDown = true;
-    });
-    volume.addEventListener('mouseup', function() {
-      window.sliderDown = false;
-    });
-    volume.addEventListener('touchend', function() {
-      window.sliderDown = false;
-    });
+    // const sliderBtn = document.getElementById('sliderBtn');
+    // const volume = document.getElementById('volume-container');
+    // const barEmpty = document.getElementById('barEmpty');
 
   }
 
   componentWillReceiveProps (nextProps) {
     console.log(nextProps);
+    this.setState( { playTime: 0 } );
+    clearInterval(this.interval);
 
     let nextSound = new Howl({
-      src: [nextProps.nowPlaying.link]
+      src: [nextProps.nowPlaying.link],
+      html5: true
     });
     window.sound = nextSound;
 
@@ -69,6 +55,7 @@ class Player extends React.Component {
       this.sound = nextSound;
       this.play();
     }
+    this.interval = setInterval(() => this.setState( {playTime: nextSound.seek()}), 1000);
   }
 
   play () {
@@ -96,6 +83,11 @@ class Player extends React.Component {
   mute () {
     console.log('mute');
     Howler.volume(0);
+  }
+
+  setVolume (xPos) {
+    const volBar = document.getElementById('barFull');
+    return () => console.log(xPos);
   }
 
   render () {
@@ -136,7 +128,7 @@ class Player extends React.Component {
           </div>
 
           <div id="progress-bar-container">
-            <span id="current-time-display"> </span>
+            <span id="current-time-display">{this.formatDuration(Math.ceil(this.state.playTime))}</span>
             <div id="bar"><div id="progress"></div></div>
             <span id="song-duration-display">{this.formatDuration(this.props.nowPlaying.duration)}</span>
           </div>
@@ -146,10 +138,23 @@ class Player extends React.Component {
 
         <div className="fadeout" id="volume-container">
           <div className="btn" id="playlistBtn"></div>
+
           <div id="volumeBtn" onClick={this.mute}></div>
-          <div id="barFull" className="bar"></div>
-          <div id="barEmpty" className="bar"></div>
-          <div id="sliderBtn"></div>
+
+          <div id="barEmpty" className="bar">
+            <div id="barFull" className="bar"></div>
+          </div>
+
+          <Draggable
+            axis="x"
+            defaultPosition={{x: -10, y: 0}}
+            bounds={{top: 0, left: -160, right: -10, bottom: 0}}
+          
+          >
+            <div id="sliderBtn"></div>
+          </Draggable>
+
+
         </div>
 
 
@@ -158,7 +163,7 @@ class Player extends React.Component {
   }
 
   formatDuration(seconds) {
-    if (seconds) {
+    if (seconds || seconds === 0) {
 
       let minutes = Math.floor(seconds/60);
       seconds = seconds % 60;
