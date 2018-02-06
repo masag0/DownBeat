@@ -1,13 +1,30 @@
 $green: #1ed760;
 
-#main-logo {
+#logo-container {
+  display: flex;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 3px;
+  left: 3px;
   padding: 15px;
   height: 50px;
   width: 180px;
   background-color: inherit;
+}
+#main-logo {
+  position: absolute;
+  left: 50px;
+  top: 13px;
+}
+
+#logo-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 100px;
+  background-image: image_url('dB-icon.png');
+  background-size: cover;
 }
 
 #left-nav {

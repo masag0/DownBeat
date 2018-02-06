@@ -61,7 +61,7 @@ class TopNav extends React.Component {
           </form>
         </div>
         <div id="top-nav-profile">
-          <h1>Profile</h1>
+          <h1 id="top-nav-profile-link">Profile</h1>
           <button type="button" onClick={this.logout}>Log Out</button>
         </div>
       </nav>

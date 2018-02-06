@@ -172,9 +172,60 @@
   height: 35px;
   border-radius: 100px;
   background-size: cover;
+  z-index: 10;
   &:hover {
     cursor: pointer;
     box-shadow: 0 0 7px white;
+  }
+  &:active {
+    box-shadow: none;
+    background-color: black;
+  }
+}
+
+// .song-list-pause-icon {
+//   display: none;
+//   position: absolute;
+//   left: 3px;
+//   top: 0;
+//   background-image: image-url('pause-button');
+//   width: 35px;
+//   height: 35px;
+//   border-radius: 100px;
+//   background-size: cover;
+//   z-index: 10;
+//   &:hover {
+//     cursor: pointer;
+//     box-shadow: 0 0 7px white;
+//   }
+//   &:active {
+//     box-shadow: none;
+//     background-color: black;
+//   }
+// }
+
+.song-list-sound-icon {
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  background-image: image-url('high-sound-icon');
+  width: 25px;
+  height: 25px;
+  border-radius: 100px;
+  background-size: cover;
+  z-index: 5;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 7px white;
+    position: absolute;
+    left: 3px;
+    top: 0;
+    background-image: image-url('pause-button');
+    width: 35px;
+    height: 35px;
+    border-radius: 100px;
+    background-size: cover;
+    z-index: 10;
   }
   &:active {
     box-shadow: none;

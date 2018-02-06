@@ -32,6 +32,7 @@ class Player extends React.Component {
     let nextSound = new Howl({
       src: [nextProps.nowPlaying.link]
     });
+    window.sound = nextSound;
 
     if (this.paused) {
       this.sound = nextSound;

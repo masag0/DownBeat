@@ -10,7 +10,8 @@ class SongList extends React.Component {
     super(props);
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      playing: false
     };
 
     this.menuHoverEnter = this.menuHoverEnter.bind(this);
@@ -43,8 +44,10 @@ class SongList extends React.Component {
     const trackNum = document.getElementById(`num#${this.props.song.id}`);
 
     menu.classList.remove("hidden");
-    playIcon.classList.remove("hidden");
     trackNum.innerHTML = "";
+    if (!this.state.playing) {
+      playIcon.classList.remove('hidden');
+    }
   }
 
   menuHoverLeave () {
@@ -53,7 +56,11 @@ class SongList extends React.Component {
     const trackNum = document.getElementById(`num#${this.props.song.id}`);
 
     menu.classList.add("hidden");
-    playIcon.classList.add("hidden");
+
+    if (!this.state.playing) {
+      playIcon.classList.add('hidden');
+    }
+
     if (this.props.match.params.albumId) {
       trackNum.innerHTML = this.props.song.track_num;
     }
@@ -82,6 +89,28 @@ class SongList extends React.Component {
 
   playSong (song) {
     this.props.playSong(song);
+    const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
+    const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
+    const trackNum = document.getElementById(`num#${this.props.song.id}`);
+
+    playIcon.classList.add('hidden');
+    soundIcon.classList.remove('hidden');
+    trackNum.classList.add('hidden');
+    this.setState( { playing: true });
+  }
+
+  pauseSong (song) {
+    window.sound.pause();
+    const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
+    const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
+    const trackNum = document.getElementById(`num#${this.props.song.id}`);
+
+
+    playIcon.classList.remove('hidden');
+    soundIcon.classList.add('hidden');
+    trackNum.classList.remove('hidden');
+    this.setState( { playing: false });
+
   }
 
 
@@ -98,7 +127,7 @@ class SongList extends React.Component {
         <li id={`song-list-li#${id}`} className="song-list-item-container" onMouseEnter={this.menuHoverEnter} onMouseLeave={this.menuHoverLeave}>
           <a><div className="track-num-header" id={`num#${id}`}>{track_number}</div></a>
           <div className="song-list-play-icon hidden" id={`play-icon#${id}`} onClick={() => this.playSong(this.props.song)}></div>
-          <div className="song-list-pause-icon hidden" id={`pause-icon#${id}`} onClick={() => this.playSong(this.props.song)}></div>
+          <div className="song-list-sound-icon hidden" id={`sound-icon#${id}`} onClick={() => this.pauseSong(this.props.song)}></div>
           <a><div className="title-header" onClick={() => this.playSong(this.props.song)}>{title}</div></a>
           <a href={`/#/artists/${artist.id}`}><div className="artist-header">{artist.name}</div></a>
           <a href={`/#/albums/${album.id}`}><div className="album-header">{album.title}</div></a>
