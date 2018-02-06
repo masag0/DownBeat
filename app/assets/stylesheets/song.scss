@@ -126,7 +126,7 @@
       background: rgba(40,40,40,0.95);
       box-shadow: 0 0 20px #000;
       border-radius: 10px;
-      left: -20px;
+      left: -40px;
       top: -5px;
       width: 180px;
       // height: 200px;
@@ -213,7 +213,7 @@
   height: 25px;
   border-radius: 100px;
   background-size: cover;
-  z-index: 5;
+  z-index: 10;
   &:hover {
     cursor: pointer;
     box-shadow: 0 0 7px white;
@@ -231,6 +231,11 @@
     box-shadow: none;
     background-color: black;
   }
+}
+
+.glow {
+  text-shadow: 0 0 15px white;
+  font-weight: 400;
 }
 
 

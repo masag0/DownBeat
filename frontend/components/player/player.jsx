@@ -24,6 +24,33 @@ class Player extends React.Component {
 
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
+    this.mute = this.mute.bind(this);
+  }
+
+  componentDidMount () {
+    const sliderBtn = document.getElementById('sliderBtn');
+    const volume = document.getElementById('volume-container');
+    const barEmpty = document.getElementById('barEmpty');
+
+    this.player = new Player;
+
+    barEmpty.addEventListener('click', function(event) {
+      var per = event.layerX / parseFloat(barEmpty.scrollWidth);
+      this.player.volume(per);
+    });
+    sliderBtn.addEventListener('mousedown', function() {
+      window.sliderDown = true;
+    });
+    sliderBtn.addEventListener('touchstart', function() {
+      window.sliderDown = true;
+    });
+    volume.addEventListener('mouseup', function() {
+      window.sliderDown = false;
+    });
+    volume.addEventListener('touchend', function() {
+      window.sliderDown = false;
+    });
+
   }
 
   componentWillReceiveProps (nextProps) {
@@ -59,10 +86,16 @@ class Player extends React.Component {
   pause () {
     if (!this.paused) {
       this.sound.pause();
+      // this.props.pauseSong();
       this.paused = true;
       document.getElementById('playBtn').classList.toggle('hidden');
       document.getElementById('pauseBtn').classList.toggle('hidden');
     }
+  }
+
+  mute () {
+    console.log('mute');
+    Howler.volume(0);
   }
 
   render () {
@@ -111,11 +144,12 @@ class Player extends React.Component {
         </div>
 
 
-        <div id="volume" className="fadeout" id="volume-container">
+        <div className="fadeout" id="volume-container">
           <div className="btn" id="playlistBtn"></div>
-          <div id="volumeBtn"></div>
+          <div id="volumeBtn" onClick={this.mute}></div>
           <div id="barFull" className="bar"></div>
           <div id="barEmpty" className="bar"></div>
+          <div id="sliderBtn"></div>
         </div>
 
 

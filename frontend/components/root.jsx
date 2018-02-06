@@ -9,7 +9,7 @@ import {ProtectedRoute, AuthRoute} from '../util/route_util';
 const Root = ({store}) => (
   <Provider store={store}>
     <HashRouter>
-      <div>
+      <div id="protected-routes">
         <AuthRoute path='/splash' component={Splash}/>
         <ProtectedRoute path='/' component={MainContainer} />
       </div>
@@ -18,3 +18,4 @@ const Root = ({store}) => (
 );
 
 export default Root;
+

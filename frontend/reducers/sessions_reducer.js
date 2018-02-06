@@ -13,6 +13,13 @@ const sessionsReducer = (oldState = _nullUser, action) => {
     console.log(action.data);
       newState = lodash.merge({}, oldState);
       newState['currentUser'] = action.data;
+      if (newState.currentUser) {
+        if (!newState.currentUser.following_playlists) {
+          newState.currentUser['following_playlists'] = [];
+        } else if (!newState.currentUser.created_playlists) {
+          newState.currentUser['created_playlists'] = [];
+        }
+      }
       return newState;
 
     case RECEIVE_FOLLOW:

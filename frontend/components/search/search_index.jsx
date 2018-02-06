@@ -38,7 +38,6 @@ class SearchIndex extends React.Component {
 
   render(){
     const {songs, artists, albums, playlists} = this.state;
-    console.log(this.state);
 
     return (
       <div>

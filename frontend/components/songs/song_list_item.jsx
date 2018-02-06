@@ -38,32 +38,41 @@ class SongList extends React.Component {
     }
   }
 
+  componentWillReceiveProps (nextProps) {
+    const title = document.getElementById(`title#${this.props.song.id}`);
+    if (nextProps.nowPlaying.id == this.props.song.id) {
+      title.classList.add('glow');
+    } else if (nextProps.nowPlaying.id != this.props.song.id) {
+      title.classList.remove('glow');
+    }
+  }
+
   menuHoverEnter () {
     const menu = document.getElementById(`#${this.props.song.id}`);
-    const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
-    const trackNum = document.getElementById(`num#${this.props.song.id}`);
-
+    // const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
+    // const trackNum = document.getElementById(`num#${this.props.song.id}`);
+    //
     menu.classList.remove("hidden");
-    trackNum.innerHTML = "";
-    if (!this.state.playing) {
-      playIcon.classList.remove('hidden');
-    }
+    // trackNum.innerHTML = "";
+    // if (!this.state.playing) {
+    //   playIcon.classList.remove('hidden');
+    // }
   }
 
   menuHoverLeave () {
     const menu = document.getElementById(`#${this.props.song.id}`);
-    const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
-    const trackNum = document.getElementById(`num#${this.props.song.id}`);
+    // const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
+    // const trackNum = document.getElementById(`num#${this.props.song.id}`);
 
     menu.classList.add("hidden");
 
-    if (!this.state.playing) {
-      playIcon.classList.add('hidden');
-    }
-
-    if (this.props.match.params.albumId) {
-      trackNum.innerHTML = this.props.song.track_num;
-    }
+    // if (!this.state.playing) {
+    //   playIcon.classList.add('hidden');
+    // }
+    //
+    // if (this.props.match.params.albumId) {
+    //   trackNum.innerHTML = this.props.song.track_num;
+    // }
   }
 
   openModal() {
@@ -89,26 +98,26 @@ class SongList extends React.Component {
 
   playSong (song) {
     this.props.playSong(song);
-    const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
-    const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
-    const trackNum = document.getElementById(`num#${this.props.song.id}`);
-
-    playIcon.classList.add('hidden');
-    soundIcon.classList.remove('hidden');
-    trackNum.classList.add('hidden');
+    // const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
+    // // const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
+    // const trackNum = document.getElementById(`num#${this.props.song.id}`);
+    //
+    // playIcon.classList.add('hidden');
+    // // soundIcon.classList.remove('hidden');
+    // trackNum.innerHTML = "";
     this.setState( { playing: true });
   }
 
   pauseSong (song) {
     window.sound.pause();
-    const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
-    const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
-    const trackNum = document.getElementById(`num#${this.props.song.id}`);
-
-
-    playIcon.classList.remove('hidden');
-    soundIcon.classList.add('hidden');
-    trackNum.classList.remove('hidden');
+    // const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
+    // // const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
+    // const trackNum = document.getElementById(`num#${this.props.song.id}`);
+    //
+    //
+    // playIcon.classList.remove('hidden');
+    // // soundIcon.classList.add('hidden');
+    // trackNum.innerHTML = this.props.song.track_num;
     this.setState( { playing: false });
 
   }
@@ -128,7 +137,7 @@ class SongList extends React.Component {
           <a><div className="track-num-header" id={`num#${id}`}>{track_number}</div></a>
           <div className="song-list-play-icon hidden" id={`play-icon#${id}`} onClick={() => this.playSong(this.props.song)}></div>
           <div className="song-list-sound-icon hidden" id={`sound-icon#${id}`} onClick={() => this.pauseSong(this.props.song)}></div>
-          <a><div className="title-header" onClick={() => this.playSong(this.props.song)}>{title}</div></a>
+          <a><div className="title-header" id={`title#${id}`} onClick={() => this.playSong(this.props.song)}>{title}</div></a>
           <a href={`/#/artists/${artist.id}`}><div className="artist-header">{artist.name}</div></a>
           <a href={`/#/albums/${album.id}`}><div className="album-header">{album.title}</div></a>
 

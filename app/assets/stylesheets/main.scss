@@ -142,6 +142,31 @@ h1:hover {
   display: none !important;
 }
 
+#top-nav-profile-flex {
+  display: flex;
+  position: relative;
+}
+
+#top-nav-user-profile-img {
+  // padding: 10px;
+  // background-image: image_url("default-user-icon.png");
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  border: none;
+}
+
+#top-nav-user-profile-img-default {
+  position: absolute;
+  top: -2px;
+  right: 85px;
+  background-image: image_url("default-user-icon.png");
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  border: none;
+}
+
 
 
 

@@ -18,17 +18,18 @@ class MainContent extends React.Component {
   render(){
     return (
       <section id="main-content">
-        <Route exact path='/' component={BrowseContainer} />
+        <ProtectedRoute exact path='/' component={BrowseContainer} />
+        <ProtectedRoute exact path='/#/' component={BrowseContainer} />
 
-        <Route exact path='/search' component={SearchIndexContainer} />
+        <ProtectedRoute exact path='/search' component={SearchIndexContainer} />
 
-        <Route exact path='/artists' component={ArtistIndexContainer}/>
-        <Route exact path='/albums' component={AlbumListContainer}/>
+        <ProtectedRoute exact path='/artists' component={ArtistIndexContainer}/>
+        <ProtectedRoute exact path='/albums' component={AlbumListContainer}/>
 
 
-        <Route path='/artists/:artistId' component={ArtistDetailContainer}/>
-        <Route path='/albums/:albumId' component={AlbumDetailContainer}/>
-        <Route path='/playlists/:playlistId' component={PlaylistDetailContainer}/>
+        <ProtectedRoute path='/artists/:artistId' component={ArtistDetailContainer}/>
+        <ProtectedRoute path='/albums/:albumId' component={AlbumDetailContainer}/>
+        <ProtectedRoute path='/playlists/:playlistId' component={PlaylistDetailContainer}/>
       </section>
     );
   }

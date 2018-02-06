@@ -6,7 +6,7 @@ import {withRouter} from 'react-router-dom';
 import {fetchResults, clearResults} from '../../actions/search_actions';
 
 const mapStateToProps = (state) => ({
-
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({

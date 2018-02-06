@@ -10,7 +10,7 @@ import {playSong} from '../../actions/playing_actions';
 
 const mapStateToProps = (state) => {
   return {
-
+    nowPlaying: state.playing.song
   };
 };
 

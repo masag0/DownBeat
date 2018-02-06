@@ -142,7 +142,6 @@ $green: #1ed760;
   margin-top: 10px;
 }
 
-
 #volume-container {
   display: flex;
   align-items: center;
@@ -153,6 +152,39 @@ $green: #1ed760;
   position: absolute;
   right: 0;
 }
+
+#barEmpty {
+  width: 80%;
+  height: 5px;
+  background-color: rgb(70,70,70);
+  border-radius: 10px;
+}
+
+#volumeBtn {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background-image: image-url('high-sound-icon');
+  background-size: cover;
+  margin-right: 5px;
+}
+
+#sliderBtn {
+  width: 12px;
+  height: 12px;
+  border-radius: 10px;
+  background-color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
 
 #bar {
   margin: 10px;
@@ -185,4 +217,8 @@ $green: #1ed760;
   top: 6px;
   right: -10px;
 }
+
+
+
+
 

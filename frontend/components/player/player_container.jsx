@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Player from './player';
-import {playSong} from '../../actions/playing_actions';
+import {playSong, pauseSong} from '../../actions/playing_actions';
 
 const mapStateToProps = (state) => ({
   playing: state.playing,
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  playSong: (song) => dispatch(playSong(song))
+  playSong: (song) => dispatch(playSong(song)),
+  pauseSong: () => dispatch(pauseSong())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Player);

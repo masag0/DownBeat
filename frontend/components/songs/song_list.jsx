@@ -12,10 +12,21 @@ class SongList extends React.Component {
   //   // this.props.getSongs();
   //   this.props.getSongs();
   // }
-  //
+  // //
   // componentWillReceiveProps (nextProps) {
-  //   if (nextProps.location.pathname !== this.props.location.pathname){
-  //     this.props.getSongs();
+  //   console.log(nextProps);
+  //   if (!nextProps.paused && nextProps.nowPlaying.id) {
+  //     const trackNumIcon = document.getElementById(`num#${nextProps.nowPlaying.id}`);
+  //     const soundIcon = document.getElementById(`sound-icon#${nextProps.nowPlaying.id}`);
+  //
+  //     trackNumIcon.innerHTML = "";
+  //     soundIcon.classList.remove('hidden');
+  //   } else if (nextProps.paused  && nextProps.nowPlaying.id) {
+  //     const trackNumIcon = document.getElementById(`num#${nextProps.nowPlaying.id}`);
+  //     const soundIcon = document.getElementById(`sound-icon#${nextProps.nowPlaying.id}`);
+  //
+  //     // trackNumIcon.innerHTML = "";
+  //     soundIcon.classList.add('hidden');
   //   }
   // }
 

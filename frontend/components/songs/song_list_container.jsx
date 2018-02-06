@@ -11,7 +11,9 @@ const mapStateToProps = (state, ownProps) => {
 
     return {
       songs: lodash.values(state.entities.songs)
-      .filter(song => song.album.id == ownProps.match.params.albumId)
+      .filter(song => song.album.id == ownProps.match.params.albumId),
+      nowPlaying: state.playing.song,
+      // paused: state.playing.paused
     };
 
   } else if (ownProps.match.params.playlistId) {
@@ -20,7 +22,9 @@ const mapStateToProps = (state, ownProps) => {
 
     return {
       songs: lodash.values(state.entities.songs)
-      .filter(song => state.entities.playlists[playlistId].song_ids.includes(song.id))
+      .filter(song => state.entities.playlists[playlistId].song_ids.includes(song.id)),
+      nowPlaying: state.playing.song,
+      // paused: state.playing.paused
     };
 
   }

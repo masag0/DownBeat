@@ -11,6 +11,7 @@ class TopNav extends React.Component {
     this.update = this.update.bind(this);
     this.clearSearchBar = this.clearSearchBar.bind(this);
     this.resetSearchBar = this.resetSearchBar.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
 
 
@@ -46,22 +47,41 @@ class TopNav extends React.Component {
     }
   }
 
+  handleKeyPress (e) {
+    if (e.key === 'enter') {
+      if (e.target.value !== "") {
+        this.props.fetchResults(e.target.value);
+      }
+    }
+  }
+
+  hideImage (e) {
+    e.target.classList.add('hidden');
+  }
+
   render(){
+    const {currentUser} = this.props;
     return (
       <nav id="top-nav">
         <div id="top-nav-search">
-          <form >
-            <input id="main-search-bar"
-              type="text"
-              value={this.state.query}
-              onFocus={this.clearSearchBar}
-              onChange={this.update}
-              onBlur={this.resetSearchBar}
-              />
-          </form>
+
+          <input id="main-search-bar"
+            type="text"
+            value={this.state.query}
+            onFocus={this.clearSearchBar}
+            onChange={this.update}
+            onBlur={this.resetSearchBar}
+            onKeyPress={this.handleKeyPress}
+            />
+
         </div>
         <div id="top-nav-profile">
-          <h1 id="top-nav-profile-link">Profile</h1>
+          <div id="top-nav-profile-flex">
+            <img src="" id="top-nav-user-profile-img" onError={this.hideImage}/>
+            <div id="top-nav-user-profile-img-default" />
+            <h1 id="top-nav-profile-link">{currentUser.username}</h1>
+          </div>
+
           <button type="button" onClick={this.logout}>Log Out</button>
         </div>
       </nav>

@@ -1,11 +1,12 @@
 import React from 'react';
-import {PLAY_SONG, ADD_SONG_TO_QUEUE, ADD_SONGS_TO_QUEUE} from '../actions/playing_actions';
+import {PLAY_SONG, ADD_SONG_TO_QUEUE, ADD_SONGS_TO_QUEUE, PAUSE_SONG} from '../actions/playing_actions';
 import lodash from 'lodash';
 
 
 const initalState = {
   song: {},
-  queue: []
+  queue: [],
+  paused: true
 };
 
 const playingReducer = (oldState = initalState, action) => {
@@ -15,7 +16,13 @@ const playingReducer = (oldState = initalState, action) => {
     case PLAY_SONG:
       newState = lodash.merge({}, oldState);
       newState['song'] = action.data;
+      newState['paused'] = false;
       // newState.queue.
+      return newState;
+
+    case PAUSE_SONG:
+      newState = lodash.merge({}, oldState);
+      newState['paused'] = true;
       return newState;
 
     case ADD_SONG_TO_QUEUE:
