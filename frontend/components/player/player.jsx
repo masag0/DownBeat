@@ -28,6 +28,7 @@ class Player extends React.Component {
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.mute = this.mute.bind(this);
+    this.handleSeekDrag = this.handleSeekDrag.bind(this);
   }
 
   componentDidMount () {
@@ -39,8 +40,9 @@ class Player extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     console.log(nextProps);
-    this.setState( { playTime: 0 } );
     clearInterval(this.interval);
+    this.setState( { playTime: 0, deltaXSeek: 0 } );
+    $('#progress').css('width', 0);
 
     let nextSound = new Howl({
       src: [nextProps.nowPlaying.link],
@@ -58,8 +60,11 @@ class Player extends React.Component {
     }
     this.interval = setInterval(
       () => {
-        this.setState( {playTime: nextSound.seek()});
-
+        this.setState( {
+          playTime: nextSound.seek(),
+          deltaXSeek: (nextSound.seek()/nextSound.duration())*600
+        } );
+        $('#progress').css('width', this.state.deltaXSeek);
       }
       , 1000
     );
@@ -114,8 +119,12 @@ class Player extends React.Component {
   }
 
   handleSeekDrag () {
+    const fullWidth = $('#seek-bar').width();
     const barWidth = parseInt($('#sliderBtnSeek').css("transform").split(',')[4].slice(1));
     $('#progress').css('width', barWidth);
+    const seekTime = (barWidth / fullWidth) * window.sound.duration();
+    this.setState( { deltaXSeek: barWidth } );
+    window.sound.seek(seekTime);
   }
 
   render () {
@@ -129,6 +138,8 @@ class Player extends React.Component {
       artist = this.props.nowPlaying.artist;
       album = this.props.nowPlaying.album;
     }
+
+
 
     return (
       <div className="player-container" >
@@ -165,6 +176,7 @@ class Player extends React.Component {
                 axis="x"
                 bounds={{top: 0, left: 0, right: 600, bottom: 0}}
                 onDrag={this.handleSeekDrag}
+                position={{x: this.state.deltaXSeek, y: 0}}
               >
                 <div id="sliderBtnSeek"></div>
               </Draggable>
