@@ -18,6 +18,7 @@ class SongList extends React.Component {
     this.menuHoverLeave = this.menuHoverLeave.bind(this);
     this.removeSongFromPlaylist = this.removeSongFromPlaylist.bind(this);
     this.playSong = this.playSong.bind(this);
+    this.addSongToQueue = this.addSongToQueue.bind(this);
 
     this.openModal = this.openModal.bind(this);
 
@@ -100,6 +101,7 @@ class SongList extends React.Component {
 
   playSong (song) {
     this.props.playSong(song);
+    this.props.addSongsToQueue(this.props.songs);
     // const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
     // // const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
     // const trackNum = document.getElementById(`num#${this.props.song.id}`);
@@ -122,6 +124,10 @@ class SongList extends React.Component {
     // trackNum.innerHTML = this.props.song.track_num;
     this.setState( { playing: false });
 
+  }
+
+  addSongToQueue () {
+    // this.props.addSongToQueue(this.props.song);
   }
 
 
@@ -149,8 +155,8 @@ class SongList extends React.Component {
               <div className="dots hidden" id={`#${id}`}>. . .</div>
               <nav className="song-detail dropdown-content">
                 <ul className="song-detail dropdown-ul">
-                  <li><a>Add to Queue</a></li>
-                  <li><a onClick={this.openModal}>Add to Playlist</a></li>
+                  <li onClick={this.addSongToQueue}><a>Add to Queue</a></li>
+                  <li onClick={this.openModal}><a>Add to Playlist</a></li>
 
                     <ReactModal
 

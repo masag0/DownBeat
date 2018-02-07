@@ -4,7 +4,7 @@ import lodash from 'lodash';
 import SongListItem from './song_list_item';
 import {withRouter} from 'react-router-dom';
 import {removeSong} from '../../util/playlist_api_util';
-import {playSong} from '../../actions/playing_actions';
+import {playSong, addSongToQueue, addSongsToQueue} from '../../actions/playing_actions';
 
 
 
@@ -17,7 +17,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     removeSong: (playlist_id, song_id) => removeSong(playlist_id, song_id),
-    playSong: (song) => dispatch(playSong(song))
+    playSong: (song) => dispatch(playSong(song)),
+    addSongToQueue: (song) => dispatch(addSongToQueue(song)),
+    addSongsToQueue: (songs) => dispatch(addSongsToQueue(songs))
   };
 };
 

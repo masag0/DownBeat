@@ -79,7 +79,8 @@ $green: #1ed760;
   margin-top: 3px;
 }
 
-#playBtn, #pauseBtn, #prevBtn, #nextBtn, #shuffleBtn, #repeatBtn, #repeatAllBtn, #repeatOneBtn {
+#playBtn, #pauseBtn, #prevBtn, #nextBtn, #shuffleBtn,
+#repeatBtn, #repeatAllBtn, #repeatOneBtn, #shuffleBtnGreen {
   width: 35px;
   height: 35px;
   // border: 1px solid gray;
@@ -137,7 +138,13 @@ $green: #1ed760;
   background-image: image-url('shuffle-button');
   background-size: cover;
   margin-top: 10px;
-
+}
+#shuffleBtnGreen {
+  width: 17px;
+  height: 17px;
+  background-image: image-url('shuffle-button-green');
+  background-size: cover;
+  margin-top: 10px;
 }
 
 #repeatBtn {

@@ -60,9 +60,11 @@ class Player extends React.Component {
     this.setState( { playTime: 0, deltaXSeek: 0 } );
     $('#progress').css('width', 0);
 
-    this.queueNum = nextProps.queue.findIndex((el => el.id == nextProps.nowPlaying.id)) + 1;
-    // console.log(this.queueNum);
-    this.queue = nextProps.queue;
+    let queue = nextProps.queue;
+    this.queueNum = queue.findIndex((el => el.id == nextProps.nowPlaying.id)) + 1;
+    this.queue = queue;
+    this.orderedQueue = queue;
+    console.log(queue);
     let nextSound = new Howl({
       src: [nextProps.nowPlaying.link],
       html5: true,
@@ -70,16 +72,16 @@ class Player extends React.Component {
         if (this.state.repeatOne) {
           window.sound.seek(0);
           window.sound.play();
-        } else if (this.state.repeatAll && this.props.queue.length > 0) {
-          console.log(this.props.queue);
+        } else if (this.state.repeatAll && this.queue.length > 0) {
+          console.log(this.queue);
           if (this.queueNum >= this.queue.length ) {
-            this.props.playSong(this.props.queue[0]);
+            this.props.playSong(this.queue[0]);
           } else {
-            this.props.playSong(this.props.queue[this.queueNum]);
+            this.props.playSong(this.queue[this.queueNum]);
           }
         } else {
-          if (this.queueNum < this.queue.length && this.props.queue.length > 0) {
-            this.props.playSong(this.props.queue[this.queueNum]);
+          if (this.queueNum < this.queue.length && this.queue.length > 0) {
+            this.props.playSong(this.queue[this.queueNum]);
           }
         }
       }
@@ -157,7 +159,19 @@ class Player extends React.Component {
     // console.log(barWidth);
     $('#barFull').css('width', barWidth);
     this.setState( { deltaXVol: barWidth } );
+
     const vol = (barWidth / width);
+
+    if (vol === 0) {
+      $('#mutedBtn').removeClass('hidden');
+      $('#volumeBtn').addClass('hidden');
+      this.muteState = true;
+    } else {
+      $('#mutedBtn').addClass('hidden');
+      $('#volumeBtn').removeClass('hidden');
+      this.muteState = false;
+    }
+
     Howler.volume(vol);
   }
 
@@ -168,6 +182,17 @@ class Player extends React.Component {
     const vol = barWidth / fullWidth;
     $('#barFull').css('width', barWidth);
     this.setState( { deltaXVol: barWidth } );
+
+    if (vol === 0) {
+      $('#mutedBtn').removeClass('hidden');
+      $('#volumeBtn').addClass('hidden');
+      this.muteState = true;
+    } else {
+      $('#mutedBtn').addClass('hidden');
+      $('#volumeBtn').removeClass('hidden');
+      this.muteState = false;
+    }
+    
     Howler.volume(vol);
   }
 
@@ -231,7 +256,20 @@ class Player extends React.Component {
   }
 
   handleShuffleClick () {
+    if (!this.state.shuffle) {
+      $('#shuffleBtn').addClass('hidden');
+      $('#shuffleBtnGreen').removeClass('hidden');
+      this.setState( { shuffle: true } );
 
+      this.queue = this.shuffle(this.orderedQueue);
+
+    } else {
+      $('#shuffleBtn').removeClass('hidden');
+      $('#shuffleBtnGreen').addClass('hidden');
+      this.setState( { shuffle: false } );
+
+      this.queue = this.orderedQueue;
+    }
   }
 
   render () {
@@ -267,6 +305,7 @@ class Player extends React.Component {
           <div className="controlsInner">
             <div id="loading"></div>
             <div className="btn" id="shuffleBtn" onClick={this.handleShuffleClick}></div>
+            <div className="btn hidden" id="shuffleBtnGreen" onClick={this.handleShuffleClick}></div>
             <div className="btn" id="prevBtn" onClick={this.handlePrevClick}></div>
             <div className="btn" id="playBtn" onClick={this.play}></div>
             <div className="btn hidden" id="pauseBtn" onClick={this.pause}></div>
@@ -343,6 +382,26 @@ class Player extends React.Component {
     } else {
       return "";
     }
+  }
+
+  shuffle(array) {
+    let counter = array.length;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+
+    return array;
   }
 }
 
