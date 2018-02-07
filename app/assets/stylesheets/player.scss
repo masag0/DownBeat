@@ -142,6 +142,8 @@ $green: #1ed760;
   margin-top: 10px;
 }
 
+
+
 #volume-container {
   display: flex;
   align-items: center;
@@ -163,7 +165,16 @@ $green: #1ed760;
   cursor: pointer;
   width: 20px;
   height: 20px;
-  background-image: image-url('high-sound-icon');
+  background-image: image-url('high-sound-icon.png');
+  background-size: cover;
+  margin-right: 5px;
+}
+
+#mutedBtn {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background-image: image-url('mute-icon.png');
   background-size: cover;
   margin-right: 5px;
 }

@@ -19,8 +19,9 @@ class Player extends React.Component {
 
     // this.state = { queue: [], nowPlaying: {} };
     // this.nowPlaying = "";
-    this.state = { playTime: 0 };
+    this.state = { playTime: 0, deltaX: 0 };
 
+    this.muteState = false;
     this.paused = true;
     this.sound = "";
     this.queue = this.props.queue;
@@ -81,13 +82,32 @@ class Player extends React.Component {
   }
 
   mute () {
-    console.log('mute');
-    Howler.volume(0);
+    if (this.muteState === true) {
+      Howler.volume(this.volume);
+      $('#mutedBtn').addClass('hidden');
+      $('#volumeBtn').removeClass('hidden');
+      this.muteState = false;
+    } else {
+      this.volume = Howler.volume();
+      Howler.volume(0);
+      $('#mutedBtn').removeClass('hidden');
+      $('#volumeBtn').addClass('hidden');
+      this.muteState = true;
+    }
   }
 
-  setVolume (xPos) {
+  setVolume (e) {
     const volBar = document.getElementById('barFull');
-    return () => console.log(xPos);
+    console.log(e.currentTarget);
+  }
+
+  handleDrag (e) {
+    const width = parseInt($('#barEmpty').css('width'));
+    const deltaX = parseInt($('#sliderBtn').css("transform").split(',')[4].slice(1));
+    const barWidth = width + deltaX;
+    $('#barFull').css('width', barWidth);
+    const vol = (barWidth / width);
+    Howler.volume(vol);
   }
 
   render () {
@@ -130,7 +150,7 @@ class Player extends React.Component {
           <div id="progress-bar-container">
             <span id="current-time-display">{this.formatDuration(Math.ceil(this.state.playTime))}</span>
             <div id="bar"><div id="progress"></div></div>
-            <span id="song-duration-display">{this.formatDuration(this.props.nowPlaying.duration)}</span>
+            <span id="song-duration-display">{this.formatDuration(this.props.nowPlaying.duration) || this.formatDuration(0)}</span>
           </div>
 
         </div>
@@ -140,6 +160,7 @@ class Player extends React.Component {
           <div className="btn" id="playlistBtn"></div>
 
           <div id="volumeBtn" onClick={this.mute}></div>
+          <div id="mutedBtn" className="hidden" onClick={this.mute}></div>
 
           <div id="barEmpty" className="bar">
             <div id="barFull" className="bar"></div>
@@ -149,7 +170,7 @@ class Player extends React.Component {
             axis="x"
             defaultPosition={{x: -10, y: 0}}
             bounds={{top: 0, left: -160, right: -10, bottom: 0}}
-          
+            onDrag={this.handleDrag}
           >
             <div id="sliderBtn"></div>
           </Draggable>
