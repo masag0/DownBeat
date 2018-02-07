@@ -23,8 +23,10 @@ class AlbumDetail extends React.Component {
   }
 
   playAlbum () {
-    this.props.addSongsToQueue(this.props.songs);
-    this.props.playSong(this.props.songs[0]);
+    console.log(this.props.songs);
+    const songs = this.props.songs.sort((a,b) => a.track_num - b.track_num);
+    this.props.addSongsToQueue(songs);
+    this.props.playSong(songs[0]);
   }
 
   render(){

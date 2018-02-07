@@ -70,12 +70,16 @@ class Player extends React.Component {
         if (this.state.repeatOne) {
           window.sound.seek(0);
           window.sound.play();
-        }
-        if (this.queueNum < this.queue.length) {
-          this.props.playSong(this.props.queue[this.queueNum]);
+        } else if (this.state.repeatAll && this.props.queue.length > 0) {
+          console.log(this.props.queue);
+          if (this.queueNum >= this.queue.length ) {
+            this.props.playSong(this.props.queue[0]);
+          } else {
+            this.props.playSong(this.props.queue[this.queueNum]);
+          }
         } else {
-          if (this.state.repeatAll) {
-
+          if (this.queueNum < this.queue.length && this.props.queue.length > 0) {
+            this.props.playSong(this.props.queue[this.queueNum]);
           }
         }
       }
@@ -212,17 +216,14 @@ class Player extends React.Component {
 
   handleRepeatClick (e) {
     if (!this.state.repeatOne && !this.state.repeatAll) {
-      console.log('turn green');
       $('#repeatBtn').addClass('hidden');
       $('#repeatAllBtn').removeClass('hidden');
       this.setState( { repeatAll: true } );
     } else if (this.state.repeatAll) {
-      console.log('repeat one');
       $('#repeatAllBtn').addClass('hidden');
       $('#repeatOneBtn').removeClass('hidden');
       this.setState( { repeatOne: true, repeatAll: false } );
     } else {
-      console.log('no repeat');
       $('#repeatBtn').removeClass('hidden');
       $('#repeatOneBtn').addClass('hidden');
       this.setState( { repeatOne: false, repeatAll: false });

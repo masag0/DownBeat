@@ -39,13 +39,14 @@ class SongList extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-
-    const title = document.getElementById(`title#${this.props.song.id}`);
-    if (nextProps.nowPlaying.id == this.props.song.id) {
-      title.classList.add('glow');
-    } else if (nextProps.nowPlaying.id != this.props.song.id) {
-      title.classList.remove('glow');
-    }
+    // if (nextProps.song.id && this.props.song.id) {
+      const title = document.getElementById(`title#${this.props.song.id}`);
+      if (nextProps.nowPlaying.id == this.props.song.id) {
+        title.classList.add('glow');
+      } else if (nextProps.nowPlaying.id != this.props.song.id) {
+        title.classList.remove('glow');
+      }
+    // }
   }
 
   menuHoverEnter () {
