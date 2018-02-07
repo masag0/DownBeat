@@ -84,6 +84,7 @@ class LoginForm extends React.Component {
                 type="text" value={title}
                 onChange={this.update('title')}
                 required
+                maxLength="28"
               />
             </label>
 

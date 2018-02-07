@@ -43,6 +43,11 @@ class SongList extends React.Component {
 
     if (this.props.match.params.albumId) {
       songs = songs.sort((a,b) => a.track_num - b.track_num);
+    } else if (this.props.match.params.playlistId) {
+      track_num_header = "";
+      songs = songs.sort((a, b) => {
+        return this.props.playlist.song_ids.indexOf(a.id) - this.props.playlist.song_ids.indexOf(b.id);
+      });
     } else {
       track_num_header = "";
     }

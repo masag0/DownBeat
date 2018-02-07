@@ -21,6 +21,7 @@ const mapStateToProps = (state, ownProps) => {
     const playlistId = ownProps.match.params.playlistId;
 
     return {
+      playlist: state.entities.playlists[playlistId],
       songs: lodash.values(state.entities.songs)
       .filter(song => state.entities.playlists[playlistId].song_ids.includes(song.id)),
       nowPlaying: state.playing.song,

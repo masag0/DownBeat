@@ -19,7 +19,7 @@ class Player extends React.Component {
 
     // this.state = { queue: [], nowPlaying: {} };
     // this.nowPlaying = "";
-    this.state = { playTime: 0, deltaX: 0 };
+    this.state = { playTime: 0, deltaXSeek: 0 };
 
     this.muteState = false;
     this.paused = true;
@@ -56,7 +56,13 @@ class Player extends React.Component {
       this.sound = nextSound;
       this.play();
     }
-    this.interval = setInterval(() => this.setState( {playTime: nextSound.seek()}), 1000);
+    this.interval = setInterval(
+      () => {
+        this.setState( {playTime: nextSound.seek()});
+
+      }
+      , 1000
+    );
   }
 
   play () {
@@ -96,18 +102,20 @@ class Player extends React.Component {
     }
   }
 
-  setVolume (e) {
-    const volBar = document.getElementById('barFull');
-    console.log(e.currentTarget);
-  }
 
-  handleDrag (e) {
-    const width = parseInt($('#barEmpty').css('width'));
+
+  handleVolumeDrag (e) {
+    const width = parseInt($('#barEmpty').width());
     const deltaX = parseInt($('#sliderBtn').css("transform").split(',')[4].slice(1));
     const barWidth = width + deltaX;
     $('#barFull').css('width', barWidth);
     const vol = (barWidth / width);
     Howler.volume(vol);
+  }
+
+  handleSeekDrag () {
+    const barWidth = parseInt($('#sliderBtnSeek').css("transform").split(',')[4].slice(1));
+    $('#progress').css('width', barWidth);
   }
 
   render () {
@@ -120,8 +128,8 @@ class Player extends React.Component {
       song = this.props.nowPlaying;
       artist = this.props.nowPlaying.artist;
       album = this.props.nowPlaying.album;
-
     }
+
     return (
       <div className="player-container" >
         <aside className='song-info-container'>
@@ -147,13 +155,31 @@ class Player extends React.Component {
             <div className="btn" id="repeatBtn"></div>
           </div>
 
-          <div id="progress-bar-container">
-            <span id="current-time-display">{this.formatDuration(Math.ceil(this.state.playTime))}</span>
-            <div id="bar"><div id="progress"></div></div>
-            <span id="song-duration-display">{this.formatDuration(this.props.nowPlaying.duration) || this.formatDuration(0)}</span>
-          </div>
+
+
+            <div id="progress-bar-container">
+              <span id="current-time-display">{this.formatDuration(Math.ceil(this.state.playTime))}</span>
+
+
+              <Draggable
+                axis="x"
+                bounds={{top: 0, left: 0, right: 600, bottom: 0}}
+                onDrag={this.handleSeekDrag}
+              >
+                <div id="sliderBtnSeek"></div>
+              </Draggable>
+
+              <div id="seek-bar">
+                <div id="progress"></div>
+              </div>
+
+
+              <span id="song-duration-display">{this.formatDuration(this.props.nowPlaying.duration) || this.formatDuration(0)}</span>
+            </div>
 
         </div>
+
+
 
 
         <div className="fadeout" id="volume-container">
@@ -170,9 +196,9 @@ class Player extends React.Component {
             axis="x"
             defaultPosition={{x: -10, y: 0}}
             bounds={{top: 0, left: -160, right: -10, bottom: 0}}
-            onDrag={this.handleDrag}
+            onDrag={this.handleVolumeDrag}
           >
-            <div id="sliderBtn"></div>
+            <div id="sliderBtn" ></div>
           </Draggable>
 
 

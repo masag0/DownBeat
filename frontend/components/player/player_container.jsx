@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Player from './player';
 import {playSong, pauseSong} from '../../actions/playing_actions';
 
+
+
 const mapStateToProps = (state) => ({
   playing: state.playing,
   nowPlaying: state.playing.song,

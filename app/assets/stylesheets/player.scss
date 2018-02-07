@@ -10,6 +10,8 @@ $green: #1ed760;
   height: 100px;
   background-color: rgb(45, 45, 45);
   z-index: 100;
+  // overflow: scroll;
+
   // border-top: 1px solid black;
 }
 
@@ -21,6 +23,8 @@ $green: #1ed760;
   // border: 1px solid gray;
   width: 100%;
   margin-left: 10px;
+  min-width: 1000px;
+  overflow: scroll;
 }
 
 .song-info-container {
@@ -30,8 +34,8 @@ $green: #1ed760;
   // width: 200px;
   height: 80px;
   padding: 10px;
-  position: absolute;
-  left: -15px;
+  position: fixed;
+  left: 5px;
 }
 
 #song-info-album-img {
@@ -65,6 +69,7 @@ $green: #1ed760;
   position: absolute;
   left: 25%;
   padding: 5px;
+  align-items: center;
 
 }
 
@@ -149,9 +154,10 @@ $green: #1ed760;
   align-items: center;
   width: 200px;
   height: 80px;
-  border: 1px solid gray;
+  // border: 1px solid gray;
   position: absolute;
   right: 0;
+  justify-content: flex-end;
 }
 
 #barEmpty {
@@ -201,11 +207,11 @@ $green: #1ed760;
 
 
 
-#bar {
+#seek-bar {
   margin: 10px;
   // border: 1px solid gray;
   height: 5px;
-  width: 90%;
+  width: 600px;
   border-radius: 10px;
   background: rgb(70,70,70);
 }
@@ -216,13 +222,14 @@ $green: #1ed760;
   display: flex;
   flex-direction: row;
   justify-content: center;
+  width: 660px;
 }
 
 #current-time-display {
   position: absolute;
   font-size: 12px;
   top: 6px;
-  left: -15px;
+  left: -5px;
   text-align: right;
 }
 
@@ -231,6 +238,26 @@ $green: #1ed760;
   font-size: 12px;
   top: 6px;
   right: -10px;
+}
+
+#sliderBtnSeek {
+  position: relative;
+  top: 6px;
+  left: 14px;
+  width: 12px;
+  height: 12px;
+  border-radius: 10px;
+  background-color: white;
+  cursor: pointer;
+}
+
+#progress {
+  width: 0px;
+  height: 5px;
+  background-color: $green;
+  // background-color: rgb(160,160,160);
+  border-radius: 10px;
+
 }
 
 
