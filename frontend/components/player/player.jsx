@@ -43,6 +43,8 @@ class Player extends React.Component {
     this.handleVolumeClick = this.handleVolumeClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handlePrevClick = this.handlePrevClick.bind(this);
+    this.handleRepeatClick = this.handleRepeatClick.bind(this);
+    this.handleShuffleClick = this.handleShuffleClick.bind(this);
   }
 
   componentDidMount () {
@@ -65,9 +67,16 @@ class Player extends React.Component {
       src: [nextProps.nowPlaying.link],
       html5: true,
       onend: () => {
+        if (this.state.repeatOne) {
+          window.sound.seek(0);
+          window.sound.play();
+        }
         if (this.queueNum < this.queue.length) {
-
           this.props.playSong(this.props.queue[this.queueNum]);
+        } else {
+          if (this.state.repeatAll) {
+
+          }
         }
       }
     });
@@ -92,7 +101,7 @@ class Player extends React.Component {
         } );
         $('#progress').css('width', this.state.deltaXSeek);
       }
-      , 1000
+      , 50
     );
   }
 
@@ -160,7 +169,7 @@ class Player extends React.Component {
 
 
   handleSeekDrag () {
-    if (!this.paused) {
+    if (window.sound) {
       const fullWidth = $('#seek-bar').width();
       const barWidth = parseInt($('#sliderBtnSeek').css("transform").split(',')[4].slice(1));
       $('#progress').css('width', barWidth);
@@ -172,7 +181,7 @@ class Player extends React.Component {
 
   handleSeekClick (e) {
     e.stopPropagation();
-    if (!this.paused) {
+    if (window.sound) {
       const barWidth = e.pageX - $('#seek-bar').offset().left;
       const fullWidth = $('#seek-bar').width();
       const seekTime = (barWidth / fullWidth) * window.sound.duration();
@@ -184,8 +193,6 @@ class Player extends React.Component {
   }
 
   handleNextClick (e) {
-    console.log('next');
-    e.stopPropagation();
     if (window.sound) {
       if (this.queueNum < this.props.queue.length) {
         this.props.playSong(this.props.queue[this.queueNum]);
@@ -194,15 +201,36 @@ class Player extends React.Component {
   }
 
   handlePrevClick (e) {
-    console.log(this.queueNum);
-    e.stopPropagation();
     if (window.sound) {
       if (this.queueNum > 1 && window.sound.seek() < 4) {
         this.props.playSong(this.props.queue[this.queueNum - 2]);
       } else if (this.queueNum > 0 && window.sound.seek() >= 4) {
-        this.props.playSong(this.props.queue[this.queueNum -1 ]);
+        this.props.playSong(this.props.queue[this.queueNum - 1]);
       }
     }
+  }
+
+  handleRepeatClick (e) {
+    if (!this.state.repeatOne && !this.state.repeatAll) {
+      console.log('turn green');
+      $('#repeatBtn').addClass('hidden');
+      $('#repeatAllBtn').removeClass('hidden');
+      this.setState( { repeatAll: true } );
+    } else if (this.state.repeatAll) {
+      console.log('repeat one');
+      $('#repeatAllBtn').addClass('hidden');
+      $('#repeatOneBtn').removeClass('hidden');
+      this.setState( { repeatOne: true, repeatAll: false } );
+    } else {
+      console.log('no repeat');
+      $('#repeatBtn').removeClass('hidden');
+      $('#repeatOneBtn').addClass('hidden');
+      this.setState( { repeatOne: false, repeatAll: false });
+    }
+  }
+
+  handleShuffleClick () {
+
   }
 
   render () {
@@ -237,12 +265,14 @@ class Player extends React.Component {
 
           <div className="controlsInner">
             <div id="loading"></div>
-            <div className="btn" id="shuffleBtn"></div>
+            <div className="btn" id="shuffleBtn" onClick={this.handleShuffleClick}></div>
             <div className="btn" id="prevBtn" onClick={this.handlePrevClick}></div>
             <div className="btn" id="playBtn" onClick={this.play}></div>
             <div className="btn hidden" id="pauseBtn" onClick={this.pause}></div>
             <div className="btn" id="nextBtn" onClick={this.handleNextClick}></div>
-            <div className="btn" id="repeatBtn"></div>
+            <div className="btn" id="repeatBtn" onClick={this.handleRepeatClick}></div>
+            <div className="btn hidden" id="repeatAllBtn" onClick={this.handleRepeatClick}></div>
+            <div className="btn hidden" id="repeatOneBtn" onClick={this.handleRepeatClick}></div>
           </div>
 
 
