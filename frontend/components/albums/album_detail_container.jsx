@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import lodash from 'lodash';
 import AlbumDetail from './album_detail';
 import {getAlbum} from '../../actions/albums_actions';
+import {playSong, addSongsToQueue} from '../../actions/playing_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -13,7 +14,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  getAlbum: (albumId) => dispatch(getAlbum(albumId))
+  getAlbum: (albumId) => dispatch(getAlbum(albumId)),
+  playSong: (song) => dispatch(playSong(song)),
+  addSongsToQueue: (songs) => dispatch(addSongsToQueue(songs))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AlbumDetail);

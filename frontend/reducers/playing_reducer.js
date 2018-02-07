@@ -26,11 +26,13 @@ const playingReducer = (oldState = initalState, action) => {
       return newState;
 
     case ADD_SONG_TO_QUEUE:
-      newState = lodash.merge({}, oldState, action.data);
+      newState = lodash.merge({}, oldState);
+      newState.queue.concat([action.data]);
       return newState;
 
     case ADD_SONGS_TO_QUEUE:
-      newState = lodash.merge({}, oldState, action.data);
+      newState = lodash.merge({}, oldState);
+      newState['queue'] = action.data;
       return newState;
 
     default:

@@ -39,6 +39,7 @@ class SongList extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
+
     const title = document.getElementById(`title#${this.props.song.id}`);
     if (nextProps.nowPlaying.id == this.props.song.id) {
       title.classList.add('glow');

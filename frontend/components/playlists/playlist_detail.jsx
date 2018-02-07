@@ -24,6 +24,7 @@ class PlaylistDetail extends React.Component {
 
     // this.openDropdown = this.openDropdown.bind(this);
     // this.closeDropdown = this.closeDropdown.bind(this);
+    this.playPlaylist = this.playPlaylist.bind(this);
   }
 
   componentDidMount () {
@@ -135,12 +136,23 @@ class PlaylistDetail extends React.Component {
   }
 
 
+  playPlaylist () {
+    let songs = lodash.values(this.props.songs).filter(song => this.props.playlist.song_ids.includes(song.id));
+    console.log(this.props.songs);
+    songs = songs.sort((a, b) => {
+      return this.props.playlist.song_ids.indexOf(a.id) - this.props.playlist.song_ids.indexOf(b.id);
+    });
+    this.props.addSongsToQueue(songs);
+    this.props.playSong(songs[0]);
+  }
+
+
   render(){
     if (!this.props.playlist) {
       return null;
     }
     if (this.props.songs) {
-      const {songs} = lodash.values(this.props.songs).filter(song => this.props.playlist.song_ids.includes(song.id));
+      const songs = lodash.values(this.props.songs).filter(song => this.props.playlist.song_ids.includes(song.id));
     }
     const {id, title, genre, description, img_url, user_id, song_ids, duration} = this.props.playlist;
     let img = img_url;
@@ -185,7 +197,9 @@ class PlaylistDetail extends React.Component {
             <span className="description-text">{description}</span>
             <div className="detail-button-container">
 
-              <button type="button" className="play-button">Play</button>
+
+              <button type="button" className="play-button" onClick={this.playPlaylist}>Play</button>
+
 
               <button type="button" className="follow-button" id="follow-btn"
                 onClick={this.handleFollow}

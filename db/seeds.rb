@@ -106,6 +106,8 @@ ActiveRecord::Base.transaction do
     Playlist.create(title: "My Playlist", description: "a cool playlist", genre: "jazz", user_id: 1, img_url: 'https://images.unsplash.com/photo-1479030160180-b1860951d696?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbee86d97118ec6673c8d850c31787ef&auto=format&fit=crop&w=2250&q=80')
     Playlist.create(title: "My Playlist 2", description: "another cool playlist", genre: "jazz", user_id: 1, img_url: 'https://images.unsplash.com/photo-1517021202682-f4c63173f1b2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f535f650a9d98d1c62c3ace97040c869&auto=format&fit=crop&w=1319&q=80')
     Playlist.create(title: "Chillhop", description: "Chill beats", genre: "Chillhop", user_id: 1, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
+    Playlist.create(title: "Soul", description: "Soulful tunes", genre: "Soul", user_id: 1, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
+    Playlist.create(title: "Jazz", description: "Free improvisation", genre: "Jazz", user_id: 1, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
 
 
 
@@ -118,6 +120,8 @@ ActiveRecord::Base.transaction do
     PlaylistSong.create(playlist_id: 2, song_id: 10)
     PlaylistSong.create(playlist_id: 2, song_id: 12)
     PlaylistSong.create(playlist_id: 2, song_id: 7)
+
+    # PlaylistSong.create(playlist_id: Playlist.find_by(title: 'Jazz'), song_id: 7)
 
 
 

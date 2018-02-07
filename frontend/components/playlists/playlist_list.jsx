@@ -1,5 +1,6 @@
 import React from 'react';
 import lodash from 'lodash';
+import {NavLink} from 'react-router-dom';
 // import AlbumListItem from './album_list_item';
 
 class PlaylistList extends React.Component {
@@ -32,14 +33,15 @@ class PlaylistList extends React.Component {
         {
           playlists.map(playlist => {
             return (
-                <a
+                <NavLink
                   key={playlist.id}
-                  href={`/#/playlists/${playlist.id}`}
+                  activeStyle={{color: '#1ef760'}}
+                  to={`/playlists/${playlist.id}`}
                 >
                   <li className="left-nav-playlist-item">
                     {playlist.title}
                   </li>
-                </a>
+                </NavLink>
             );
           })
         }

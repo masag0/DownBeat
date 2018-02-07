@@ -4,6 +4,7 @@ import lodash from 'lodash';
 import PlaylistDetail from './playlist_detail';
 import {getPlaylist, deletePlaylist, followPlaylist, unfollowPlaylist} from '../../actions/playlists_actions';
 import {getPlaylistSongs, getAllSongs} from '../../actions/songs_actions';
+import {playSong, addSongsToQueue} from '../../actions/playing_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const playlistId = ownProps.match.params.playlistId;
@@ -18,7 +19,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   getPlaylist: (playlistId) => dispatch(getPlaylist(playlistId)),
   deletePlaylist: (playlistId) => dispatch(deletePlaylist(playlistId)),
   followPlaylist: (userId, playlistId) => dispatch(followPlaylist(userId, playlistId)),
-  unfollowPlaylist: (userId, playlistId) => dispatch(unfollowPlaylist(userId, playlistId))
+  unfollowPlaylist: (userId, playlistId) => dispatch(unfollowPlaylist(userId, playlistId)),
+  playSong: (song) => dispatch(playSong(song)),
+  addSongsToQueue: (songs) => dispatch(addSongsToQueue(songs))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlaylistDetail);

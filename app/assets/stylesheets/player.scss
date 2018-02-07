@@ -145,6 +145,10 @@ $green: #1ed760;
   background-image: image-url('repeat-button');
   background-size: cover;
   margin-top: 10px;
+  &:hover {
+    background-image: image-url('repeat-button-green');
+  }
+
 }
 
 
@@ -156,12 +160,12 @@ $green: #1ed760;
   height: 80px;
   // border: 1px solid gray;
   position: absolute;
-  right: 0;
+  right: 10px;
   justify-content: flex-end;
 }
 
 #barEmpty {
-  width: 80%;
+  width: 160px;
   height: 5px;
   background-color: rgb(70,70,70);
   border-radius: 10px;
@@ -174,6 +178,9 @@ $green: #1ed760;
   background-image: image-url('high-sound-icon.png');
   background-size: cover;
   margin-right: 5px;
+  &:hover {
+    background-image: image-url('high-sound-icon-green.png');
+  }
 }
 
 #mutedBtn {
@@ -186,6 +193,8 @@ $green: #1ed760;
 }
 
 #sliderBtn {
+  position: absolute;
+  left: 38px;
   width: 12px;
   height: 12px;
   border-radius: 10px;
@@ -194,7 +203,7 @@ $green: #1ed760;
 }
 
 #barFull {
-  width: 160px;
+  width: 150px;
   height: 5px;
   background-color: $green;
   border-radius: 10px;
@@ -208,6 +217,7 @@ $green: #1ed760;
 
 
 #seek-bar {
+  cursor: pointer;
   margin: 10px;
   // border: 1px solid gray;
   height: 5px;

@@ -8,6 +8,7 @@ class AlbumDetail extends React.Component {
   constructor(props) {
     super(props);
 
+    this.playAlbum = this.playAlbum.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +20,11 @@ class AlbumDetail extends React.Component {
     if (nextProps.location.pathname !== this.props.location.pathname){
       this.props.getAlbum(nextProps.match.params.albumId);
     }
+  }
+
+  playAlbum () {
+    this.props.addSongsToQueue(this.props.songs);
+    this.props.playSong(this.props.songs[0]);
   }
 
   render(){
@@ -50,7 +56,7 @@ class AlbumDetail extends React.Component {
             </span>
             <span className="description-text">{description}</span>
             <div className="detail-button-container">
-              <button type="button" className="play-button">Play</button>
+              <button type="button" className="play-button" onClick={this.playAlbum}>Play</button>
               <button type="button" className="etc-button">
                 <div>. . .</div>
 

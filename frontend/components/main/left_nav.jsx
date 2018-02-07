@@ -2,6 +2,7 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import PlaylistListContainer from '../playlists/playlist_list_container';
 import PlaylistFormContainer from '../playlists/playlist_form_container';
+import {NavLink} from 'react-router-dom';
 
 
 class LeftNav extends React.Component {
@@ -42,11 +43,11 @@ class LeftNav extends React.Component {
         </a>
         <section className="left-nav-main-menu left-nav-menu">
 
-          <h1><a href='/#/'>Browse</a></h1>
+          <NavLink to="/"><h1 id="left-nav-browse">Browse</h1></NavLink>
 
-          <h1>Genres</h1>
-          <h1><a href="/#/artists">Artists</a></h1>
-          <h1><a href="/#/albums">Albums</a></h1>
+          <NavLink to="/genres" activeStyle={{color: '#1ef760'}}><h1>Genres</h1></NavLink>
+          <NavLink to="/artists" activeStyle={{color: '#1ef760'}}><h1>Artists</h1></NavLink>
+          <NavLink to="/albums" activeStyle={{color: '#1ef760'}}><h1>Albums</h1></NavLink>
           <h1></h1>
 
         </section>

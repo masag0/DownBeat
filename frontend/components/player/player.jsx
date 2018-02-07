@@ -19,16 +19,30 @@ class Player extends React.Component {
 
     // this.state = { queue: [], nowPlaying: {} };
     // this.nowPlaying = "";
-    this.state = { playTime: 0, deltaXSeek: 0 };
+    this.state = {
+      playTime: 0,
+      deltaXSeek: 0,
+      deltaXVol: 150,
+      repeatAll: false,
+      repeatOne: false,
+      shuffle: false
+    };
 
     this.muteState = false;
     this.paused = true;
     this.sound = "";
     this.queue = this.props.queue;
+    this.queueNum = 0;
+
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.mute = this.mute.bind(this);
     this.handleSeekDrag = this.handleSeekDrag.bind(this);
+    this.handleVolumeDrag = this.handleVolumeDrag.bind(this);
+    this.handleSeekClick = this.handleSeekClick.bind(this);
+    this.handleVolumeClick = this.handleVolumeClick.bind(this);
+    this.handleNextClick = this.handleNextClick.bind(this);
+    this.handlePrevClick = this.handlePrevClick.bind(this);
   }
 
   componentDidMount () {
@@ -39,15 +53,27 @@ class Player extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log(nextProps);
+
     clearInterval(this.interval);
     this.setState( { playTime: 0, deltaXSeek: 0 } );
     $('#progress').css('width', 0);
 
+    this.queueNum = nextProps.queue.findIndex((el => el.id == nextProps.nowPlaying.id)) + 1;
+    // console.log(this.queueNum);
+    this.queue = nextProps.queue;
     let nextSound = new Howl({
       src: [nextProps.nowPlaying.link],
-      html5: true
+      html5: true,
+      onend: () => {
+        if (this.queueNum < this.queue.length) {
+
+          this.props.playSong(this.props.queue[this.queueNum]);
+        }
+      }
     });
+
+
+
     window.sound = nextSound;
 
     if (this.paused) {
@@ -72,9 +98,7 @@ class Player extends React.Component {
 
   play () {
     if (this.paused && this.sound) {
-      // let newState = lodash.merge({}, this.state);
-      // newState['nowPlaying'] = sound;
-      // this.setState(newState);
+
       this.sound.play();
       this.paused = false;
       document.getElementById('playBtn').classList.add('hidden');
@@ -97,12 +121,16 @@ class Player extends React.Component {
       Howler.volume(this.volume);
       $('#mutedBtn').addClass('hidden');
       $('#volumeBtn').removeClass('hidden');
+      this.setState({ deltaXVol: this.volume*150 });
+      $('#barFull').css('width', this.volume*150);
       this.muteState = false;
     } else {
       this.volume = Howler.volume();
       Howler.volume(0);
       $('#mutedBtn').removeClass('hidden');
       $('#volumeBtn').addClass('hidden');
+      this.setState({ deltaXVol: 0 });
+      $('#barFull').css('width', 0);
       this.muteState = true;
     }
   }
@@ -110,21 +138,71 @@ class Player extends React.Component {
 
 
   handleVolumeDrag (e) {
-    const width = parseInt($('#barEmpty').width());
+    const width = parseInt($('#barEmpty').width())-10;
     const deltaX = parseInt($('#sliderBtn').css("transform").split(',')[4].slice(1));
-    const barWidth = width + deltaX;
+    const barWidth = deltaX;
+    // console.log(barWidth);
     $('#barFull').css('width', barWidth);
+    this.setState( { deltaXVol: barWidth } );
     const vol = (barWidth / width);
     Howler.volume(vol);
   }
 
+  handleVolumeClick (e) {
+    e.stopPropagation();
+    const barWidth = e.pageX - $('#barEmpty').offset().left;
+    const fullWidth = $('#barEmpty').width();
+    const vol = barWidth / fullWidth;
+    $('#barFull').css('width', barWidth);
+    this.setState( { deltaXVol: barWidth } );
+    Howler.volume(vol);
+  }
+
+
   handleSeekDrag () {
-    const fullWidth = $('#seek-bar').width();
-    const barWidth = parseInt($('#sliderBtnSeek').css("transform").split(',')[4].slice(1));
-    $('#progress').css('width', barWidth);
-    const seekTime = (barWidth / fullWidth) * window.sound.duration();
-    this.setState( { deltaXSeek: barWidth } );
-    window.sound.seek(seekTime);
+    if (!this.paused) {
+      const fullWidth = $('#seek-bar').width();
+      const barWidth = parseInt($('#sliderBtnSeek').css("transform").split(',')[4].slice(1));
+      $('#progress').css('width', barWidth);
+      const seekTime = (barWidth / fullWidth) * window.sound.duration();
+      this.setState( { deltaXSeek: barWidth } );
+      window.sound.seek(seekTime);
+    }
+  }
+
+  handleSeekClick (e) {
+    e.stopPropagation();
+    if (!this.paused) {
+      const barWidth = e.pageX - $('#seek-bar').offset().left;
+      const fullWidth = $('#seek-bar').width();
+      const seekTime = (barWidth / fullWidth) * window.sound.duration();
+      $('#progress').css('width', barWidth);
+      this.setState( { deltaXSeek: barWidth});
+      window.sound.seek(seekTime);
+
+    }
+  }
+
+  handleNextClick (e) {
+    console.log('next');
+    e.stopPropagation();
+    if (window.sound) {
+      if (this.queueNum < this.props.queue.length) {
+        this.props.playSong(this.props.queue[this.queueNum]);
+      }
+    }
+  }
+
+  handlePrevClick (e) {
+    console.log(this.queueNum);
+    e.stopPropagation();
+    if (window.sound) {
+      if (this.queueNum > 1 && window.sound.seek() < 4) {
+        this.props.playSong(this.props.queue[this.queueNum - 2]);
+      } else if (this.queueNum > 0 && window.sound.seek() >= 4) {
+        this.props.playSong(this.props.queue[this.queueNum -1 ]);
+      }
+    }
   }
 
   render () {
@@ -142,6 +220,7 @@ class Player extends React.Component {
 
 
     return (
+
       <div className="player-container" >
         <aside className='song-info-container'>
           <a className="img-container" href={`/#/albums/${album.id}`}>
@@ -159,10 +238,10 @@ class Player extends React.Component {
           <div className="controlsInner">
             <div id="loading"></div>
             <div className="btn" id="shuffleBtn"></div>
-            <div className="btn" id="prevBtn"></div>
+            <div className="btn" id="prevBtn" onClick={this.handlePrevClick}></div>
             <div className="btn" id="playBtn" onClick={this.play}></div>
             <div className="btn hidden" id="pauseBtn" onClick={this.pause}></div>
-            <div className="btn" id="nextBtn"></div>
+            <div className="btn" id="nextBtn" onClick={this.handleNextClick}></div>
             <div className="btn" id="repeatBtn"></div>
           </div>
 
@@ -181,7 +260,7 @@ class Player extends React.Component {
                 <div id="sliderBtnSeek"></div>
               </Draggable>
 
-              <div id="seek-bar">
+              <div id="seek-bar" onClick={this.handleSeekClick}>
                 <div id="progress"></div>
               </div>
 
@@ -200,15 +279,15 @@ class Player extends React.Component {
           <div id="volumeBtn" onClick={this.mute}></div>
           <div id="mutedBtn" className="hidden" onClick={this.mute}></div>
 
-          <div id="barEmpty" className="bar">
+          <div id="barEmpty" className="bar" onClick={this.handleVolumeClick}>
             <div id="barFull" className="bar"></div>
           </div>
 
           <Draggable
             axis="x"
-            defaultPosition={{x: -10, y: 0}}
-            bounds={{top: 0, left: -160, right: -10, bottom: 0}}
+            bounds={{top: 0, left: 0, right: 150, bottom: 0}}
             onDrag={this.handleVolumeDrag}
+            position={{x: this.state.deltaXVol, y: 0}}
           >
             <div id="sliderBtn" ></div>
           </Draggable>
