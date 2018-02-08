@@ -41,11 +41,16 @@ ActiveRecord::Base.transaction do
 
 
     Album.create(title: "We Like It Here", year: 2014, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/41m1ZveietL.jpg', description: 'From the moment Snarky Puppy played its first overseas show to a sold-out London crowd, they felt at home in Europe. Recorded and filmed live with a studio audience over 4 nights in the Netherlands, \'We Like It Here\' captures the band at its most explorative point in its career, in both composition and improvisation. ')
-    Album.create(title: "Ground Up", year: 2012, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/51Bx2nsBpRL.jpg')
+    Album.create(title: "groundUP", year: 2012, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/51Bx2nsBpRL.jpg')
+    Album.create(title: "Sylva", year: 2015, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://cps-static.rovicorp.com/3/JPG_500/MI0003/852/MI0003852224.jpg?partner=allrovi.com')
     Album.create(title: "Tawk Tomahawk", year: 2012, artist_id: Artist.find_by(name: 'Hiatus Kaiyote').id, img_url: 'http://res.cloudinary.com/masag0/image/upload/c_scale,w_400/v1517354552/front_vykr0f.jpg')
     Album.create(title: "Flint", year: 2014, artist_id: Artist.find_by(name: 'Bill Laurance').id, img_url: 'http://res.cloudinary.com/masag0/image/upload/v1517654960/Bill%20Laurance/cover_fbgyh5.jpg')
     Album.create(title: "Swift", year: 2015, artist_id: Artist.find_by(name: 'Bill Laurance').id, img_url: 'http://res.cloudinary.com/masag0/image/upload/v1517654977/Bill%20Laurance/cover_y74ulu.jpg')
     Album.create(title: "Light as a Feather", year: 1973, artist_id: Artist.find_by(name: 'Chick Corea').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/5/51/LightAsAFeather.jpg')
+    Album.create(title: "Radius", year: 2015, artist_id: Artist.find_by(name: 'Allen Stone').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/71QfMor7UqL._SL1500_.jpg')
+
+
+
 
 
 
@@ -61,6 +66,16 @@ ActiveRecord::Base.transaction do
     Song.create(title: "Ocelot", track_num: 5, duration: minutes_to_seconds('1:23'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354421/Tawk%20Tomahawk%202012/05_ocelot_pvqujn.mp3')
 
 
+    Song.create(title: "Thing of Gold", track_num: 1, duration: minutes_to_seconds('6:25'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728654/Snarky%20Puppy/01_Thing_Of_Gold.mp3')
+    Song.create(title: "Bent Nails", track_num: 2, duration: minutes_to_seconds('5:02'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728649/Snarky%20Puppy/02_Bent_Nails.mp3')
+    Song.create(title: "Minjor", track_num: 3, duration: minutes_to_seconds('5:24'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728696/Snarky%20Puppy/03_Minjor.mp3')
+    Song.create(title: "Binky", track_num: 4, duration: minutes_to_seconds('9:38'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728694/Snarky%20Puppy/04_Binky.mp3')
+    Song.create(title: "Mr. Montauk", track_num: 5, duration: minutes_to_seconds('5:53'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728653/Snarky%20Puppy/05_Mr._Montauk.mp3')
+    Song.create(title: "Like A Light", track_num: 6, duration: minutes_to_seconds('4:47'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728693/Snarky%20Puppy/06_Like_A_Light.mp3')
+    Song.create(title: "Young Stuff", track_num: 7, duration: minutes_to_seconds('9:02'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728656/Snarky%20Puppy/07_Young_Stuff.mp3')
+    Song.create(title: "Quarter Master", track_num: 8, duration: minutes_to_seconds('8:44'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728694/Snarky%20Puppy/08_Quarter_Master.mp3')
+
+
     Song.create(title: "Shofukan", track_num: 1, duration: minutes_to_seconds('6:33'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728588/01_Shofukan_ujc61h.mp3')
     Song.create(title: "What About Me?", track_num: 2, duration: minutes_to_seconds('6:42'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728596/02_What_About_Me-_w2tthg.mp3')
     Song.create(title: "Sleeper", track_num: 3, duration: minutes_to_seconds('6:51'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728592/03_Sleeper_valykk.mp3')
@@ -69,6 +84,15 @@ ActiveRecord::Base.transaction do
     Song.create(title: "Outlier", track_num: 6, duration: minutes_to_seconds('6:45'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728590/06_Outlier_o2w2q0.mp3')
     Song.create(title: "Tio Macaco", track_num: 7, duration: minutes_to_seconds('5:43'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728632/07_Tio_Macaco_eguhjt.mp3')
     Song.create(title: "Lingus", track_num: 8, duration: minutes_to_seconds('10:45'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728623/08_Lingus_xyqjwh.mp3')
+
+
+    Song.create(title: "Sintra", track_num: 1, duration: minutes_to_seconds('3:32'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025822/Snarky%20Puppy/01._Sintra.mp3')
+    # Song.create(title: "Flight", track_num: 2, duration: minutes_to_seconds('6:03'), album_id: Album.find_by(title: 'Sylva').id ,link: '')
+    # Song.create(title: "Atchafalaya", track_num: 3, duration: minutes_to_seconds('6:04'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728592/03_Sleeper_valykk.mp3')
+    # Song.create(title: "The Curtain", track_num: 4, duration: minutes_to_seconds('15:09'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728629/04_Jambone_r1awlz.mp3')
+    # Song.create(title: "Gretel", track_num: 5, duration: minutes_to_seconds('4:21'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728630/05_Kite_qxxgkl.mp3')
+    # Song.create(title: "The Clearing", track_num: 6, duration: minutes_to_seconds('19:23'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728630/05_Kite_qxxgkl.mp3')
+
 
 
     Song.create(title: "Prologue\: Fjords", track_num: 1, duration: minutes_to_seconds('8:27'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654974/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_01_Prologue-_Fjords_vqzl3w.mp3')
@@ -104,6 +128,21 @@ ActiveRecord::Base.transaction do
     Song.create(title: "Spain", track_num: 6, duration: minutes_to_seconds('9:51'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942876/Chick%20Corea/1-06_Spain.m4a')
 
 
+    Song.create(title: "Perfect World", track_num: 1, duration: minutes_to_seconds('3:16'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050226/Allen%20Stone/01._Perfect_World.mp3')
+    Song.create(title: "Fake Future", track_num: 2, duration: minutes_to_seconds('2:55'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050227/Allen%20Stone/02._Fake_Future.mp3')
+    Song.create(title: "American Priviledge", track_num: 3, duration: minutes_to_seconds('3:32'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050241/Allen%20Stone/03._American_Privilege.mp3')
+    Song.create(title: "Circle", track_num: 4, duration: minutes_to_seconds('3:29'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050257/Allen%20Stone/04._Circle.mp3')
+    Song.create(title: "Upside", track_num: 5, duration: minutes_to_seconds('4:01'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050263/Allen%20Stone/05._Upside.mp3')
+    Song.create(title: "Freezer Burn", track_num: 6, duration: minutes_to_seconds('2:44'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050245/Allen%20Stone/06._Freezer_Burn.mp3')
+    Song.create(title: "Love", track_num: 7, duration: minutes_to_seconds('2:56'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050249/Allen%20Stone/07._Love.mp3')
+    Song.create(title: "Where You're At", track_num: 8, duration: minutes_to_seconds('2:39'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050239/Allen%20Stone/08._Where_You_re_At.mp3')
+    Song.create(title: "Symmetrical", track_num: 9, duration: minutes_to_seconds('3:48'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050227/Allen%20Stone/09._Symmetrical.mp3')
+    Song.create(title: "The Wire", track_num: 10, duration: minutes_to_seconds('2:47'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050249/Allen%20Stone/10._The_Wire.mp3')
+    Song.create(title: "Guardian Angel", track_num: 11, duration: minutes_to_seconds('4:41'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050254/Allen%20Stone/11._Guardian_Angel.mp3')
+    Song.create(title: "Freedom", track_num: 12, duration: minutes_to_seconds('3:51'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050225/Allen%20Stone/12._Freedom.mp3')
+    Song.create(title: "Barbwire", track_num: 13, duration: minutes_to_seconds('4:03'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050216/Allen%20Stone/13._Barbwire.mp3')
+    Song.create(title: "I Know That I Wasn't Right", track_num: 14, duration: minutes_to_seconds('6:50'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050258/Allen%20Stone/14._I_Know_That_I_Wasn_t_Right.mp3')
+
 
     #Genres
     Playlist.create(title: "Alternative", description: "Somewhere between pop and rock", genre: "Alternative", user_id: 2, img_url: 'https://images.pexels.com/photos/33597/guitar-classical-guitar-acoustic-guitar-electric-guitar.jpg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
@@ -132,11 +171,12 @@ ActiveRecord::Base.transaction do
 
 
     #Featured
-    Playlist.create(title: "Soundtracks", description: "Music from your favorite movies", genre: "Instrumental", user_id: 2, featured: true, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
-    Playlist.create(title: "The Best of Snarky Puppy", description: "Selected tracks from Snarky Puppy's extensive discography", featured: true, genre: "Fusion Jazz", user_id: 2, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
-    Playlist.create(title: "John Mayer's Top Hits", description: "Top Hits from John Mayer", genre: "Pop", user_id: 2, featured: true, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
-    Playlist.create(title: "Jazz Selections", description: "Top Hits from John Mayer", genre: "Jazz", user_id: 2, featured: true, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
-    Playlist.create(title: "Chillhop", description: "Chill beats", genre: "Jazz", user_id: 2, featured: true, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
+    Playlist.create(title: "Soundtracks", description: "Music from your favorite movies", genre: "Soundtrack", user_id: 2, featured: true, img_url: 'https://images8.alphacoders.com/560/560736.jpg')
+    Playlist.create(title: "The Best of Snarky Puppy", description: "Selected tracks from Snarky Puppy's extensive discography", featured: true, genre: "Jazz", user_id: 2, img_url: 'http://www.snarkypuppy.com/media/carousel1.jpg')
+    Playlist.create(title: "John Mayer's Top Hits", description: "Top Hits from John Mayer", genre: "Pop", user_id: 2, featured: true, img_url: 'https://www.thefamouspeople.com/profiles/images/john-mayer-1.jpg')
+    Playlist.create(title: "Jazz Selections", description: "Selections of jazz music", genre: "Jazz", user_id: 2, featured: true, img_url: 'https://2b9sqw2iiqxr36ntqa1exnal-wpengine.netdna-ssl.com/wp-content/uploads/2017/12/jazz.jpg')
+    Playlist.create(title: "Chillhop", description: "Chill beats", genre: "Jazz", user_id: 2, featured: true, img_url: 'https://i1.sndcdn.com/artworks-000139091822-ymuob1-t500x500.jpg')
+    Playlist.create(title: "Funky Tunes", description: "Groovy tunes to get you moving", genre: "Funk", user_id: 2, featured: true, img_url: 'http://www.slopemedia.org/wp-content/uploads/2017/09/funk-what-the1.jpg')
 
     Song.all.each do |song|
       playlist = Playlist.find_by(title: song.genre)
