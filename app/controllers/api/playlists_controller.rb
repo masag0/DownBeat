@@ -37,6 +37,16 @@ class Api::PlaylistsController < ApplicationController
     end
   end
 
+  def featured
+    @playlists = Playlist.where('featured = ?', true)
+    render :index
+  end
+
+  def genres
+    @playlists = Playlist.where('id < ?', 17)
+    render :index
+  end
+
   private
 
   def playlist_params

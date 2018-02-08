@@ -13,6 +13,7 @@ ActiveRecord::Base.transaction do
   Playlist.destroy_all
   PlaylistFollow.destroy_all
   PlaylistSong.destroy_all
+  PlaylistSong.destroy_all
 
   def minutes_to_seconds(string)
     string.split(':').map { |el| el.to_i }.inject(0) { |acc, el| acc * 60 + el}
@@ -20,6 +21,7 @@ ActiveRecord::Base.transaction do
 
 
   User.create(username: "guest", email: "guest@example.com", password: "password")
+  User.create(username: "default", email: "default@example.com", password: "password")
   User.create(username: "candra", email: "candratran@gmail.com", password: "password")
   User.create(username: "eddy", email: "edwinshin@gmail.com", password: "password")
 
@@ -32,10 +34,10 @@ ActiveRecord::Base.transaction do
   Artist.create(name: "John Mayer", genre: "Pop", img_url: 'https://www.billboard.com/files/media/john-mayer-aug-2017-billboard-1548.jpg', description: 'Born on October 16, 1977, John Mayer launched his music career in the late 1990s. In 2001 he released the album Room for Squares, and two years later he debuted Heavier Things. Both efforts were commercially successful, multi-platinum albums that spawned several hits, including Grammy-winning songs like "Your Body Is a Wonderland" and "Daughters." Having established himself in adult contemporary rock, Mayer broadened the scope of his sound to incorporate the blues, forming the John Mayer Trio in the mid 2000s. In 2015 he collaborated with Grateful Dead\'s Bob Weir to form the touring band Dead & Company.')
   Artist.create(name: "Hans Zimmer", genre: "Instrumental", img_url: 'https://www.billboard.com/files/media/Hans-Zimmer-cr-Zoe-Zimmer-2016-billboard-1548.jpg', description: 'Hans Florian Zimmer is a German film score composer and record producer. Since the 1980s, he has composed music for over 150 films. His works include The Lion King, for which he won the Academy Award for Best Original Score in 1995, the Pirates of the Caribbean series, The Thin Red Line, Gladiator, The Last Samurai, and The Dark Knight Trilogy.')
   Artist.create(name: "Chick Corea", genre: "Jazz", img_url: 'http://www.theshedd.org/uh/scaleimage.ashx?id=7383&width=400', description: 'Chick Corea has been one of the most significant jazzmen since the \'60s. Not content at any time to rest on his laurels, he has been involved in quite a few important musical projects, and his musical curiosity has never dimmed. A masterful pianist who, along with Herbie Hancock and Keith Jarrett, was one of the top stylists to emerge after Bill Evans and McCoy Tyner, Corea is also one of the few electric keyboardists to be quite individual and recognizable on synthesizers. In addition, he has composed several jazz standards, including "Spain," "La Fiesta," and "Windows."')
-  Artist.create(name: "Bill Laurance", genre: "Jazz/Instrumental", img_url: 'https://voting.mobo.com/sites/default/files/bill%20laurence%20d.jpg', description: 'Grammy award winner and Original member of the internationally acclaimed Snarky Puppy, Bill Laurance released his debut album FLINT in 2014 going straight to No1 in the iTunes Jazz Charts and receiving international critical acclaim. His second album SWIFT is released on GroundUP music in Spring 2015.
+  Artist.create(name: "Bill Laurance", genre: "Jazz", img_url: 'https://voting.mobo.com/sites/default/files/bill%20laurence%20d.jpg', description: 'Grammy award winner and Original member of the internationally acclaimed Snarky Puppy, Bill Laurance released his debut album FLINT in 2014 going straight to No1 in the iTunes Jazz Charts and receiving international critical acclaim. His second album SWIFT is released on GroundUP music in Spring 2015.
 
     Classically trained, Bill has worked as a professional musician since he was 14, touring internationally as a pianist, keyboard player, composer, producer and arranger, recording and or performing with artists including: David Crosby, Morcheeba, Salif Keita, Bobby McFerrin, Susana Baca, Lalah Hathaway, Laura Mvula, Jacob Collier, Musiq Soul Child, Chris Potter, Lionel Loueke, Carlos Malta, Miss Dynamite and The Metropole Orchestra.')
-    Artist.create(name: "Allen Stone", genre: "R&B/Soul", img_url: 'https://www.out.com/sites/out.com/files/2016/03/15/allen-stone.jpg', description: 'Allen Stone (born March 13, 1987) is an American soul musician from Chewelah, Washington, United States. His website states that people describe him as a soul and R&B singer, yet he sees himself as a "hippie with soul."')
+    Artist.create(name: "Allen Stone", genre: "R&B", img_url: 'https://www.out.com/sites/out.com/files/2016/03/15/allen-stone.jpg', description: 'Allen Stone (born March 13, 1987) is an American soul musician from Chewelah, Washington, United States. His website states that people describe him as a soul and R&B singer, yet he sees himself as a "hippie with soul."')
 
 
     Album.create(title: "We Like It Here", year: 2014, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/41m1ZveietL.jpg', description: 'From the moment Snarky Puppy played its first overseas show to a sold-out London crowd, they felt at home in Europe. Recorded and filmed live with a studio audience over 4 nights in the Netherlands, \'We Like It Here\' captures the band at its most explorative point in its career, in both composition and improvisation. ')
@@ -103,25 +105,57 @@ ActiveRecord::Base.transaction do
 
 
 
+    #Genres
+    Playlist.create(title: "Alternative", description: "Somewhere between pop and rock", genre: "Alternative", user_id: 2, img_url: 'https://images.pexels.com/photos/33597/guitar-classical-guitar-acoustic-guitar-electric-guitar.jpg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "R&B", description: "Rhythm & Blues", genre: "R&B", user_id: 2, img_url: 'https://images.pexels.com/photos/164951/pexels-photo-164951.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Jazz", description: "Free improvisation and complex harmony", genre: "Jazz", user_id: 2, img_url: 'https://images.pexels.com/photos/164934/pexels-photo-164934.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Pop", description: "Catchy melodies and beats", genre: "Pop", user_id: 2, img_url: 'https://images.pexels.com/photos/316163/pexels-photo-316163.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Rock", description: "Rock 'n Roll", genre: "Rock", user_id: 2, img_url: 'https://images.pexels.com/photos/144428/pexels-photo-144428.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Blues", description: "Raw and emotional", genre: "Blues", user_id: 2, img_url: 'https://images.pexels.com/photos/733767/pexels-photo-733767.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Funk", description: "Get your groove on", genre: "Funk", user_id: 2, img_url: 'https://images.pexels.com/photos/96380/pexels-photo-96380.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Electronica", description: "Electronic dance music", genre: "Electronica", user_id: 2, img_url: 'http://accurateproductions.com/wp-content/uploads/2017/09/1470122336648_res_original.jpg')
+
+    #Moods
+    Playlist.create(title: "Work Out", description: "Get pumped", user_id: 2, img_url: 'https://images.pexels.com/photos/136404/pexels-photo-136404.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Focus", description: "Music to help you get through the day", user_id: 2, img_url: 'https://images.pexels.com/photos/273222/pexels-photo-273222.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Relax", description: "Chill out, relax, and wind down", user_id: 2, img_url: 'https://images.pexels.com/photos/374703/pexels-photo-374703.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Sleep", description: "Peaceful music for sleeping", user_id: 2, img_url: 'https://images.pexels.com/photos/135859/pexels-photo-135859.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Wake Up", description: "Rise and shine!",user_id: 2, img_url: 'https://images.pexels.com/photos/4614/woman-morning-bathrobe-bathroom.jpg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Cook", description: "What's for dinner?", user_id: 2, img_url: 'https://images.pexels.com/photos/357743/pexels-photo-357743.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Energy", description: "Energy when you need it", user_id: 2, img_url: 'https://images.pexels.com/photos/761963/pexels-photo-761963.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+    Playlist.create(title: "Dark & Stormy", description: "Let it out", user_id: 2, img_url: 'https://images.pexels.com/photos/531415/pexels-photo-531415.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+
+
+    #Demo playlists
     Playlist.create(title: "My Playlist", description: "a cool playlist", genre: "jazz", user_id: 1, img_url: 'https://images.unsplash.com/photo-1479030160180-b1860951d696?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbee86d97118ec6673c8d850c31787ef&auto=format&fit=crop&w=2250&q=80')
     Playlist.create(title: "My Playlist 2", description: "another cool playlist", genre: "jazz", user_id: 1, img_url: 'https://images.unsplash.com/photo-1517021202682-f4c63173f1b2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f535f650a9d98d1c62c3ace97040c869&auto=format&fit=crop&w=1319&q=80')
-    Playlist.create(title: "Chillhop", description: "Chill beats", genre: "Chillhop", user_id: 1, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
-    Playlist.create(title: "Soul", description: "Soulful tunes", genre: "Soul", user_id: 1, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
-    Playlist.create(title: "Jazz", description: "Free improvisation", genre: "Jazz", user_id: 1, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
 
 
+    #Featured
+    Playlist.create(title: "Soundtracks", description: "Music from your favorite movies", genre: "Instrumental", user_id: 2, featured: true, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
+    Playlist.create(title: "The Best of Snarky Puppy", description: "Selected tracks from Snarky Puppy's extensive discography", featured: true, genre: "Fusion Jazz", user_id: 2, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
+    Playlist.create(title: "John Mayer's Top Hits", description: "Top Hits from John Mayer", genre: "Pop", user_id: 2, featured: true, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
+    Playlist.create(title: "Jazz Selections", description: "Top Hits from John Mayer", genre: "Jazz", user_id: 2, featured: true, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
+    Playlist.create(title: "Chillhop", description: "Chill beats", genre: "Jazz", user_id: 2, featured: true, img_url: 'https://images.unsplash.com/photo-1485609315582-cfffa02888e8?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=198b84c8aef298d9eebac897a98cc83d&auto=format&fit=crop&w=2250&q=80')
 
-    PlaylistSong.create(playlist_id: 1, song_id: 1)
-    PlaylistSong.create(playlist_id: 1, song_id: 2)
-    PlaylistSong.create(playlist_id: 1, song_id: 5)
-    PlaylistSong.create(playlist_id: 1, song_id: 8)
+    Song.all.each do |song|
+      playlist = Playlist.find_by(title: song.genre)
+      if !!playlist
+        PlaylistSong.create(playlist_id: playlist.id, song_id: song.id)
+      end
+    end
 
-    PlaylistSong.create(playlist_id: 2, song_id: 3)
-    PlaylistSong.create(playlist_id: 2, song_id: 10)
-    PlaylistSong.create(playlist_id: 2, song_id: 12)
-    PlaylistSong.create(playlist_id: 2, song_id: 7)
+    PlaylistSong.create(playlist_id: 17, song_id: 1)
+    PlaylistSong.create(playlist_id: 17, song_id: 2)
+    PlaylistSong.create(playlist_id: 17, song_id: 5)
+    PlaylistSong.create(playlist_id: 17, song_id: 8)
 
-    # PlaylistSong.create(playlist_id: Playlist.find_by(title: 'Jazz'), song_id: 7)
+    PlaylistSong.create(playlist_id: 18, song_id: 3)
+    PlaylistSong.create(playlist_id: 18, song_id: 10)
+    PlaylistSong.create(playlist_id: 18, song_id: 12)
+    PlaylistSong.create(playlist_id: 18, song_id: 7)
+
+    # PlaylistSong.create(playlist_id: Playlist.find_by(title: 'Jazz').id, song_id: Song.find_by(title: 'Spain').id)
 
 
 

@@ -3,6 +3,8 @@ import {Route} from 'react-router-dom';
 import {ProtectedRoute} from '../../util/route_util';
 
 import BrowseContainer from '../browse/browse_container';
+import FeaturedContainer from '../browse/featured_container';
+import GenresContainer from '../browse/genres_container';
 import ArtistIndexContainer from '../artists/artist_index_container';
 import AlbumListContainer from '../albums/album_list_container';
 import ArtistDetailContainer from '../artists/artist_detail_container';
@@ -18,10 +20,13 @@ class MainContent extends React.Component {
   render(){
     return (
       <section id="main-content">
+        <ProtectedRoute exact path='/featured' component={FeaturedContainer} />
+        <ProtectedRoute exact path='/genres' component={GenresContainer} />
         <ProtectedRoute exact path='/' component={BrowseContainer} />
-        <ProtectedRoute exact path='/#/' component={BrowseContainer} />
+
 
         <ProtectedRoute exact path='/search' component={SearchIndexContainer} />
+
 
         <ProtectedRoute exact path='/artists' component={ArtistIndexContainer}/>
         <ProtectedRoute exact path='/albums' component={AlbumListContainer}/>

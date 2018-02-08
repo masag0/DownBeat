@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     post '/playlist_songs/delete/', to: 'playlist_songs#delete_song'
     post '/playlist_follows/delete/', to: 'playlist_follows#delete_follow'
     get '/search/:query', to: 'search#index'
+    get '/featured_playlists', to: 'playlists#featured'
+    get '/genre_playlists', to: 'playlists#genres'
     # get '/playlists/:playlist_id/albums', to: 'albums#playlist_album_index'
     # get '/playlists/:playlist_id/artists', to: 'artists#playlist_artist_index'
   end

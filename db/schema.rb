@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20180127065120) do
     t.string "genre"
     t.string "img_url"
     t.integer "user_id", null: false
+    t.boolean "featured", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_playlists_on_title"

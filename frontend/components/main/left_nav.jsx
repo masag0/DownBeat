@@ -45,9 +45,10 @@ class LeftNav extends React.Component {
 
           <NavLink to="/"><h1 id="left-nav-browse">Browse</h1></NavLink>
 
-          <NavLink to="/genres" activeStyle={{color: '#1ef760'}}><h1>Genres</h1></NavLink>
-          <NavLink to="/artists" activeStyle={{color: '#1ef760'}}><h1>Artists</h1></NavLink>
-          <NavLink to="/albums" activeStyle={{color: '#1ef760'}}><h1>Albums</h1></NavLink>
+          <NavLink to="/featured" activeStyle={{color: '#1ed760'}}><h1>Featured</h1></NavLink>
+          <NavLink to="/genres" activeStyle={{color: '#1ed760'}}><h1>Genres</h1></NavLink>
+          <NavLink to="/artists" activeStyle={{color: '#1ed760'}}><h1>Artists</h1></NavLink>
+          <NavLink to="/albums" activeStyle={{color: '#1ed760'}}><h1>Albums</h1></NavLink>
           <h1></h1>
 
         </section>

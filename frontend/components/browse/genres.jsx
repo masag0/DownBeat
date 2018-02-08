@@ -3,16 +3,14 @@ import {Route} from 'react-router-dom';
 import lodash from 'lodash';
 import * as APIUtil from '../../util/playlist_api_util';
 
-class Browse extends React.Component {
+class Genres extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { featuredPlaylists: [], genrePlaylists: [] };
+
+    this.state = { genrePlaylists: [] };
   }
 
   componentDidMount () {
-    APIUtil.fetchFeaturedPlaylists().then(
-      response => this.setState({featuredPlaylists: lodash.values(response)})
-    );
     APIUtil.fetchGenrePlaylists().then(
       response => this.setState({genrePlaylists: lodash.values(response)})
     );
@@ -22,25 +20,6 @@ class Browse extends React.Component {
 
     return (
       <section>
-
-        <section className="main-content-section featured">
-          <h2 className="category-header">Featured</h2>
-          <section className="main-index-container" id="featured-scroll">
-            {
-              this.state.featuredPlaylists.map(playlist => {
-                return (
-                  <a key={playlist.id} className="playlist-display" href={`/#/playlists/${playlist.id}`}>
-                    <div className="img-container">
-                      <img className="artist-img" src={playlist.img_url}></img>
-                    </div>
-                    <label id='artist-label'>{playlist.title}</label>
-                  </a>
-                );
-              })
-            }
-
-          </section>
-        </section>
 
         <section className="main-content-section genres">
           <h2 className="category-header">Genres & Moods</h2>
@@ -67,4 +46,4 @@ class Browse extends React.Component {
 }
 
 
-export default Browse;
+export default Genres;

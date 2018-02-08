@@ -74,6 +74,19 @@ export const unfollowPlaylist = (user_id, playlist_id) => (
 
 
 
+export const fetchFeaturedPlaylists = () => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/featured_playlists'
+  })
+);
+
+export const fetchGenrePlaylists = () => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/genre_playlists'
+  })
+);
 
 
 

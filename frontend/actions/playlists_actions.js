@@ -106,8 +106,19 @@ export const unfollowPlaylist = (user_id, playlist_id) => (dispatch) => {
 
 
 
+export const getFeaturedPlaylists = () => dispatch => {
+  return APIUtil.fetchFeaturedPlaylists()
+    .then(
+      response => dispatch(receivePlaylists(response))
+    );
+};
 
-
+export const getGenrePlaylists = () => dispatch => {
+  return APIUtil.fetchGenrePlaylists()
+    .then(
+      response => dispatch(receivePlaylists(response))
+    );
+};
 
 
 

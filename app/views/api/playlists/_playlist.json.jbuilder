@@ -1,1 +1,1 @@
-json.(playlist, :id, :title, :genre, :description, :user_id, :song_ids, :duration, :img_url)
+json.(playlist, :id, :title, :genre, :description, :user_id, :song_ids, :duration, :img_url, :featured)

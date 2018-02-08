@@ -14,7 +14,7 @@ class SongList extends React.Component {
     }
     let {songs} = this.props;
 
-    let track_num_header = "#";
+    let track_num_header = "";
 
     return (
 
@@ -34,6 +34,7 @@ class SongList extends React.Component {
                 <SongListItemContainer
                   key={song.id}
                   song={song}
+                  songs={songs}
                 />
               );
             })

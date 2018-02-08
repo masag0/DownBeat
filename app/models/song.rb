@@ -5,6 +5,9 @@ class Song < ApplicationRecord
     self.album.artist_id
   end
 
+  def genre
+    self.album.artist.genre
+  end
 
   belongs_to :album
 

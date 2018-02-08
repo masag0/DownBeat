@@ -138,12 +138,13 @@ class PlaylistDetail extends React.Component {
 
   playPlaylist () {
     let songs = lodash.values(this.props.songs).filter(song => this.props.playlist.song_ids.includes(song.id));
-    console.log(this.props.songs);
-    songs = songs.sort((a, b) => {
-      return this.props.playlist.song_ids.indexOf(a.id) - this.props.playlist.song_ids.indexOf(b.id);
-    });
-    this.props.addSongsToQueue(songs);
-    this.props.playSong(songs[0]);
+    if (songs.length > 0) {
+      songs = songs.sort((a, b) => {
+        return this.props.playlist.song_ids.indexOf(a.id) - this.props.playlist.song_ids.indexOf(b.id);
+      });
+      this.props.addSongsToQueue(songs);
+      this.props.playSong(songs[0]);
+    }
   }
 
 
