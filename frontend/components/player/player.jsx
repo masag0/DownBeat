@@ -192,7 +192,7 @@ class Player extends React.Component {
       $('#volumeBtn').removeClass('hidden');
       this.muteState = false;
     }
-    
+
     Howler.volume(vol);
   }
 
@@ -223,6 +223,7 @@ class Player extends React.Component {
 
   handleNextClick (e) {
     if (window.sound) {
+      this.pause();
       if (this.queueNum < this.props.queue.length) {
         this.props.playSong(this.props.queue[this.queueNum]);
       }
@@ -231,9 +232,12 @@ class Player extends React.Component {
 
   handlePrevClick (e) {
     if (window.sound) {
+      this.pause();
       if (this.queueNum > 1 && window.sound.seek() < 4) {
         this.props.playSong(this.props.queue[this.queueNum - 2]);
-      } else if (this.queueNum > 0 && window.sound.seek() >= 4) {
+      } else if (window.sound.seek() >= 4) {
+        this.props.playSong(this.props.queue[this.queueNum - 1]);
+      } else {
         this.props.playSong(this.props.queue[this.queueNum - 1]);
       }
     }

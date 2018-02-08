@@ -64,6 +64,7 @@ Jazztronik has been growing in popularize and has hit sales of 100, to 000+. Jaz
     Album.create(title: "All That You Can't Leave Behind", year: 2000, artist_id: Artist.find_by(name: 'U2').id, img_url: 'https://cps-static.rovicorp.com/3/JPG_500/MI0002/415/MI0002415279.jpg?partner=allrovi.com')
     Album.create(title: "Third Eye Blind", year: 1997, artist_id: Artist.find_by(name: 'Third Eye Blind').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/d/da/Third_eye_blind_self_titled.jpg')
     Album.create(title: "Love Tribe", year: 2007, artist_id: Artist.find_by(name: 'Jazztronik').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/51ZJ2cOXL1L._SS500.jpg')
+    Album.create(title: "Room For Squares", year: 2001, artist_id: Artist.find_by(name: 'John Mayer').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/5/5a/JohnMayer_RoomForSquares.jpg')
 
 
 
@@ -206,14 +207,28 @@ Jazztronik has been growing in popularize and has hit sales of 100, to 000+. Jaz
 
 
     Song.create(title: "
-Love Tribe (feat. Miss Vehna from Soul Trip!!) (Main Mix)", track_num: 1, duration: minutes_to_seconds('5:33'), album_id: Album.find_by(title: 'Jazztronik').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050298/Jazztronik/01_Love_Tribe_feat._Miss_Vehna_from.m4a')
-    Song.create(title: "The King of Dance", track_num: 2, duration: minutes_to_seconds('8:47'), album_id: Album.find_by(title: 'Jazztronik').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050303/Jazztronik/02_The_King_of_Dance.m4a')
-    Song.create(title: "Life Syncopetion", track_num: 3, duration: minutes_to_seconds('5:31'), album_id: Album.find_by(title: 'Jazztronik').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050288/Jazztronik/03_Life_Syncopetion.m4a')
+Love Tribe (feat. Miss Vehna from Soul Trip!!) (Main Mix)", track_num: 1, duration: minutes_to_seconds('5:33'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050298/Jazztronik/01_Love_Tribe_feat._Miss_Vehna_from.m4a')
+    Song.create(title: "The King of Dance", track_num: 2, duration: minutes_to_seconds('8:47'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050303/Jazztronik/02_The_King_of_Dance.m4a')
+    Song.create(title: "Life Syncopetion", track_num: 3, duration: minutes_to_seconds('5:31'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050288/Jazztronik/03_Life_Syncopetion.m4a')
     Song.create(title: "
-Festalica!! (Clap Ya Hands!!)", track_num: 4, duration: minutes_to_seconds('5:27'), album_id: Album.find_by(title: 'Jazztronik').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050288/Jazztronik/04_Festalica_Clap_Ya_Hands.m4a')
-    Song.create(title: "Tiger Eyes (feat. Monday Michiru) (English Version)", track_num: 5, duration: minutes_to_seconds('8:32'), album_id: Album.find_by(title: 'Jazztronik').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050299/Jazztronik/05_Tiger_Eyes_feat._Monday_Michiru.m4a')
-    Song.create(title: "How's It Going To Be", track_num: 6, duration: minutes_to_seconds('6:12'), album_id: Album.find_by(title: 'Jazztronik').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050307/Jazztronik/06_Dust_to_Dust_feat._Robert_Gallag.m4a')
+Festalica!! (Clap Ya Hands!!)", track_num: 4, duration: minutes_to_seconds('5:27'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050288/Jazztronik/04_Festalica_Clap_Ya_Hands.m4a')
+    Song.create(title: "Tiger Eyes (feat. Monday Michiru) (English Version)", track_num: 5, duration: minutes_to_seconds('8:32'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050299/Jazztronik/05_Tiger_Eyes_feat._Monday_Michiru.m4a')
+    Song.create(title: "How's It Going To Be", track_num: 6, duration: minutes_to_seconds('6:12'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050307/Jazztronik/06_Dust_to_Dust_feat._Robert_Gallag.m4a')
 
+
+    Song.create(title: "No Such Thing", track_num: 1, duration: minutes_to_seconds('3:51'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050116/John%20Mayer/01_No_Such_Thing.m4a')
+    Song.create(title: "Why Georgia", track_num: 2, duration: minutes_to_seconds('4:28'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050120/John%20Mayer/02_Why_Georgia.m4a')
+    Song.create(title: "My Stupid Mouth", track_num: 3, duration: minutes_to_seconds('3:45'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050119/John%20Mayer/03_My_Stupid_Mouth.m4a')
+    Song.create(title: "Your Body is a Wonderland", track_num: 4, duration: minutes_to_seconds('4:09'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050113/John%20Mayer/04_Your_Body_Is_A_Wonderland.m4a')
+    Song.create(title: "Neon", track_num: 5, duration: minutes_to_seconds('4:22'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050124/John%20Mayer/05_Neon.mp3')
+    Song.create(title: "City Love", track_num: 6, duration: minutes_to_seconds('4:00'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050122/John%20Mayer/06_City_Love.mp3')
+    Song.create(title: "83", track_num: 7, duration: minutes_to_seconds('4:50'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050116/John%20Mayer/07_83.m4a')
+    Song.create(title: "3x5", track_num: 8, duration: minutes_to_seconds('4:50'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050123/John%20Mayer/08_3x5.m4a')
+    Song.create(title: "Love Song For No One", track_num: 9, duration: minutes_to_seconds('3:21'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050121/John%20Mayer/09_Love_Song_For_No_One.m4a')
+    Song.create(title: "Back To You", track_num: 10, duration: minutes_to_seconds('4:01'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050120/John%20Mayer/10_Back_To_You.m4a')
+    Song.create(title: "Great Indoors", track_num: 11, duration: minutes_to_seconds('3:36'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050128/John%20Mayer/11_Great_Indoors.m4a')
+    Song.create(title: "Not Myself", track_num: 12, duration: minutes_to_seconds('3:40'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050116/John%20Mayer/12_Not_Myself.m4a')
+    Song.create(title: "St. Patrick's Day", track_num: 13, duration: minutes_to_seconds('5:21'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050115/John%20Mayer/13_St._Patrick_s_Day.m4a')
 
 
 
