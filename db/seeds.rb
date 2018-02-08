@@ -13,7 +13,6 @@ ActiveRecord::Base.transaction do
   Playlist.destroy_all
   PlaylistFollow.destroy_all
   PlaylistSong.destroy_all
-  PlaylistSong.destroy_all
 
   def minutes_to_seconds(string)
     string.split(':').map { |el| el.to_i }.inject(0) { |acc, el| acc * 60 + el}
@@ -420,15 +419,15 @@ Riviera Paradise", track_num: 31, duration: minutes_to_seconds('8:50'), album_id
     end
   end
 
-  PlaylistSong.create(playlist_id: 17, song_id: 1)
-  PlaylistSong.create(playlist_id: 17, song_id: 2)
-  PlaylistSong.create(playlist_id: 17, song_id: 5)
-  PlaylistSong.create(playlist_id: 17, song_id: 8)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: 1)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: 2)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: 5)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: 8)
 
-  PlaylistSong.create(playlist_id: 18, song_id: 3)
-  PlaylistSong.create(playlist_id: 18, song_id: 10)
-  PlaylistSong.create(playlist_id: 18, song_id: 12)
-  PlaylistSong.create(playlist_id: 18, song_id: 7)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id: 3)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id: 10)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id: 12)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id: 7)
 
 
   songs = []
