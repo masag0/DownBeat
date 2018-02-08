@@ -22,7 +22,9 @@
   text-align: center;
   margin: 10%;
   max-width: 300px;
-  overflow-wrap: break-word;
+  min-height: 100px;
+  overflow: scroll;
+  // overflow-wrap: break-word;
   // text-shadow: 0 0 3px #fff;
 }
 

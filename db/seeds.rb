@@ -21,7 +21,7 @@ ActiveRecord::Base.transaction do
 
 
   User.create(username: "guest", email: "guest@example.com", password: "password")
-  User.create(username: "default", email: "default@example.com", password: "password")
+  User.create(username: "default", email: "default@example.com", password: "seeddata")
   User.create(username: "candra", email: "candratran@gmail.com", password: "password")
   User.create(username: "eddy", email: "edwinshin@gmail.com", password: "password")
 
@@ -48,246 +48,365 @@ The band found commercial success in the late 1990s, with Third Eye Blind and Bl
   Artist.create(name: "Jazztronik", genre: "Electronica", img_url: 'https://geo-media.beatport.com/image/8e9a84a2-7d15-4f88-b853-2b62307f2836.jpg', description: "Jazztronik is a Japanese music group by the Tokyo-based DJ/producer/pianist Ryota Nozaki, that does not have fixed members. Jazztronik has released two albums and two EPs since 1998 on label Flower Records. In 2001 Jazztronik also released the album \"Inner Flight\" on Counterpoint, a UK label.
 
 Jazztronik has been growing in popularize and has hit sales of 100, to 000+. Jazztronik performs to sold out crowds all across the Japanese club scene and his growth in America and Europe has helped him reach popularity in the English club scene.")
+  Artist.create(name: "Stevie Ray Vaughan", genre: "Blues", img_url: 'https://images-na.ssl-images-amazon.com/images/I/C1rKoPCoK7S._CR0,0,3840,2880_._SL1000_.png', description: "With his astonishingly accomplished guitar playing, Stevie Ray Vaughan ignited the blues revival of the ’80s. Vaughan drew equally from bluesmen like Albert King, Buddy Guy, and Albert Collins and rock & roll players like Jimi Hendrix and Lonnie Mack, as well as jazz guitarists like Kenny Burrell and Wes Montgomery, developing a uniquely eclectic and fiery style that sounded like no other guitarist, regardless of genre. Vaughan bridged the gap between blues and rock like no other artist had since the late ’60s. From 1983 to 1990 Stevie Ray was the leading light in American blues, consistently selling out concerts while his albums regularly went gold. His tragic death in 1990 at age 35 cut short a brilliant career in blues and American rock & roll just as he was on the brink of superstardom.")
+  Artist.create(name: "Vulfpeck", genre: "Funk", img_url: 'https://f4.bcbits.com/img/0010966154_10.jpg', description: "Vulfpeck is an American funk group founded in 2011. Influenced by rhythm sections of the past, the band has released four EPs, three albums, and a silent album on Spotify titled Sleepify – royalties from which funded the band's admission-free tour in 2014. The band's latest album, Mr. Finish Line, was released in November 2017.")
 
 
 
 
-    Album.create(title: "We Like It Here", year: 2014, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/41m1ZveietL.jpg', description: 'From the moment Snarky Puppy played its first overseas show to a sold-out London crowd, they felt at home in Europe. Recorded and filmed live with a studio audience over 4 nights in the Netherlands, \'We Like It Here\' captures the band at its most explorative point in its career, in both composition and improvisation. ')
-    Album.create(title: "groundUP", year: 2012, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/51Bx2nsBpRL.jpg')
-    Album.create(title: "Sylva", year: 2015, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://cps-static.rovicorp.com/3/JPG_500/MI0003/852/MI0003852224.jpg?partner=allrovi.com')
-    Album.create(title: "Tawk Tomahawk", year: 2012, artist_id: Artist.find_by(name: 'Hiatus Kaiyote').id, img_url: 'http://res.cloudinary.com/masag0/image/upload/c_scale,w_400/v1517354552/front_vykr0f.jpg')
-    Album.create(title: "Flint", year: 2014, artist_id: Artist.find_by(name: 'Bill Laurance').id, img_url: 'http://res.cloudinary.com/masag0/image/upload/v1517654960/Bill%20Laurance/cover_fbgyh5.jpg')
-    Album.create(title: "Swift", year: 2015, artist_id: Artist.find_by(name: 'Bill Laurance').id, img_url: 'http://res.cloudinary.com/masag0/image/upload/v1517654977/Bill%20Laurance/cover_y74ulu.jpg')
-    Album.create(title: "Light as a Feather", year: 1973, artist_id: Artist.find_by(name: 'Chick Corea').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/5/51/LightAsAFeather.jpg')
-    Album.create(title: "Radius", year: 2015, artist_id: Artist.find_by(name: 'Allen Stone').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/71QfMor7UqL._SL1500_.jpg')
-    Album.create(title: "In the Lonely Hour", year: 2014, artist_id: Artist.find_by(name: 'Sam Smith').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/9/99/Sam_Smith_-_In_the_Lonely_Hour_%28Official_Album_Cover%29.png')
-    Album.create(title: "All That You Can't Leave Behind", year: 2000, artist_id: Artist.find_by(name: 'U2').id, img_url: 'https://cps-static.rovicorp.com/3/JPG_500/MI0002/415/MI0002415279.jpg?partner=allrovi.com')
-    Album.create(title: "Third Eye Blind", year: 1997, artist_id: Artist.find_by(name: 'Third Eye Blind').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/d/da/Third_eye_blind_self_titled.jpg')
-    Album.create(title: "Love Tribe", year: 2007, artist_id: Artist.find_by(name: 'Jazztronik').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/51ZJ2cOXL1L._SS500.jpg')
-    Album.create(title: "Room For Squares", year: 2001, artist_id: Artist.find_by(name: 'John Mayer').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/5/5a/JohnMayer_RoomForSquares.jpg')
+  Album.create(title: "We Like It Here", year: 2014, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/41m1ZveietL.jpg', description: 'From the moment Snarky Puppy played its first overseas show to a sold-out London crowd, they felt at home in Europe. Recorded and filmed live with a studio audience over 4 nights in the Netherlands, \'We Like It Here\' captures the band at its most explorative point in its career, in both composition and improvisation. ')
+  Album.create(title: "groundUP", year: 2012, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/51Bx2nsBpRL.jpg')
+  Album.create(title: "Sylva", year: 2015, artist_id: Artist.find_by(name: 'Snarky Puppy').id, img_url: 'https://cps-static.rovicorp.com/3/JPG_500/MI0003/852/MI0003852224.jpg?partner=allrovi.com')
+  Album.create(title: "Tawk Tomahawk", year: 2012, artist_id: Artist.find_by(name: 'Hiatus Kaiyote').id, img_url: 'http://res.cloudinary.com/masag0/image/upload/c_scale,w_400/v1517354552/front_vykr0f.jpg')
+  Album.create(title: "Flint", year: 2014, artist_id: Artist.find_by(name: 'Bill Laurance').id, img_url: 'http://res.cloudinary.com/masag0/image/upload/v1517654960/Bill%20Laurance/cover_fbgyh5.jpg')
+  Album.create(title: "Swift", year: 2015, artist_id: Artist.find_by(name: 'Bill Laurance').id, img_url: 'http://res.cloudinary.com/masag0/image/upload/v1517654977/Bill%20Laurance/cover_y74ulu.jpg')
+  Album.create(title: "Light as a Feather", year: 1973, artist_id: Artist.find_by(name: 'Chick Corea').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/5/51/LightAsAFeather.jpg')
+  Album.create(title: "Radius", year: 2015, artist_id: Artist.find_by(name: 'Allen Stone').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/71QfMor7UqL._SL1500_.jpg')
+  Album.create(title: "In the Lonely Hour", year: 2014, artist_id: Artist.find_by(name: 'Sam Smith').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/9/99/Sam_Smith_-_In_the_Lonely_Hour_%28Official_Album_Cover%29.png')
+  Album.create(title: "All That You Can't Leave Behind", year: 2000, artist_id: Artist.find_by(name: 'U2').id, img_url: 'https://cps-static.rovicorp.com/3/JPG_500/MI0002/415/MI0002415279.jpg?partner=allrovi.com')
+  Album.create(title: "Third Eye Blind", year: 1997, artist_id: Artist.find_by(name: 'Third Eye Blind').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/d/da/Third_eye_blind_self_titled.jpg')
+  Album.create(title: "Love Tribe", year: 2007, artist_id: Artist.find_by(name: 'Jazztronik').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/51ZJ2cOXL1L._SS500.jpg')
+  Album.create(title: "Room For Squares", year: 2001, artist_id: Artist.find_by(name: 'John Mayer').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/5/5a/JohnMayer_RoomForSquares.jpg')
+  Album.create(title: "Interstellar (Original Motion Picture Soundtrack)", year: 2014, artist_id: Artist.find_by(name: 'Hans Zimmer').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/81VnhAMhc4L._SL1425_.jpg')
+  Album.create(title: "Inception (Music From The Motion Picture)", year: 2010, artist_id: Artist.find_by(name: 'Hans Zimmer').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/51NbVEuw1HL.jpg')
+  Album.create(title: "The Essential Stevie Ray Vaughan and Double Trouble", year: 2002, artist_id: Artist.find_by(name: 'Stevie Ray Vaughan').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/91cTAyZuReL._SL1500_.jpg')
+  Album.create(title: "The Beautiful Game", year: 2016, artist_id: Artist.find_by(name: 'Vulfpeck').id, img_url: 'https://f4.bcbits.com/img/a1702319957_10.jpg')
+  Album.create(title: "Thrill of the Arts", year: 2015, artist_id: Artist.find_by(name: 'Vulfpeck').id, img_url: 'https://f4.bcbits.com/img/a2234708408_16.jpg')
 
 
 
 
 
 
-    Song.create(title: "Mobius Streak", track_num: 1, duration: minutes_to_seconds('5:59'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354436/Tawk%20Tomahawk%202012/01_mobius_streak_fsmvdj.mp3')
-    Song.create(title: "Malika", track_num: 4, duration: minutes_to_seconds('4:55'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354435/Tawk%20Tomahawk%202012/04_malika_firvgu.mp3')
-    Song.create(title: "Nakamarra", track_num: 10, duration: minutes_to_seconds('4:35'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354433/Tawk%20Tomahawk%202012/10_nakamarra_rzhjac.mp3')
-    Song.create(title: "Rainbow Rhodes", track_num: 8, duration: minutes_to_seconds('1:53'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354433/Tawk%20Tomahawk%202012/08_rainbow_rhodes_gxx0u0.mp3')
-    Song.create(title: "Sphynx Gate", track_num: 9, duration: minutes_to_seconds('1:58'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354430/Tawk%20Tomahawk%202012/09_sphynx_gate_btjkdr.mp3')
-    Song.create(title: "The World It Softly Lulls", track_num: 2, duration: minutes_to_seconds('2:56'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354427/Tawk%20Tomahawk%202012/02_the_world_it_softly_lulls_y18dza.mp3')
-    Song.create(title: "Boom Child", track_num: 6, duration: minutes_to_seconds('1:31'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354427/Tawk%20Tomahawk%202012/06_boom_child_udkjf3.mp3')
-    Song.create(title: "Lace Skull", track_num: 7, duration: minutes_to_seconds('4:00'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354426/Tawk%20Tomahawk%202012/07_lace_skull_osjb7x.mp3')
-    Song.create(title: "Leap Frog", track_num: 3, duration: minutes_to_seconds('1:24'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354425/Tawk%20Tomahawk%202012/03_leap_frog_rvfnnx.mp3')
-    Song.create(title: "Ocelot", track_num: 5, duration: minutes_to_seconds('1:23'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354421/Tawk%20Tomahawk%202012/05_ocelot_pvqujn.mp3')
+  Song.create(title: "Mobius Streak", track_num: 1, duration: minutes_to_seconds('5:59'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354436/Tawk%20Tomahawk%202012/01_mobius_streak_fsmvdj.mp3')
+  Song.create(title: "Malika", track_num: 4, duration: minutes_to_seconds('4:55'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354435/Tawk%20Tomahawk%202012/04_malika_firvgu.mp3')
+  Song.create(title: "Nakamarra", track_num: 10, duration: minutes_to_seconds('4:35'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354433/Tawk%20Tomahawk%202012/10_nakamarra_rzhjac.mp3')
+  Song.create(title: "Rainbow Rhodes", track_num: 8, duration: minutes_to_seconds('1:53'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354433/Tawk%20Tomahawk%202012/08_rainbow_rhodes_gxx0u0.mp3')
+  Song.create(title: "Sphynx Gate", track_num: 9, duration: minutes_to_seconds('1:58'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354430/Tawk%20Tomahawk%202012/09_sphynx_gate_btjkdr.mp3')
+  Song.create(title: "The World It Softly Lulls", track_num: 2, duration: minutes_to_seconds('2:56'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354427/Tawk%20Tomahawk%202012/02_the_world_it_softly_lulls_y18dza.mp3')
+  Song.create(title: "Boom Child", track_num: 6, duration: minutes_to_seconds('1:31'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354427/Tawk%20Tomahawk%202012/06_boom_child_udkjf3.mp3')
+  Song.create(title: "Lace Skull", track_num: 7, duration: minutes_to_seconds('4:00'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354426/Tawk%20Tomahawk%202012/07_lace_skull_osjb7x.mp3')
+  Song.create(title: "Leap Frog", track_num: 3, duration: minutes_to_seconds('1:24'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354425/Tawk%20Tomahawk%202012/03_leap_frog_rvfnnx.mp3')
+  Song.create(title: "Ocelot", track_num: 5, duration: minutes_to_seconds('1:23'), album_id: Album.find_by(title: 'Tawk Tomahawk').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517354421/Tawk%20Tomahawk%202012/05_ocelot_pvqujn.mp3')
 
 
-    Song.create(title: "Thing of Gold", track_num: 1, duration: minutes_to_seconds('6:25'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728654/Snarky%20Puppy/01_Thing_Of_Gold.mp3')
-    Song.create(title: "Bent Nails", track_num: 2, duration: minutes_to_seconds('5:02'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728649/Snarky%20Puppy/02_Bent_Nails.mp3')
-    Song.create(title: "Minjor", track_num: 3, duration: minutes_to_seconds('5:24'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728696/Snarky%20Puppy/03_Minjor.mp3')
-    Song.create(title: "Binky", track_num: 4, duration: minutes_to_seconds('9:38'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728694/Snarky%20Puppy/04_Binky.mp3')
-    Song.create(title: "Mr. Montauk", track_num: 5, duration: minutes_to_seconds('5:53'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728653/Snarky%20Puppy/05_Mr._Montauk.mp3')
-    Song.create(title: "Like A Light", track_num: 6, duration: minutes_to_seconds('4:47'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728693/Snarky%20Puppy/06_Like_A_Light.mp3')
-    Song.create(title: "Young Stuff", track_num: 7, duration: minutes_to_seconds('9:02'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728656/Snarky%20Puppy/07_Young_Stuff.mp3')
-    Song.create(title: "Quarter Master", track_num: 8, duration: minutes_to_seconds('8:44'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728694/Snarky%20Puppy/08_Quarter_Master.mp3')
+  Song.create(title: "Thing of Gold", track_num: 1, duration: minutes_to_seconds('6:25'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728654/Snarky%20Puppy/01_Thing_Of_Gold.mp3')
+  Song.create(title: "Bent Nails", track_num: 2, duration: minutes_to_seconds('5:02'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728649/Snarky%20Puppy/02_Bent_Nails.mp3')
+  Song.create(title: "Minjor", track_num: 3, duration: minutes_to_seconds('5:24'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728696/Snarky%20Puppy/03_Minjor.mp3')
+  Song.create(title: "Binky", track_num: 4, duration: minutes_to_seconds('9:38'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728694/Snarky%20Puppy/04_Binky.mp3')
+  Song.create(title: "Mr. Montauk", track_num: 5, duration: minutes_to_seconds('5:53'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728653/Snarky%20Puppy/05_Mr._Montauk.mp3')
+  Song.create(title: "Like A Light", track_num: 6, duration: minutes_to_seconds('4:47'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728693/Snarky%20Puppy/06_Like_A_Light.mp3')
+  Song.create(title: "Young Stuff", track_num: 7, duration: minutes_to_seconds('9:02'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728656/Snarky%20Puppy/07_Young_Stuff.mp3')
+  Song.create(title: "Quarter Master", track_num: 8, duration: minutes_to_seconds('8:44'), album_id: Album.find_by(title: 'groundUP').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728694/Snarky%20Puppy/08_Quarter_Master.mp3')
 
 
-    Song.create(title: "Shofukan", track_num: 1, duration: minutes_to_seconds('6:33'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728588/01_Shofukan_ujc61h.mp3')
-    Song.create(title: "What About Me?", track_num: 2, duration: minutes_to_seconds('6:42'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728596/02_What_About_Me-_w2tthg.mp3')
-    Song.create(title: "Sleeper", track_num: 3, duration: minutes_to_seconds('6:51'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728592/03_Sleeper_valykk.mp3')
-    Song.create(title: "Jambone", track_num: 4, duration: minutes_to_seconds('5:07'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728629/04_Jambone_r1awlz.mp3')
-    Song.create(title: "Kite", track_num: 5, duration: minutes_to_seconds('6:12'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728630/05_Kite_qxxgkl.mp3')
-    Song.create(title: "Outlier", track_num: 6, duration: minutes_to_seconds('6:45'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728590/06_Outlier_o2w2q0.mp3')
-    Song.create(title: "Tio Macaco", track_num: 7, duration: minutes_to_seconds('5:43'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728632/07_Tio_Macaco_eguhjt.mp3')
-    Song.create(title: "Lingus", track_num: 8, duration: minutes_to_seconds('10:45'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728623/08_Lingus_xyqjwh.mp3')
+  Song.create(title: "Shofukan", track_num: 1, duration: minutes_to_seconds('6:33'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728588/01_Shofukan_ujc61h.mp3')
+  Song.create(title: "What About Me?", track_num: 2, duration: minutes_to_seconds('6:42'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728596/02_What_About_Me-_w2tthg.mp3')
+  Song.create(title: "Sleeper", track_num: 3, duration: minutes_to_seconds('6:51'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728592/03_Sleeper_valykk.mp3')
+  Song.create(title: "Jambone", track_num: 4, duration: minutes_to_seconds('5:07'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728629/04_Jambone_r1awlz.mp3')
+  Song.create(title: "Kite", track_num: 5, duration: minutes_to_seconds('6:12'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728630/05_Kite_qxxgkl.mp3')
+  Song.create(title: "Outlier", track_num: 6, duration: minutes_to_seconds('6:45'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728590/06_Outlier_o2w2q0.mp3')
+  Song.create(title: "Tio Macaco", track_num: 7, duration: minutes_to_seconds('5:43'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728632/07_Tio_Macaco_eguhjt.mp3')
+  Song.create(title: "Lingus", track_num: 8, duration: minutes_to_seconds('10:45'), album_id: Album.find_by(title: 'We Like It Here').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728623/08_Lingus_xyqjwh.mp3')
 
 
-    Song.create(title: "Sintra", track_num: 1, duration: minutes_to_seconds('3:32'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025822/Snarky%20Puppy/01._Sintra.mp3')
-    # Song.create(title: "Flight", track_num: 2, duration: minutes_to_seconds('6:03'), album_id: Album.find_by(title: 'Sylva').id ,link: '')
-    # Song.create(title: "Atchafalaya", track_num: 3, duration: minutes_to_seconds('6:04'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728592/03_Sleeper_valykk.mp3')
-    # Song.create(title: "The Curtain", track_num: 4, duration: minutes_to_seconds('15:09'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728629/04_Jambone_r1awlz.mp3')
-    # Song.create(title: "Gretel", track_num: 5, duration: minutes_to_seconds('4:21'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728630/05_Kite_qxxgkl.mp3')
-    # Song.create(title: "The Clearing", track_num: 6, duration: minutes_to_seconds('19:23'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728630/05_Kite_qxxgkl.mp3')
+  Song.create(title: "Sintra", track_num: 1, duration: minutes_to_seconds('3:32'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025822/Snarky%20Puppy/01._Sintra.mp3')
+  Song.create(title: "Flight", track_num: 2, duration: minutes_to_seconds('6:03'), album_id: Album.find_by(title: 'Sylva').id ,link: '')
+  Song.create(title: "Atchafalaya", track_num: 3, duration: minutes_to_seconds('6:04'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728592/03_Sleeper_valykk.mp3')
+  Song.create(title: "The Curtain", track_num: 4, duration: minutes_to_seconds('15:09'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728629/04_Jambone_r1awlz.mp3')
+  Song.create(title: "Gretel", track_num: 5, duration: minutes_to_seconds('4:21'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728630/05_Kite_qxxgkl.mp3')
+  Song.create(title: "The Clearing", track_num: 6, duration: minutes_to_seconds('19:23'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728630/05_Kite_qxxgkl.mp3')
 
 
 
-    Song.create(title: "Prologue\: Fjords", track_num: 1, duration: minutes_to_seconds('8:27'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654974/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_01_Prologue-_Fjords_vqzl3w.mp3')
-    Song.create(title: "December in New York", track_num: 2, duration: minutes_to_seconds('4:55'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654985/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_02_December_in_New_York_qltis4.mp3')
-    Song.create(title: "Swift", track_num: 3, duration: minutes_to_seconds('4:43'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654979/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_03_Swift_hprqja.mp3')
-    Song.create(title: "U-Bahn", track_num: 4, duration: minutes_to_seconds('6:48'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654973/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_04_U-Bahn_grogfi.mp3')
-    Song.create(title: "The Rush", track_num: 5, duration: minutes_to_seconds('5:21'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654974/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_05_The_Rush_i2xsrv.mp3')
-    Song.create(title: "Denmark Hill", track_num: 6, duration: minutes_to_seconds('5:13'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654985/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_06_Denmark_Hill_pwcpnd.mp3')
-    Song.create(title: "Red Sand", track_num: 7, duration: minutes_to_seconds('5:19'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654966/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_07_Red_Sand_lxyzon.mp3')
-    Song.create(title: "The Real One", track_num: 8, duration: minutes_to_seconds('6:26'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654979/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_08_The_Real_One_veirjw.mp3')
-    Song.create(title: "Mr. Elevator", track_num: 9, duration: minutes_to_seconds('5:03'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654986/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_09_Mr._Elevator_itn4na.mp3')
-    Song.create(title: "One Time", track_num: 10, duration: minutes_to_seconds('4:21'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654981/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_10_One_Time_zkvevx.mp3')
-    Song.create(title: "The Isles", track_num: 11, duration: minutes_to_seconds('12:05'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654981/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_11_The_Isles_lrwjud.mp3')
+  Song.create(title: "Prologue\: Fjords", track_num: 1, duration: minutes_to_seconds('8:27'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654974/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_01_Prologue-_Fjords_vqzl3w.mp3')
+  Song.create(title: "December in New York", track_num: 2, duration: minutes_to_seconds('4:55'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654985/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_02_December_in_New_York_qltis4.mp3')
+  Song.create(title: "Swift", track_num: 3, duration: minutes_to_seconds('4:43'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654979/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_03_Swift_hprqja.mp3')
+  Song.create(title: "U-Bahn", track_num: 4, duration: minutes_to_seconds('6:48'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654973/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_04_U-Bahn_grogfi.mp3')
+  Song.create(title: "The Rush", track_num: 5, duration: minutes_to_seconds('5:21'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654974/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_05_The_Rush_i2xsrv.mp3')
+  Song.create(title: "Denmark Hill", track_num: 6, duration: minutes_to_seconds('5:13'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654985/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_06_Denmark_Hill_pwcpnd.mp3')
+  Song.create(title: "Red Sand", track_num: 7, duration: minutes_to_seconds('5:19'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654966/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_07_Red_Sand_lxyzon.mp3')
+  Song.create(title: "The Real One", track_num: 8, duration: minutes_to_seconds('6:26'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654979/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_08_The_Real_One_veirjw.mp3')
+  Song.create(title: "Mr. Elevator", track_num: 9, duration: minutes_to_seconds('5:03'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654986/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_09_Mr._Elevator_itn4na.mp3')
+  Song.create(title: "One Time", track_num: 10, duration: minutes_to_seconds('4:21'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654981/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_10_One_Time_zkvevx.mp3')
+  Song.create(title: "The Isles", track_num: 11, duration: minutes_to_seconds('12:05'), album_id: Album.find_by(title: 'Swift').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654981/Bill%20Laurance/Swift/Bill_Laurance_-_Swift_-_11_The_Isles_lrwjud.mp3')
 
 
-    Song.create(title: "Neverending City", track_num: 1, duration: minutes_to_seconds('4:28'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654970/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_01_Neverending_City_hjoglk.mp3')
-    Song.create(title: "Money in the Desert", track_num: 2, duration: minutes_to_seconds('5:56'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654966/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_02_Money_In_The_Desert_w3ctkt.mp3')
-    Song.create(title: "Flint", track_num: 3, duration: minutes_to_seconds('4:03'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654980/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_03_Flint_doppuw.mp3')
-    Song.create(title: "Swag Times", track_num: 4, duration: minutes_to_seconds('5:50'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654961/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_04_Swag_Times_nrkowp.mp3')
-    Song.create(title: "The Good Things", track_num: 5, duration: minutes_to_seconds('6:53'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654966/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_05_The_Good_Things_slasgj.mp3')
-    Song.create(title: "Chia", track_num: 6, duration: minutes_to_seconds('4:24'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654958/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_06_Chia_flqb9s.mp3')
-    Song.create(title: "Smokers Castle", track_num: 7, duration: minutes_to_seconds('5:18'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654968/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_07_Smokers_Castle_fopeof.mp3')
-    Song.create(title: "Gold Coast", track_num: 8, duration: minutes_to_seconds('4:58'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654976/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_08_Gold_Coast_xiiwc7.mp3')
-    Song.create(title: "Ready Wednesday", track_num: 9, duration: minutes_to_seconds('9:38'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654961/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_09_Ready_Wednesday_pzp8pv.mp3')
-    Song.create(title: "Audrey", track_num: 10, duration: minutes_to_seconds('2:58'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654958/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_10_Audrey_slvbm1.mp3')
+  Song.create(title: "Neverending City", track_num: 1, duration: minutes_to_seconds('4:28'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654970/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_01_Neverending_City_hjoglk.mp3')
+  Song.create(title: "Money in the Desert", track_num: 2, duration: minutes_to_seconds('5:56'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654966/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_02_Money_In_The_Desert_w3ctkt.mp3')
+  Song.create(title: "Flint", track_num: 3, duration: minutes_to_seconds('4:03'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654980/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_03_Flint_doppuw.mp3')
+  Song.create(title: "Swag Times", track_num: 4, duration: minutes_to_seconds('5:50'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654961/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_04_Swag_Times_nrkowp.mp3')
+  Song.create(title: "The Good Things", track_num: 5, duration: minutes_to_seconds('6:53'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654966/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_05_The_Good_Things_slasgj.mp3')
+  Song.create(title: "Chia", track_num: 6, duration: minutes_to_seconds('4:24'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654958/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_06_Chia_flqb9s.mp3')
+  Song.create(title: "Smokers Castle", track_num: 7, duration: minutes_to_seconds('5:18'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654968/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_07_Smokers_Castle_fopeof.mp3')
+  Song.create(title: "Gold Coast", track_num: 8, duration: minutes_to_seconds('4:58'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654976/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_08_Gold_Coast_xiiwc7.mp3')
+  Song.create(title: "Ready Wednesday", track_num: 9, duration: minutes_to_seconds('9:38'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654961/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_09_Ready_Wednesday_pzp8pv.mp3')
+  Song.create(title: "Audrey", track_num: 10, duration: minutes_to_seconds('2:58'), album_id: Album.find_by(title: 'Flint').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517654958/Bill%20Laurance/Flint/Bill_Laurance_-_Flint_-_10_Audrey_slvbm1.mp3')
 
 
-    Song.create(title: "You're Everything", track_num: 1, duration: minutes_to_seconds('5:11'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942872/Chick%20Corea/1-01_You_re_Everything.m4a')
-    Song.create(title: "Light as a Feather", track_num: 2, duration: minutes_to_seconds('10:57'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942871/Chick%20Corea/1-02_Light_as_a_Feather.m4a')
-    Song.create(title: "Captain Marvel", track_num: 3, duration: minutes_to_seconds('4:53'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942876/Chick%20Corea/1-03_Captain_Marvel.m4a')
-    Song.create(title: "500 Miles High", track_num: 4, duration: minutes_to_seconds('9:07'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942882/Chick%20Corea/1-04_500_Miles_High.m4a')
-    Song.create(title: "Children's Song", track_num: 5, duration: minutes_to_seconds('2:47'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942864/Chick%20Corea/1-05_Children_s_Song.m4a')
-    Song.create(title: "Spain", track_num: 6, duration: minutes_to_seconds('9:51'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942876/Chick%20Corea/1-06_Spain.m4a')
+  Song.create(title: "You're Everything", track_num: 1, duration: minutes_to_seconds('5:11'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942872/Chick%20Corea/1-01_You_re_Everything.m4a')
+  Song.create(title: "Light as a Feather", track_num: 2, duration: minutes_to_seconds('10:57'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942871/Chick%20Corea/1-02_Light_as_a_Feather.m4a')
+  Song.create(title: "Captain Marvel", track_num: 3, duration: minutes_to_seconds('4:53'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942876/Chick%20Corea/1-03_Captain_Marvel.m4a')
+  Song.create(title: "500 Miles High", track_num: 4, duration: minutes_to_seconds('9:07'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942882/Chick%20Corea/1-04_500_Miles_High.m4a')
+  Song.create(title: "Children's Song", track_num: 5, duration: minutes_to_seconds('2:47'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942864/Chick%20Corea/1-05_Children_s_Song.m4a')
+  Song.create(title: "Spain", track_num: 6, duration: minutes_to_seconds('9:51'), album_id: Album.find_by(title: 'Light as a Feather').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517942876/Chick%20Corea/1-06_Spain.m4a')
 
 
-    Song.create(title: "Perfect World", track_num: 1, duration: minutes_to_seconds('3:16'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050226/Allen%20Stone/01._Perfect_World.mp3')
-    Song.create(title: "Fake Future", track_num: 2, duration: minutes_to_seconds('2:55'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050227/Allen%20Stone/02._Fake_Future.mp3')
-    Song.create(title: "American Priviledge", track_num: 3, duration: minutes_to_seconds('3:32'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050241/Allen%20Stone/03._American_Privilege.mp3')
-    Song.create(title: "Circle", track_num: 4, duration: minutes_to_seconds('3:29'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050257/Allen%20Stone/04._Circle.mp3')
-    Song.create(title: "Upside", track_num: 5, duration: minutes_to_seconds('4:01'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050263/Allen%20Stone/05._Upside.mp3')
-    Song.create(title: "Freezer Burn", track_num: 6, duration: minutes_to_seconds('2:44'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050245/Allen%20Stone/06._Freezer_Burn.mp3')
-    Song.create(title: "Love", track_num: 7, duration: minutes_to_seconds('2:56'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050249/Allen%20Stone/07._Love.mp3')
-    Song.create(title: "Where You're At", track_num: 8, duration: minutes_to_seconds('2:39'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050239/Allen%20Stone/08._Where_You_re_At.mp3')
-    Song.create(title: "Symmetrical", track_num: 9, duration: minutes_to_seconds('3:48'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050227/Allen%20Stone/09._Symmetrical.mp3')
-    Song.create(title: "The Wire", track_num: 10, duration: minutes_to_seconds('2:47'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050249/Allen%20Stone/10._The_Wire.mp3')
-    Song.create(title: "Guardian Angel", track_num: 11, duration: minutes_to_seconds('4:41'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050254/Allen%20Stone/11._Guardian_Angel.mp3')
-    Song.create(title: "Freedom", track_num: 12, duration: minutes_to_seconds('3:51'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050225/Allen%20Stone/12._Freedom.mp3')
-    Song.create(title: "Barbwire", track_num: 13, duration: minutes_to_seconds('4:03'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050216/Allen%20Stone/13._Barbwire.mp3')
-    Song.create(title: "I Know That I Wasn't Right", track_num: 14, duration: minutes_to_seconds('6:50'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050258/Allen%20Stone/14._I_Know_That_I_Wasn_t_Right.mp3')
+  Song.create(title: "Perfect World", track_num: 1, duration: minutes_to_seconds('3:16'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050226/Allen%20Stone/01._Perfect_World.mp3')
+  Song.create(title: "Fake Future", track_num: 2, duration: minutes_to_seconds('2:55'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050227/Allen%20Stone/02._Fake_Future.mp3')
+  Song.create(title: "American Priviledge", track_num: 3, duration: minutes_to_seconds('3:32'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050241/Allen%20Stone/03._American_Privilege.mp3')
+  Song.create(title: "Circle", track_num: 4, duration: minutes_to_seconds('3:29'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050257/Allen%20Stone/04._Circle.mp3')
+  Song.create(title: "Upside", track_num: 5, duration: minutes_to_seconds('4:01'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050263/Allen%20Stone/05._Upside.mp3')
+  Song.create(title: "Freezer Burn", track_num: 6, duration: minutes_to_seconds('2:44'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050245/Allen%20Stone/06._Freezer_Burn.mp3')
+  Song.create(title: "Love", track_num: 7, duration: minutes_to_seconds('2:56'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050249/Allen%20Stone/07._Love.mp3')
+  Song.create(title: "Where You're At", track_num: 8, duration: minutes_to_seconds('2:39'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050239/Allen%20Stone/08._Where_You_re_At.mp3')
+  Song.create(title: "Symmetrical", track_num: 9, duration: minutes_to_seconds('3:48'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050227/Allen%20Stone/09._Symmetrical.mp3')
+  Song.create(title: "The Wire", track_num: 10, duration: minutes_to_seconds('2:47'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050249/Allen%20Stone/10._The_Wire.mp3')
+  Song.create(title: "Guardian Angel", track_num: 11, duration: minutes_to_seconds('4:41'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050254/Allen%20Stone/11._Guardian_Angel.mp3')
+  Song.create(title: "Freedom", track_num: 12, duration: minutes_to_seconds('3:51'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050225/Allen%20Stone/12._Freedom.mp3')
+  Song.create(title: "Barbwire", track_num: 13, duration: minutes_to_seconds('4:03'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050216/Allen%20Stone/13._Barbwire.mp3')
+  Song.create(title: "I Know That I Wasn't Right", track_num: 14, duration: minutes_to_seconds('6:50'), album_id: Album.find_by(title: 'Radius').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050258/Allen%20Stone/14._I_Know_That_I_Wasn_t_Right.mp3')
 
 
-    Song.create(title: "Money On My Mind", track_num: 1, duration: minutes_to_seconds('3:13'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029716/Sam%20Smith/01_-_Money_On_My_Mind.mp3')
-    Song.create(title: "Good Thing", track_num: 2, duration: minutes_to_seconds('3:21'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029710/Sam%20Smith/02_-_Good_Thing.mp3')
-    Song.create(title: "Stay With Me", track_num: 3, duration: minutes_to_seconds('2:52'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029721/Sam%20Smith/03_-_Stay_With_Me.mp3')
-    Song.create(title: "Leave Your Lover", track_num: 4, duration: minutes_to_seconds('3:08'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029711/Sam%20Smith/04_-_Leave_Your_Lover.mp3')
-    Song.create(title: "I'm Not The Only One", track_num: 5, duration: minutes_to_seconds('3:59'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029726/Sam%20Smith/05_-_I_m_Not_The_Only_One.mp3')
-    Song.create(title: "I've Told You Now", track_num: 6, duration: minutes_to_seconds('3:30'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029728/Sam%20Smith/06_-_I_ve_Told_You_Now.mp3')
-    Song.create(title: "Like I Can", track_num: 7, duration: minutes_to_seconds('2:47'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029728/Sam%20Smith/07_-_Like_I_Can.mp3')
-    Song.create(title: "Life Support", track_num: 8, duration: minutes_to_seconds('2:53'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029722/Sam%20Smith/08_-_Life_Support.mp3')
-    Song.create(title: "Not In That Way", track_num: 9, duration: minutes_to_seconds('2:52'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029724/Sam%20Smith/09_-_Not_In_That_Way.mp3')
-    Song.create(title: "Lay Me Down", track_num: 10, duration: minutes_to_seconds('4:13'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029721/Sam%20Smith/10_-_Lay_Me_Down.mp3')
-    Song.create(title: "Restart", track_num: 11, duration: minutes_to_seconds('3:52'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029727/Sam%20Smith/11_-_Restart.mp3')
-    Song.create(title: "Latch", track_num: 12, duration: minutes_to_seconds('3:43'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029716/Sam%20Smith/12_-_Latch.mp3')
-    Song.create(title: "La La La", track_num: 13, duration: minutes_to_seconds('3:39'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029715/Sam%20Smith/13_-_La_La_La.mp3')
-    Song.create(title: "Make It To Me", track_num: 14, duration: minutes_to_seconds('2:43'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029709/Sam%20Smith/14_-_Make_It_To_Me.mp3')
+  Song.create(title: "Money On My Mind", track_num: 1, duration: minutes_to_seconds('3:13'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029716/Sam%20Smith/01_-_Money_On_My_Mind.mp3')
+  Song.create(title: "Good Thing", track_num: 2, duration: minutes_to_seconds('3:21'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029710/Sam%20Smith/02_-_Good_Thing.mp3')
+  Song.create(title: "Stay With Me", track_num: 3, duration: minutes_to_seconds('2:52'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029721/Sam%20Smith/03_-_Stay_With_Me.mp3')
+  Song.create(title: "Leave Your Lover", track_num: 4, duration: minutes_to_seconds('3:08'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029711/Sam%20Smith/04_-_Leave_Your_Lover.mp3')
+  Song.create(title: "I'm Not The Only One", track_num: 5, duration: minutes_to_seconds('3:59'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029726/Sam%20Smith/05_-_I_m_Not_The_Only_One.mp3')
+  Song.create(title: "I've Told You Now", track_num: 6, duration: minutes_to_seconds('3:30'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029728/Sam%20Smith/06_-_I_ve_Told_You_Now.mp3')
+  Song.create(title: "Like I Can", track_num: 7, duration: minutes_to_seconds('2:47'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029728/Sam%20Smith/07_-_Like_I_Can.mp3')
+  Song.create(title: "Life Support", track_num: 8, duration: minutes_to_seconds('2:53'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029722/Sam%20Smith/08_-_Life_Support.mp3')
+  Song.create(title: "Not In That Way", track_num: 9, duration: minutes_to_seconds('2:52'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029724/Sam%20Smith/09_-_Not_In_That_Way.mp3')
+  Song.create(title: "Lay Me Down", track_num: 10, duration: minutes_to_seconds('4:13'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029721/Sam%20Smith/10_-_Lay_Me_Down.mp3')
+  Song.create(title: "Restart", track_num: 11, duration: minutes_to_seconds('3:52'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029727/Sam%20Smith/11_-_Restart.mp3')
+  Song.create(title: "Latch", track_num: 12, duration: minutes_to_seconds('3:43'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029716/Sam%20Smith/12_-_Latch.mp3')
+  Song.create(title: "La La La", track_num: 13, duration: minutes_to_seconds('3:39'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029715/Sam%20Smith/13_-_La_La_La.mp3')
+  Song.create(title: "Make It To Me", track_num: 14, duration: minutes_to_seconds('2:43'), album_id: Album.find_by(title: 'In the Lonely Hour').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518029709/Sam%20Smith/14_-_Make_It_To_Me.mp3')
 
 #missing Kite
-    Song.create(title: "Beautiful Day", track_num: 1, duration: minutes_to_seconds('4:08'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054862/U2/01_Beautiful_Day.m4a')
-    Song.create(title: "Stuck In A Moment You Can't Get Out Of", track_num: 2, duration: minutes_to_seconds('4:32'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054867/U2/02_Stuck_in_a_Moment_You_Can_t_Get_O.m4a')
-    Song.create(title: "Elevation", track_num: 3, duration: minutes_to_seconds('3:47'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054863/U2/03_Elevation.m4a')
-    Song.create(title: "Walk On", track_num: 4, duration: minutes_to_seconds('4:56'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054867/U2/04_Walk_On.m4a')
-    Song.create(title: "Kite", track_num: 5, duration: minutes_to_seconds('4:26'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054867/U2/04_Walk_On.m4a')
-    Song.create(title: "In A Little While", track_num: 6, duration: minutes_to_seconds('3:39'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054863/U2/06_In_a_Little_While.m4a')
-    Song.create(title: "Wild Honey", track_num: 7, duration: minutes_to_seconds('3:46'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054869/U2/07_Wild_Honey.m4a')
-    Song.create(title: "Peace on Earth", track_num: 8, duration: minutes_to_seconds('4:48'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054866/U2/08_Peace_on_Earth.m4a')
-    Song.create(title: "When I Look At The World", track_num: 9, duration: minutes_to_seconds('4:17'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054880/U2/09_When_I_Look_at_the_World.m4a')
-    Song.create(title: "New York", track_num: 10, duration: minutes_to_seconds('5:30'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054873/U2/10_New_York.m4a')
-    Song.create(title: "Grace", track_num: 11, duration: minutes_to_seconds('5:30'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054873/U2/11_Grace.m4a')
+  Song.create(title: "Beautiful Day", track_num: 1, duration: minutes_to_seconds('4:08'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054862/U2/01_Beautiful_Day.m4a')
+  Song.create(title: "Stuck In A Moment You Can't Get Out Of", track_num: 2, duration: minutes_to_seconds('4:32'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054867/U2/02_Stuck_in_a_Moment_You_Can_t_Get_O.m4a')
+  Song.create(title: "Elevation", track_num: 3, duration: minutes_to_seconds('3:47'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054863/U2/03_Elevation.m4a')
+  Song.create(title: "Walk On", track_num: 4, duration: minutes_to_seconds('4:56'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054867/U2/04_Walk_On.m4a')
+  Song.create(title: "Kite", track_num: 5, duration: minutes_to_seconds('4:26'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054867/U2/04_Walk_On.m4a')
+  Song.create(title: "In A Little While", track_num: 6, duration: minutes_to_seconds('3:39'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054863/U2/06_In_a_Little_While.m4a')
+  Song.create(title: "Wild Honey", track_num: 7, duration: minutes_to_seconds('3:46'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054869/U2/07_Wild_Honey.m4a')
+  Song.create(title: "Peace on Earth", track_num: 8, duration: minutes_to_seconds('4:48'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054866/U2/08_Peace_on_Earth.m4a')
+  Song.create(title: "When I Look At The World", track_num: 9, duration: minutes_to_seconds('4:17'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054880/U2/09_When_I_Look_at_the_World.m4a')
+  Song.create(title: "New York", track_num: 10, duration: minutes_to_seconds('5:30'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054873/U2/10_New_York.m4a')
+  Song.create(title: "Grace", track_num: 11, duration: minutes_to_seconds('5:30'), album_id: Album.find_by(title: 'All That You Can\'t Leave Behind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518054873/U2/11_Grace.m4a')
 
 
-    Song.create(title: "Losing A Whole Year", track_num: 1, duration: minutes_to_seconds('3:20'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023606/Third%20Eye%20Blind/01_Losing_a_Whole_Year.mp3')
-    Song.create(title: "Narcolepsy", track_num: 2, duration: minutes_to_seconds('3:48'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023608/Third%20Eye%20Blind/02_Narcolepsy.mp3')
-    Song.create(title: "Semi-Charmed Life", track_num: 3, duration: minutes_to_seconds('4:28'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023620/Third%20Eye%20Blind/03_Semi-Charmed_Life.mp3')
-    Song.create(title: "Jumper", track_num: 4, duration: minutes_to_seconds('4:32'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023614/Third%20Eye%20Blind/04_Jumper.mp3')
-    Song.create(title: "Graduate", track_num: 5, duration: minutes_to_seconds('3:09'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023609/Third%20Eye%20Blind/05_Graduate.mp3')
-    Song.create(title: "How's It Going To Be", track_num: 6, duration: minutes_to_seconds('4:13'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023615/Third%20Eye%20Blind/06_How_It_s_Going_to_Be.mp3')
-    Song.create(title: "Thanks a Lot", track_num: 7, duration: minutes_to_seconds('4:56'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023617/Third%20Eye%20Blind/07_Thanks_a_Lot.mp3')
-    Song.create(title: "Burning Man", track_num: 8, duration: minutes_to_seconds('2:59'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023610/Third%20Eye%20Blind/08_Burning_Man.mp3')
-    Song.create(title: "Good For You", track_num: 9, duration: minutes_to_seconds('3:51'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023607/Third%20Eye%20Blind/09_Good_for_You.mp3')
-    Song.create(title: "London", track_num: 10, duration: minutes_to_seconds('3:06'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023609/Third%20Eye%20Blind/10_London.mp3')
-    Song.create(title: "I Want You", track_num: 11, duration: minutes_to_seconds('4:28'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023610/Third%20Eye%20Blind/11_I_Want_You.mp3')
-    Song.create(title: "The Background", track_num: 12, duration: minutes_to_seconds('4:56'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023616/Third%20Eye%20Blind/12_The_Background.mp3')
-    Song.create(title: "Motorcycle Diversity", track_num: 13, duration: minutes_to_seconds('4:21'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023609/Third%20Eye%20Blind/13_Motorcycle_Driveby.mp3')
-    Song.create(title: "God Of Wine", track_num: 14, duration: minutes_to_seconds('5:17'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023619/Third%20Eye%20Blind/14_God_of_Wine.mp3')
+  Song.create(title: "Losing A Whole Year", track_num: 1, duration: minutes_to_seconds('3:20'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023606/Third%20Eye%20Blind/01_Losing_a_Whole_Year.mp3')
+  Song.create(title: "Narcolepsy", track_num: 2, duration: minutes_to_seconds('3:48'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023608/Third%20Eye%20Blind/02_Narcolepsy.mp3')
+  Song.create(title: "Semi-Charmed Life", track_num: 3, duration: minutes_to_seconds('4:28'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023620/Third%20Eye%20Blind/03_Semi-Charmed_Life.mp3')
+  Song.create(title: "Jumper", track_num: 4, duration: minutes_to_seconds('4:32'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023614/Third%20Eye%20Blind/04_Jumper.mp3')
+  Song.create(title: "Graduate", track_num: 5, duration: minutes_to_seconds('3:09'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023609/Third%20Eye%20Blind/05_Graduate.mp3')
+  Song.create(title: "How's It Going To Be", track_num: 6, duration: minutes_to_seconds('4:13'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023615/Third%20Eye%20Blind/06_How_It_s_Going_to_Be.mp3')
+  Song.create(title: "Thanks a Lot", track_num: 7, duration: minutes_to_seconds('4:56'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023617/Third%20Eye%20Blind/07_Thanks_a_Lot.mp3')
+  Song.create(title: "Burning Man", track_num: 8, duration: minutes_to_seconds('2:59'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023610/Third%20Eye%20Blind/08_Burning_Man.mp3')
+  Song.create(title: "Good For You", track_num: 9, duration: minutes_to_seconds('3:51'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023607/Third%20Eye%20Blind/09_Good_for_You.mp3')
+  Song.create(title: "London", track_num: 10, duration: minutes_to_seconds('3:06'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023609/Third%20Eye%20Blind/10_London.mp3')
+  Song.create(title: "I Want You", track_num: 11, duration: minutes_to_seconds('4:28'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023610/Third%20Eye%20Blind/11_I_Want_You.mp3')
+  Song.create(title: "The Background", track_num: 12, duration: minutes_to_seconds('4:56'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023616/Third%20Eye%20Blind/12_The_Background.mp3')
+  Song.create(title: "Motorcycle Diversity", track_num: 13, duration: minutes_to_seconds('4:21'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023609/Third%20Eye%20Blind/13_Motorcycle_Driveby.mp3')
+  Song.create(title: "God Of Wine", track_num: 14, duration: minutes_to_seconds('5:17'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023619/Third%20Eye%20Blind/14_God_of_Wine.mp3')
 
 
-    Song.create(title: "
+  Song.create(title: "
 Love Tribe (feat. Miss Vehna from Soul Trip!!) (Main Mix)", track_num: 1, duration: minutes_to_seconds('5:33'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050298/Jazztronik/01_Love_Tribe_feat._Miss_Vehna_from.m4a')
-    Song.create(title: "The King of Dance", track_num: 2, duration: minutes_to_seconds('8:47'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050303/Jazztronik/02_The_King_of_Dance.m4a')
-    Song.create(title: "Life Syncopetion", track_num: 3, duration: minutes_to_seconds('5:31'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050288/Jazztronik/03_Life_Syncopetion.m4a')
-    Song.create(title: "
+  Song.create(title: "The King of Dance", track_num: 2, duration: minutes_to_seconds('8:47'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050303/Jazztronik/02_The_King_of_Dance.m4a')
+  Song.create(title: "Life Syncopetion", track_num: 3, duration: minutes_to_seconds('5:31'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050288/Jazztronik/03_Life_Syncopetion.m4a')
+  Song.create(title: "
 Festalica!! (Clap Ya Hands!!)", track_num: 4, duration: minutes_to_seconds('5:27'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050288/Jazztronik/04_Festalica_Clap_Ya_Hands.m4a')
-    Song.create(title: "Tiger Eyes (feat. Monday Michiru) (English Version)", track_num: 5, duration: minutes_to_seconds('8:32'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050299/Jazztronik/05_Tiger_Eyes_feat._Monday_Michiru.m4a')
-    Song.create(title: "How's It Going To Be", track_num: 6, duration: minutes_to_seconds('6:12'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050307/Jazztronik/06_Dust_to_Dust_feat._Robert_Gallag.m4a')
+  Song.create(title: "Tiger Eyes (feat. Monday Michiru) (English Version)", track_num: 5, duration: minutes_to_seconds('8:32'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050299/Jazztronik/05_Tiger_Eyes_feat._Monday_Michiru.m4a')
+  Song.create(title: "How's It Going To Be", track_num: 6, duration: minutes_to_seconds('6:12'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050307/Jazztronik/06_Dust_to_Dust_feat._Robert_Gallag.m4a')
 
 
-    Song.create(title: "No Such Thing", track_num: 1, duration: minutes_to_seconds('3:51'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050116/John%20Mayer/01_No_Such_Thing.m4a')
-    Song.create(title: "Why Georgia", track_num: 2, duration: minutes_to_seconds('4:28'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050120/John%20Mayer/02_Why_Georgia.m4a')
-    Song.create(title: "My Stupid Mouth", track_num: 3, duration: minutes_to_seconds('3:45'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050119/John%20Mayer/03_My_Stupid_Mouth.m4a')
-    Song.create(title: "Your Body is a Wonderland", track_num: 4, duration: minutes_to_seconds('4:09'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050113/John%20Mayer/04_Your_Body_Is_A_Wonderland.m4a')
-    Song.create(title: "Neon", track_num: 5, duration: minutes_to_seconds('4:22'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050124/John%20Mayer/05_Neon.mp3')
-    Song.create(title: "City Love", track_num: 6, duration: minutes_to_seconds('4:00'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050122/John%20Mayer/06_City_Love.mp3')
-    Song.create(title: "83", track_num: 7, duration: minutes_to_seconds('4:50'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050116/John%20Mayer/07_83.m4a')
-    Song.create(title: "3x5", track_num: 8, duration: minutes_to_seconds('4:50'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050123/John%20Mayer/08_3x5.m4a')
-    Song.create(title: "Love Song For No One", track_num: 9, duration: minutes_to_seconds('3:21'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050121/John%20Mayer/09_Love_Song_For_No_One.m4a')
-    Song.create(title: "Back To You", track_num: 10, duration: minutes_to_seconds('4:01'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050120/John%20Mayer/10_Back_To_You.m4a')
-    Song.create(title: "Great Indoors", track_num: 11, duration: minutes_to_seconds('3:36'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050128/John%20Mayer/11_Great_Indoors.m4a')
-    Song.create(title: "Not Myself", track_num: 12, duration: minutes_to_seconds('3:40'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050116/John%20Mayer/12_Not_Myself.m4a')
-    Song.create(title: "St. Patrick's Day", track_num: 13, duration: minutes_to_seconds('5:21'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050115/John%20Mayer/13_St._Patrick_s_Day.m4a')
+  Song.create(title: "No Such Thing", track_num: 1, duration: minutes_to_seconds('3:51'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050116/John%20Mayer/01_No_Such_Thing.m4a')
+  Song.create(title: "Why Georgia", track_num: 2, duration: minutes_to_seconds('4:28'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050120/John%20Mayer/02_Why_Georgia.m4a')
+  Song.create(title: "My Stupid Mouth", track_num: 3, duration: minutes_to_seconds('3:45'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050119/John%20Mayer/03_My_Stupid_Mouth.m4a')
+  Song.create(title: "Your Body is a Wonderland", track_num: 4, duration: minutes_to_seconds('4:09'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050113/John%20Mayer/04_Your_Body_Is_A_Wonderland.m4a')
+  Song.create(title: "Neon", track_num: 5, duration: minutes_to_seconds('4:22'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050124/John%20Mayer/05_Neon.mp3')
+  Song.create(title: "City Love", track_num: 6, duration: minutes_to_seconds('4:00'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050122/John%20Mayer/06_City_Love.mp3')
+  Song.create(title: "83", track_num: 7, duration: minutes_to_seconds('4:50'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050116/John%20Mayer/07_83.m4a')
+  Song.create(title: "3x5", track_num: 8, duration: minutes_to_seconds('4:50'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050123/John%20Mayer/08_3x5.m4a')
+  Song.create(title: "Love Song For No One", track_num: 9, duration: minutes_to_seconds('3:21'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050121/John%20Mayer/09_Love_Song_For_No_One.m4a')
+  Song.create(title: "Back To You", track_num: 10, duration: minutes_to_seconds('4:01'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050120/John%20Mayer/10_Back_To_You.m4a')
+  Song.create(title: "Great Indoors", track_num: 11, duration: minutes_to_seconds('3:36'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050128/John%20Mayer/11_Great_Indoors.m4a')
+  Song.create(title: "Not Myself", track_num: 12, duration: minutes_to_seconds('3:40'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050116/John%20Mayer/12_Not_Myself.m4a')
+  Song.create(title: "St. Patrick's Day", track_num: 13, duration: minutes_to_seconds('5:21'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050115/John%20Mayer/13_St._Patrick_s_Day.m4a')
+
+
+  Song.create(title: "Dreaming of the Crash", track_num: 1, duration: minutes_to_seconds('3:55'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025074/Hans%20Zimmer/01_Dreaming_of_the_Crash.mp3')
+  Song.create(title: "Cornfield Chase", track_num: 2, duration: minutes_to_seconds('2:07'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025044/Hans%20Zimmer/02_Cornfield_Chase.mp3')
+  Song.create(title: "Dust", track_num: 3, duration: minutes_to_seconds('5:41'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025069/Hans%20Zimmer/03_Dust.mp3')
+  Song.create(title: "Day One", track_num: 4, duration: minutes_to_seconds('3:19'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025053/Hans%20Zimmer/04_Day_One.mp3')
+  Song.create(title: "Stay", track_num: 5, duration: minutes_to_seconds('6:52'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025073/Hans%20Zimmer/05_Stay.mp3')
+  Song.create(title: "Message from Home", track_num: 6, duration: minutes_to_seconds('1:40'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025078/Hans%20Zimmer/06_Message_From_Home.mp3')
+  Song.create(title: "The Wormhole", track_num: 7, duration: minutes_to_seconds('1:30'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025053/Hans%20Zimmer/07_The_Wormhole.mp3')
+  Song.create(title: "Mountains", track_num: 8, duration: minutes_to_seconds('3:39'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025057/Hans%20Zimmer/08_Mountains.mp3')
+  Song.create(title: "Afraid of Time", track_num: 9, duration: minutes_to_seconds('2:32'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025056/Hans%20Zimmer/09_Afraid_of_Time.mp3')
+  Song.create(title: "A Place Among the Stars", track_num: 10, duration: minutes_to_seconds('3:27'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025039/Hans%20Zimmer/10_A_Place_Among_the_Stars.mp3')
+  Song.create(title: "Running Out", track_num: 11, duration: minutes_to_seconds('1:57'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025047/Hans%20Zimmer/11_Running_Out.mp3')
+  Song.create(title: "I'm Going Home", track_num: 12, duration: minutes_to_seconds('5:48'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025064/Hans%20Zimmer/12_I_m_Going_Home.mp3')
+  Song.create(title: "Coward", track_num: 13, duration: minutes_to_seconds('8:26'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025086/Hans%20Zimmer/13_Coward.mp3')
+  Song.create(title: "Detach", track_num: 14, duration: minutes_to_seconds('6:42'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025061/Hans%20Zimmer/14_Detach.mp3')
+  Song.create(title: "S.T.A.Y.", track_num: 15, duration: minutes_to_seconds('6:23'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025077/Hans%20Zimmer/15_S.T.A.Y.mp3')
+  Song.create(title: "Where We're Going", track_num: 16, duration: minutes_to_seconds('7:41'), album_id: Album.find_by(title: 'Interstellar (Original Motion Picture Soundtrack)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025077/Hans%20Zimmer/16_Where_We_re_Going.mp3')
+
+
+  Song.create(title: "Half Remembered Dream", track_num: 1, duration: minutes_to_seconds('1:12'), album_id: Album.find_by(title: 'Inception (Music From The Motion Picture)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025019/Hans%20Zimmer/01._Half_Remembered_Dream.mp3')
+  Song.create(title: "We Built Our Own World", track_num: 2, duration: minutes_to_seconds('1:55'), album_id: Album.find_by(title: 'Inception (Music From The Motion Picture)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025018/Hans%20Zimmer/02._We_Built_Our_Own_World.mp3')
+  Song.create(title: "Dream Is Collapsing", track_num: 3, duration: minutes_to_seconds('2:23'), album_id: Album.find_by(title: 'Inception (Music From The Motion Picture)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025030/Hans%20Zimmer/03._Dream_Is_Collapsing.mp3')
+  Song.create(title: "Radical Notion", track_num: 4, duration: minutes_to_seconds('3:42'), album_id: Album.find_by(title: 'Inception (Music From The Motion Picture)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025024/Hans%20Zimmer/04._Radical_Notion.mp3')
+  Song.create(title: "Old Souls", track_num: 5, duration: minutes_to_seconds('7:44'), album_id: Album.find_by(title: 'Inception (Music From The Motion Picture)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025052/Hans%20Zimmer/05._Old_Souls.mp3')
+  Song.create(title: "528491", track_num: 6, duration: minutes_to_seconds('2:23'), album_id: Album.find_by(title: 'Inception (Music From The Motion Picture)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025036/Hans%20Zimmer/06._528491.mp3')
+  Song.create(title: "Mombassa", track_num: 7, duration: minutes_to_seconds('4:54'), album_id: Album.find_by(title: 'Inception (Music From The Motion Picture)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025041/Hans%20Zimmer/07._Mombassa.mp3')
+  Song.create(title: "One Simple Idea", track_num: 8, duration: minutes_to_seconds('2:28'), album_id: Album.find_by(title: 'Inception (Music From The Motion Picture)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025022/Hans%20Zimmer/08._One_Simple_Idea.mp3')
+  Song.create(title: "Dream Within A Dream", track_num: 9, duration: minutes_to_seconds('5:04'), album_id: Album.find_by(title: 'Inception (Music From The Motion Picture)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025031/Hans%20Zimmer/09._Dream_Within_A_Dream.mp3')
+  Song.create(title: "Waiting For A Train", track_num: 10, duration: minutes_to_seconds('9:30'), album_id: Album.find_by(title: 'Inception (Music From The Motion Picture)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025042/Hans%20Zimmer/10._Waiting_For_A_Train.mp3')
+  Song.create(title: "Paradox", track_num: 11, duration: minutes_to_seconds('3:25'), album_id: Album.find_by(title: 'Inception (Music From The Motion Picture)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025017/Hans%20Zimmer/11._Paradox.mp3')
+  Song.create(title: "Time", track_num: 12, duration: minutes_to_seconds('4:35'), album_id: Album.find_by(title: 'Inception (Music From The Motion Picture)').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025030/Hans%20Zimmer/12._Time.mp3')
+
+
+  Song.create(title: "Shake for Me (Live at The Steamboat, 1980)", track_num: 1, duration: minutes_to_seconds('3:48'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056508/SRV/01_01_-_Shake_For_Me_Live.mp3')
+  Song.create(title: "Rude Mood/Hide Away (Live)", track_num: 2, duration: minutes_to_seconds('4:57'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056542/SRV/02_02_-_Rude_Mood_-_Hide_Away_Live.mp3')
+  Song.create(title: "Love Struck Baby", track_num: 3, duration: minutes_to_seconds('2:21'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056463/SRV/03_03_-_Love_Struck_Baby.mp3')
+  Song.create(title: "Pride and Joy", track_num: 4, duration: minutes_to_seconds('3:39'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056484/SRV/04_04_-_Pride_And_Joy.mp3')
+  Song.create(title: "Texas Flood", track_num: 5, duration: minutes_to_seconds('5:20'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056509/SRV/05_05_-_Texas_Flood.mp3')
+  Song.create(title: "Mary Had a Little Lamb", track_num: 6, duration: minutes_to_seconds('2:46'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056458/SRV/06_06_-_Mary_Had_A_Little_Lamb.mp3')
+  Song.create(title: "Lenny", track_num: 7, duration: minutes_to_seconds('4:57'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056539/SRV/07_07_-_Lenny.mp3')
+  Song.create(title: "Scuttle Buttin'", track_num: 8, duration: minutes_to_seconds('1:51'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056530/SRV/08_08_-_Scuttle_Buttin.mp3')
+  Song.create(title: "Couldn't Stand the Weather", track_num: 9, duration: minutes_to_seconds('4:41'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056530/SRV/09_09_-_Couldn_t_Stand_The_Weather.mp3')
+  Song.create(title: "
+The Things (That) I Used to Do", track_num: 10, duration: minutes_to_seconds('4:54'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056489/SRV/10_10_-_The_Things_That_I_Used_To.mp3')
+  Song.create(title: "Cold Shot", track_num: 11, duration: minutes_to_seconds('4:00'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056524/SRV/11_11_-_Cold_Shot.mp3')
+  Song.create(title: "
+Tin Pan Alley (AKA Roughest Place in Town)", track_num: 12, duration: minutes_to_seconds('9:11'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056484/SRV/12_12_-_Tin_Pan_Alley_AKA_Roughest.mp3')
+  Song.create(title: "Give Me Back My Wig", track_num: 13, duration: minutes_to_seconds('4:07'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056510/SRV/13_13_-_Give_Me_Back_My_Wig.mp3')
+  Song.create(title: "
+Empty Arms (1984 Version)", track_num: 14, duration: minutes_to_seconds('3:29'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056507/SRV/14_14_-_Empty_Arms.mp3')
+  Song.create(title: "The Sky Is Crying (Live)", track_num: 15, duration: minutes_to_seconds('7:19'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056473/SRV/15_15_-_The_Sky_Is_Crying_Live.mp3')
+  Song.create(title: "Voodoo Child (Slight Return) (Live)", track_num: 16, duration: minutes_to_seconds('11:52'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518119585/SRV/16_16_-_Voodoo_Child_Slight_Return.mp3')
+  Song.create(title: "Life by the Drop", track_num: 17, duration: minutes_to_seconds('2:27'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025077/Hans%20Zimmer/16_Where_We_re_Going.mp3')
+  Song.create(title: "Say What!", track_num: 18, duration: minutes_to_seconds('5:23'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056537/SRV/01_01_-_Say_What.mp3')
+  Song.create(title: "Look at Little Sister", track_num: 19, duration: minutes_to_seconds('3:07'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056454/SRV/02_02_-_Look_At_Little_Sister.mp3')
+  Song.create(title: "Change It", track_num: 20, duration: minutes_to_seconds('3:57'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056464/SRV/03_03_-_Change_It.mp3')
+  Song.create(title: "Come On, Pt. III", track_num: 21, duration: minutes_to_seconds('4:30'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056541/SRV/04_04_-_Come_On_Part_III.mp3')
+  Song.create(title: "Life Without You", track_num: 22, duration: minutes_to_seconds('4:18'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056517/SRV/05_05_-_Life_Without_You.mp3')
+  Song.create(title: "Little Wing", track_num: 23, duration: minutes_to_seconds('6:47'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025078/Hans%20Zimmer/06_Message_From_Home.mp3')
+  Song.create(title: "Willie The Wimp (Live)", track_num: 24, duration: minutes_to_seconds('4:34'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056513/SRV/07_07_-_Willie_The_Wimp_Live.mp3')
+  Song.create(title: "Superstition (Live)", track_num: 25, duration: minutes_to_seconds('4:40'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056488/SRV/08_08_-_Superstition_Live.mp3')
+  Song.create(title: "Leave My Girl Alone (Live)", track_num: 26, duration: minutes_to_seconds('4:46'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056536/SRV/09_09_-_Leave_My_Girl_Alone_Live.mp3')
+  Song.create(title: "
+The House Is Rockin'", track_num: 27, duration: minutes_to_seconds('2:24'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056536/SRV/10_10_-_The_House_Is_Rockin.mp3')
+  Song.create(title: "Crossfire", track_num: 28, duration: minutes_to_seconds('4:09'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056471/SRV/11_11_-_Crossfire.mp3')
+  Song.create(title: "
+Tightrope", track_num: 29, duration: minutes_to_seconds('4:39'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056470/SRV/12_12_-_Tightrope.mp3')
+  Song.create(title: "Wall of Denial", track_num: 30, duration: minutes_to_seconds('5:36'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056536/SRV/13_13_-_Wall_Of_Denial.mp3')
+  Song.create(title: "
+Riviera Paradise", track_num: 31, duration: minutes_to_seconds('8:50'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056502/SRV/14_14_-_Riviera_Paradise.mp3')
+
+
+  Song.create(title: "The Sweet Science", track_num: 1, duration: minutes_to_seconds('1:55'), album_id: Album.find_by(title: 'The Beautiful Game').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122571/Vulfpeck/TBG/01._The_Sweet_Science.mp3')
+  Song.create(title: "Animal Spirits", track_num: 2, duration: minutes_to_seconds('3:10'), album_id: Album.find_by(title: 'The Beautiful Game').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122580/Vulfpeck/TBG/02._Animal_Spirits.mp3')
+  Song.create(title: "Dean Town", track_num: 3, duration: minutes_to_seconds('3:33'), album_id: Album.find_by(title: 'The Beautiful Game').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122576/Vulfpeck/TBG/03._Dean_Town.mp3')
+  Song.create(title: "Conscious Club", track_num: 4, duration: minutes_to_seconds('3:20'), album_id: Album.find_by(title: 'The Beautiful Game').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122582/Vulfpeck/TBG/04._Conscious_Club.mp3')
+  Song.create(title: "El Chepe", track_num: 5, duration: minutes_to_seconds('4:48'), album_id: Album.find_by(title: 'The Beautiful Game').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122579/Vulfpeck/TBG/05._El_Chepe.mp3')
+  Song.create(title: "1 for 1 DiMaggio", track_num: 6, duration: minutes_to_seconds('3:09'), album_id: Album.find_by(title: 'The Beautiful Game').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122584/Vulfpeck/TBG/06._1_for_1_DiMaggio.mp3')
+  Song.create(title: "Daddy He Got a Tesla", track_num: 7, duration: minutes_to_seconds('3:25'), album_id: Album.find_by(title: 'The Beautiful Game').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122575/Vulfpeck/TBG/07._Daddy_He_Got_a_Tesla.mp3')
+  Song.create(title: "Margery My First Car", track_num: 8, duration: minutes_to_seconds('3:51'), album_id: Album.find_by(title: 'The Beautiful Game').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122581/Vulfpeck/TBG/08._Margery_My_First_Car.mp3')
+  Song.create(title: "Aunt Leslie", track_num: 9, duration: minutes_to_seconds('3:49'), album_id: Album.find_by(title: 'The Beautiful Game').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122582/Vulfpeck/TBG/09._Aunt_Leslie.mp3')
+  Song.create(title: "Cory Wong", track_num: 10, duration: minutes_to_seconds('4:06'), album_id: Album.find_by(title: 'The Beautiful Game').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122580/Vulfpeck/TBG/10._Cory_Wong.mp3')
+
+
+  Song.create(title: "Welcome to Vulf Records", track_num: 1, duration: minutes_to_seconds('2:43'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122620/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_01_Welcome_to_Vulf_Records.mp3')
+  Song.create(title: "Back Pocket", track_num: 2, duration: minutes_to_seconds('3:01'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122605/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_02_Back_Pocket.mp3')
+  Song.create(title: "Funky Duck", track_num: 3, duration: minutes_to_seconds('2:10'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122611/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_03_Funky_Duck.mp3')
+  Song.create(title: "Rnago II", track_num: 4, duration: minutes_to_seconds('4:11'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122607/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_04_Rango_II.mp3')
+  Song.create(title: "Game Winner", track_num: 5, duration: minutes_to_seconds('3:32'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122617/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_05_Game_Winner.mp3')
+  Song.create(title: "Walkies", track_num: 6, duration: minutes_to_seconds('1:03'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122610/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_06_Walkies.mp3')
+  Song.create(title: "Christmas in L.A.", track_num: 7, duration: minutes_to_seconds('3:03'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122603/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_07_Christmas_in_L.A..mp3')
+  Song.create(title: "Conscious Club (Instrumental)", track_num: 8, duration: minutes_to_seconds('3:03'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122611/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_08_Conscious_Club_Instrumental.mp3')
+  Song.create(title: "Smile Meditation", track_num: 9, duration: minutes_to_seconds('4:29'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122605/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_09_Smile_Meditation.mp3')
+  Song.create(title: "Guided Smile Meditation", track_num: 10, duration: minutes_to_seconds('5:09'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122611/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_10_Guided_Smile_Meditation.mp3')
 
 
 
-    #Genres
-    Playlist.create(title: "Alternative", description: "Somewhere between pop and rock", genre: "Alternative", user_id: 2, img_url: 'https://images.pexels.com/photos/33597/guitar-classical-guitar-acoustic-guitar-electric-guitar.jpg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "R&B", description: "Rhythm & Blues", genre: "R&B", user_id: 2, img_url: 'https://images.pexels.com/photos/164951/pexels-photo-164951.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Jazz", description: "Free improvisation and complex harmony", genre: "Jazz", user_id: 2, img_url: 'https://images.pexels.com/photos/164934/pexels-photo-164934.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Pop", description: "Catchy melodies and beats", genre: "Pop", user_id: 2, img_url: 'https://images.pexels.com/photos/316163/pexels-photo-316163.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Rock", description: "Rock 'n Roll", genre: "Rock", user_id: 2, img_url: 'https://images.pexels.com/photos/144428/pexels-photo-144428.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Blues", description: "Raw and emotional", genre: "Blues", user_id: 2, img_url: 'https://images.pexels.com/photos/733767/pexels-photo-733767.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Funk", description: "Get your groove on", genre: "Funk", user_id: 2, img_url: 'https://images.pexels.com/photos/96380/pexels-photo-96380.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Electronica", description: "Electronic dance music", genre: "Electronica", user_id: 2, img_url: 'http://accurateproductions.com/wp-content/uploads/2017/09/1470122336648_res_original.jpg')
 
-    #Moods
-    Playlist.create(title: "Work Out", description: "Get pumped", user_id: 2, img_url: 'https://images.pexels.com/photos/136404/pexels-photo-136404.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Focus", description: "Music to help you get through the day", user_id: 2, img_url: 'https://images.pexels.com/photos/273222/pexels-photo-273222.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Relax", description: "Chill out, relax, and wind down", user_id: 2, img_url: 'https://images.pexels.com/photos/374703/pexels-photo-374703.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Sleep", description: "Peaceful music for sleeping", user_id: 2, img_url: 'https://images.pexels.com/photos/135859/pexels-photo-135859.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Wake Up", description: "Rise and shine!",user_id: 2, img_url: 'https://images.pexels.com/photos/4614/woman-morning-bathrobe-bathroom.jpg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Cook", description: "What's for dinner?", user_id: 2, img_url: 'https://images.pexels.com/photos/357743/pexels-photo-357743.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Energy", description: "Energy when you need it", user_id: 2, img_url: 'https://images.pexels.com/photos/761963/pexels-photo-761963.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-    Playlist.create(title: "Dark & Stormy", description: "Let it out", user_id: 2, img_url: 'https://images.pexels.com/photos/531415/pexels-photo-531415.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  #Genres
+  Playlist.create(title: "Alternative", description: "Somewhere between pop and rock", genre: "Alternative", user_id: 2, img_url: 'https://images.pexels.com/photos/33597/guitar-classical-guitar-acoustic-guitar-electric-guitar.jpg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "R&B", description: "Rhythm & Blues", genre: "R&B", user_id: 2, img_url: 'https://images.pexels.com/photos/164951/pexels-photo-164951.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Jazz", description: "Free improvisation and complex harmony", genre: "Jazz", user_id: 2, img_url: 'https://images.pexels.com/photos/164934/pexels-photo-164934.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Pop", description: "Catchy melodies and beats", genre: "Pop", user_id: 2, img_url: 'https://images.pexels.com/photos/316163/pexels-photo-316163.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Rock", description: "Rock 'n Roll", genre: "Rock", user_id: 2, img_url: 'https://images.pexels.com/photos/144428/pexels-photo-144428.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Blues", description: "Raw and emotional", genre: "Blues", user_id: 2, img_url: 'https://images.pexels.com/photos/733767/pexels-photo-733767.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Funk", description: "Get your groove on", genre: "Funk", user_id: 2, img_url: 'https://images.pexels.com/photos/96380/pexels-photo-96380.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Electronica", description: "Electronic dance music", genre: "Electronica", user_id: 2, img_url: 'http://accurateproductions.com/wp-content/uploads/2017/09/1470122336648_res_original.jpg')
 
-
-    #Demo playlists
-    Playlist.create(title: "My Playlist", description: "a cool playlist", genre: "jazz", user_id: 1, img_url: 'https://images.unsplash.com/photo-1479030160180-b1860951d696?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbee86d97118ec6673c8d850c31787ef&auto=format&fit=crop&w=2250&q=80')
-    Playlist.create(title: "My Playlist 2", description: "another cool playlist", genre: "jazz", user_id: 1, img_url: 'https://images.unsplash.com/photo-1517021202682-f4c63173f1b2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f535f650a9d98d1c62c3ace97040c869&auto=format&fit=crop&w=1319&q=80')
+  #Moods
+  Playlist.create(title: "Work Out", description: "Get pumped", user_id: 2, img_url: 'https://images.pexels.com/photos/136404/pexels-photo-136404.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Focus", description: "Music to help you get through the day", user_id: 2, img_url: 'https://images.pexels.com/photos/273222/pexels-photo-273222.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Relax", description: "Chill out, relax, and wind down", user_id: 2, img_url: 'https://images.pexels.com/photos/374703/pexels-photo-374703.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Sleep", description: "Peaceful music for sleeping", user_id: 2, img_url: 'https://images.pexels.com/photos/135859/pexels-photo-135859.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Wake Up", description: "Rise and shine!",user_id: 2, img_url: 'https://images.pexels.com/photos/4614/woman-morning-bathrobe-bathroom.jpg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Cook", description: "What's for dinner?", user_id: 2, img_url: 'https://images.pexels.com/photos/357743/pexels-photo-357743.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Energy", description: "Energy when you need it", user_id: 2, img_url: 'https://images.pexels.com/photos/761963/pexels-photo-761963.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
+  Playlist.create(title: "Dark & Stormy", description: "Let it out", user_id: 2, img_url: 'https://images.pexels.com/photos/531415/pexels-photo-531415.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
 
 
-    #Featured
-    Playlist.create(title: "Soundtracks", description: "Music from your favorite movies", genre: "Soundtrack", user_id: 2, featured: true, img_url: 'https://images8.alphacoders.com/560/560736.jpg')
-    Playlist.create(title: "The Best of Snarky Puppy", description: "Selected tracks from Snarky Puppy's extensive discography", featured: true, genre: "Jazz", user_id: 2, img_url: 'http://www.snarkypuppy.com/media/carousel1.jpg')
-    Playlist.create(title: "John Mayer's Top Hits", description: "Top Hits from John Mayer", genre: "Pop", user_id: 2, featured: true, img_url: 'https://www.thefamouspeople.com/profiles/images/john-mayer-1.jpg')
-    Playlist.create(title: "Jazz Selections", description: "Selections of jazz music", genre: "Jazz", user_id: 2, featured: true, img_url: 'https://2b9sqw2iiqxr36ntqa1exnal-wpengine.netdna-ssl.com/wp-content/uploads/2017/12/jazz.jpg')
-    Playlist.create(title: "Chillhop", description: "Chill beats", genre: "Jazz", user_id: 2, featured: true, img_url: 'https://i1.sndcdn.com/artworks-000139091822-ymuob1-t500x500.jpg')
-    Playlist.create(title: "Funky Tunes", description: "Groovy tunes to get you moving", genre: "Funk", user_id: 2, featured: true, img_url: 'http://www.slopemedia.org/wp-content/uploads/2017/09/funk-what-the1.jpg')
+  #Demo playlists
+  Playlist.create(title: "My Playlist", description: "a cool playlist", genre: "jazz", user_id: 1, img_url: 'https://images.unsplash.com/photo-1479030160180-b1860951d696?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbee86d97118ec6673c8d850c31787ef&auto=format&fit=crop&w=2250&q=80')
+  Playlist.create(title: "My Playlist 2", description: "another cool playlist", genre: "jazz", user_id: 1, img_url: 'https://images.unsplash.com/photo-1517021202682-f4c63173f1b2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f535f650a9d98d1c62c3ace97040c869&auto=format&fit=crop&w=1319&q=80')
 
-    Song.all.each do |song|
-      playlist = Playlist.find_by(title: song.genre)
-      if !!playlist
-        PlaylistSong.create(playlist_id: playlist.id, song_id: song.id)
-      end
+
+  #Featured
+  Playlist.create(title: "Soundtracks", description: "Music from your favorite movies", genre: "Instrumental", user_id: 2, featured: true, img_url: 'https://images8.alphacoders.com/560/560736.jpg')
+  Playlist.create(title: "The Best of Snarky Puppy", description: "Selected tracks from Snarky Puppy's extensive discography", featured: true, genre: "Jazz", user_id: 2, img_url: 'http://www.snarkypuppy.com/media/carousel1.jpg')
+  Playlist.create(title: "John Mayer's Top Hits", description: "Top Hits from John Mayer", genre: "Pop", user_id: 2, featured: true, img_url: 'https://www.thefamouspeople.com/profiles/images/john-mayer-1.jpg')
+  Playlist.create(title: "Jazz Selections", description: "Selections of jazz music", genre: "Jazz", user_id: 2, featured: true, img_url: 'https://2b9sqw2iiqxr36ntqa1exnal-wpengine.netdna-ssl.com/wp-content/uploads/2017/12/jazz.jpg')
+  Playlist.create(title: "Chillhop", description: "Chill beats", genre: "Jazz", user_id: 2, featured: true, img_url: 'https://i1.sndcdn.com/artworks-000139091822-ymuob1-t500x500.jpg')
+  Playlist.create(title: "Funky Tunes", description: "Groovy tunes to get you moving", genre: "Funk", user_id: 2, featured: true, img_url: 'http://www.slopemedia.org/wp-content/uploads/2017/09/funk-what-the1.jpg')
+
+  Song.all.each do |song|
+    playlist = Playlist.find_by(title: song.genre)
+    if !!playlist
+      PlaylistSong.create(playlist_id: playlist.id, song_id: song.id)
     end
+  end
 
-    PlaylistSong.create(playlist_id: 17, song_id: 1)
-    PlaylistSong.create(playlist_id: 17, song_id: 2)
-    PlaylistSong.create(playlist_id: 17, song_id: 5)
-    PlaylistSong.create(playlist_id: 17, song_id: 8)
+  PlaylistSong.create(playlist_id: 17, song_id: 1)
+  PlaylistSong.create(playlist_id: 17, song_id: 2)
+  PlaylistSong.create(playlist_id: 17, song_id: 5)
+  PlaylistSong.create(playlist_id: 17, song_id: 8)
 
-    PlaylistSong.create(playlist_id: 18, song_id: 3)
-    PlaylistSong.create(playlist_id: 18, song_id: 10)
-    PlaylistSong.create(playlist_id: 18, song_id: 12)
-    PlaylistSong.create(playlist_id: 18, song_id: 7)
-
-    # PlaylistSong.create(playlist_id: Playlist.find_by(title: 'Jazz').id, song_id: Song.find_by(title: 'Spain').id)
-
+  PlaylistSong.create(playlist_id: 18, song_id: 3)
+  PlaylistSong.create(playlist_id: 18, song_id: 10)
+  PlaylistSong.create(playlist_id: 18, song_id: 12)
+  PlaylistSong.create(playlist_id: 18, song_id: 7)
 
 
-    #img
+  songs = []
+
+  Artist.find_by(name: 'Hans Zimmer').albums.each do |album|
+    album.songs.each do |song|
+      songs << song
+    end
+  end
+
+  songs.each do |song|
+    playlist = Playlist.find_by(title: "Soundtracks")
+    if !!playlist
+      PlaylistSong.create(playlist_id: playlist.id, song_id: song.id)
+    end
+  end
+
+  # PlaylistSong.create(playlist_id: Playlist.find_by(title: 'Jazz').id, song_id: Song.find_by(title: 'Spain').id)
+
+
+
+  #img
 
 end
 

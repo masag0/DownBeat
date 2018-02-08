@@ -23,7 +23,6 @@ class AlbumDetail extends React.Component {
   }
 
   playAlbum () {
-    console.log(this.props.songs);
     const songs = this.props.songs.sort((a,b) => a.track_num - b.track_num);
     this.props.addSongsToQueue(songs);
     this.props.playSong(songs[0]);
@@ -34,7 +33,12 @@ class AlbumDetail extends React.Component {
       return null;
     }
     const {songs} = this.props.songs;
-    const {id, title, genre, description, img_url, artist, duration, year} = this.props.album;
+    let {id, title, genre, description, img_url, artist, duration, year} = this.props.album;
+
+    if (title.length > 50) {
+      title = title.slice(0,50)+"...";
+    }
+
     return (
       <div>
         <div className="row-flex">
@@ -45,7 +49,7 @@ class AlbumDetail extends React.Component {
                 <img className="artist-img" src={img_url}></img>
               </div>
 
-              <label className="artist-detail-label">{title}</label>
+              <label className="artist-detail-label"><div>{title}</div></label>
 
           </header>
 

@@ -66,6 +66,7 @@ class Player extends React.Component {
     this.queue = queue;
     this.orderedQueue = queue;
     console.log(queue);
+
     let nextSound = new Howl({
       src: [nextProps.nowPlaying.link],
       html5: true,
@@ -89,8 +90,6 @@ class Player extends React.Component {
     });
 
 
-
-
     if (this.paused) {
       this.sound = nextSound;
       this.play();
@@ -100,16 +99,7 @@ class Player extends React.Component {
       this.play();
     }
 
-    this.interval = setInterval(
-      () => {
-        this.setState( {
-          playTime: nextSound.seek(),
-          deltaXSeek: (nextSound.seek()/nextSound.duration())*600
-        } );
-        $('#progress').css('width', this.state.deltaXSeek);
-      }
-      , 50
-    );
+
 
     window.sound = nextSound;
   }
@@ -121,16 +111,28 @@ class Player extends React.Component {
       this.paused = false;
       document.getElementById('playBtn').classList.add('hidden');
       document.getElementById('pauseBtn').classList.remove('hidden');
+
+      this.interval = setInterval(
+        () => {
+          this.setState( {
+            playTime: this.sound.seek(),
+            deltaXSeek: (this.sound.seek()/this.sound.duration())*600
+          } );
+          $('#progress').css('width', this.state.deltaXSeek);
+        }
+        , 50
+      );
     }
   }
 
   pause () {
     if (!this.paused) {
       this.sound.pause();
-      // this.props.pauseSong();
       this.paused = true;
       document.getElementById('playBtn').classList.toggle('hidden');
       document.getElementById('pauseBtn').classList.toggle('hidden');
+      
+      clearInterval(this.interval);
     }
   }
 
