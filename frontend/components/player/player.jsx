@@ -63,10 +63,18 @@ class Player extends React.Component {
 
     let queue = nextProps.queue;
     this.queueNum = queue.findIndex((el => el.id == nextProps.nowPlaying.id)) + 1;
-    this.queue = queue;
-    this.orderedQueue = queue;
-    console.log(queue);
 
+    this.orderedQueue = queue;
+
+    if (this.state.shuffle) {
+      this.queue = this.shuffle(queue);
+      this.setState({shuffle: false});
+    } else {
+      this.queue = queue;
+    }
+    console.log(this.queue);
+    console.log(this.queueNum);
+    
     let nextSound = new Howl({
       src: [nextProps.nowPlaying.link],
       html5: true,
@@ -75,7 +83,6 @@ class Player extends React.Component {
           window.sound.seek(0);
           window.sound.play();
         } else if (this.state.repeatAll && this.queue.length > 0) {
-          console.log(this.queue);
           if (this.queueNum >= this.queue.length ) {
             this.props.playSong(this.queue[0]);
           } else {
@@ -131,7 +138,7 @@ class Player extends React.Component {
       this.paused = true;
       document.getElementById('playBtn').classList.toggle('hidden');
       document.getElementById('pauseBtn').classList.toggle('hidden');
-      
+
       clearInterval(this.interval);
     }
   }
@@ -229,10 +236,15 @@ class Player extends React.Component {
   handleNextClick (e) {
 
     if (this.sound) {
-      if (this.queueNum < this.props.queue.length) {
+      if (this.queueNum < this.queue.length) {
+        console.log(this.queueNum);
         this.sound.unload();
-        this.props.playSong(this.props.queue[this.queueNum]);
-
+        this.props.playSong(this.queue[this.queueNum]);
+      } else {
+        if (this.state.repeatAll) {
+          this.sound.unload();
+          this.props.playSong(this.queue[0]);
+        }
       }
     }
   }
@@ -242,11 +254,11 @@ class Player extends React.Component {
 
       if (this.queueNum > 1 && window.sound.seek() < 4) {
         this.sound.unload();
-        this.props.playSong(this.props.queue[this.queueNum - 2]);
+        this.props.playSong(this.queue[this.queueNum - 2]);
       } else if (window.sound.seek() >= 4) {
-        this.props.playSong(this.props.queue[this.queueNum - 1]);
+        this.props.playSong(this.queue[this.queueNum - 1]);
       } else {
-        this.props.playSong(this.props.queue[this.queueNum - 1]);
+        this.props.playSong(this.queue[this.queueNum - 1]);
       }
     }
   }
@@ -283,6 +295,7 @@ class Player extends React.Component {
       this.queue = this.orderedQueue;
     }
   }
+
 
   render () {
     let song = "";
@@ -339,7 +352,7 @@ class Player extends React.Component {
                 onDrag={this.handleSeekDrag}
                 position={{x: this.state.deltaXSeek, y: 0}}
               >
-                <div id="sliderBtnSeek"></div>
+                <div id="sliderBtnSeek" ></div>
               </Draggable>
 
               <div id="seek-bar" onClick={this.handleSeekClick}>
@@ -397,23 +410,21 @@ class Player extends React.Component {
   }
 
   shuffle(array) {
-    let counter = array.length;
+    if (array) {
+      let counter = array.length;
 
-    // While there are elements in the array
-    while (counter > 0) {
-        // Pick a random index
+      while (counter > 0) {
         let index = Math.floor(Math.random() * counter);
 
-        // Decrease counter by 1
         counter--;
 
-        // And swap the last element with it
         let temp = array[counter];
         array[counter] = array[index];
         array[index] = temp;
-    }
+      }
 
-    return array;
+      return array;
+    }
   }
 }
 

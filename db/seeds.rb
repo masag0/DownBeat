@@ -50,6 +50,8 @@ The band found commercial success in the late 1990s, with Third Eye Blind and Bl
 Jazztronik has been growing in popularize and has hit sales of 100, to 000+. Jazztronik performs to sold out crowds all across the Japanese club scene and his growth in America and Europe has helped him reach popularity in the English club scene.")
   Artist.create(name: "Stevie Ray Vaughan", genre: "Blues", img_url: 'https://images-na.ssl-images-amazon.com/images/I/C1rKoPCoK7S._CR0,0,3840,2880_._SL1000_.png', description: "With his astonishingly accomplished guitar playing, Stevie Ray Vaughan ignited the blues revival of the ’80s. Vaughan drew equally from bluesmen like Albert King, Buddy Guy, and Albert Collins and rock & roll players like Jimi Hendrix and Lonnie Mack, as well as jazz guitarists like Kenny Burrell and Wes Montgomery, developing a uniquely eclectic and fiery style that sounded like no other guitarist, regardless of genre. Vaughan bridged the gap between blues and rock like no other artist had since the late ’60s. From 1983 to 1990 Stevie Ray was the leading light in American blues, consistently selling out concerts while his albums regularly went gold. His tragic death in 1990 at age 35 cut short a brilliant career in blues and American rock & roll just as he was on the brink of superstardom.")
   Artist.create(name: "Vulfpeck", genre: "Funk", img_url: 'https://f4.bcbits.com/img/0010966154_10.jpg', description: "Vulfpeck is an American funk group founded in 2011. Influenced by rhythm sections of the past, the band has released four EPs, three albums, and a silent album on Spotify titled Sleepify – royalties from which funded the band's admission-free tour in 2014. The band's latest album, Mr. Finish Line, was released in November 2017.")
+  Artist.create(name: "Zedd", genre: "Electronica", img_url: 'https://i1.sndcdn.com/avatars-000298013437-7oemlv-t500x500.jpg', description: "Anton Zaslavski, better known by his stage name Zedd, is a Russian-German record producer, DJ, musician, multi-instrumentalist and songwriter. He primarily produces and performs electro house music, but has diversified his genre and musical style, drawing influences from progressive house, dubstep, and classical music. Zedd grew up and began his career in Kaiserslautern, Germany.
+Zedd's best-known productions to date are the songs \"Stay\" with Alessia Cara and \"Clarity\" featuring Foxes, both reaching the Top 10 respectively in two separate occasions which were in the 7th and 8th position on the Billboard Hot 100. Also as a featured artist, he managed to get into the 4th position with his collaboration with Ariana Grande called \"Break Free\". Zedd won a Grammy for Best Dance Recording at the 56th Grammy Awards for \"Clarity\". ")
 
 
 
@@ -72,6 +74,9 @@ Jazztronik has been growing in popularize and has hit sales of 100, to 000+. Jaz
   Album.create(title: "The Essential Stevie Ray Vaughan and Double Trouble", year: 2002, artist_id: Artist.find_by(name: 'Stevie Ray Vaughan').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/91cTAyZuReL._SL1500_.jpg')
   Album.create(title: "The Beautiful Game", year: 2016, artist_id: Artist.find_by(name: 'Vulfpeck').id, img_url: 'https://f4.bcbits.com/img/a1702319957_10.jpg')
   Album.create(title: "Thrill of the Arts", year: 2015, artist_id: Artist.find_by(name: 'Vulfpeck').id, img_url: 'https://f4.bcbits.com/img/a2234708408_16.jpg')
+  Album.create(title: "True Colors", year: 2015, artist_id: Artist.find_by(name: 'Zedd').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/c/c9/Zedd-True-Colors.png')
+  Album.create(title: "Clarity", year: 2012, artist_id: Artist.find_by(name: 'Zedd').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/3/32/Zedd_-_Clarity_%28album%29.png')
+  Album.create(title: "Continuum", year: 2006, artist_id: Artist.find_by(name: 'John Mayer').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/8/82/Continuum_%28album%29.png')
 
 
 
@@ -111,11 +116,11 @@ Jazztronik has been growing in popularize and has hit sales of 100, to 000+. Jaz
 
 
   Song.create(title: "Sintra", track_num: 1, duration: minutes_to_seconds('3:32'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025822/Snarky%20Puppy/01._Sintra.mp3')
-  Song.create(title: "Flight", track_num: 2, duration: minutes_to_seconds('6:03'), album_id: Album.find_by(title: 'Sylva').id ,link: '')
-  Song.create(title: "Atchafalaya", track_num: 3, duration: minutes_to_seconds('6:04'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728592/03_Sleeper_valykk.mp3')
-  Song.create(title: "The Curtain", track_num: 4, duration: minutes_to_seconds('15:09'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728629/04_Jambone_r1awlz.mp3')
-  Song.create(title: "Gretel", track_num: 5, duration: minutes_to_seconds('4:21'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728630/05_Kite_qxxgkl.mp3')
-  Song.create(title: "The Clearing", track_num: 6, duration: minutes_to_seconds('19:23'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1517728630/05_Kite_qxxgkl.mp3')
+  Song.create(title: "Flight", track_num: 2, duration: minutes_to_seconds('6:03'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518130930/Snarky%20Puppy/02._Flight.mp3')
+  Song.create(title: "Atchafalaya", track_num: 3, duration: minutes_to_seconds('6:04'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518130923/Snarky%20Puppy/03._Atchafalaya.mp3')
+  Song.create(title: "The Curtain", track_num: 4, duration: minutes_to_seconds('15:09'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518130943/Snarky%20Puppy/04._The_Curtain.mp3')
+  Song.create(title: "Gretel", track_num: 5, duration: minutes_to_seconds('4:21'), album_id: Album.find_by(title: 'Sylva').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518130909/Snarky%20Puppy/05._Gretel.mp3')
+  Song.create(title: "The Clearing", track_num: 6, duration: minutes_to_seconds('19:23'), album_id: Album.find_by(title: 'Sylva').id ,link: 'https://dl.dropboxusercontent.com/s/7mg8j5r3cqtmxkq/06.%20The%20Clearing.mp3')
 
 
 
@@ -324,13 +329,52 @@ Riviera Paradise", track_num: 31, duration: minutes_to_seconds('8:50'), album_id
   Song.create(title: "Welcome to Vulf Records", track_num: 1, duration: minutes_to_seconds('2:43'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122620/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_01_Welcome_to_Vulf_Records.mp3')
   Song.create(title: "Back Pocket", track_num: 2, duration: minutes_to_seconds('3:01'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122605/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_02_Back_Pocket.mp3')
   Song.create(title: "Funky Duck", track_num: 3, duration: minutes_to_seconds('2:10'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122611/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_03_Funky_Duck.mp3')
-  Song.create(title: "Rnago II", track_num: 4, duration: minutes_to_seconds('4:11'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122607/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_04_Rango_II.mp3')
+  Song.create(title: "Rango II", track_num: 4, duration: minutes_to_seconds('4:11'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122607/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_04_Rango_II.mp3')
   Song.create(title: "Game Winner", track_num: 5, duration: minutes_to_seconds('3:32'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122617/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_05_Game_Winner.mp3')
   Song.create(title: "Walkies", track_num: 6, duration: minutes_to_seconds('1:03'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122610/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_06_Walkies.mp3')
   Song.create(title: "Christmas in L.A.", track_num: 7, duration: minutes_to_seconds('3:03'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122603/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_07_Christmas_in_L.A..mp3')
   Song.create(title: "Conscious Club (Instrumental)", track_num: 8, duration: minutes_to_seconds('3:03'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122611/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_08_Conscious_Club_Instrumental.mp3')
   Song.create(title: "Smile Meditation", track_num: 9, duration: minutes_to_seconds('4:29'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122605/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_09_Smile_Meditation.mp3')
   Song.create(title: "Guided Smile Meditation", track_num: 10, duration: minutes_to_seconds('5:09'), album_id: Album.find_by(title: 'Thrill of the Arts').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122611/Vulfpeck/Thrill%20of%20the%20Arts/Vulfpeck_-_Thrill_of_the_Arts_-_10_Guided_Smile_Meditation.mp3')
+
+
+  Song.create(title: "Addicted To A Memory [feat. Bahari]", track_num: 1, duration: minutes_to_seconds('5:03'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125754/Zedd/True%20Colors/1_Addicted_To_A_Memory.mp3')
+  Song.create(title: "I Want You To Know [feat. Selena Gomez]", track_num: 2, duration: minutes_to_seconds('4:00'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125753/Zedd/True%20Colors/2_I_Want_You_To_Know.mp3')
+  Song.create(title: "Beautiful Now [feat. Jon Bellion]", track_num: 3, duration: minutes_to_seconds('3:38'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125752/Zedd/True%20Colors/3_Beautiful_Now.mp3')
+  Song.create(title: "Transmission [feat. Logic & X Ambassadors]", track_num: 4, duration: minutes_to_seconds('4:02'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125753/Zedd/True%20Colors/4_Transmission.mp3')
+  Song.create(title: "Done With Love", track_num: 5, duration: minutes_to_seconds('4:56'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125754/Zedd/True%20Colors/5_Done_With_Love.mp3')
+  Song.create(title: "True Colors", track_num: 6, duration: minutes_to_seconds('3:48'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125752/Zedd/True%20Colors/6_True_Colors.mp3')
+  Song.create(title: "Straight Into The Fire", track_num: 7, duration: minutes_to_seconds('3:41'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125767/Zedd/True%20Colors/7_Straight_Into_The_Fire.mp3')
+  Song.create(title: "Papercut [feat. Troye Sivan]", track_num: 8, duration: minutes_to_seconds('7:23'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125777/Zedd/True%20Colors/8_Papercut.mp3')
+  Song.create(title: "Bumble Bee", track_num: 9, duration: minutes_to_seconds('4:07'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518126448/Zedd/True%20Colors/9_Bumble_Bee.mp3')
+  Song.create(title: "Daisy", track_num: 10, duration: minutes_to_seconds('2:54'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518126456/Zedd/True%20Colors/10_Daisy.mp3')
+  Song.create(title: "Illusion [feat. Echosmith]", track_num: 11, duration: minutes_to_seconds('6:25'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125771/Zedd/True%20Colors/11_Illusion.mp3')
+
+
+  Song.create(title: "Hourglass [feat. LIZ]", track_num: 1, duration: minutes_to_seconds('5:13'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125801/Zedd/Clarity/01_Hourglass_feat._LIZ.mp3')
+  Song.create(title: "Shave It Up", track_num: 2, duration: minutes_to_seconds('3:10'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125805/Zedd/Clarity/02_Shave_It_Up.mp3')
+  Song.create(title: "Spectrum [feat. Matthew Koma]", track_num: 3, duration: minutes_to_seconds('4:03'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125786/Zedd/Clarity/03_Spectrum_feat._Matthew_Koma.mp3')
+  Song.create(title: "Lost At Sea [feat. Ryan Tedder]", track_num: 4, duration: minutes_to_seconds('3:45'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125791/Zedd/Clarity/04_Lost_At_Sea_feat._Ryan_Tedder.mp3')
+  Song.create(title: "Clarity [feat. Foxes]", track_num: 5, duration: minutes_to_seconds('4:31'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125785/Zedd/Clarity/05_Clarity_feat._Foxes.mp3')
+  Song.create(title: "Codec", track_num: 6, duration: minutes_to_seconds('6:01'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125798/Zedd/Clarity/06_Codec.mp3')
+  Song.create(title: "Stache", track_num: 7, duration: minutes_to_seconds('4:04'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125782/Zedd/Clarity/07_Stache.mp3')
+  Song.create(title: "Fall Into The Sky [feat. Ellie Goulding]", track_num: 8, duration: minutes_to_seconds('3:37'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125769/Zedd/Clarity/08_Fall_Into_the_Sky_feat._Ellie_Go.mp3')
+  Song.create(title: "Follow You Down [feat. Bright Lights]", track_num: 9, duration: minutes_to_seconds('5:47'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125784/Zedd/Clarity/09_Follow_You_Down_feat._Bright_Lig.mp3')
+  Song.create(title: "Epos", track_num: 10, duration: minutes_to_seconds('5:35'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125792/Zedd/Clarity/10_Epos.mp3')
+
+
+  Song.create(title: "Waiting on the World to Change", track_num: 1, duration: minutes_to_seconds('3:21'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050137/John%20Mayer/01_Waiting_On_The_World_To_Change.m4a')
+  Song.create(title: "I Don't Trust Myself (With Loving You)", track_num: 2, duration: minutes_to_seconds('4:52'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050142/John%20Mayer/02_I_Don_t_Trust_Myself_With_Loving.m4a')
+  Song.create(title: "Belief", track_num: 3, duration: minutes_to_seconds('4:02'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050139/John%20Mayer/03_Belief.m4a')
+  Song.create(title: "Gravity", track_num: 4, duration: minutes_to_seconds('4:05'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050137/John%20Mayer/04_Gravity.m4a')
+  Song.create(title: "The Heart of Life", track_num: 5, duration: minutes_to_seconds('3:19'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050138/John%20Mayer/05_The_Heart_Of_Life.m4a')
+  Song.create(title: "Vultures", track_num: 6, duration: minutes_to_seconds('4:11'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050141/John%20Mayer/06_Vultures.m4a')
+  Song.create(title: "Stop This Train", track_num: 7, duration: minutes_to_seconds('4:45'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050141/John%20Mayer/07_Stop_This_Train.m4a')
+  Song.create(title: "Slow Dancing in a Burning Room", track_num: 8, duration: minutes_to_seconds('4:02'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050135/John%20Mayer/08_Slow_Dancing_In_A_Burning_Room.m4a')
+  Song.create(title: "Bold as Love", track_num: 9, duration: minutes_to_seconds('4:18'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050138/John%20Mayer/09_Bold_As_Love.m4a')
+  Song.create(title: "Dreaming with a Broken Heart", track_num: 10, duration: minutes_to_seconds('4:07'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050141/John%20Mayer/10_Dreaming_With_A_Broken_Heart.m4a')
+  Song.create(title: "In Repair", track_num: 12, duration: minutes_to_seconds('6:09'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050142/John%20Mayer/11_In_Repair.m4a')
+  Song.create(title: "I'm Gonna Find Another You", track_num: 12, duration: minutes_to_seconds('2:43'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050146/John%20Mayer/12_I_m_Gonna_Find_Another_You.m4a')
 
 
 
@@ -358,7 +402,7 @@ Riviera Paradise", track_num: 31, duration: minutes_to_seconds('8:50'), album_id
 
   #Demo playlists
   Playlist.create(title: "My Playlist", description: "a cool playlist", genre: "jazz", user_id: 1, img_url: 'https://images.unsplash.com/photo-1479030160180-b1860951d696?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=fbee86d97118ec6673c8d850c31787ef&auto=format&fit=crop&w=2250&q=80')
-  Playlist.create(title: "My Playlist 2", description: "another cool playlist", genre: "jazz", user_id: 1, img_url: 'https://images.unsplash.com/photo-1517021202682-f4c63173f1b2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f535f650a9d98d1c62c3ace97040c869&auto=format&fit=crop&w=1319&q=80')
+  Playlist.create(title: "My Playlist 2", description: "another cool playlist", genre: "jazz", user_id: 1, img_url: 'https://images.pexels.com/photos/207247/pexels-photo-207247.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
 
 
   #Featured
