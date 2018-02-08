@@ -25,9 +25,10 @@ class Player extends React.Component {
       deltaXVol: 150,
       repeatAll: false,
       repeatOne: false,
-      shuffle: false
+      shuffle: false,
     };
 
+    this.clickDisabled = false;
     this.muteState = false;
     this.paused = true;
     this.sound = "";
@@ -89,16 +90,16 @@ class Player extends React.Component {
 
 
 
-    window.sound = nextSound;
 
     if (this.paused) {
       this.sound = nextSound;
       this.play();
     } else {
-      this.pause();
+      window.sound.unload();
       this.sound = nextSound;
       this.play();
     }
+
     this.interval = setInterval(
       () => {
         this.setState( {
@@ -109,11 +110,13 @@ class Player extends React.Component {
       }
       , 50
     );
+
+    window.sound = nextSound;
   }
 
   play () {
-    if (this.paused && this.sound) {
-
+    if (this.sound) {
+      console.log('play',this.sound);
       this.sound.play();
       this.paused = false;
       document.getElementById('playBtn').classList.add('hidden');
@@ -222,18 +225,21 @@ class Player extends React.Component {
   }
 
   handleNextClick (e) {
-    if (window.sound) {
-      this.pause();
+
+    if (this.sound) {
       if (this.queueNum < this.props.queue.length) {
+        this.sound.unload();
         this.props.playSong(this.props.queue[this.queueNum]);
+
       }
     }
   }
 
   handlePrevClick (e) {
-    if (window.sound) {
-      this.pause();
+    if (this.sound) {
+
       if (this.queueNum > 1 && window.sound.seek() < 4) {
+        this.sound.unload();
         this.props.playSong(this.props.queue[this.queueNum - 2]);
       } else if (window.sound.seek() >= 4) {
         this.props.playSong(this.props.queue[this.queueNum - 1]);
