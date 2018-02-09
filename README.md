@@ -50,12 +50,3 @@ https://downbeat-app.herokuapp.com
 
 
 
-
-
-
-
-
-
-
-
-git add -A
