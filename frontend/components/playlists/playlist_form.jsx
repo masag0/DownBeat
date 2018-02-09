@@ -73,13 +73,13 @@ class LoginForm extends React.Component {
 
     return (
       <div className="playlist-modal-content">
-        <button id="addSongModal-close-button" onClick={this.cancel}></button>
+        <button id="addPlaylist-close-button" onClick={this.cancel}></button>
         <header>
           <h2 className="addSongModal-header">{headerText}</h2>
         </header>
         <div className="playlist-form-modal">
           <form className="form playlist" onSubmit={this.submitForm}>
-            <label>Title:
+            <label className='playlist-form-label'>Title:
               <br/>
               <input
                 type="text" value={title}
@@ -89,7 +89,7 @@ class LoginForm extends React.Component {
               />
             </label>
 
-            <label>Description:
+            <label className='playlist-form-label'>Description:
               <br/>
               <input
                 type="text" value={description}
@@ -98,7 +98,7 @@ class LoginForm extends React.Component {
               />
             </label>
 
-            <label>Genre:
+            <label className='playlist-form-label'>Genre:
               <br/>
               <input
                 type="text" value={genre}
@@ -107,7 +107,7 @@ class LoginForm extends React.Component {
               />
             </label>
 
-            <label>Image URL:
+            <label className='playlist-form-label'>Image URL:
               <br/>
               <input
                 type="text" value={img}
@@ -124,13 +124,6 @@ class LoginForm extends React.Component {
             >{buttonText}</button>
 
 
-            <div>
-              <button
-                type="button"
-                className="cancel-button"
-                onClick={this.cancel}
-              >Cancel</button>
-            </div>
           </form>
 
         </div>
@@ -138,5 +131,12 @@ class LoginForm extends React.Component {
     );
   }
 }
+// <div>
+//   <button
+//     type="button"
+//     className="cancel-button"
+//     onClick={this.cancel}
+//     >Cancel</button>
+// </div>
 
 export default LoginForm;

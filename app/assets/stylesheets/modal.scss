@@ -21,9 +21,23 @@ $green: #1ed760;
 }
 
 .playlist-form-modal {
-  label {
-    padding-bottom: 5px;
-  }
+  width: 500px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.playlist-form-modal label.playlist-form-label {
+
+  font-size: 20px;
+  padding-bottom: 5px;
+
+}
+
+.playlist-form-modal label.playlist-form-label input {
+
+  font-size: 18px;
+  height: 30px;
 }
 
 .addSongModalOverlay {
@@ -38,7 +52,7 @@ $green: #1ed760;
 
 .addSongModal-header {
   // font-family: Montserrat;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 700;
   text-align: center;
 }
@@ -65,8 +79,22 @@ $green: #1ed760;
 }
 
 #addSongModal-close-button {
+  width: 80px;
+  height: 80px;
+  background-image: image_url('close-icon.png');
+  background-color: transparent;
+  border-radius: 100px;
+  background-size: cover;
+
+  &:hover {
+    box-shadow: 0 0 15px $green;
+    transition: all 0.5s ease;
+  }
+}
+
+#addPlaylist-close-button {
   position: absolute;
-  top: -50px;
+  top: 50px;
   width: 80px;
   height: 80px;
   background-image: image_url('close-icon.png');
@@ -78,13 +106,11 @@ $green: #1ed760;
     box-shadow: 0 0 15px $green;
     transition: all 0.5s ease;
   }
-
 }
 
 
 .playlist-modal-content{
-  position: absolute;
-  top: 150px;
+  margin-top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,10 +118,6 @@ $green: #1ed760;
   width: 60%;
   min-width: 700px;
   max-width: 800px;
-}
-
-.playlist-form-modal {
-  width: 600px;
 }
 
 .playlistModal {
