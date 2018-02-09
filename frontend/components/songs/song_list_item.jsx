@@ -139,15 +139,6 @@ class SongList extends React.Component {
     } else {
       track_number = "";
     }
-    let albumTitle;
-    if (title.length > 22) {
-      title = title.slice(0,22)+'...';
-    }
-    if (album.title.length > 20) {
-      albumTitle = album.title.slice(0,20)+'...';
-    } else {
-      albumTitle = album.title;
-    }
 
     return (
 
@@ -157,7 +148,7 @@ class SongList extends React.Component {
           <div className="song-list-sound-icon hidden" id={`sound-icon#${id}`} onClick={() => this.pauseSong(this.props.song)}></div>
           <a><div className="title-header" id={`title#${id}`} onClick={() => this.playSong(this.props.song)}>{title}</div></a>
           <a href={`/#/artists/${artist.id}`}><div className="artist-header">{artist.name}</div></a>
-          <a href={`/#/albums/${album.id}`}><div className="album-header">{albumTitle}</div></a>
+          <a href={`/#/albums/${album.id}`}><div className="album-header">{album.title}</div></a>
 
 
           <div className="menu-header song-detail-menu">

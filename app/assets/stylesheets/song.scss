@@ -18,7 +18,10 @@
 }
 .title-header {
   text-align: left;
-  min-width: 200px;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .title-header:hover {
   cursor: pointer;
@@ -27,7 +30,10 @@
 
 .artist-header {
   text-align: left;
-  min-width: 200px;
+  width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .artist-header:hover {
   text-decoration: underline;
@@ -35,7 +41,10 @@
 
 .album-header {
   text-align: left;
-  min-width: 150px;
+  width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .album-header:hover {
   text-decoration: underline;
