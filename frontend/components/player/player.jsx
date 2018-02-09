@@ -60,7 +60,7 @@ class Player extends React.Component {
     let queue = nextProps.queue;
 
     this.orderedQueue = queue;
-    // 
+    //
     // if (this.state.shuffle) {
     //   this.queue = this.shuffle(queue);
     //   this.setState({shuffle: false});

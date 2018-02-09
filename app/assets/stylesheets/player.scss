@@ -100,14 +100,18 @@ $green: #1ed760;
 #playBtn {
   background-image: image-url('play-button');
   background-size: cover;
-  // position: absolute;
+  transform: translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
   &:hover {
-    box-shadow: 0 0 15px $green;
+    box-shadow: 0 0 10px $green;
     transition: all 0.5s ease;
+    transform: scale(1.1);
   }
   &:active {
-    box-shadow: 0 0 15px white;
+    box-shadow: 0 0 10px white;
     transition: none;
+    transform: scale(1.1);
   }
 }
 
@@ -115,13 +119,18 @@ $green: #1ed760;
 #pauseBtn {
   background-image: image-url('pause-button');
   background-size: cover;
+  transform: translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
   &:hover {
-    box-shadow: 0 0 15px $green;
+    box-shadow: 0 0 10px $green;
     transition: all 0.5s ease;
+    transform: scale(1.1);
   }
   &:active {
-    box-shadow: 0 0 15px white;
+    box-shadow: 0 0 10px white;
     transition: none;
+    transform: scale(1.1);
   }
 }
 #prevBtn {
@@ -152,6 +161,12 @@ $green: #1ed760;
   background-image: image-url('shuffle-button');
   background-size: cover;
   margin-top: 10px;
+  transform: translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+  &:hover, &:focus, &:active {
+    transform: scale(1.1);
+  }
 }
 #shuffleBtnGreen {
   width: 17px;
@@ -167,7 +182,12 @@ $green: #1ed760;
   background-image: image-url('repeat-button');
   background-size: cover;
   margin-top: 10px;
-
+  transform: translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+  &:hover, &:focus, &:active {
+    transform: scale(1.1);
+  }
 }
 #repeatAllBtn {
   width: 17px;
@@ -175,7 +195,12 @@ $green: #1ed760;
   background-image: image-url('repeat-button-green');
   background-size: cover;
   margin-top: 10px;
-
+  transform: translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+  &:hover, &:focus, &:active {
+    transform: scale(1.1);
+  }
 }
 #repeatOneBtn {
   width: 17px;
@@ -183,6 +208,12 @@ $green: #1ed760;
   background-image: image-url('repeat-one-button-green');
   background-size: cover;
   margin-top: 10px;
+  transform: translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+  &:hover, &:focus, &:active {
+    transform: scale(1.1);
+  }
 }
 
 
