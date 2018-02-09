@@ -39,7 +39,7 @@ $green: #1ed760;
 
 .addSongModal-header {
   // font-family: Montserrat;
-  font-size: 70px;
+  font-size: 60px;
   font-weight: 700;
   text-align: center;
 }
@@ -81,14 +81,25 @@ $green: #1ed760;
 
 
 .playlist-modal-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   overflow: scroll;
-  width: 75%;
+  width: 60%;
   min-width: 700px;
   max-width: 800px;
 }
 
+.playlist-form-modal {
+  width: 600px;
+}
+
 .playlistModal {
   z-index: 17000;
+}
+
+form.playlist {
+  padding-top: 40px;
 }
 
 #playlist-create-modal-button {

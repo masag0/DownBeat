@@ -1,7 +1,7 @@
 import React from 'react';
 import {ProtectedRoute} from '../../util/route_util';
 import {Route} from 'react-router-dom';
-
+import lodash from 'lodash';
 import SongListContainer from '../songs/song_list_container';
 
 class AlbumDetail extends React.Component {
@@ -32,8 +32,13 @@ class AlbumDetail extends React.Component {
     if (!this.props.album) {
       return null;
     }
-    const {songs} = this.props.songs;
+
     let {id, title, genre, description, img_url, artist, duration, year} = this.props.album;
+
+    let length;
+
+    const songs = lodash.values(this.props.songs).filter(song => song.album.id == id);
+    length = songs.length;
 
     if (title.length > 50) {
       title = title.slice(0,50)+"...";
@@ -61,6 +66,8 @@ class AlbumDetail extends React.Component {
               <span className="glowing-link">{artist.name}</span></a>
             </span>
             <span className="description-text">{description}</span>
+            <span className="duration-text">{length} songs &bull; {this.formatDurationMinutes(duration)} minutes</span>
+
             <div className="detail-button-container">
               <button type="button" className="play-button" onClick={this.playAlbum}>Play</button>
               <button type="button" className="etc-button">
@@ -83,9 +90,23 @@ class AlbumDetail extends React.Component {
         </div>
 
 
-        <Route path="/albums/:albumId" songs={songs} component={SongListContainer} />
+        <Route path="/albums/:albumId" component={SongListContainer} />
       </div>
     );
+  }
+
+  formatDurationMinutes(seconds) {
+    if (seconds) {
+
+      let minutes = Math.floor(seconds/60);
+      seconds = seconds % 60;
+      if (seconds < 10) {
+        seconds = "0"+seconds.toString();
+      }
+      return `${minutes}`;
+    } else {
+      return "";
+    }
   }
 }
 

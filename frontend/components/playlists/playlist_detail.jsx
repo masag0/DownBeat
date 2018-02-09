@@ -19,11 +19,8 @@ class PlaylistDetail extends React.Component {
     this.removePlaylist = this.removePlaylist.bind(this);
 
     this.openModal = this.openModal.bind(this);
-    // this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
 
-    // this.openDropdown = this.openDropdown.bind(this);
-    // this.closeDropdown = this.closeDropdown.bind(this);
     this.playPlaylist = this.playPlaylist.bind(this);
   }
 
@@ -93,21 +90,11 @@ class PlaylistDetail extends React.Component {
   openModal() {
     this.setState({modalIsOpen: true});
   }
-  //
-  // afterOpenModal() {
-  // }
 
   closeModal () {
     this.setState({modalIsOpen: false});
   }
 
-  // openDropdown () {
-  //   document.getElementsByClassName('playlist-detail-menu-container')[0].classList.remove("hidden");
-  // }
-  //
-  // closeDropdown() {
-  //   document.getElementsByClassName('playlist-detail-menu-container')[0].classList.add("hidden");
-  // }
   handleFollow () {
     const currentUser = this.props.currentUser;
     const playlist = this.props.playlist;
@@ -164,7 +151,6 @@ class PlaylistDetail extends React.Component {
     let followText = "Follow";
     const followButton = document.getElementById('follow-btn');
     const currentUser = this.props.currentUser;
-    console.log(currentUser.following_playlists);
 
     if (followButton) {
       if (currentUser.id === user_id) {
@@ -196,6 +182,7 @@ class PlaylistDetail extends React.Component {
             <label className="category-detail-label">Playlist</label>
             <span className="genre-text">{genre}</span>
             <span className="description-text">{description}</span>
+            <span className="duration-text">{song_ids.length} songs &bull; {this.formatDurationMinutes(duration)} minutes</span>
             <div className="detail-button-container">
 
 
@@ -265,6 +252,20 @@ class PlaylistDetail extends React.Component {
         <Route path="/playlists/:playlistId" component={SongListContainer} />
       </div>
     );
+  }
+
+  formatDurationMinutes(seconds) {
+    if (seconds) {
+
+      let minutes = Math.floor(seconds/60);
+      seconds = seconds % 60;
+      if (seconds < 10) {
+        seconds = "0"+seconds.toString();
+      }
+      return `${minutes}`;
+    } else {
+      return "";
+    }
   }
 }
 

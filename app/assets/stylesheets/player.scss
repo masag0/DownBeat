@@ -50,12 +50,20 @@ $green: #1ed760;
   #song-info-song-title {
     font-size: 18px;
     margin-left: 5px;
+    max-width: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   #song-info-artist-name {
     margin-left: 5px;
     margin-top: 7px;
     font-size: 13px;
     color: gray;
+    max-width: 130px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }
 

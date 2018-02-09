@@ -29,7 +29,7 @@ ActiveRecord::Base.transaction do
   Snarky Puppy next signed to Impulse! and released Sylva, a collaboration with the Netherlands-based Metropole Orkest. The album was greeted enthusiastically by the international press and won the band its second Grammy, this time for Best Contemporary Instrumental Album, at the 2016 Grammy Awards. They followed it with two live documents. The first was World Tour, a 32-disc box featuring their 16 favorite concerts. The deluxe package was sold exclusively through their website. Also in early 2016, they issued the audio-video set Family Dinner, Vol. 2, a documentary follow-up to the first Family Dinner recorded the preceding year. It showcased the band during a concert (and included guests Charlie Hunter, Susana Baca, Salif Keita, and David Crosby), in interviews, and in backstage sequences. In April 2016, Snarky Puppy struck again with Culcha Vulcha, their 11th studio album and first solely studio-based production in eight years. It topped the jazz album charts the week of its release and took home the prize for Best Contemporary Instrumental Album at the 2017 Grammy Awards.")
 
   Artist.create(name: "Hiatus Kaiyote", genre: "Jazz", img_url: 'https://www.billboard.com/files/styles/article_main_image/public/media/hiatus-kaiyote-press-2014-billboard-650.jpg', description: 'Hiatus Kaiyote is a future-soul quartet formed in Melbourne in 2011. The members are Naomi "Nai Palm" Saalfield (vocals, guitar), Paul Bender (bass), Simon Mavin (keyboards) and Perrin Moss (drums, percussion). In 2013, they were nominated for a Grammy for Best R&B Performance for their song "Nakamarra", performed with Q-Tip. The song appears on their debut album, Tawk Tomahawk, released by Flying Buddha.')
-  Artist.create(name: "Moonchild", genre: "Jazz", img_url: 'https://f4.bcbits.com/img/0009860726_10.jpg')
+  Artist.create(name: "Moonchild", genre: "Jazz", img_url: 'https://f4.bcbits.com/img/0009860726_10.jpg', description: "Moonchild are LA-based multi-instrumentalistsAmber Navran, Max Bryk, and Andris Mattson. In May 2017, Moonchild released their highly-anticipated album ‘Voyager’ which pioneered a unique blend of soul and new-school jazz and was fronted by the standout debut single “Cure”. Praise for the project has continued to grow with vocal support across KCRW, BBC 1XTRA, BBC 6Music and NTS; a video premiere for the cinematic “Cure” with The Fader, and an upfront stream of the sun soaked “Show The Way” via Okayplayer. Further reviews from DJ Mag, The Evening Standard and LA Weekly add to support for the album, as well as online praise from NPR, The Fader, Bandcamp (who featured the album in their top 100 albums of 2017), Soulbounce, Saint Heron and Jazz FM playlisting.")
   Artist.create(name: "John Mayer", genre: "Pop", img_url: 'https://www.billboard.com/files/media/john-mayer-aug-2017-billboard-1548.jpg', description: 'Born on October 16, 1977, John Mayer launched his music career in the late 1990s. In 2001 he released the album Room for Squares, and two years later he debuted Heavier Things. Both efforts were commercially successful, multi-platinum albums that spawned several hits, including Grammy-winning songs like "Your Body Is a Wonderland" and "Daughters." Having established himself in adult contemporary rock, Mayer broadened the scope of his sound to incorporate the blues, forming the John Mayer Trio in the mid 2000s. In 2015 he collaborated with Grateful Dead\'s Bob Weir to form the touring band Dead & Company.')
   Artist.create(name: "Hans Zimmer", genre: "Instrumental", img_url: 'https://www.billboard.com/files/media/Hans-Zimmer-cr-Zoe-Zimmer-2016-billboard-1548.jpg', description: 'Hans Florian Zimmer is a German film score composer and record producer. Since the 1980s, he has composed music for over 150 films. His works include The Lion King, for which he won the Academy Award for Best Original Score in 1995, the Pirates of the Caribbean series, The Thin Red Line, Gladiator, The Last Samurai, and The Dark Knight Trilogy.')
   Artist.create(name: "Chick Corea", genre: "Jazz", img_url: 'http://www.theshedd.org/uh/scaleimage.ashx?id=7383&width=400', description: 'Chick Corea has been one of the most significant jazzmen since the \'60s. Not content at any time to rest on his laurels, he has been involved in quite a few important musical projects, and his musical curiosity has never dimmed. A masterful pianist who, along with Herbie Hancock and Keith Jarrett, was one of the top stylists to emerge after Bill Evans and McCoy Tyner, Corea is also one of the few electric keyboardists to be quite individual and recognizable on synthesizers. In addition, he has composed several jazz standards, including "Spain," "La Fiesta," and "Windows."')
@@ -54,6 +54,7 @@ Zedd's best-known productions to date are the songs \"Stay\" with Alessia Cara a
   Artist.create(name: "T-SQUARE", genre: "Jazz", img_url: 'https://img.discogs.com/UVFavs60UDmBXn9YeSbgN1m1-U0=/500x333/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-1249160-1351873455-5146.jpeg.jpg', description: "T-Square is a Japanese jazz fusion band formed in 1978. They became famous in the late 70s and early 80s along with other Japanese bands in the genre.
 
 Its most famous lineup included its members from 1986 to 1990: guitarist Masahiro Andoh, saxophonist/flutist/EWI player Takeshi Itoh, bassist Mitsuru Sutoh, keyboardist Hirotaka Izumi and drummer Hiroyuki Noritake. They are known for songs such as \"Truth\", \"Japanese Soul Brothers\", \"Takarajima\", \"Omens of Love\", among others. \"Truth\" has been used as the theme for Fuji Television's Formula One (F1) coverage from 1989 to 2000 and since 2012. An special arrangement, \"Truth 21c\", was used as the theme for Japan's F1 2001 and 2002, respectively, and other remixes of were used from 2003 to 2006.")
+  Artist.create(name: "MUTEMATH", genre: "Rock", img_url: 'https://dx72k0ec4onep.cloudfront.net/manual_collection_covers/MUTEMATH.jpg', description: "Mutemath (sometimes styled as MuteMath or MUTEMATH) is an American alternative rock band from New Orleans that formed in 2002. The group consists of lead vocalist and keyboardist Paul Meany, guitarist Todd Gummerman, and bassist Jonathan Allen, but they often perform on any mixture or variation of these instruments. They draw heavily from influences in 1960s and 1970s soul, psychedelic rock, and jam band styles, utilizing vintage guitars and amplifiers, as well as Rhodes keyboards, synthesizers, and other electronic instruments such as the keytar.")
 
 
 
@@ -80,6 +81,9 @@ Its most famous lineup included its members from 1986 to 1990: guitarist Masahir
   Album.create(title: "Clarity", year: 2012, artist_id: Artist.find_by(name: 'Zedd').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/3/32/Zedd_-_Clarity_%28album%29.png')
   Album.create(title: "Continuum", year: 2006, artist_id: Artist.find_by(name: 'John Mayer').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/8/82/Continuum_%28album%29.png')
   Album.create(title: "Brasil", year: 2001, artist_id: Artist.find_by(name: 'T-SQUARE').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/51YQA9KU-NL.jpg')
+  Album.create(title: "Mutemath", year: 2006, artist_id: Artist.find_by(name: 'MUTEMATH').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/5/57/Muthemath%2C_album_cover.jpg')
+  Album.create(title: "Voyager", year: 2017, artist_id: Artist.find_by(name: 'Moonchild').id, img_url: 'https://f4.bcbits.com/img/a1045883901_10.jpg')
+  Album.create(title: "Choose Your Weapon", year: 2015, artist_id: Artist.find_by(name: 'Hiatus Kaiyote').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/81KYvR%2BCgJL._SY355_.jpg')
 
 
 
@@ -384,6 +388,58 @@ Its most famous lineup included its members from 1986 to 1990: guitarist Masahir
   Song.create(title: "A Farther Place", track_num: 10, duration: minutes_to_seconds('2:27'), album_id: Album.find_by(title: 'Brasil').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518135369/T-Square/A_Farther_Place.mp3')
 
 
+  Song.create(title: "Collapse", track_num: 1, duration: minutes_to_seconds('1:13'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026052/Mute%20Math/01_Collapse_Album_Version.mp3')
+  Song.create(title: "Typical", track_num: 2, duration: minutes_to_seconds('4:12'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026045/Mute%20Math/02_Typical_Album_Version.mp3')
+  Song.create(title: "After We Have Left Our Homes", track_num: 3, duration: minutes_to_seconds('1:14'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026053/Mute%20Math/03_After_We_Have_Left_Our_Homes_Alb.mp3')
+  Song.create(title: "Chaos", track_num: 4, duration: minutes_to_seconds('4:54'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026050/Mute%20Math/04_Chaos_Album_Version.mp3')
+  Song.create(title: "Noticed", track_num: 5, duration: minutes_to_seconds('4:29'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026063/Mute%20Math/05_Noticed_Album_Version.mp3')
+  Song.create(title: "Plan B", track_num: 6, duration: minutes_to_seconds('4:46'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026041/Mute%20Math/06_Plan_B_Album_Version.mp3')
+  Song.create(title: "Stare at the Sun", track_num: 7, duration: minutes_to_seconds('4:33'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026050/Mute%20Math/07_Stare_At_The_Sun_Album_Version.mp3')
+  Song.create(title: "Obsolete", track_num: 8, duration: minutes_to_seconds('4:30'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026040/Mute%20Math/08_Obsolete_Album_Version.mp3')
+  Song.create(title: "Break the Same", track_num: 9, duration: minutes_to_seconds('6:00'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026061/Mute%20Math/09_Break_The_Same_Album_Version.mp3')
+  Song.create(title: "You Are Mine", track_num: 10, duration: minutes_to_seconds('4:43'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026045/Mute%20Math/10_You_Are_Mine_Album_Version.mp3')
+  Song.create(title: "Control", track_num: 11, duration: minutes_to_seconds('4:39'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026059/Mute%20Math/11_Control_Album_Version.mp3')
+  Song.create(title: "Picture", track_num: 12, duration: minutes_to_seconds('5:26'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026048/Mute%20Math/12_Picture_Album_Version.mp3')
+  Song.create(title: "Stall Out", track_num: 13, duration: minutes_to_seconds('7:10'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026049/Mute%20Math/13_Stall_Out_Album_Version.mp3')
+  Song.create(title: "Reset", track_num: 14, duration: minutes_to_seconds('5:25'), album_id: Album.find_by(title: 'Mutemath').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518026049/Mute%20Math/14_Reset_Album_Version.mp3')
+
+
+  Song.create(title: "Voyager (Intro)", track_num: 1, duration: minutes_to_seconds('0:45'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152952/Moonchild/01_-_Voyager_Intro.mp3')
+  Song.create(title: "Cure", track_num: 2, duration: minutes_to_seconds('4:06'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152954/Moonchild/02_-_Cure.mp3')
+  Song.create(title: "6AM", track_num: 3, duration: minutes_to_seconds('4:19'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152954/Moonchild/03_-_6AM.mp3')
+  Song.create(title: "Every Part (For Linda)", track_num: 4, duration: minutes_to_seconds('3:36'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152954/Moonchild/04_-_Every_Part_For_Linda.mp3')
+  Song.create(title: "Hideaway", track_num: 5, duration: minutes_to_seconds('3:39'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152954/Mute%20Math/05_-_Hideaway.mp3')
+  Song.create(title: "The List", track_num: 6, duration: minutes_to_seconds('5:05'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152958/Moonchild/06_-_The_List.mp3')
+  Song.create(title: "Doors Closing", track_num: 7, duration: minutes_to_seconds('1:24'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152960/Moonchild/07_-_Doors_Closing.mp3')
+  Song.create(title: "Run Away", track_num: 8, duration: minutes_to_seconds('3:19'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152956/Moonchild/08_-_Run_Away.mp3')
+  Song.create(title: "Think Back", track_num: 9, duration: minutes_to_seconds('2:56'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152953/Moonchild/09_-_Think_Back.mp3')
+  Song.create(title: "Now and Then", track_num: 10, duration: minutes_to_seconds('3:57'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152957/Moonchild/10_-_Now_And_Then.mp3')
+  Song.create(title: "Change Your Mind", track_num: 11, duration: minutes_to_seconds('5:12'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152960/Moonchild/11_-_Change_Your_Mind.mp3')
+  Song.create(title: "Show The Way", track_num: 12, duration: minutes_to_seconds('4:22'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152960/Moonchild/12_-_Show_The_Way.mp3')
+  Song.create(title: "Let You Go", track_num: 13, duration: minutes_to_seconds('3:20'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152960/Moonchild/13_-_Let_You_Go.mp3')
+  Song.create(title: "Cure (Instrumental)", track_num: 14, duration: minutes_to_seconds('4:06'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152959/Moonchild/14_-_Cure_Instrumental.mp3')
+  Song.create(title: "The List (Instrumental)", track_num: 15, duration: minutes_to_seconds('5:05'), album_id: Album.find_by(title: 'Voyager').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518152962/Moonchild/15_-_The_List_Instrumental.mp3')
+
+
+  Song.create(title: "Choose Your Weapon", track_num: 1, duration: minutes_to_seconds('1:34'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156560/Hiatus%20Kaiyote/Choose%20Your%20Weapon/01-hiatus_kaiyote-choose_your_weapon.mp3')
+  Song.create(title: "Shaolin Monk Motherfunk", track_num: 2, duration: minutes_to_seconds('5:51'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156567/Hiatus%20Kaiyote/Choose%20Your%20Weapon/02-hiatus_kaiyote-shaolin_monk_motherfunk.mp3')
+  Song.create(title: "Laputa", track_num: 3, duration: minutes_to_seconds('2:26'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156565/Hiatus%20Kaiyote/Choose%20Your%20Weapon/03-hiatus_kaiyote-laputa.mp3')
+  Song.create(title: "Creations Part One", track_num: 4, duration: minutes_to_seconds('0:49'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156556/Hiatus%20Kaiyote/Choose%20Your%20Weapon/04-hiatus_kaiyote-creations_part_one.mp3')
+  Song.create(title: "Borderline with My Atoms", track_num: 5, duration: minutes_to_seconds('6:02'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156561/Hiatus%20Kaiyote/Choose%20Your%20Weapon/05-hiatus_kaiyote-borderline_with_my_atoms.mp3')
+  Song.create(title: "Breathing Underwater", track_num: 6, duration: minutes_to_seconds('5:44'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156561/Hiatus%20Kaiyote/Choose%20Your%20Weapon/06-hiatus_kaiyote-breathing_underwater.mp3')
+  Song.create(title: "Cicada", track_num: 7, duration: minutes_to_seconds('0:38'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156558/Hiatus%20Kaiyote/Choose%20Your%20Weapon/07-hiatus_kaiyote-cicada.mp3')
+  Song.create(title: "Swamp Thing", track_num: 8, duration: minutes_to_seconds('5:00'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156557/Hiatus%20Kaiyote/Choose%20Your%20Weapon/08-hiatus_kaiyote-swamp_thing.mp3')
+  Song.create(title: "Fingerprints", track_num: 9, duration: minutes_to_seconds('4:17'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156565/Hiatus%20Kaiyote/Choose%20Your%20Weapon/09-hiatus_kaiyote-fingerprints.mp3')
+  Song.create(title: "Jekyll", track_num: 10, duration: minutes_to_seconds('5:33'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156559/Hiatus%20Kaiyote/Choose%20Your%20Weapon/10-hiatus_kaiyote-jekyll.mp3')
+  Song.create(title: "Prince Minikid", track_num: 11, duration: minutes_to_seconds('2:50'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156556/Hiatus%20Kaiyote/Choose%20Your%20Weapon/11-hiatus_kaiyote-prince_minikid.mp3')
+  Song.create(title: "Atari", track_num: 12, duration: minutes_to_seconds('6:09'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156564/Hiatus%20Kaiyote/Choose%20Your%20Weapon/12-hiatus_kaiyote-atari.mp3')
+  Song.create(title: "By Fire", track_num: 13, duration: minutes_to_seconds('5:04'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156563/Hiatus%20Kaiyote/Choose%20Your%20Weapon/13-hiatus_kaiyote-by_fire.mp3')
+  Song.create(title: "Creations Part Two", track_num: 14, duration: minutes_to_seconds('1:01'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156556/Hiatus%20Kaiyote/Choose%20Your%20Weapon/14-hiatus_kaiyote-creations_part_two.mp3')
+  Song.create(title: "The Lung", track_num: 15, duration: minutes_to_seconds('4:54'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156560/Hiatus%20Kaiyote/Choose%20Your%20Weapon/15-hiatus_kaiyote-the_lung.mp3')
+  Song.create(title: "Only Time All the Time: Making Friends with Studio Owl", track_num: 16, duration: minutes_to_seconds('1:03'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156556/Hiatus%20Kaiyote/Choose%20Your%20Weapon/16-hiatus_kaiyote-only_time_all_the_time_making_friends_with_studio_owl.mp3')
+  Song.create(title: "Molasses", track_num: 17, duration: minutes_to_seconds('4:49'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156563/Hiatus%20Kaiyote/Choose%20Your%20Weapon/17-hiatus_kaiyote-molasses.mp3')
+  Song.create(title: "Building a Ladder", track_num: 18, duration: minutes_to_seconds('5:42'), album_id: Album.find_by(title: 'Choose Your Weapon').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518156564/Hiatus%20Kaiyote/Choose%20Your%20Weapon/18-hiatus_kaiyote-building_a_ladder.mp3')
+
 
 
   #Genres
@@ -458,12 +514,13 @@ Its most famous lineup included its members from 1986 to 1990: guitarist Masahir
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Done With Love").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Clarity [feat. Foxes]").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Love Tribe (feat. Miss Vehna from Soul Trip!!) (Main Mix)").id)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Elevation").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Walk On").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Quarter Master").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Symmetrical").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Restart").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "What About Me?").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Money On My Mind").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Control").id)
 
 
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Focus").id, song_id: Song.find_by(title: "Neverending City").id)
@@ -486,6 +543,8 @@ Its most famous lineup included its members from 1986 to 1990: guitarist Masahir
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "Nakamarra").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "Stay With Me").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "Denmark Hill").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "Soft Madness").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "Smile Meditation").id)
 
 
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "December in New York").id)
@@ -496,6 +555,7 @@ Its most famous lineup included its members from 1986 to 1990: guitarist Masahir
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "Gravity").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "A Place Among the Stars").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "Lenny").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "Stall Out").id)
 
 
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Beautiful Day").id)
@@ -506,16 +566,107 @@ Its most famous lineup included its members from 1986 to 1990: guitarist Masahir
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Mobius Streak").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Aunt Leslie").id)
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Conscious Club (Instrumental)").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Waiting on the World to Change").id)
 
 
-  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Beautiful Day").id)
-  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "No Such Thing").id)
-  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Your Body is a Wonderland").id)
-  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Walk On").id)
-  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Back Pocket").id)
-  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Mobius Streak").id)
-  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Aunt Leslie").id)
-  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Conscious Club (Instrumental)").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Cook").id, song_id: Song.find_by(title: "Tempo De Ser Feliz").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Cook").id, song_id: Song.find_by(title: "Distancia").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Cook").id, song_id: Song.find_by(title: "Amanhecer").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Cook").id, song_id: Song.find_by(title: "Sem Parar").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Cook").id, song_id: Song.find_by(title: "The World It Softly Lulls").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Cook").id, song_id: Song.find_by(title: "Toys").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Cook").id, song_id: Song.find_by(title: "Back To You").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Cook").id, song_id: Song.find_by(title: "Freezer Burn").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Cook").id, song_id: Song.find_by(title: "Illusion [feat. Echosmith]").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Cook").id, song_id: Song.find_by(title: "Daisy").id)
+
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Energy").id, song_id: Song.find_by(title: "Semi-Charmed Life").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Energy").id, song_id: Song.find_by(title: "Graduate").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Energy").id, song_id: Song.find_by(title: "Tiger Eyes (feat. Monday Michiru) (English Version)").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Energy").id, song_id: Song.find_by(title: "Elevation").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Energy").id, song_id: Song.find_by(title: "Conscious Club").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Energy").id, song_id: Song.find_by(title: "1 for 1 DiMaggio").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Energy").id, song_id: Song.find_by(title: "Superstition (Live)").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Energy").id, song_id: Song.find_by(title: "Red Sand").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Energy").id, song_id: Song.find_by(title: "The King of Dance").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Energy").id, song_id: Song.find_by(title: "Typical").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Energy").id, song_id: Song.find_by(title: "Break the Same").id)
+
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Dark & Stormy").id, song_id: Song.find_by(title: "Time").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Dark & Stormy").id, song_id: Song.find_by(title: "One Simple Idea").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Dark & Stormy").id, song_id: Song.find_by(title: "Lace Skull").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Dark & Stormy").id, song_id: Song.find_by(title: "Circle").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Dark & Stormy").id, song_id: Song.find_by(title: "True Colors").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Dark & Stormy").id, song_id: Song.find_by(title: "Mountains").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Dark & Stormy").id, song_id: Song.find_by(title: "Dream Is Collapsing").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Dark & Stormy").id, song_id: Song.find_by(title: "Tin Pan Alley (AKA Roughest Place in Town)").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Dark & Stormy").id, song_id: Song.find_by(title: "Outlier").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Dark & Stormy").id, song_id: Song.find_by(title: "Slow Dancing in a Burning Room").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Dark & Stormy").id, song_id: Song.find_by(title: "Malika").id)
+
+
+
+
+
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "The Best of Snarky Puppy").id, song_id: Song.find_by(title: "Binky").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "The Best of Snarky Puppy").id, song_id: Song.find_by(title: "Thing of Gold").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "The Best of Snarky Puppy").id, song_id: Song.find_by(title: "The Curtain").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "The Best of Snarky Puppy").id, song_id: Song.find_by(title: "Lingus").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "The Best of Snarky Puppy").id, song_id: Song.find_by(title: "Young Stuff").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "The Best of Snarky Puppy").id, song_id: Song.find_by(title: "Quarter Master").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "The Best of Snarky Puppy").id, song_id: Song.find_by(title: "What About Me?").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "The Best of Snarky Puppy").id, song_id: Song.find_by(title: "Sintra").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "The Best of Snarky Puppy").id, song_id: Song.find_by(title: "Flight").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "The Best of Snarky Puppy").id, song_id: Song.find_by(title: "Atchafalaya").id)
+
+
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Funky Tunes").id, song_id: Song.find_by(title: "Cory Wong").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Funky Tunes").id, song_id: Song.find_by(title: "Animal Spirits").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Funky Tunes").id, song_id: Song.find_by(title: "Daddy He Got a Tesla").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Funky Tunes").id, song_id: Song.find_by(title: "Funky Duck").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Funky Tunes").id, song_id: Song.find_by(title: "Back Pocket").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Funky Tunes").id, song_id: Song.find_by(title: "Quarter Master").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Funky Tunes").id, song_id: Song.find_by(title: "Fake Future").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Funky Tunes").id, song_id: Song.find_by(title: "Belief").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Funky Tunes").id, song_id: Song.find_by(title: "Red Sand").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Funky Tunes").id, song_id: Song.find_by(title: "Dean Town").id)
+
+
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Jazz Selections").id, song_id: Song.find_by(title: "The Rush").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Jazz Selections").id, song_id: Song.find_by(title: "Spain").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Jazz Selections").id, song_id: Song.find_by(title: "Malika").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Jazz Selections").id, song_id: Song.find_by(title: "Captain Marvel").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Jazz Selections").id, song_id: Song.find_by(title: "Shofukan").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Jazz Selections").id, song_id: Song.find_by(title: "Swift").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Jazz Selections").id, song_id: Song.find_by(title: "Lingus").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Jazz Selections").id, song_id: Song.find_by(title: "Neverending City").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Jazz Selections").id, song_id: Song.find_by(title: "Young Stuff").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Jazz Selections").id, song_id: Song.find_by(title: "Denmark Hill").id)
+
+
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "John Mayer's Top Hits").id, song_id: Song.find_by(title: "Vultures").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "John Mayer's Top Hits").id, song_id: Song.find_by(title: "Your Body is a Wonderland").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "John Mayer's Top Hits").id, song_id: Song.find_by(title: "Why Georgia").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "John Mayer's Top Hits").id, song_id: Song.find_by(title: "No Such Thing").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "John Mayer's Top Hits").id, song_id: Song.find_by(title: "City Love").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "John Mayer's Top Hits").id, song_id: Song.find_by(title: "Waiting on the World to Change").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "John Mayer's Top Hits").id, song_id: Song.find_by(title: "Gravity").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "John Mayer's Top Hits").id, song_id: Song.find_by(title: "Stop This Train").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "John Mayer's Top Hits").id, song_id: Song.find_by(title: "Dreaming with a Broken Heart").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "John Mayer's Top Hits").id, song_id: Song.find_by(title: "I Don't Trust Myself (With Loving You)").id)
+
+
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Chillhop").id, song_id: Song.find_by(title: "Nakamarra").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Chillhop").id, song_id: Song.find_by(title: "Sphynx Gate").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Chillhop").id, song_id: Song.find_by(title: "Cure").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Chillhop").id, song_id: Song.find_by(title: "The List").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Chillhop").id, song_id: Song.find_by(title: "6AM").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Chillhop").id, song_id: Song.find_by(title: "Let You Go").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Chillhop").id, song_id: Song.find_by(title: "Run Away").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Chillhop").id, song_id: Song.find_by(title: "Hideaway").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Chillhop").id, song_id: Song.find_by(title: "Fingerprints").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Chillhop").id, song_id: Song.find_by(title: "Molasses").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Chillhop").id, song_id: Song.find_by(title: "Breathing Underwater").id)
 
 
   #img

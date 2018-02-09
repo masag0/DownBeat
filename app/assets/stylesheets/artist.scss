@@ -21,7 +21,7 @@
   width: 180%;
   text-align: center;
   margin: 10%;
-  max-width: 300px;
+  max-width: 280px;
   min-height: 100px;
   overflow: scroll;
   // overflow-wrap: break-word;
@@ -115,5 +115,10 @@
   //   // padding: 5px;
   //   margin: 0 10px;
   // }
+}
+
+.duration-text {
+  font-family: Montserrat;
+  font-weight: 200;
 }
 

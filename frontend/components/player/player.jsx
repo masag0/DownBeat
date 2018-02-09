@@ -49,10 +49,6 @@ class Player extends React.Component {
   }
 
   componentDidMount () {
-    // const sliderBtn = document.getElementById('sliderBtn');
-    // const volume = document.getElementById('volume-container');
-    // const barEmpty = document.getElementById('barEmpty');
-
   }
 
   componentWillReceiveProps (nextProps) {
@@ -62,19 +58,22 @@ class Player extends React.Component {
     $('#progress').css('width', 0);
 
     let queue = nextProps.queue;
-    this.queueNum = queue.findIndex((el => el.id == nextProps.nowPlaying.id)) + 1;
 
     this.orderedQueue = queue;
+    // 
+    // if (this.state.shuffle) {
+    //   this.queue = this.shuffle(queue);
+    //   this.setState({shuffle: false});
+    //   this.queueNum = this.queueNum + 1;
+    // } else {
+    // }
+    this.queue = queue;
+    this.queueNum = this.queue.findIndex((el => el.id == nextProps.nowPlaying.id)) + 1;
 
-    if (this.state.shuffle) {
-      this.queue = this.shuffle(queue);
-      this.setState({shuffle: false});
-    } else {
-      this.queue = queue;
-    }
+
     console.log(this.queue);
     console.log(this.queueNum);
-    
+
     let nextSound = new Howl({
       src: [nextProps.nowPlaying.link],
       html5: true,
@@ -294,6 +293,7 @@ class Player extends React.Component {
 
       this.queue = this.orderedQueue;
     }
+    console.log(this.queue);
   }
 
 

@@ -8,8 +8,8 @@ import {playSong, addSongsToQueue} from '../../actions/playing_actions';
 const mapStateToProps = (state, ownProps) => {
   return {
     album: state.entities.albums[ownProps.match.params.albumId],
-    songs: lodash.values(state.entities.songs)
-      .filter(song => song.album.id == ownProps.match.params.albumId)
+    songs: state.entities.songs
+      
   };
 };
 
