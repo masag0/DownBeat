@@ -18,8 +18,8 @@ https://downbeat-app.herokuapp.com
 * Includes a guest account for demoing purposes
 
 ## Continuous Play
+![Sample Gif](https://github.com/masag0/DownBeat/blob/master/app/assets/images/ContPlay.gif)
 
-![ContPlay](https://dl.dropboxusercontent.com/s/benzmqwhtdjnn63/ContPlay.gif)
 * Play songs and navigate around the site without stopping playback
 * Go to the next or previous song
 * Seek playback time by dragging or clicking on seek bar
@@ -29,20 +29,20 @@ https://downbeat-app.herokuapp.com
 
 ## Playlist CRUD
 
-![Playlist CRUD](https://cloudinary.com/console/media_library#/dialog/image/upload/PlaylistCRUD_zhglfb)
+![Playlist CRUD](https://github.com/masag0/DownBeat/blob/master/app/assets/images/PlaylistCRUD.gif)
 * Create, Edit, and Delete Playlists
 
-![Add and Remove Songs](https://cloudinary.com/console/media_library#/dialog/image/upload/AddRemoveSongs_gilcdm)
+![Add and Remove Songs](https://github.com/masag0/DownBeat/blob/master/app/assets/images/AddRemoveSongs.gif)
 * Add and Remove Songs
 
 ## Follow other playlists
 
-![Follow Playlists](http://res.cloudinary.com/masag0/image/upload/v1518211708/following_m6sxx5.gif)
+![Follow Playlists](https://github.com/masag0/DownBeat/blob/master/app/assets/images/Following.gif)
 * Follow and unfollow other user playlists and access them via the left nav bar
 
 ## Search
 
-![Search](https://dl.dropboxusercontent.com/s/uuk9djd8b0ei8r4/Search.gif)
+![Search](https://github.com/masag0/DownBeat/blob/master/app/assets/images/Search.gif)
 * Displays all songs, artists, albums, and playlists that match the query
 * Instant search works on key press
 * Clearing the search bar and clicking somewhere else navigates you back to where you were before searching
@@ -58,3 +58,4 @@ https://downbeat-app.herokuapp.com
 
 
 
+git add -A
