@@ -184,7 +184,7 @@ class SongList extends React.Component {
                         <section className="addSongModal-playlist-container">
                           <button id="addSongModal-close-button" onClick={this.closeModal}></button>
 
-                          <button id="playlist-create-modal-button" onClick={window.openPlaylistCreateModal} >New Playlist</button>
+                          <button id="playlist-create-modal-button" onClick={window.openPlaylistCreateModal}>New Playlist</button>
 
 
                           <PlaylistModalListContainer

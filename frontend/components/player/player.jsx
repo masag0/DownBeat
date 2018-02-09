@@ -70,10 +70,6 @@ class Player extends React.Component {
     this.queue = queue;
     this.queueNum = this.queue.findIndex((el => el.id == nextProps.nowPlaying.id)) + 1;
 
-
-    console.log(this.queue);
-    console.log(this.queueNum);
-
     let nextSound = new Howl({
       src: [nextProps.nowPlaying.link],
       html5: true,
@@ -167,7 +163,7 @@ class Player extends React.Component {
     const width = parseInt($('#barEmpty').width())-10;
     const deltaX = parseInt($('#sliderBtn').css("transform").split(',')[4].slice(1));
     const barWidth = deltaX;
-    // console.log(barWidth);
+
     $('#barFull').css('width', barWidth);
     this.setState( { deltaXVol: barWidth } );
 
