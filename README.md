@@ -78,7 +78,9 @@ The ability to drag the seek and volume bars was implemented using React Draggab
 
  If a user types quickly while searching, this would cause slow, early search results based on the beginning of the query string to be displayed instead of the full query string. This is solved by delaying ajax requests until a specified amount of time has passed since the last request.
 
- `this.dbSearch = lodash.debounce((query) => this.search(query), 250);`
+ ```javascript
+ this.dbSearch = lodash.debounce((query) => this.search(query), 250);
+ ``
 
 ## Enhancements
 * Ability to play an album or playlist by clicking its icon
