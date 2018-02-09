@@ -1,4 +1,7 @@
 import React from 'react';
+import lodash from 'lodash';
+
+
 
 class TopNav extends React.Component {
   constructor(props) {
@@ -12,8 +15,13 @@ class TopNav extends React.Component {
     this.clearSearchBar = this.clearSearchBar.bind(this);
     this.resetSearchBar = this.resetSearchBar.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+
   }
 
+  componentDidMount () {
+    $('#main-search-bar').keyup(lodash.debounce(this.update, 600));
+
+  }
 
   logout(e) {
     e.preventDefault();
@@ -24,6 +32,7 @@ class TopNav extends React.Component {
   clearSearchBar () {
     if (this.firstFocus) {
       this.firstFocus = false;
+      // this.props.clearResults();
       this.setState( { query: ""} );
     }
     this.props.history.push('/search');
@@ -40,6 +49,7 @@ class TopNav extends React.Component {
 
   update (e) {
     this.setState( { query: e.target.value } );
+    const query = e.target.value;
     if (e.target.value !== "") {
       this.props.fetchResults(e.target.value);
     } else {
@@ -60,6 +70,8 @@ class TopNav extends React.Component {
   }
 
   render(){
+
+
     const {currentUser} = this.props;
     return (
       <nav id="top-nav">
