@@ -73,6 +73,7 @@ class LoginForm extends React.Component {
 
     return (
       <div className="playlist-modal-content">
+        <button id="addSongModal-close-button" onClick={this.cancel}></button>
         <header>
           <h2 className="addSongModal-header">{headerText}</h2>
         </header>

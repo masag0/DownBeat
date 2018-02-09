@@ -17,8 +17,7 @@ $green: #1ed760;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 150px;
-  padding-top: 100px;
+
 }
 
 .playlist-form-modal {
@@ -61,17 +60,20 @@ $green: #1ed760;
   overflow: scroll;
   width: 75%;
   width: 100%;
+  margin-top: 100px;
   // max-width: 800px;
 }
 
 #addSongModal-close-button {
+  position: absolute;
+  top: -50px;
   width: 80px;
   height: 80px;
   background-image: image_url('close-icon.png');
   background-color: transparent;
   border-radius: 100px;
   background-size: cover;
-
+  z-index: 20000;
   &:hover {
     box-shadow: 0 0 15px $green;
     transition: all 0.5s ease;
@@ -81,6 +83,8 @@ $green: #1ed760;
 
 
 .playlist-modal-content{
+  position: absolute;
+  top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;

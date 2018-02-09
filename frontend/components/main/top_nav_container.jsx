@@ -11,7 +11,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   logout: () => dispatch(logout()),
+  dispatch,
   fetchResults: (query) => dispatch(fetchResults(query)),
+  // fetchResults,
   clearResults: () => dispatch(clearResults())
 });
 
