@@ -508,14 +508,14 @@ Its most famous lineup included its members from 1986 to 1990: guitarist Masahir
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Conscious Club (Instrumental)").id)
 
 
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Beautiful Day").id)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "No Such Thing").id)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Your Body is a Wonderland").id)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Walk On").id)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Back Pocket").id)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Mobius Streak").id)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Aunt Leslie").id)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Conscious Club (Instrumental)").id)
+  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Beautiful Day").id)
+  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "No Such Thing").id)
+  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Your Body is a Wonderland").id)
+  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Walk On").id)
+  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Back Pocket").id)
+  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Mobius Streak").id)
+  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Aunt Leslie").id)
+  # PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Conscious Club (Instrumental)").id)
 
 
   #img
