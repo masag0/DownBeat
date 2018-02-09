@@ -51,6 +51,9 @@ Jazztronik has been growing in popularize and has hit sales of 100, to 000+. Jaz
   Artist.create(name: "Vulfpeck", genre: "Funk", img_url: 'https://f4.bcbits.com/img/0010966154_10.jpg', description: "Vulfpeck is an American funk group founded in 2011. Influenced by rhythm sections of the past, the band has released four EPs, three albums, and a silent album on Spotify titled Sleepify – royalties from which funded the band's admission-free tour in 2014. The band's latest album, Mr. Finish Line, was released in November 2017.")
   Artist.create(name: "Zedd", genre: "Electronica", img_url: 'https://i1.sndcdn.com/avatars-000298013437-7oemlv-t500x500.jpg', description: "Anton Zaslavski, better known by his stage name Zedd, is a Russian-German record producer, DJ, musician, multi-instrumentalist and songwriter. He primarily produces and performs electro house music, but has diversified his genre and musical style, drawing influences from progressive house, dubstep, and classical music. Zedd grew up and began his career in Kaiserslautern, Germany.
 Zedd's best-known productions to date are the songs \"Stay\" with Alessia Cara and \"Clarity\" featuring Foxes, both reaching the Top 10 respectively in two separate occasions which were in the 7th and 8th position on the Billboard Hot 100. Also as a featured artist, he managed to get into the 4th position with his collaboration with Ariana Grande called \"Break Free\". Zedd won a Grammy for Best Dance Recording at the 56th Grammy Awards for \"Clarity\". ")
+  Artist.create(name: "T-SQUARE", genre: "Jazz", img_url: 'https://img.discogs.com/UVFavs60UDmBXn9YeSbgN1m1-U0=/500x333/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-1249160-1351873455-5146.jpeg.jpg', description: "T-Square is a Japanese jazz fusion band formed in 1978. They became famous in the late 70s and early 80s along with other Japanese bands in the genre.
+
+Its most famous lineup included its members from 1986 to 1990: guitarist Masahiro Andoh, saxophonist/flutist/EWI player Takeshi Itoh, bassist Mitsuru Sutoh, keyboardist Hirotaka Izumi and drummer Hiroyuki Noritake. They are known for songs such as \"Truth\", \"Japanese Soul Brothers\", \"Takarajima\", \"Omens of Love\", among others. \"Truth\" has been used as the theme for Fuji Television's Formula One (F1) coverage from 1989 to 2000 and since 2012. An special arrangement, \"Truth 21c\", was used as the theme for Japan's F1 2001 and 2002, respectively, and other remixes of were used from 2003 to 2006.")
 
 
 
@@ -76,6 +79,7 @@ Zedd's best-known productions to date are the songs \"Stay\" with Alessia Cara a
   Album.create(title: "True Colors", year: 2015, artist_id: Artist.find_by(name: 'Zedd').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/c/c9/Zedd-True-Colors.png')
   Album.create(title: "Clarity", year: 2012, artist_id: Artist.find_by(name: 'Zedd').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/3/32/Zedd_-_Clarity_%28album%29.png')
   Album.create(title: "Continuum", year: 2006, artist_id: Artist.find_by(name: 'John Mayer').id, img_url: 'https://upload.wikimedia.org/wikipedia/en/8/82/Continuum_%28album%29.png')
+  Album.create(title: "Brasil", year: 2001, artist_id: Artist.find_by(name: 'T-SQUARE').id, img_url: 'https://images-na.ssl-images-amazon.com/images/I/51YQA9KU-NL.jpg')
 
 
 
@@ -217,14 +221,12 @@ Zedd's best-known productions to date are the songs \"Stay\" with Alessia Cara a
   Song.create(title: "God Of Wine", track_num: 14, duration: minutes_to_seconds('5:17'), album_id: Album.find_by(title: 'Third Eye Blind').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518023619/Third%20Eye%20Blind/14_God_of_Wine.mp3')
 
 
-  Song.create(title: "
-Love Tribe (feat. Miss Vehna from Soul Trip!!) (Main Mix)", track_num: 1, duration: minutes_to_seconds('5:33'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050298/Jazztronik/01_Love_Tribe_feat._Miss_Vehna_from.m4a')
+  Song.create(title: "Love Tribe (feat. Miss Vehna from Soul Trip!!) (Main Mix)", track_num: 1, duration: minutes_to_seconds('5:33'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050298/Jazztronik/01_Love_Tribe_feat._Miss_Vehna_from.m4a')
   Song.create(title: "The King of Dance", track_num: 2, duration: minutes_to_seconds('8:47'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050303/Jazztronik/02_The_King_of_Dance.m4a')
   Song.create(title: "Life Syncopetion", track_num: 3, duration: minutes_to_seconds('5:31'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050288/Jazztronik/03_Life_Syncopetion.m4a')
-  Song.create(title: "
-Festalica!! (Clap Ya Hands!!)", track_num: 4, duration: minutes_to_seconds('5:27'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050288/Jazztronik/04_Festalica_Clap_Ya_Hands.m4a')
+  Song.create(title: "Festalica!! (Clap Ya Hands!!)", track_num: 4, duration: minutes_to_seconds('5:27'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050288/Jazztronik/04_Festalica_Clap_Ya_Hands.m4a')
   Song.create(title: "Tiger Eyes (feat. Monday Michiru) (English Version)", track_num: 5, duration: minutes_to_seconds('8:32'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050299/Jazztronik/05_Tiger_Eyes_feat._Monday_Michiru.m4a')
-  Song.create(title: "How's It Going To Be", track_num: 6, duration: minutes_to_seconds('6:12'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050307/Jazztronik/06_Dust_to_Dust_feat._Robert_Gallag.m4a')
+  Song.create(title: "Dust To Dust", track_num: 6, duration: minutes_to_seconds('6:12'), album_id: Album.find_by(title: 'Love Tribe').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050307/Jazztronik/06_Dust_to_Dust_feat._Robert_Gallag.m4a')
 
 
   Song.create(title: "No Such Thing", track_num: 1, duration: minutes_to_seconds('3:51'), album_id: Album.find_by(title: 'Room For Squares').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050116/John%20Mayer/01_No_Such_Thing.m4a')
@@ -283,14 +285,11 @@ Festalica!! (Clap Ya Hands!!)", track_num: 4, duration: minutes_to_seconds('5:27
   Song.create(title: "Lenny", track_num: 7, duration: minutes_to_seconds('4:57'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056539/SRV/07_07_-_Lenny.mp3')
   Song.create(title: "Scuttle Buttin'", track_num: 8, duration: minutes_to_seconds('1:51'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056530/SRV/08_08_-_Scuttle_Buttin.mp3')
   Song.create(title: "Couldn't Stand the Weather", track_num: 9, duration: minutes_to_seconds('4:41'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056530/SRV/09_09_-_Couldn_t_Stand_The_Weather.mp3')
-  Song.create(title: "
-The Things (That) I Used to Do", track_num: 10, duration: minutes_to_seconds('4:54'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056489/SRV/10_10_-_The_Things_That_I_Used_To.mp3')
+  Song.create(title: "The Things (That) I Used to Do", track_num: 10, duration: minutes_to_seconds('4:54'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056489/SRV/10_10_-_The_Things_That_I_Used_To.mp3')
   Song.create(title: "Cold Shot", track_num: 11, duration: minutes_to_seconds('4:00'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056524/SRV/11_11_-_Cold_Shot.mp3')
-  Song.create(title: "
-Tin Pan Alley (AKA Roughest Place in Town)", track_num: 12, duration: minutes_to_seconds('9:11'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056484/SRV/12_12_-_Tin_Pan_Alley_AKA_Roughest.mp3')
+  Song.create(title: "Tin Pan Alley (AKA Roughest Place in Town)", track_num: 12, duration: minutes_to_seconds('9:11'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056484/SRV/12_12_-_Tin_Pan_Alley_AKA_Roughest.mp3')
   Song.create(title: "Give Me Back My Wig", track_num: 13, duration: minutes_to_seconds('4:07'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056510/SRV/13_13_-_Give_Me_Back_My_Wig.mp3')
-  Song.create(title: "
-Empty Arms (1984 Version)", track_num: 14, duration: minutes_to_seconds('3:29'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056507/SRV/14_14_-_Empty_Arms.mp3')
+  Song.create(title: "Empty Arms (1984 Version)", track_num: 14, duration: minutes_to_seconds('3:29'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056507/SRV/14_14_-_Empty_Arms.mp3')
   Song.create(title: "The Sky Is Crying (Live)", track_num: 15, duration: minutes_to_seconds('7:19'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056473/SRV/15_15_-_The_Sky_Is_Crying_Live.mp3')
   Song.create(title: "Voodoo Child (Slight Return) (Live)", track_num: 16, duration: minutes_to_seconds('11:52'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518119585/SRV/16_16_-_Voodoo_Child_Slight_Return.mp3')
   Song.create(title: "Life by the Drop", track_num: 17, duration: minutes_to_seconds('2:27'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518025077/Hans%20Zimmer/16_Where_We_re_Going.mp3')
@@ -303,14 +302,11 @@ Empty Arms (1984 Version)", track_num: 14, duration: minutes_to_seconds('3:29'),
   Song.create(title: "Willie The Wimp (Live)", track_num: 24, duration: minutes_to_seconds('4:34'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056513/SRV/07_07_-_Willie_The_Wimp_Live.mp3')
   Song.create(title: "Superstition (Live)", track_num: 25, duration: minutes_to_seconds('4:40'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056488/SRV/08_08_-_Superstition_Live.mp3')
   Song.create(title: "Leave My Girl Alone (Live)", track_num: 26, duration: minutes_to_seconds('4:46'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056536/SRV/09_09_-_Leave_My_Girl_Alone_Live.mp3')
-  Song.create(title: "
-The House Is Rockin'", track_num: 27, duration: minutes_to_seconds('2:24'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056536/SRV/10_10_-_The_House_Is_Rockin.mp3')
+  Song.create(title: "The House Is Rockin'", track_num: 27, duration: minutes_to_seconds('2:24'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056536/SRV/10_10_-_The_House_Is_Rockin.mp3')
   Song.create(title: "Crossfire", track_num: 28, duration: minutes_to_seconds('4:09'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056471/SRV/11_11_-_Crossfire.mp3')
-  Song.create(title: "
-Tightrope", track_num: 29, duration: minutes_to_seconds('4:39'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056470/SRV/12_12_-_Tightrope.mp3')
+  Song.create(title: "Tightrope", track_num: 29, duration: minutes_to_seconds('4:39'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056470/SRV/12_12_-_Tightrope.mp3')
   Song.create(title: "Wall of Denial", track_num: 30, duration: minutes_to_seconds('5:36'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056536/SRV/13_13_-_Wall_Of_Denial.mp3')
-  Song.create(title: "
-Riviera Paradise", track_num: 31, duration: minutes_to_seconds('8:50'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056502/SRV/14_14_-_Riviera_Paradise.mp3')
+  Song.create(title: "Riviera Paradise", track_num: 31, duration: minutes_to_seconds('8:50'), album_id: Album.find_by(title: 'The Essential Stevie Ray Vaughan and Double Trouble').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518056502/SRV/14_14_-_Riviera_Paradise.mp3')
 
 
   Song.create(title: "The Sweet Science", track_num: 1, duration: minutes_to_seconds('1:55'), album_id: Album.find_by(title: 'The Beautiful Game').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518122571/Vulfpeck/TBG/01._The_Sweet_Science.mp3')
@@ -350,16 +346,16 @@ Riviera Paradise", track_num: 31, duration: minutes_to_seconds('8:50'), album_id
   Song.create(title: "Illusion [feat. Echosmith]", track_num: 11, duration: minutes_to_seconds('6:25'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125771/Zedd/True%20Colors/11_Illusion.mp3')
 
 
-  Song.create(title: "Hourglass [feat. LIZ]", track_num: 1, duration: minutes_to_seconds('5:13'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125801/Zedd/Clarity/01_Hourglass_feat._LIZ.mp3')
-  Song.create(title: "Shave It Up", track_num: 2, duration: minutes_to_seconds('3:10'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125805/Zedd/Clarity/02_Shave_It_Up.mp3')
-  Song.create(title: "Spectrum [feat. Matthew Koma]", track_num: 3, duration: minutes_to_seconds('4:03'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125786/Zedd/Clarity/03_Spectrum_feat._Matthew_Koma.mp3')
-  Song.create(title: "Lost At Sea [feat. Ryan Tedder]", track_num: 4, duration: minutes_to_seconds('3:45'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125791/Zedd/Clarity/04_Lost_At_Sea_feat._Ryan_Tedder.mp3')
-  Song.create(title: "Clarity [feat. Foxes]", track_num: 5, duration: minutes_to_seconds('4:31'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125785/Zedd/Clarity/05_Clarity_feat._Foxes.mp3')
-  Song.create(title: "Codec", track_num: 6, duration: minutes_to_seconds('6:01'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125798/Zedd/Clarity/06_Codec.mp3')
-  Song.create(title: "Stache", track_num: 7, duration: minutes_to_seconds('4:04'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125782/Zedd/Clarity/07_Stache.mp3')
-  Song.create(title: "Fall Into The Sky [feat. Ellie Goulding]", track_num: 8, duration: minutes_to_seconds('3:37'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125769/Zedd/Clarity/08_Fall_Into_the_Sky_feat._Ellie_Go.mp3')
-  Song.create(title: "Follow You Down [feat. Bright Lights]", track_num: 9, duration: minutes_to_seconds('5:47'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125784/Zedd/Clarity/09_Follow_You_Down_feat._Bright_Lig.mp3')
-  Song.create(title: "Epos", track_num: 10, duration: minutes_to_seconds('5:35'), album_id: Album.find_by(title: 'True Colors').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125792/Zedd/Clarity/10_Epos.mp3')
+  Song.create(title: "Hourglass [feat. LIZ]", track_num: 1, duration: minutes_to_seconds('5:13'), album_id: Album.find_by(title: 'Clarity').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125801/Zedd/Clarity/01_Hourglass_feat._LIZ.mp3')
+  Song.create(title: "Shave It Up", track_num: 2, duration: minutes_to_seconds('3:10'), album_id: Album.find_by(title: 'Clarity').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125805/Zedd/Clarity/02_Shave_It_Up.mp3')
+  Song.create(title: "Spectrum [feat. Matthew Koma]", track_num: 3, duration: minutes_to_seconds('4:03'), album_id: Album.find_by(title: 'Clarity').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125786/Zedd/Clarity/03_Spectrum_feat._Matthew_Koma.mp3')
+  Song.create(title: "Lost At Sea [feat. Ryan Tedder]", track_num: 4, duration: minutes_to_seconds('3:45'), album_id: Album.find_by(title: 'Clarity').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125791/Zedd/Clarity/04_Lost_At_Sea_feat._Ryan_Tedder.mp3')
+  Song.create(title: "Clarity [feat. Foxes]", track_num: 5, duration: minutes_to_seconds('4:31'), album_id: Album.find_by(title: 'Clarity').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125785/Zedd/Clarity/05_Clarity_feat._Foxes.mp3')
+  Song.create(title: "Codec", track_num: 6, duration: minutes_to_seconds('6:01'), album_id: Album.find_by(title: 'Clarity').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125798/Zedd/Clarity/06_Codec.mp3')
+  Song.create(title: "Stache", track_num: 7, duration: minutes_to_seconds('4:04'), album_id: Album.find_by(title: 'Clarity').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125782/Zedd/Clarity/07_Stache.mp3')
+  Song.create(title: "Fall Into The Sky [feat. Ellie Goulding]", track_num: 8, duration: minutes_to_seconds('3:37'), album_id: Album.find_by(title: 'Clarity').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125769/Zedd/Clarity/08_Fall_Into_the_Sky_feat._Ellie_Go.mp3')
+  Song.create(title: "Follow You Down [feat. Bright Lights]", track_num: 9, duration: minutes_to_seconds('5:47'), album_id: Album.find_by(title: 'Clarity').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125784/Zedd/Clarity/09_Follow_You_Down_feat._Bright_Lig.mp3')
+  Song.create(title: "Epos", track_num: 10, duration: minutes_to_seconds('5:35'), album_id: Album.find_by(title: 'Clarity').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518125792/Zedd/Clarity/10_Epos.mp3')
 
 
   Song.create(title: "Waiting on the World to Change", track_num: 1, duration: minutes_to_seconds('3:21'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050137/John%20Mayer/01_Waiting_On_The_World_To_Change.m4a')
@@ -374,6 +370,18 @@ Riviera Paradise", track_num: 31, duration: minutes_to_seconds('8:50'), album_id
   Song.create(title: "Dreaming with a Broken Heart", track_num: 10, duration: minutes_to_seconds('4:07'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050141/John%20Mayer/10_Dreaming_With_A_Broken_Heart.m4a')
   Song.create(title: "In Repair", track_num: 12, duration: minutes_to_seconds('6:09'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050142/John%20Mayer/11_In_Repair.m4a')
   Song.create(title: "I'm Gonna Find Another You", track_num: 12, duration: minutes_to_seconds('2:43'), album_id: Album.find_by(title: 'Continuum').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518050146/John%20Mayer/12_I_m_Gonna_Find_Another_You.m4a')
+
+
+  Song.create(title: "A Caminho De Casa", track_num: 1, duration: minutes_to_seconds('2:27'), album_id: Album.find_by(title: 'Brasil').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518135364/T-Square/A_Caminho_De_Casa.mp3')
+  Song.create(title: "Despedida", track_num: 2, duration: minutes_to_seconds('4:43'), album_id: Album.find_by(title: 'Brasil').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518135372/T-Square/Despedida.mp3')
+  Song.create(title: "Sem Parar", track_num: 3, duration: minutes_to_seconds('5:46'), album_id: Album.find_by(title: 'Brasil').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518137501/T-Square/Sem_Parar.mp3')
+  Song.create(title: "Toys", track_num: 4, duration: minutes_to_seconds('5:06'), album_id: Album.find_by(title: 'Brasil').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518135371/T-Square/Toys.mp3')
+  Song.create(title: "Tempo De Ser Feliz", track_num: 5, duration: minutes_to_seconds('5:17'), album_id: Album.find_by(title: 'Brasil').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518135369/T-Square/Tempo_De_Ser_Feliz.mp3')
+  Song.create(title: "Som Silencioso", track_num: 6, duration: minutes_to_seconds('5:43'), album_id: Album.find_by(title: 'Brasil').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518135370/T-Square/Som_Silencioso.mp3')
+  Song.create(title: "Distancia", track_num: 7, duration: minutes_to_seconds('7:27'), album_id: Album.find_by(title: 'Brasil').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518135372/T-Square/Despedida.mp3')
+  Song.create(title: "Amanhecer", track_num: 8, duration: minutes_to_seconds('5:02'), album_id: Album.find_by(title: 'Brasil').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518135370/T-Square/Amanhecer.mp3')
+  Song.create(title: "Soft Madness", track_num: 9, duration: minutes_to_seconds('5:42'), album_id: Album.find_by(title: 'Brasil').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518135367/T-Square/Soft_Madness.mp3')
+  Song.create(title: "A Farther Place", track_num: 10, duration: minutes_to_seconds('2:27'), album_id: Album.find_by(title: 'Brasil').id ,link: 'http://res.cloudinary.com/masag0/video/upload/v1518135369/T-Square/A_Farther_Place.mp3')
 
 
 
@@ -445,8 +453,69 @@ Riviera Paradise", track_num: 31, duration: minutes_to_seconds('8:50'), album_id
     end
   end
 
-  # PlaylistSong.create(playlist_id: Playlist.find_by(title: 'Jazz').id, song_id: Song.find_by(title: 'Spain').id)
 
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Dean Town").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Done With Love").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Clarity [feat. Foxes]").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Love Tribe (feat. Miss Vehna from Soul Trip!!) (Main Mix)").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Elevation").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Quarter Master").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Symmetrical").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Restart").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "What About Me?").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Work Out").id, song_id: Song.find_by(title: "Money On My Mind").id)
+
+
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Focus").id, song_id: Song.find_by(title: "Neverending City").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Focus").id, song_id: Song.find_by(title: "Money in the Desert").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Focus").id, song_id: Song.find_by(title: "Gold Coast").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Focus").id, song_id: Song.find_by(title: "The Curtain").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Focus").id, song_id: Song.find_by(title: "Chia").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Focus").id, song_id: Song.find_by(title: "Thing of Gold").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Focus").id, song_id: Song.find_by(title: "The Good Things").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Focus").id, song_id: Song.find_by(title: "Ready Wednesday").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Focus").id, song_id: Song.find_by(title: "Flint").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Focus").id, song_id: Song.find_by(title: "Neverending City").id)
+
+
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "83").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "Like A Light").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "Sleeper").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "Great Indoors").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "In Repair").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "Nakamarra").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "Stay With Me").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Relax").id, song_id: Song.find_by(title: "Denmark Hill").id)
+
+
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "December in New York").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "U-Bahn").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "Audrey").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "The Heart of Life").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "Riviera Paradise").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "Gravity").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "A Place Among the Stars").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Sleep").id, song_id: Song.find_by(title: "Lenny").id)
+
+
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Beautiful Day").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "No Such Thing").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Your Body is a Wonderland").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Walk On").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Back Pocket").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Mobius Streak").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Aunt Leslie").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Conscious Club (Instrumental)").id)
+
+
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Beautiful Day").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "No Such Thing").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Your Body is a Wonderland").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Walk On").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Back Pocket").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Mobius Streak").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Aunt Leslie").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "Wake Up").id, song_id: Song.find_by(title: "Conscious Club (Instrumental)").id)
 
 
   #img
