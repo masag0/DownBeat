@@ -18,8 +18,8 @@ https://downbeat-app.herokuapp.com
 * Includes a guest account for demoing purposes
 
 ## Continuous Play
+-![Sample Gif](https://github.com/masag0/DownBeat/blob/master/app/assets/images/ContPlay.gif)
 
-![ContPlay](https://dl.dropboxusercontent.com/s/benzmqwhtdjnn63/ContPlay.gif)
 * Play songs and navigate around the site without stopping playback
 * Go to the next or previous song
 * Seek playback time by dragging or clicking on seek bar
