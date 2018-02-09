@@ -130,6 +130,9 @@ $green: #1ed760;
   background-image: image-url('prev-button');
   background-size: cover;
   margin-top: 8px;
+  &:hover {
+    background-image: image-url('prev-button-green');
+  }
 
 }
 #nextBtn {
@@ -138,6 +141,9 @@ $green: #1ed760;
   background-image: image-url('next-button');
   background-size: cover;
   margin-top: 8px;
+  &:hover {
+    background-image: image-url('next-button-green');
+  }
 
 }
 #shuffleBtn {

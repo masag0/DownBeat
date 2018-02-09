@@ -470,11 +470,11 @@ Its most famous lineup included its members from 1986 to 1990: guitarist Masahir
 
   #Featured
   Playlist.create(title: "Soundtracks", description: "Music from your favorite movies", genre: "Instrumental", user_id: 2, featured: true, img_url: 'https://images8.alphacoders.com/560/560736.jpg')
-  Playlist.create(title: "The Best of Snarky Puppy", description: "Selected tracks from Snarky Puppy's extensive discography", featured: true, genre: "Jazz", user_id: 2, img_url: 'http://www.snarkypuppy.com/media/carousel1.jpg')
-  Playlist.create(title: "John Mayer's Top Hits", description: "Top Hits from John Mayer", genre: "Pop", user_id: 2, featured: true, img_url: 'https://www.thefamouspeople.com/profiles/images/john-mayer-1.jpg')
   Playlist.create(title: "Jazz Selections", description: "Selections of jazz music", genre: "Jazz", user_id: 2, featured: true, img_url: 'https://2b9sqw2iiqxr36ntqa1exnal-wpengine.netdna-ssl.com/wp-content/uploads/2017/12/jazz.jpg')
   Playlist.create(title: "Chillhop", description: "Chill beats", genre: "Jazz", user_id: 2, featured: true, img_url: 'https://i1.sndcdn.com/artworks-000139091822-ymuob1-t500x500.jpg')
   Playlist.create(title: "Funky Tunes", description: "Groovy tunes to get you moving", genre: "Funk", user_id: 2, featured: true, img_url: 'http://www.slopemedia.org/wp-content/uploads/2017/09/funk-what-the1.jpg')
+  Playlist.create(title: "The Best of Snarky Puppy", description: "Selected tracks from Snarky Puppy's extensive discography", featured: true, genre: "Jazz", user_id: 2, img_url: 'http://www.snarkypuppy.com/media/carousel1.jpg')
+  Playlist.create(title: "John Mayer's Top Hits", description: "Top Hits from John Mayer", genre: "Pop", user_id: 2, featured: true, img_url: 'https://www.thefamouspeople.com/profiles/images/john-mayer-1.jpg')
 
   Song.all.each do |song|
     playlist = Playlist.find_by(title: song.genre)
