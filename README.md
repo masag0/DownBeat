@@ -80,7 +80,7 @@ The ability to drag the seek and volume bars was implemented using React Draggab
 
  ```javascript
  this.dbSearch = lodash.debounce((query) => this.search(query), 250);
- ``
+ ```
 
 ## Enhancements
 * Ability to play an album or playlist by clicking its icon
