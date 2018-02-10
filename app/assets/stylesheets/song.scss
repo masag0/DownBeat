@@ -126,11 +126,7 @@
     transition: all 1s ease-out;
   }
   &:hover, &:focus, &:active {
-    .dots {
-      // text-shadow: none;
-      // display: none;
-      // transition: all 1s ease-out;
-    }
+
     .dropdown-content {
       transition: all 1s ease-in;
       display: block;

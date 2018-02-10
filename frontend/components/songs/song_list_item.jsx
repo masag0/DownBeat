@@ -19,9 +19,10 @@ class SongList extends React.Component {
     this.removeSongFromPlaylist = this.removeSongFromPlaylist.bind(this);
     this.playSong = this.playSong.bind(this);
     this.addSongToQueue = this.addSongToQueue.bind(this);
+    this.hideDots = this.hideDots.bind(this);
+    this.showDots = this.showDots.bind(this);
 
     this.openModal = this.openModal.bind(this);
-
     this.closeModal = this.closeModal.bind(this);
   }
 
@@ -73,7 +74,6 @@ class SongList extends React.Component {
     menu.classList.remove("hidden");
 
     trackNum.innerHTML = "";
-    console.log(this.props.paused);
     if (this.props.paused || this.props.nowPlaying.id !== this.props.song.id) {
       playIcon.classList.remove('hidden');
     }
@@ -151,8 +151,14 @@ class SongList extends React.Component {
   }
 
   hidePlayButton () {
-    console.log('trigger');
     document.getElementById('playBtn').classList.add('hidden');
+  }
+
+  hideDots () {
+    document.getElementById(`#${this.props.song.id}`).classList.add('hidden');
+  }
+  showDots () {
+    document.getElementById(`#${this.props.song.id}`).classList.remove('hidden');
   }
 
 
@@ -181,7 +187,7 @@ class SongList extends React.Component {
 
 
           <div className="menu-header song-detail-menu">
-            <div className="song-detail-menu-container">
+            <div className="song-detail-menu-container" onMouseEnter={this.hideDots} onMouseLeave={this.showDots}>
               <div className="dots hidden" id={`#${id}`}>. . .</div>
               <nav className="song-detail dropdown-content">
                 <ul className="song-detail dropdown-ul">
