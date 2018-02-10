@@ -59,7 +59,7 @@ class SongList extends React.Component {
 
         // playIcon.classList.remove('hidden');
         soundIcon.classList.add('hidden');
-        if (this.props.match.params.albumId) trackNum.innerHTML = this.props.song.track_num;
+        if (this.props.match.params.albumId && !$(soundIcon).is(':visible') && !$(playIcon).is(':visible')) trackNum.innerHTML = this.props.song.track_num;
       }
 
     // }
@@ -73,16 +73,17 @@ class SongList extends React.Component {
     //
     menu.classList.remove("hidden");
 
-    trackNum.innerHTML = "";
     if (this.props.paused || this.props.nowPlaying.id !== this.props.song.id) {
       playIcon.classList.remove('hidden');
     }
+    if (!this.props.match.params.albumId || $(playIcon).is(':visible')) trackNum.innerHTML = "";
   }
 
   menuHoverLeave () {
     const menu = document.getElementById(`#${this.props.song.id}`);
     const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
     const trackNum = document.getElementById(`num#${this.props.song.id}`);
+    const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
 
     menu.classList.add("hidden");
 
@@ -90,7 +91,7 @@ class SongList extends React.Component {
       playIcon.classList.add('hidden');
     // }
 
-    if (this.props.match.params.albumId) {
+    if (this.props.match.params.albumId && !$(playIcon).is(':visible') && !$(soundIcon).is(':visible')) {
       trackNum.innerHTML = this.props.song.track_num;
     }
   }
@@ -119,13 +120,14 @@ class SongList extends React.Component {
     this.props.addSongsToQueue(this.props.songs);
     // const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
     // // const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
-    // const trackNum = document.getElementById(`num#${this.props.song.id}`);
+    const trackNum = document.getElementById(`num#${this.props.song.id}`);
     //
     // playIcon.classList.add('hidden');
     // // soundIcon.classList.remove('hidden');
-    // trackNum.innerHTML = "";
+    trackNum.innerHTML = "";
     document.getElementById('playBtn').classList.add('hidden');
     document.getElementById('pauseBtn').classList.remove('hidden');
+    this.props.uiPlay();
     this.setState( { playing: true });
   }
 
@@ -138,9 +140,9 @@ class SongList extends React.Component {
 
     playIcon.classList.remove('hidden');
     soundIcon.classList.add('hidden');
-    if (this.props.match.params.albumId) trackNum.innerHTML = this.props.song.track_num;
+    if (this.props.match.params.albumId && !$(playIcon).is(':visible')) trackNum.innerHTML = this.props.song.track_num;
     this.setState( { playing: false });
-
+    this.props.uiPause();
     document.getElementById('playBtn').classList.remove('hidden');
     document.getElementById('pauseBtn').classList.add('hidden');
 
