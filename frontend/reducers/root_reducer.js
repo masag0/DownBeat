@@ -5,13 +5,15 @@ import sessionsReducer from './sessions_reducer';
 import errorsReducer from './errors_reducer';
 import playingReducer from './playing_reducer';
 import searchReducer from './search_reducer';
+import uiReducer from './ui_reducer';
 
 const rootReducer = combineReducers({
   entities: entitiesReducer,
   session: sessionsReducer,
   errors: errorsReducer,
   playing: playingReducer,
-  search: searchReducer
+  search: searchReducer,
+  ui: uiReducer
 });
 
 

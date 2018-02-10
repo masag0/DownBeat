@@ -10,7 +10,8 @@ import {playSong, addSongToQueue, addSongsToQueue} from '../../actions/playing_a
 
 const mapStateToProps = (state) => {
   return {
-    nowPlaying: state.playing.song
+    nowPlaying: state.playing.song,
+    paused: state.ui.paused
   };
 };
 

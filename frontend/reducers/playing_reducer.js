@@ -22,6 +22,7 @@ const playingReducer = (oldState = initalState, action) => {
 
     case PAUSE_SONG:
       newState = lodash.merge({}, oldState);
+      newState['song'] = action.data;
       newState['paused'] = true;
       return newState;
 

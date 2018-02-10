@@ -8,8 +8,9 @@ export const playSong = (song) => ({
   data: song
 });
 
-export const pauseSong = () => ({
-  type: PLAY_SONG
+export const pauseSong = (song) => ({
+  type: PAUSE_SONG,
+  data: song
 });
 
 export const addSongToQueue = (song) => ({

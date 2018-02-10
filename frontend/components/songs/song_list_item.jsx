@@ -22,7 +22,6 @@ class SongList extends React.Component {
 
     this.openModal = this.openModal.bind(this);
 
-    // this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
@@ -42,48 +41,64 @@ class SongList extends React.Component {
   componentWillReceiveProps (nextProps) {
     // if (nextProps.song.id && this.props.song.id) {
       const title = document.getElementById(`title#${this.props.song.id}`);
-      if (nextProps.nowPlaying.id == this.props.song.id) {
+      const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
+      const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
+      const trackNum = document.getElementById(`num#${this.props.song.id}`);
+
+      if (nextProps.nowPlaying.id == this.props.song.id && !nextProps.paused) {
         title.classList.add('glow');
-      } else if (nextProps.nowPlaying.id != this.props.song.id) {
+
+
+        playIcon.classList.add('hidden');
+        soundIcon.classList.remove('hidden');
+        trackNum.innerHTML = "";
+
+      } else if (nextProps.paused || nextProps.nowPlaying.id != this.props.song.id ) {
         title.classList.remove('glow');
+
+        // playIcon.classList.remove('hidden');
+        soundIcon.classList.add('hidden');
+        if (this.props.match.params.albumId) trackNum.innerHTML = this.props.song.track_num;
       }
+
     // }
   }
 
   menuHoverEnter () {
     const menu = document.getElementById(`#${this.props.song.id}`);
-    // const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
-    // const trackNum = document.getElementById(`num#${this.props.song.id}`);
+
+    const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
+    const trackNum = document.getElementById(`num#${this.props.song.id}`);
     //
     menu.classList.remove("hidden");
-    // trackNum.innerHTML = "";
-    // if (!this.state.playing) {
-    //   playIcon.classList.remove('hidden');
-    // }
+
+    trackNum.innerHTML = "";
+    console.log(this.props.paused);
+    if (this.props.paused || this.props.nowPlaying.id !== this.props.song.id) {
+      playIcon.classList.remove('hidden');
+    }
   }
 
   menuHoverLeave () {
     const menu = document.getElementById(`#${this.props.song.id}`);
-    // const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
-    // const trackNum = document.getElementById(`num#${this.props.song.id}`);
+    const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
+    const trackNum = document.getElementById(`num#${this.props.song.id}`);
 
     menu.classList.add("hidden");
 
-    // if (!this.state.playing) {
-    //   playIcon.classList.add('hidden');
+    // if (this.props.paused) {
+      playIcon.classList.add('hidden');
     // }
-    //
-    // if (this.props.match.params.albumId) {
-    //   trackNum.innerHTML = this.props.song.track_num;
-    // }
+
+    if (this.props.match.params.albumId) {
+      trackNum.innerHTML = this.props.song.track_num;
+    }
   }
 
   openModal() {
     this.setState({modalIsOpen: true});
   }
-  //
-  // afterOpenModal() {
-  // }
+
 
   closeModal () {
     this.setState({modalIsOpen: false});
@@ -109,25 +124,35 @@ class SongList extends React.Component {
     // playIcon.classList.add('hidden');
     // // soundIcon.classList.remove('hidden');
     // trackNum.innerHTML = "";
+    document.getElementById('playBtn').classList.add('hidden');
+    document.getElementById('pauseBtn').classList.remove('hidden');
     this.setState( { playing: true });
   }
 
   pauseSong (song) {
     window.sound.pause();
-    // const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
-    // // const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
-    // const trackNum = document.getElementById(`num#${this.props.song.id}`);
-    //
-    //
-    // playIcon.classList.remove('hidden');
-    // // soundIcon.classList.add('hidden');
-    // trackNum.innerHTML = this.props.song.track_num;
+    const playIcon = document.getElementById(`play-icon#${this.props.song.id}`);
+    const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
+    const trackNum = document.getElementById(`num#${this.props.song.id}`);
+
+
+    playIcon.classList.remove('hidden');
+    soundIcon.classList.add('hidden');
+    if (this.props.match.params.albumId) trackNum.innerHTML = this.props.song.track_num;
     this.setState( { playing: false });
+
+    document.getElementById('playBtn').classList.remove('hidden');
+    document.getElementById('pauseBtn').classList.add('hidden');
 
   }
 
   addSongToQueue () {
     // this.props.addSongToQueue(this.props.song);
+  }
+
+  hidePlayButton () {
+    console.log('trigger');
+    document.getElementById('playBtn').classList.add('hidden');
   }
 
 
@@ -139,13 +164,17 @@ class SongList extends React.Component {
     } else {
       track_number = "";
     }
+    if (window.paused) {
+      const soundIcon = document.getElementById(`sound-icon#${this.props.song.id}`);
+      soundIcon.classList.add('hidden');
+    }
 
     return (
 
         <li id={`song-list-li#${id}`} className="song-list-item-container" onMouseEnter={this.menuHoverEnter} onMouseLeave={this.menuHoverLeave}>
           <a><div className="track-num-header" id={`num#${id}`}>{track_number}</div></a>
           <div className="song-list-play-icon hidden" id={`play-icon#${id}`} onClick={() => this.playSong(this.props.song)}></div>
-          <div className="song-list-sound-icon hidden" id={`sound-icon#${id}`} onClick={() => this.pauseSong(this.props.song)}></div>
+          <div className="song-list-sound-icon hidden" id={`sound-icon#${id}`} onClick={() => this.pauseSong(this.props.song)} onMouseOver={this.hidePlayButton}></div>
           <a><div className="title-header" id={`title#${id}`} onClick={() => this.playSong(this.props.song)}>{title}</div></a>
           <a href={`/#/artists/${artist.id}`}><div className="artist-header">{artist.name}</div></a>
           <a href={`/#/albums/${album.id}`}><div className="album-header">{album.title}</div></a>

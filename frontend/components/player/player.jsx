@@ -101,8 +101,6 @@ class Player extends React.Component {
       this.play();
     }
 
-
-
     window.sound = nextSound;
   }
 
@@ -111,6 +109,7 @@ class Player extends React.Component {
       console.log('play',this.sound);
       this.sound.play();
       this.paused = false;
+      this.props.uiPlay();
       document.getElementById('playBtn').classList.add('hidden');
       document.getElementById('pauseBtn').classList.remove('hidden');
 
@@ -131,6 +130,7 @@ class Player extends React.Component {
     if (!this.paused) {
       this.sound.pause();
       this.paused = true;
+      this.props.uiPause();
       document.getElementById('playBtn').classList.toggle('hidden');
       document.getElementById('pauseBtn').classList.toggle('hidden');
 
