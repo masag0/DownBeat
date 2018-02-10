@@ -23,7 +23,8 @@
   margin: 10%;
   max-width: 280px;
   min-height: 100px;
-  overflow: scroll;
+  overflow: hidden;
+  // overflow: scroll;
   // overflow-wrap: break-word;
   // text-shadow: 0 0 3px #fff;
 }
@@ -108,7 +109,7 @@
   font-family: Montserrat;
   font-weight: 200;
   font-size: 15px;
-  overflow: scroll;
+  overflow-y: scroll;
   height: 150px;
   width: 100%;
   // div {
