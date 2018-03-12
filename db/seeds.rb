@@ -450,7 +450,7 @@ Its most famous lineup included its members from 1986 to 1990: guitarist Masahir
   Playlist.create(title: "Rock", description: "Rock 'n Roll", genre: "Rock", user_id: 2, img_url: 'https://images.pexels.com/photos/144428/pexels-photo-144428.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
   Playlist.create(title: "Blues", description: "Raw and emotional", genre: "Blues", user_id: 2, img_url: 'https://images.pexels.com/photos/733767/pexels-photo-733767.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
   Playlist.create(title: "Funk", description: "Get your groove on", genre: "Funk", user_id: 2, img_url: 'https://images.pexels.com/photos/96380/pexels-photo-96380.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
-  Playlist.create(title: "Electronica", description: "Electronic dance music", genre: "Electronica", user_id: 2, img_url: 'http://accurateproductions.com/wp-content/uploads/2017/09/1470122336648_res_original.jpg')
+  Playlist.create(title: "Electronica", description: "Electronic dance music", genre: "Electronica", user_id: 2, img_url: 'https://www.snailarts.com/wp-content/uploads/2016/10/electronic-music-without-copyright.jpg')
 
   #Moods
   Playlist.create(title: "Work Out", description: "Get pumped", user_id: 2, img_url: 'https://images.pexels.com/photos/136404/pexels-photo-136404.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb')
