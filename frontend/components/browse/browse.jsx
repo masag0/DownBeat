@@ -32,6 +32,9 @@ class Browse extends React.Component {
                   <a key={playlist.id} className="playlist-display" href={`/#/playlists/${playlist.id}`}>
                     <div className="img-container">
                       <img className="artist-img" src={playlist.img_url}></img>
+                      <div className="darken-square">
+                        <div className="darken-square-play"></div>
+                      </div>
                     </div>
                     <label id='artist-label'>{playlist.title}</label>
                   </a>
