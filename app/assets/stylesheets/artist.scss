@@ -19,6 +19,7 @@
 
 .darken-square {
   position: absolute;
+  cursor: pointer;
   width: 206px;
   height: 206px;
   overflow: hidden;
@@ -45,6 +46,10 @@
   transition: all .2s ease-in-out;
   &:hover {
     transform: scale(1.15);
+  }
+  &:active {
+    transition: all .1s ease-in-out;
+    transform: scale(1);
   }
 }
 
