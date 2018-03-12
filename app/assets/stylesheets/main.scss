@@ -43,7 +43,8 @@ h1 {
 
 #top-nav-profile-link {
   &:hover {
-    color: white
+    color: white;
+    cursor: default;
   }
   padding: 5px;
   margin-right: 10px;

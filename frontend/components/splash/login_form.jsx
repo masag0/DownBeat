@@ -10,6 +10,8 @@ class LoginForm extends React.Component {
     this.cancel = this.cancel.bind(this);
     this.submitForm = this.submitForm.bind(this);
     this.demo = this.demo.bind(this);
+
+    $('.img-darken').click(this.cancel);
   }
 
   update (prop) {
@@ -35,9 +37,14 @@ class LoginForm extends React.Component {
     });
   }
 
-  cancel () {
-    this.props.clearSessionErrors();
-    this.props.history.push('/splash');
+  cancel (e) {
+    if ( $('.modal').find($(e.target)).length === 0 ) {
+      this.props.clearSessionErrors();
+      this.props.history.push('/splash');
+    } else if ( $(e.target).is($('.cancel-button')) ) {
+      this.props.clearSessionErrors();
+      this.props.history.push('/splash');
+    }
   }
 
 
