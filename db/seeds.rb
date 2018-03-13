@@ -483,15 +483,24 @@ Its most famous lineup included its members from 1986 to 1990: guitarist Masahir
     end
   end
 
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: 1)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: 2)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: 5)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: 8)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: Song.find_by(title: "Freedom").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: Song.find_by(title: "Guardian Angel").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: Song.find_by(title: "Young Stuff").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: Song.find_by(title: "The List").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: Song.find_by(title: "Jekyll").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: Song.find_by(title: "Building a Ladder").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: Song.find_by(title: "You Are Mine").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist").id, song_id: Song.find_by(title: "Spectrum [feat. Matthew Koma]").id)
 
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id: 3)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id: 10)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id: 12)
-  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id: 7)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id: Song.find_by(title: "Illusion [feat. Echosmith]").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id: Song.find_by(title: "Clarity [feat. Foxes]").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id: Song.find_by(title: "Lost At Sea [feat. Ryan Tedder]").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id:Song.find_by(title: "Picture").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id:Song.find_by(title: "Semi-Charmed Life").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id:Song.find_by(title: "In Repair").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id:Song.find_by(title: "Money On My Mind").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id:Song.find_by(title: "Good Thing").id)
+  PlaylistSong.create(playlist_id: Playlist.find_by(title: "My Playlist 2").id, song_id:Song.find_by(title: "Time").id)
 
 
   songs = []
@@ -669,7 +678,11 @@ Its most famous lineup included its members from 1986 to 1990: guitarist Masahir
   PlaylistSong.create(playlist_id: Playlist.find_by(title: "Chillhop").id, song_id: Song.find_by(title: "Breathing Underwater").id)
 
 
-  #img
+  PlaylistFollow.create(playlist_id: Playlist.find_by(title: "Work Out").id, user_id: 1)
+  PlaylistFollow.create(playlist_id: Playlist.find_by(title: "Cook").id, user_id: 1)
+  PlaylistFollow.create(playlist_id: Playlist.find_by(title: "Energy").id, user_id: 1)
+  PlaylistFollow.create(playlist_id: Playlist.find_by(title: "Jazz Selections").id, user_id: 1)
+  PlaylistFollow.create(playlist_id: Playlist.find_by(title: "Chillhop").id, user_id: 1)
 
 end
 

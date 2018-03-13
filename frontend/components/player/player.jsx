@@ -106,7 +106,6 @@ class Player extends React.Component {
 
   play () {
     if (this.sound) {
-      console.log('play',this.sound);
       this.sound.play();
       this.paused = false;
       this.props.uiPlay();
@@ -232,7 +231,6 @@ class Player extends React.Component {
 
     if (this.sound) {
       if (this.queueNum < this.queue.length) {
-        console.log(this.queueNum);
         this.sound.unload();
         this.props.playSong(this.queue[this.queueNum]);
       } else {
@@ -289,7 +287,6 @@ class Player extends React.Component {
 
       this.queue = this.orderedQueue;
     }
-    console.log(this.queue);
   }
 
 
