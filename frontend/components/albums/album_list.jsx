@@ -1,5 +1,5 @@
 import React from 'react';
-import AlbumListItem from './album_list_item';
+import AlbumListItemContainer from './album_list_item_container';
 
 class AlbumList extends React.Component {
   constructor(props) {
@@ -39,7 +39,10 @@ class AlbumList extends React.Component {
         {
           albums.map(album => {
             return (
-                <AlbumListItem {...album} key={album.id}/>
+                <AlbumListItemContainer
+                  id={album.id}
+                  key={album.id}
+                />
             );
           })
         }

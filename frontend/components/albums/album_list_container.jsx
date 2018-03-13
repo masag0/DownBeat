@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import lodash from 'lodash';
 import AlbumList from './album_list';
-import {getAlbums, getAllAlbums} from '../../actions/albums_actions';
+import {getAlbums, getAllAlbums, getAlbum} from '../../actions/albums_actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   if (ownProps.match.params.artistId) {
@@ -18,4 +19,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   getAllAlbums: () => dispatch(getAllAlbums())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AlbumList);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AlbumList));

@@ -12,7 +12,7 @@ const artistsReducer = (oldState = initalState, action) => {
     case RECEIVE_ALL_ARTISTS:
     // newState = lodash.merge({}, oldState, action.data);
     // return newState;
-    return action.data;
+      return action.data;
 
     case RECEIVE_ARTIST:
       newState = lodash.merge({}, oldState);

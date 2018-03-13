@@ -16,6 +16,26 @@ class Genres extends React.Component {
     );
   }
 
+  playPlaylist (e, id) {
+    this.props.getPlaylist(id).then( () => {
+      let playlist = this.props.playlists[id];
+      let songs = lodash.values(this.props.songs).filter(song => playlist.song_ids.includes(song.id));
+      if (songs.length > 0) {
+        songs = songs.sort((a, b) => {
+          return playlist.song_ids.indexOf(a.id) - playlist.song_ids.indexOf(b.id);
+        });
+        this.props.addSongsToQueue(songs);
+        this.props.playSong(songs[0]);
+      }
+    });
+  }
+
+  navigate (e, id) {
+    if ( $(e.target).is($(".darken-square")) ) {
+      this.props.history.push(`/playlists/${id}`);
+    }
+  }
+
   render(){
 
     return (
@@ -27,12 +47,15 @@ class Genres extends React.Component {
             {
               this.state.genrePlaylists.map(playlist => {
                 return (
-                  <a key={playlist.id} className="playlist-display" href={`/#/playlists/${playlist.id}`}>
+                  <div key={playlist.id} className="playlist-display" onClick={(e) => this.navigate(e, playlist.id)}>
                     <div className="img-container">
                       <img className="artist-img" src={playlist.img_url}></img>
+                      <div className="darken-square">
+                        <div className="darken-square-play" onClick={(e) => this.playPlaylist(e, playlist.id)}></div>
+                      </div>
                     </div>
-                    <label id='artist-label'>{playlist.title}</label>
-                  </a>
+                    <a href={`/#/playlists/${playlist.id}`}><label id='artist-label'>{playlist.title}</label></a>
+                  </div>
                 );
               })
             }

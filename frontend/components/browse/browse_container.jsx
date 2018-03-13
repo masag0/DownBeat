@@ -4,7 +4,7 @@ import Browse from './browse';
 import lodash from 'lodash';
 import { withRouter } from 'react-router-dom';
 import { getPlaylist } from '../../actions/playlists_actions';
-import {playSong, addSongsToQueue} from '../../actions/playing_actions';
+import {playSong, addSongsToQueue, pauseSong} from '../../actions/playing_actions';
 // import { getFeaturedPlaylists, getGenrePlaylists } from '../../actions/playlists_actions';
 
 const mapStateToProps = (state) => ({
@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
   getPlaylist: (playlistId) => dispatch(getPlaylist(playlistId)),
   playSong: (song) => dispatch(playSong(song)),
   addSongsToQueue: (songs) => dispatch(addSongsToQueue(songs))
+  // pauseSong: (song) => dispatch(pauseSong(song))
   // getFeaturedPlaylists: () => dispatch(getFeaturedPlaylists()),
   // getGenrePlaylists: () => dispatch(getGenrePlaylists())
 });

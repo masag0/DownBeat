@@ -1,19 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import lodash from 'lodash';
+import { withRouter } from 'react-router-dom';
 import AlbumListItem from './album_list_item';
 import {getAlbum} from '../../actions/albums_actions';
+import {playSong, addSongsToQueue, pauseSong} from '../../actions/playing_actions';
 
-const mapStateToProps = (state, ownProps) => {
-  if (ownProps.match.params.albumId) {
-    return {artist: state.entities.artists[ownProps.match.params.albumId]};
-  } else {
-    return {album: state.entities.albums[ownProps.id]};
-  }
-};
 
-const mapDispatchToProps = (dispatch) => ({
-  getArtist: (albumId) => dispatch(getAlbum(albumId))
+const mapStateToProps = (state, ownProps) => ({
+  album: state.entities.albums[ownProps.id],
+  songs: state.entities.songs
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AlbumListItem);
+const mapDispatchToProps = (dispatch) => ({
+  getAlbum: (albumId) => dispatch(getAlbum(albumId)),
+  playSong: (song) => dispatch(playSong(song)),
+  addSongsToQueue: (songs) => dispatch(addSongsToQueue(songs))
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AlbumListItem));

@@ -1,5 +1,5 @@
 import * as APIUtil from '../util/artist_api_util';
-
+import {receiveAlbums} from './albums_actions';
 
 export const RECEIVE_ARTIST = 'RECEIVE_ARTIST';
 export const RECEIVE_ALL_ARTISTS = 'RECEIVE_ALL_ARTISTS';
@@ -20,7 +20,8 @@ export const getArtist = (artistId) => (dispatch) => {
   return APIUtil.fetchArtist(artistId)
     .then(
       response => {
-        dispatch(receiveArtist(response));
+        dispatch(receiveArtist(response.artist));
+        dispatch(receiveAlbums(response.albums));
       }
     );
 };

@@ -15,7 +15,6 @@ const albumsReducer = (oldState = initalState, action) => {
       return newState;
 
     case RECEIVE_ALBUMS:
-      console.log(action.data);
       newState = lodash.merge({}, oldState, action.data);
       return newState;
 

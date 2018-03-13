@@ -71,12 +71,15 @@ class Browse extends React.Component {
             {
               this.state.genrePlaylists.map(playlist => {
                 return (
-                  <a key={playlist.id} className="playlist-display" href={`/#/playlists/${playlist.id}`}>
+                  <div key={playlist.id} className="playlist-display" onClick={(e) => this.navigate(e, playlist.id)}>
                     <div className="img-container">
                       <img className="artist-img" src={playlist.img_url}></img>
+                      <div className="darken-square">
+                        <div className="darken-square-play" onClick={(e) => this.playPlaylist(e, playlist.id)}></div>
+                      </div>
                     </div>
-                    <label id='artist-label'>{playlist.title}</label>
-                  </a>
+                    <a href={`/#/playlists/${playlist.id}`}><label id='artist-label'>{playlist.title}</label></a>
+                  </div>
                 );
               })
             }
