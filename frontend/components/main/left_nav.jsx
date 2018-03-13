@@ -25,6 +25,7 @@ class LeftNav extends React.Component {
 
   openModal() {
     this.setState({modalIsOpen: true});
+    $("body").css({"overflow":"hidden"});
   }
   //
   // afterOpenModal() {
@@ -32,6 +33,7 @@ class LeftNav extends React.Component {
 
   closeModal () {
     this.setState({modalIsOpen: false});
+    $("body").css({"overflow":"visible"});
   }
 
 

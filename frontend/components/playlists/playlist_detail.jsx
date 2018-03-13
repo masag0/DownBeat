@@ -29,14 +29,14 @@ class PlaylistDetail extends React.Component {
 
     const edit = document.getElementsByClassName("edit-playlist-menu-li");
     const remove = document.getElementsByClassName("delete-playlist-menu-li");
-    const save = document.getElementsByClassName("save-playlist-menu-li");
+    // const save = document.getElementsByClassName("save-playlist-menu-li");
 
     if (this.props.playlist && this.props.playlist.user_id !== this.props.currentUser.id) {
 
       for (let i = 0; i < edit.length; i++) {
         edit[i].classList.add('hidden');
         remove[i].classList.add('hidden');
-        save[i].classList.add('hidden');
+        // save[i].classList.add('hidden');
       }
 
     }  else {
@@ -44,7 +44,7 @@ class PlaylistDetail extends React.Component {
         for (let i = 0; i < edit.length; i++) {
           edit[i].classList.remove('hidden');
           remove[i].classList.remove('hidden');
-          save[i].classList.remove('hidden');
+          // save[i].classList.remove('hidden');
 
       }
     }
@@ -58,7 +58,7 @@ class PlaylistDetail extends React.Component {
 
     const edit = document.getElementsByClassName("edit-playlist-menu-li");
     const remove = document.getElementsByClassName("delete-playlist-menu-li");
-    const save = document.getElementsByClassName("save-playlist-menu-li");
+    // const save = document.getElementsByClassName("save-playlist-menu-li");
 
 
     if (this.props.playlist && this.props.playlist.user_id !== this.props.currentUser.id) {
@@ -66,7 +66,7 @@ class PlaylistDetail extends React.Component {
       for (let i = 0; i < edit.length; i++) {
         edit[i].classList.add('hidden');
         remove[i].classList.add('hidden');
-        save[i].classList.add('hidden');
+        // save[i].classList.add('hidden');
       }
 
     }  else {
@@ -74,7 +74,7 @@ class PlaylistDetail extends React.Component {
         for (let i = 0; i < edit.length; i++) {
           edit[i].classList.remove('hidden');
           remove[i].classList.remove('hidden');
-          save[i].classList.remove('hidden');
+          // save[i].classList.remove('hidden');
 
       }
     }
@@ -203,7 +203,7 @@ class PlaylistDetail extends React.Component {
                   <div className="playlist-detail-menu-container">
                     <nav className="playlist-detail dropdown-content">
                       <ul className="playlist-detail dropdown-ul">
-                        <li className="save-playlist-menu-li" ><a>Save to Library</a></li>
+
                         <li className="edit-playlist-menu-li" onClick={this.openModal}><a>Edit Playlist</a></li>
 
                           <ReactModal
@@ -222,7 +222,7 @@ class PlaylistDetail extends React.Component {
                               afterOpen: 'addSongModalOverlay_after-open',
                               beforeClose: 'addSongModalOverlay_before-close'
                             }}
-                            contentLabel="Example Modal"
+                            
                           >
 
 

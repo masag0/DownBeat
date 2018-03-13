@@ -98,11 +98,13 @@ class SongList extends React.Component {
 
   openModal() {
     this.setState({modalIsOpen: true});
+    $("body").css({"position":"fixed"});
   }
 
 
   closeModal () {
     this.setState({modalIsOpen: false});
+    $("body").css({"position":"static"});
   }
 
   removeSongFromPlaylist (e) {
@@ -236,7 +238,6 @@ class SongList extends React.Component {
 
                     </ReactModal>
 
-                  <li><a>Save to Library</a></li>
                   <li className="remove-song-menu-li" onClick={this.removeSongFromPlaylist}><a>Remove from this Playlist</a></li>
                   <li><a>Share</a></li>
                 </ul>
