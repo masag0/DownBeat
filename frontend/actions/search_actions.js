@@ -1,5 +1,4 @@
 import * as APIUtil from '../util/search_api_util';
-// import {receiveSongs} from ''
 
 export const RECEIVE_RESULTS = 'RECEIVE_RESULTS';
 export const CLEAR_RESULTS = 'CLEAR_RESULTS';

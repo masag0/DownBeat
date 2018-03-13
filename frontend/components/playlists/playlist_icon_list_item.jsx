@@ -1,21 +1,31 @@
 import React from 'react';
+import lodash from 'lodash';
 
 class PlaylistIconListItem extends React.Component {
   constructor(props) {
     super(props);
 
-    this.addSongToPlaylist = this.addSongToPlaylist.bind(this);
   }
 
-  componentDidMount () {
+  playPlaylist (e, id) {
+    this.props.getPlaylist(id).then( () => {
+      let playlist = this.props.playlists[id];
+      let songs = lodash.values(this.props.songs).filter(song => playlist.song_ids.includes(song.id));
+      if (songs.length > 0) {
+        songs = songs.sort((a, b) => {
+          return playlist.song_ids.indexOf(a.id) - playlist.song_ids.indexOf(b.id);
+        });
+        this.props.addSongsToQueue(songs);
+        this.props.playSong(songs[0]);
+      }
+    });
   }
 
-  addSongToPlaylist () {
-    this.props.addSong(this.props.playlist.id, this.props.songId).then(
-      this.props.close()
-    );
+  navigate (e, id) {
+    if ( $(e.target).is($(".darken-square")) ) {
+      this.props.history.push(`/playlists/${id}`);
+    }
   }
-
 
   render(){
     const {id, title, genre, description, img_url} = this.props.playlist;
@@ -24,12 +34,15 @@ class PlaylistIconListItem extends React.Component {
       img = "https://s.discogs.com/images/default-label.png";
     }
     return (
-      <a className="playlist-display modal-playlist-item-container" href={`/#/playlists/${id}`}>
+      <div className="playlist-display modal-playlist-item-container">
         <div className="img-container">
           <img className="artist-img" src={img}></img>
+          <div className="darken-square">
+            <div className="darken-square-play" onClick={(e) => this.playPlaylist(e, id)}></div>
+          </div>
         </div>
-        <label id='artist-label'>{title}</label>
-      </a>
+        <a href={`/#/playlists/${id}`}><label id='artist-label'>{title}</label></a>
+      </div>
     );
   }
 }

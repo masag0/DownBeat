@@ -7,10 +7,18 @@ import {getAlbum} from '../../actions/albums_actions';
 import {playSong, addSongsToQueue, pauseSong} from '../../actions/playing_actions';
 
 
-const mapStateToProps = (state, ownProps) => ({
-  album: state.entities.albums[ownProps.id],
-  songs: state.entities.songs
-});
+const mapStateToProps = (state, ownProps) => {
+  let album;
+  if (state.entities.albums[ownProps.id]) {
+    album = state.entities.albums[ownProps.id];
+  } else {
+    album = state.search.albums[ownProps.id];
+  }
+  return ({
+    album: album,
+    songs: state.entities.songs
+  });
+};
 
 const mapDispatchToProps = (dispatch) => ({
   getAlbum: (albumId) => dispatch(getAlbum(albumId)),

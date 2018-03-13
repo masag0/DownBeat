@@ -7,11 +7,20 @@ import {getAlbum} from '../../actions/albums_actions';
 import {getArtist} from '../../actions/artists_actions';
 
 
-const mapStateToProps = (state, ownProps) => ({
-  artist: state.entities.artists[ownProps.id],
-  albums: state.entities.albums,
-  songs: state.entities.songs
-});
+const mapStateToProps = (state, ownProps) => {
+  let artist;
+  if (state.entities.artists[ownProps.id]) {
+    artist = state.entities.artists[ownProps.id];
+  } else {
+    artist = state.search.artists[ownProps.id];
+  }
+  return ({
+    artist: artist,
+    albums: state.entities.albums,
+    songs: state.entities.songs,
+  });
+
+};
 
 const mapDispatchToProps = (dispatch) => ({
   getAlbum: (albumId) => dispatch(getAlbum(albumId)),

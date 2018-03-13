@@ -1,5 +1,5 @@
 import React from 'react';
-import PlaylistIconListItem from './playlist_icon_list_item';
+import PlaylistIconListItemContainer from './playlist_icon_list_item_container';
 import lodash from 'lodash';
 
 class PlaylistIconList extends React.Component {
@@ -26,7 +26,7 @@ class PlaylistIconList extends React.Component {
           {
             playlists.map((playlist) => {
               return (
-                <PlaylistIconListItem
+                <PlaylistIconListItemContainer
                   key={playlist.id}
                   playlist={playlist}
                 />
