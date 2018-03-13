@@ -68,7 +68,8 @@
 
 .song-list-container {
   position: relative;
-  overflow-x: scroll;
+  // overflow-x: scroll;
+  overflow: hidden;
   margin: 30px 0;
   margin-top: 35px;
   margin-bottom: -250px; //for dropdown y overflow
