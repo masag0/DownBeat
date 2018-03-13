@@ -98,13 +98,13 @@ class SongList extends React.Component {
 
   openModal() {
     this.setState({modalIsOpen: true});
-    $("body").css({"position":"fixed"});
+    $("#main").css({"position":"fixed"});
   }
 
 
   closeModal () {
     this.setState({modalIsOpen: false});
-    $("body").css({"position":"static"});
+    $("#main").css({"position":"absolute"});
   }
 
   removeSongFromPlaylist (e) {
